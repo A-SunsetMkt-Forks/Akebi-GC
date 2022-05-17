@@ -50,11 +50,15 @@ namespace cheat::game::filters
 	namespace guide
 	{
 		extern SimpleFilter CampfireTorch;
+		extern SimpleFilter DayNightSwitchingMechanism;
+		extern SimpleFilter EnkanomiyaPhaseGate;
 		extern SimpleFilter MysteriousCarvings;
 		extern SimpleFilter PhaseGate;
+		extern SimpleFilter PlacesofEssenceWorship;
 		extern SimpleFilter Pot;
 		extern SimpleFilter RuinBrazier;
 		extern SimpleFilter Stormstone;
+		extern SimpleFilter TriangularMechanism;
 	}
 
 	namespace living

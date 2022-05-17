@@ -47,11 +47,15 @@ namespace cheat::game::filters
 	namespace guide
 	{
 		SimpleFilter CampfireTorch = { app::EntityType__Enum_1::Gadget, "_FireBasin" };
+		SimpleFilter DayNightSwitchingMechanism = { app::EntityType__Enum_1::Field, "_CircleConsole" };
+		SimpleFilter EnkanomiyaPhaseGate = { app::EntityType__Enum_1::Gadget, "_Singularity" };
 		SimpleFilter MysteriousCarvings = { app::EntityType__Enum_1::Gadget, "_ReginStatue" };
 		SimpleFilter PhaseGate = { app::EntityType__Enum_1::Field, "_TeleportHighway" };
+		SimpleFilter PlacesofEssenceWorship = { app::EntityType__Enum_1::Field, "_EnergySource" };
 		SimpleFilter Pot = { app::EntityType__Enum_1::Gadget, "_Cooking_" };
 		SimpleFilter RuinBrazier = { app::EntityType__Enum_1::Gadget, "_AncientHeatSource" };
 		SimpleFilter Stormstone = { app::EntityType__Enum_1::Gadget, "_ReginLamp" };
+		SimpleFilter TriangularMechanism = { app::EntityType__Enum_1::Field, "_TuningFork" };
 	}
 
 	namespace living
