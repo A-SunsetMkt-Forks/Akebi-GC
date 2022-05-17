@@ -39,10 +39,10 @@ struct MANUAL_MAPPING_DATA
 
 bool InjectDLL(HANDLE hProc, const std::string& filepath);
 
-#ifdef _DEBUG
-static bool LoadLibraryInject(HANDLE hProc, const std::string& dllpath);
-#endif 
-
+#ifdef MANUAL_MAP
 // Note: Exception support only x64 with build params /EHa or /EHc
-bool ManualMapDll(HANDLE hProc, BYTE* pSrcData, SIZE_T FileSize, bool ClearHeader = false, bool ClearNonNeededSections = false, bool AdjustProtections = false, bool SEHExceptionSupport = false, DWORD fdwReason = DLL_PROCESS_ATTACH);
+bool ManualMapDll(HANDLE hProc, BYTE* pSrcData, SIZE_T FileSize, bool ClearHeader = false, bool ClearNonNeededSections = false, bool AdjustProtections = true, bool SEHExceptionSupport = false, DWORD fdwReason = DLL_PROCESS_ATTACH);
 void __stdcall Shellcode(MANUAL_MAPPING_DATA* pData);
+#else
+static bool LoadLibraryInject(HANDLE hProc, const std::string& dllpath);
+#endif

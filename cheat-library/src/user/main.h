@@ -2,6 +2,7 @@
 // Custom injected code entry point
 
 #pragma once
+#include <Windows.h>
 
 // Custom injected code entry point
-void Run();
+void Run(HMODULE* hModule);

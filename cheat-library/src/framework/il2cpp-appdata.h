@@ -28,7 +28,9 @@ namespace app {
 
 // TypeInfo pointers
 #define DO_TYPEDEF(a, n) extern n ## __Class** n ## __TypeInfo
+#define DO_SINGLETONEDEF(a, n) extern Singleton_1__Class** n ## __TypeInfo
 namespace app {
 	#include "il2cpp-types-ptr.h"
 }
 #undef DO_TYPEDEF
+#undef DO_SINGLETONEDEF

@@ -3,14 +3,14 @@
 #include <sstream>
 #include <filesystem>
 
+#include <SimpleIni.h>
+#include <cheat-base/Logger.h>
+
 #include "injector.h"
-#include "simple-ini.hpp"
 #include "util.h"
 
 const std::string GlobalGenshinProcName = "GenshinImpact.exe";
 const std::string ChinaGenshinProcName = "YuanShen.exe";
-
-const char* INIFileName = "config.ini";
 
 static CSimpleIni ini;
 
@@ -18,8 +18,10 @@ HANDLE OpenGenshinProcess();
 
 int main(int argc, char* argv[])
 {
+    Logger::SetLevel(Logger::Level::Debug, Logger::LoggerType::ConsoleLogger);
+
     auto path = std::filesystem::path(argv[0]).parent_path();
-    std::filesystem::current_path(path);
+    current_path(path);
     
     WaitForCloseProcess(GlobalGenshinProcName);
     WaitForCloseProcess(ChinaGenshinProcName);
@@ -27,7 +29,7 @@ int main(int argc, char* argv[])
     Sleep(1000); // Wait for unloading all dlls.
 
     ini.SetUnicode();
-    ini.LoadFile(INIFileName);
+    ini.LoadFile("cfg.ini");
 
     HANDLE hProcess = OpenGenshinProcess();
     if (hProcess == NULL)
@@ -36,54 +38,54 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    ini.SaveFile(INIFileName);
-
-    std::filesystem::current_path(path);
+    current_path(path);
+    ini.SaveFile("cfg.ini");
 
     std::string filename = (argc == 2 ? argv[1] : "CLibrary.dll");
     std::filesystem::path currentDllPath = std::filesystem::current_path() / filename;
+
+#ifdef _DEBUG
     std::filesystem::path tempDllPath = std::filesystem::temp_directory_path() / filename;
 
-    std::filesystem::copy(currentDllPath, tempDllPath, std::filesystem::copy_options::update_existing);
+    std::error_code ec;
+    std::filesystem::copy_file(currentDllPath, tempDllPath, std::filesystem::copy_options::update_existing, ec);
+    if (ec)
+    {
+        LOG_ERROR("Copy dll failed: %s", ec.message().c_str());
+        std::system("pause");
+    }
+
     InjectDLL(hProcess, tempDllPath.string());
+#else
+    InjectDLL(hProcess, currentDllPath.string());
+#endif
 
     CloseHandle(hProcess);
 }
 
-HANDLE OpenGenshinProcess() {
+HANDLE OpenGenshinProcess() 
+{
     STARTUPINFOA startInfo{};
     PROCESS_INFORMATION processInformation{};
 
-    auto savedPath = ini.GetValue("Inject", "GenshinPath");
-    bool exePathNotExist = savedPath == nullptr;
+    auto filePath = util::GetOrSelectPath(ini, "Inject", "GenshinPath", "genshin path", "Executable\0GenshinImpact.exe;YuanShen.exe\0");
+    auto commandline = ini.GetValue("Inject", "GenshinCommandLine");
 
-    std::string* filePath = exePathNotExist ? nullptr : new std::string(savedPath);
-    if (exePathNotExist) {
-        std::cout << "Genshin path not found. Please point to it manually. ^)" << std::endl;
-        filePath = GetFilePathByUser();
-        if (filePath == nullptr) {
-            std::cout << "Failed to get genshin path from user. Exiting..." << std::endl;
-            return NULL;
-        }
-    }
+    LPSTR lpstr = commandline == nullptr ? nullptr : const_cast<LPSTR>(commandline);
+
+    if (!filePath)
+        return NULL;
 
     BOOL result = CreateProcessA(filePath->c_str(),
-        nullptr, 0, 0, false, CREATE_SUSPENDED, nullptr, nullptr, &startInfo, &processInformation);
-    if (result == FALSE) {
-        std::cout << "Failed to create game process." << std::endl;
-        std::cout << "Error: " << GetLastErrorAsString() << std::endl;
-        std::cout << "If you have problem with GenshinImpact.exe path. You can change it manually in " << INIFileName << "." << std::endl;
+        lpstr, 0, 0, FALSE, CREATE_SUSPENDED, nullptr, nullptr, &startInfo, &processInformation);
+    if (result == FALSE) 
+    {
+        LOG_LAST_ERROR("Failed to create game process.");
+        LOG_ERROR("If you have problem with GenshinImpact.exe path. You can change it manually in cfg.ini.");
         return NULL;
     }
 
-    if (exePathNotExist) {
-        ini.SetValue("Inject", "genshinPath", (*filePath).c_str());
-        std::cout << "New GenshinImpact.exe path saved to " << INIFileName << "." << std::endl;
-    }
-
-    delete filePath;
-
-    std::cout << "Created game process." << std::endl;
+    ini.SaveFile("cfg.ini");
 
     ResumeThread(processInformation.hThread);
 
