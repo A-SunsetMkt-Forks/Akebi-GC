@@ -3962,9 +3962,12 @@ namespace app {
         struct GameObject__VTable vtable;
     };
 
-
     struct SimpleSafeUInt32 {
-        uint32_t value;
+        uint32_t _value;
+    };
+
+    struct SimpleSafeUInt16 {
+        uint16_t _value;
     };
 
     struct Quaternion {
@@ -5852,7 +5855,7 @@ namespace app {
     };
 
     struct SimpleSafeFloat {
-        uint32_t HFEHLAGCDLL;
+        uint32_t _value;
     };
 
     struct __declspec(align(8)) BKNNJMLFFMG__Fields {
@@ -6259,36 +6262,37 @@ namespace app {
 		struct BaseComponentPlugin__Fields fields;
 	};
 
-    struct BKFGGJFIIKC__Fields {
+    struct MoleMole_LevelSyncCombatPlugin__Fields {
         struct BaseComponentPlugin__Fields _;
-        struct List_1_AJKACNNKJGG_* NGJOIGIBJNF;
-        float AFKPOKMADHA;
+        struct List_1_MoleMole_CombatEntryProxy_* IKPLMBFILHG;
+        float _flushTimeAcc;
     };
 
-	struct BKFGGJFIIKC {
-		void* klass;
-		MonitorData* monitor;
-		struct BKFGGJFIIKC__Fields fields;
-	};
+    struct MoleMole_LevelSyncCombatPlugin {
+        struct MoleMole_LevelSyncCombatPlugin__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_LevelSyncCombatPlugin__Fields fields;
+    };
 
-    struct __declspec(align(8)) List_1_AJKACNNKJGG___Fields {
-        struct AJKACNNKJGG__Array* _items;
+    struct __declspec(align(8)) List_1_MoleMole_CombatEntryProxy___Fields {
+        struct MoleMole_CombatEntryProxy__Array* _items;
         int32_t _size;
         int32_t _version;
+        struct Object* _syncRoot;
     };
 
-    struct List_1_AJKACNNKJGG_ {
-        void* klass;
+    struct List_1_MoleMole_CombatEntryProxy_ {
+        struct List_1_MoleMole_CombatEntryProxy___Class* klass;
         MonitorData* monitor;
-        struct List_1_AJKACNNKJGG___Fields fields;
+        struct List_1_MoleMole_CombatEntryProxy___Fields fields;
     };
 
-    struct AJKACNNKJGG__Array {
-        void* klass;
+    struct MoleMole_CombatEntryProxy__Array {
+        struct MoleMole_CombatEntryProxy__Array__Class* klass;
         MonitorData* monitor;
         Il2CppArrayBounds* bounds;
         il2cpp_array_size_t max_length;
-        struct AJKACNNKJGG* vector[32];
+        struct MoleMole_CombatEntryProxy* vector[32];
     };
 
     enum class GBCFKNINCEI__Enum : int32_t {
@@ -9258,7 +9262,7 @@ namespace app {
 		struct Dictionary_2_System_UInt32_Dictionary_2_System_Int32_List_1_CFKBGDNLDGP_* MFEPPBMCAGP;
 	};
 
-    enum class NLBBPJJMEGB__Enum : int32_t {
+    enum class MoleMole_Config_JsonClimateType__Enum : int32_t {
         Normal = 0x00000000,
         Cold = 0x00000001,
         Hot = 0x00000002,
@@ -9276,23 +9280,21 @@ namespace app {
         Count = 0x0000000e,
     };
 
-
-    struct __declspec(align(8)) DataItem__Fields {
+    struct __declspec(align(8)) MoleMole_DataItem__Fields {
         uint32_t _entityId_k__BackingField;
-        struct Dictionary_2_KFEENBPGJJA_JMOFLAAALOE_* _cacheNormalPropValueDic;
-        struct Dictionary_2_KFEENBPGJJA_IPEPPEAIJEC_* _cacheFightPropValueDic;
-        bool _isToBeRemoved;
+        struct Dictionary_2_MoleMole_SafeUInt32_MoleMole_SafeDouble_* _cacheNormalPropValueDic;
+        struct Dictionary_2_MoleMole_SafeUInt32_MoleMole_SafeFloat_* _cacheFightPropValueDic;
+        bool isToBeRemoved;
         bool _unCacheEntity;
-        NLBBPJJMEGB__Enum climateType;
+        MoleMole_Config_JsonClimateType__Enum climateType;
         uint32_t climateAreaID;
     };
 
     struct DataItem {
-        struct DataItem__Class* klass;
+        struct MoleMole_DataItem__Class* klass;
         MonitorData* monitor;
-        struct DataItem__Fields fields;
+        struct MoleMole_DataItem__Fields fields;
     };
-
 
     struct BEKFICFOHKL__Fields {
         struct DataItem__Fields _;
