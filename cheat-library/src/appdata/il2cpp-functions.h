@@ -11,6 +11,10 @@ using namespace app;
 DO_APP_FUNC(0x013815E0, void, InLevelMapPageContext_OnMarkClicked, (InLevelMapPageContext* __this, MonoMapMark* mark, MethodInfo* method));
 DO_APP_FUNC(0x01390800, void, InLevelMapPageContext_OnMapClicked, (InLevelMapPageContext* __this, Vector2 screenPos, MethodInfo* method));
 DO_APP_FUNC(0x0158AD40, bool, MapModule_IsAreaUnlock, (MBHLOBDPKEC* __this, uint32_t sceneID, uint32_t areaID, MethodInfo* method));
+
+// changed to:
+// DO_APP_FUNC(0, uint16_t, MoleMole_SimpleSafeUInt16_DBDMOONJALD_1, (MoleMole_SimpleSafeUInt16 v, MethodInfo * method));
+// DBDMOONJALD => op_Implicit
 DO_APP_FUNC(0x05036C50, uint16_t, SimpleSafeUInt16_get_Value, (void* __this, LAFKDOLNGNA rawValue, MethodInfo* method));
 
 
@@ -102,8 +106,11 @@ DO_APP_FUNC(0x0116D200, bool, ActorAbilityPlugin_OnEvent, (void* __this, BaseEve
 DO_APP_FUNC(0x04F8C3A0, void, EvtCrash_Init, (EvtCrash* __this, uint32_t targetID, MethodInfo* method)); // Manual offset
 DO_APP_FUNC(0x02F3B3D0, void, EventManager_FireEvent, (EventManager* __this, BaseEvent* e, bool immediately, MethodInfo* method));
 DO_APP_FUNC(0x01C11490, bool, FixedBoolStack_get_value, (FixedBoolStack* __this, MethodInfo* method));
+
+// cannot find actual function name: CreateCrashEvent
 DO_APP_FUNC(0x031ADF70, EvtCrash*, CreateCrashEvent, (void* __this, MethodInfo* method));
 DO_APP_FUNC_METHODINFO(0x0B381CF8, CreateCrashEvent__MethodInfo);
+
 DO_APP_FUNC(0x028DD7F0, void, BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo, (BaseMoveSyncPlugin* __this, MethodInfo* method));
 
 
@@ -145,10 +152,17 @@ DO_APP_FUNC(0x014C88B0, void,    ActorUtils_SyncAvatarMotion, (void* __this, int
 
 DO_APP_FUNC(0x02ECCFE0, Notify, Notify_CreateNotify_1, (void* __this, AJAPIFPNFKP__Enum type, Object* body, MethodInfo* method));
 
+// changed to:
+// DO_APP_FUNC(0, float, MoleMole_SafeFloat_DBDMOONJALD_1, (MoleMole_SafeFloat v, MethodInfo * method));
+// DBDMOONJALD => op_Implicit
 DO_APP_FUNC(0x04D3A960, float, SafeFloat_GetValue, (void* __this, SafeFloat safeFloat, MethodInfo* method));
 
+//DO_APP_FUNC(0, void, MoleMole_BaseEntity_SetRelativePosition, (MoleMole_BaseEntity * __this, Vector3 position, bool forceSyncToRigidbody, MethodInfo * method));
 DO_APP_FUNC(0x01645B20, void, Entity_SetPosition, (BaseEntity* __this, Vector3 position, bool someBool, MethodInfo* method));
+
+//DO_APP_FUNC(0, MoleMole_LCBaseCombat *, MoleMole_BaseEntity_GetLogicCombatComponent_1, (MoleMole_BaseEntity * __this, MethodInfo * method));
 DO_APP_FUNC(0x05102970, LCBaseCombat*, BaseEntity_GetBaseCombat, (BaseEntity* __this, MethodInfo* method));
+
 DO_APP_FUNC(0x0164DC50, String*, BaseEntity_ToStringRelease, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x01659210, void, BaseEntity_SetRelativePosition, (BaseEntity* __this, Vector3 position, bool forceSyncToRigidbody, MethodInfo* method));
 DO_APP_FUNC(0x01645B20, void, BaseEntity_SetAbsolutePosition, (BaseEntity* __this, Vector3 abpos, bool forceSyncToRigidbody, MethodInfo* method));
@@ -160,20 +174,32 @@ DO_APP_FUNC(0x01655C20, Vector3, BaseEntity_GetRight, (BaseEntity* __this, Metho
 DO_APP_FUNC(0x01634200, Vector3, BaseEntity_GetUp, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x0165E590, bool, BaseEntity_IsActive, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x016425C0, Rigidbody*, BaseEntity_GetRigidbody, (BaseEntity* __this, MethodInfo* method));
+
+//DO_APP_FUNC(0, MoleMole_VCBaseMove_1 *, MoleMole_BaseEntity_GetMoveComponent_1, (MoleMole_BaseEntity * __this, MethodInfo * method));
 DO_APP_FUNC(0x05102780, VCBaseMove*, BaseEntity_GetMoveComponent_1, (BaseEntity* __this, MethodInfo* method));
+
 DO_APP_FUNC(0x01659D20, List_1_MoleMole_BaseComponent_*, BaseEntity_GetAllLogicComponents, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x0163DCF0, GameObject*, BaseEntity_get_gameObject, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x013B9810, GameObject*, BaseEntity_get_rootGameObject, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC_METHODINFO(0x0B2BBB98, BaseEntity_GetMoveComponent_1__MethodInfo);
+
+//DO_APP_FUNC_METHODINFO(0x096ED8A0, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo); // double check
 DO_APP_FUNC_METHODINFO(0x0B2DB248, BaseEntity_GetBaseCombat__MethodInfo);
 
+//check comparison from 2.2 & 2.6
+// function type & name is wrong
+// DO_APP_FUNC(0, MoleMole_AvatarEntity *, MoleMole_EntityManager_GetLocalAvatarEntity, (MoleMole_EntityManager * __this, MethodInfo * method));
 DO_APP_FUNC(0x01555150, BaseEntity*, EntityManager_GetCurrentAvatar, (EntityManager* __this, MethodInfo* method));
+
 DO_APP_FUNC(0x0155F060, CameraEntity*, EntityManager_GetMainCameraEntity, (EntityManager* __this, MethodInfo* method));
 DO_APP_FUNC(0x0154A660, BaseEntity*, EntityManager_GetValidEntity, (EntityManager* __this, uint32_t runtimeID, MethodInfo* method));
 DO_APP_FUNC(0x0155A580, bool, EntityManager_RemoveEntity, (EntityManager* __this, BaseEntity* entity, uint32_t specifiedRuntimeID, MethodInfo* method));
 DO_APP_FUNC(0x0154F520, bool, EntityManager_IsCachedEntity, (EntityManager* __this, BaseEntity* entity, MethodInfo* method));
 DO_APP_FUNC(0x01560F70, List_1_MoleMole_BaseEntity_*, EntityManager_GetEntities, (EntityManager* __this, MethodInfo* method));
 
+// check comparison with 2.6
+// function name changed to:
+// DO_APP_FUNC(0, Bounds, Utils_4_GetBounds, (GameObject * go, MethodInfo * method));
 DO_APP_FUNC(0x05D07B50, Bounds, Utils_1_GetBounds, (void* __this, GameObject* go, MethodInfo* method));
 
 DO_APP_FUNC(0x024E0BA0, void, HumanoidMoveFSM_LateTick, (void* __this, float deltaTime, MethodInfo* method));
@@ -191,7 +217,11 @@ DO_APP_FUNC(0x035D8B70, BaseEntity*, GadgetEntity_GetOwnerEntity, (GadgetEntity*
 
 DO_APP_FUNC(0x0136FBD0, void, InLevelMapPageContext_ZoomMap, (InLevelMapPageContext* __this, float value, MethodInfo* method));
 DO_APP_FUNC(0x013B7F90, void, InLevelMapPageContext_UpdateView, (InLevelMapPageContext* __this, MethodInfo* method));
+
+// actual function name:
+// DO_APP_FUNC(0, bool, MoleMole_UIManager_HasEnableMapCamera, (MoleMole_UIManager * __this, MethodInfo * method));
 DO_APP_FUNC(0x01C6A530, bool, UIManager_1_HasEnableMapCamera, (UIManager_1* __this, MethodInfo* method));
+
 DO_APP_FUNC(0x03D64A80, void, MonoMiniMap_Update, (MonoMiniMap* __this, MethodInfo* method));
 DO_APP_FUNC(0x03992EB0, MonoMiniMap*, MonoInLevelMainPage_get_miniMap, (void* __this, MethodInfo* method));
 DO_APP_FUNC(0x02702190, void, GadgetModule_OnGadgetInteractRsp, (void* __this, GadgetInteractRsp* notify, MethodInfo* method));
