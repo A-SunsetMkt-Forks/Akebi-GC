@@ -10,12 +10,12 @@ using namespace app;
 // Map hooks
 DO_APP_FUNC(0x013815E0, void, InLevelMapPageContext_OnMarkClicked, (InLevelMapPageContext* __this, MonoMapMark* mark, MethodInfo* method));
 DO_APP_FUNC(0x01390800, void, InLevelMapPageContext_OnMapClicked, (InLevelMapPageContext* __this, Vector2 screenPos, MethodInfo* method));
-DO_APP_FUNC(0x0158AD40, bool, MapModule_IsAreaUnlock, (MBHLOBDPKEC* __this, uint32_t sceneID, uint32_t areaID, MethodInfo* method));
+DO_APP_FUNC(0x0158AD40, bool, MapModule_IsAreaUnlock, (MapModule* __this, uint32_t sceneID, uint32_t areaID, MethodInfo* method));
 
 // changed to:
 // DO_APP_FUNC(0, uint16_t, MoleMole_SimpleSafeUInt16_DBDMOONJALD_1, (MoleMole_SimpleSafeUInt16 v, MethodInfo * method));
 // DBDMOONJALD => op_Implicit
-DO_APP_FUNC(0x05036C50, uint16_t, SimpleSafeUInt16_get_Value, (void* __this, LAFKDOLNGNA rawValue, MethodInfo* method));
+DO_APP_FUNC(0x05036C50, uint16_t, SimpleSafeUInt16_get_Value, (void* __this, SimpleSafeUInt16 rawValue, MethodInfo* method));
 
 
 // Map utility
@@ -26,14 +26,14 @@ DO_APP_FUNC(0x04339D00, Transform*, MonoInLevelMapPage_get_mapBackground, (MonoI
 // Teleport hooks
 DO_APP_FUNC(0x03253B80, void, GameManager_Update, (GameManager* __this, MethodInfo* method));
 DO_APP_FUNC(0x017F49E0, void, LoadingManager_SceneGoto, (LoadingManager* __this, PlayerEnterSceneNotify* notify, MethodInfo* method));
-DO_APP_FUNC(0x017F1310, void, LoadingManager_PerformPlayerTransmit, (LoadingManager* __this, Vector3 targetPos, EnterType__Enum enterType, uint32_t token, CMHGHBNDBMG_ECPNDLCPDIE__Enum transType, uint32_t BDFOCMLADLB, MethodInfo* method));
+DO_APP_FUNC(0x017F1310, void, LoadingManager_PerformPlayerTransmit, (LoadingManager* __this, Vector3 targetPos, EnterType__Enum enterType, uint32_t token, EvtTransmitAvatar_EvtTransmitAvatar_TransmitType__Enum transType, uint32_t enterReason, MethodInfo* method));
 DO_APP_FUNC(0x017F21F0, void, LoadingManager_RequestSceneTransToPoint, (LoadingManager* __this, uint32_t sceneId, uint32_t pointId, void* finishCallBackInForceDrag, MethodInfo* method));
 DO_APP_FUNC(0x017F4FE0, bool, LoadingManager_NeedTransByServer, (LoadingManager* __this, uint32_t sceneId, Vector3 position, MethodInfo* method));
 DO_APP_FUNC(0x07758D10, Vector3, LocalEntityInfoData_GetTargetPos, (LocalEntityInfoData* __this, MethodInfo* method));
 
 
 // Unlimited stamina
-DO_APP_FUNC(0x04BDB410, void, LevelSyncCombatPlugin_RequestSceneEntityMoveReq, (BKFGGJFIIKC* __this, uint32_t entityId, MotionInfo* syncInfo, bool isReliable, uint32_t HAOCOEMOMBG, MethodInfo* method));
+DO_APP_FUNC(0x04BDB410, void, LevelSyncCombatPlugin_RequestSceneEntityMoveReq, (LevelSyncCombatPlugin* __this, uint32_t entityId, MotionInfo* syncInfo, bool isReliable, uint32_t HAOCOEMOMBG, MethodInfo* method));
 DO_APP_FUNC(0x0186C290, void, DataItem_HandleNormalProp, (DataItem* __this, uint32_t type, int64_t value, DataPropOp__Enum state, MethodInfo* method));
 
 
@@ -108,6 +108,9 @@ DO_APP_FUNC(0x02F3B3D0, void, EventManager_FireEvent, (EventManager* __this, Bas
 DO_APP_FUNC(0x01C11490, bool, FixedBoolStack_get_value, (FixedBoolStack* __this, MethodInfo* method));
 
 // cannot find actual function name: CreateCrashEvent
+// shared offset
+// possible:
+// DO_APP_FUNC(0, MoleMole_EvtCrash *, JDGMIDCLFJK_CNCAIAIACLN_139, (MethodInfo * method));
 DO_APP_FUNC(0x031ADF70, EvtCrash*, CreateCrashEvent, (void* __this, MethodInfo* method));
 DO_APP_FUNC_METHODINFO(0x0B381CF8, CreateCrashEvent__MethodInfo);
 
@@ -150,7 +153,7 @@ DO_APP_FUNC(0x014BC6D0, Vector3, ActorUtils_GetAvatarPos,     (void* __this, Met
 DO_APP_FUNC(0x014C3BF0, void,    ActorUtils_SetAvatarPos,     (void* __this, Vector3 pos, MethodInfo* method));
 DO_APP_FUNC(0x014C88B0, void,    ActorUtils_SyncAvatarMotion, (void* __this, int32_t state, MethodInfo* method));
 
-DO_APP_FUNC(0x02ECCFE0, Notify, Notify_CreateNotify_1, (void* __this, AJAPIFPNFKP__Enum type, Object* body, MethodInfo* method));
+DO_APP_FUNC(0x02ECCFE0, Notify, Notify_CreateNotify_1, (void* __this, MoleMole_NotifyTypes__Enum type, Object* body, MethodInfo* method));
 
 // changed to:
 // DO_APP_FUNC(0, float, MoleMole_SafeFloat_DBDMOONJALD_1, (MoleMole_SafeFloat v, MethodInfo * method));
@@ -186,7 +189,7 @@ DO_APP_FUNC_METHODINFO(0x0B2BBB98, BaseEntity_GetMoveComponent_1__MethodInfo);
 //DO_APP_FUNC_METHODINFO(0x096ED8A0, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo); // double check
 DO_APP_FUNC_METHODINFO(0x0B2DB248, BaseEntity_GetBaseCombat__MethodInfo);
 
-//check comparison from 2.2 & 2.6
+// check comparison from 2.2 & 2.6
 // function type & name is wrong
 // DO_APP_FUNC(0, MoleMole_AvatarEntity *, MoleMole_EntityManager_GetLocalAvatarEntity, (MoleMole_EntityManager * __this, MethodInfo * method));
 DO_APP_FUNC(0x01555150, BaseEntity*, EntityManager_GetCurrentAvatar, (EntityManager* __this, MethodInfo* method));
@@ -266,7 +269,7 @@ DO_APP_FUNC(0x083C1430, float, Canvas_get_scaleFactor, (void* __this, MethodInfo
 
 // Singletons
 DO_APP_FUNC(0x07626D40, void*, Singleton_GetInstance, (void* __this, MethodInfo* method));
-DO_APP_FUNC_METHODINFO(0x0B327AD0, Singleton_1_MBHLOBDPKEC__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x0B327AD0, Singleton_1_MapModule__get_Instance__MethodInfo);
 DO_APP_FUNC_METHODINFO(0x0B2C2AC0, Singleton_1_LoadingManager__get_Instance__MethodInfo);
 DO_APP_FUNC_METHODINFO(0x0B2B2A80, Singleton_1_EntityManager__get_Instance__MethodInfo);
 DO_APP_FUNC_METHODINFO(0x0B2B4FC8, Singleton_1_InteractionManager__get_Instance__MethodInfo);

@@ -107,7 +107,7 @@ namespace cheat::feature
 		{
 			int32_t value = 0;
 			auto object = il2cpp_value_box((Il2CppClass*)*app::Int32__TypeInfo, &value);
-			auto notify = app::Notify_CreateNotify_1(nullptr, app::AJAPIFPNFKP__Enum::DialogSelectItemNotify, (app::Object*)object, nullptr);
+			auto notify = app::Notify_CreateNotify_1(nullptr, app::MoleMole_NotifyTypes__Enum::DialogSelectItemNotify, (app::Object*)object, nullptr);
 			app::TalkDialogContext_OnDialogSelectItem(talkDialog, &notify, nullptr);
 		}
 		else if (!talkDialog->fields._inSelect)

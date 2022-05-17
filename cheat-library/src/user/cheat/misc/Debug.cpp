@@ -128,7 +128,7 @@ namespace cheat::feature
             return;
         }
 
-        auto singleton = GET_SINGLETON(MBHLOBDPKEC);
+        auto singleton = GET_SINGLETON(MapModule);
 
         for (const auto& [sceneId, waypoints] : waypointsGrops->pairs())
         {
@@ -169,7 +169,7 @@ namespace cheat::feature
 
     void DrawManagerData()
     {
-        auto singleton = GET_SINGLETON(MBHLOBDPKEC);
+        auto singleton = GET_SINGLETON(MapModule);
         if (singleton == nullptr)
         {
             ImGui::Text("Manager not initialized.");

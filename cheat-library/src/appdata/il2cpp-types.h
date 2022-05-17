@@ -2207,7 +2207,7 @@ namespace app {
         Il2CppClass_1 _1;
         struct Object__VTable vtable;
     };
-    
+
     struct Type__VTable {
         VirtualInvokeData Equals;
         VirtualInvokeData Finalize;
@@ -2776,7 +2776,7 @@ namespace app {
         MonitorData* monitor;
         struct DateTime fields;
     };
-    
+
     struct __declspec(align(8)) LuaBase__Fields {
         bool disposed;
         int32_t luaReference;
@@ -3675,7 +3675,7 @@ namespace app {
         MonitorData* monitor;
         struct List_1_MoleMole_BaseActor___Fields fields;
     };
-    
+
     struct __declspec(align(8)) Object_1__Fields {
         void* m_CachedPtr;
     };
@@ -3847,7 +3847,7 @@ namespace app {
         MonitorData* monitor;
         struct DTimer__Fields fields;
     };
-    
+
     // Entity type
     enum class EntityType__Enum_1 : int32_t {
         None = 0x00000000,
@@ -3860,8 +3860,8 @@ namespace app {
         EnviroArea = 0x00000007,
         Equip = 0x00000008,
         MonsterEquip = 0x00000009,
-		Grass = 0x0000000a,
-		Level = 0x0000000b,
+        Grass = 0x0000000a,
+        Level = 0x0000000b,
         NPC = 0x0000000c,
         TransPointFirst = 0x0000000d,
         TransPointFirstGadget = 0x0000000e,
@@ -3984,7 +3984,7 @@ namespace app {
 
     // Entity fields
     // EAPPPCHHMHO
-    struct __declspec(align(8)) BaseEntity__Fields { 
+    struct __declspec(align(8)) BaseEntity__Fields {
         void* _undefined;
         struct ConfigEntity* jsonConfig;
         struct EntityExcelConfig* excelConfig;
@@ -4108,7 +4108,7 @@ namespace app {
     };
 
     // Entity
-    struct BaseEntity { 
+    struct BaseEntity {
         void* klass;
         MonitorData* monitor;
         struct BaseEntity__Fields fields;
@@ -4371,7 +4371,7 @@ namespace app {
         struct MonoLevelMap__Fields fields;
     };
 
-    enum class HOOPGAGKHLD__Enum : int32_t {
+    enum class MoleMole_Config_MarkType__Enum : int32_t {
         Default = 0x00000000,
         TransPoint = 0x00000001,
         Quest = 0x00000002,
@@ -4398,9 +4398,10 @@ namespace app {
         Activity = 0x00000018,
         HomeworldFarmField = 0x00000019,
         Offering = 0x0000001a,
+        QuestAcception = 0x0000001b,
     };
 
-    enum class NOIPNNCFAAH__Enum : int32_t {
+    enum class MoleMole_Config_MarkIconType__Enum : int32_t {
         Default = 0x00000000,
         MarkChurch = 0x00000001,
         MarkKnights = 0x00000002,
@@ -4562,9 +4563,19 @@ namespace app {
         MarkMichiaeChest = 0x00000368,
         MarkMichiaeChallenge = 0x00000369,
         MarkCustomLevel = 0x0000036a,
+        MarkLuminanceStoneNPC = 0x00000a29,
+        MarkCrystalLink = 0x00000a2a,
+        MarkQuestAcception = 0x00000a2b,
+        MarkIrodoriFlowerNPC = 0x00000a32,
+        MarkIrodoriPhotoNPC = 0x00000a33,
+        MarkIrodoriMasterNPC = 0x00000a34,
+        MarkIrodoriChessNPC = 0x00000a35,
+        MarkMusicGameV3NPC = 0x00000a8d,
+        MarkActivityGachaNPC = 0x00000a8e,
+        MarkRogueDiary = 0x00000a8f,
+        MarkCocoonSpace = 0x00000a90,
     };
-
-    enum class KAKICLDAAKA__Enum : int32_t {
+    enum class MoleMole_Config_MarkOrder__Enum : int32_t {
         None = 0x00000000,
         LocalPlayer = 0x00000001,
         OtherPlayer = 0x00000002,
@@ -4588,6 +4599,7 @@ namespace app {
         Default = 0x00000014,
         NpcOther = 0x00000015,
         Vehicle = 0x00000016,
+        QuestAcception = 0x00000017,
         HomeworldMainHouse = 0x000003e9,
         HomeworldFarmField = 0x000003ea,
         HomeworldFurnitureSuite = 0x000003eb,
@@ -4596,7 +4608,7 @@ namespace app {
         HomeworldTransPoint = 0x000003ee,
     };
 
-    enum class GIPGFLCALHO__Enum : int32_t {
+    enum class MoleMole_Config_MarkVisibilityType__Enum : int32_t {
         None = 0x00000000,
         Invisible = 0x00000001,
         Around = 0x00000002,
@@ -4644,33 +4656,58 @@ namespace app {
     struct MonoInLevelMapPage__Fields {
         struct MonoUIProxy__Fields _;
         struct Transform* _GrpMapTrans;
-        void* _prefabPlugin;
-        void* _elementSwitch;
-        void* _markTips;
-        void* _markTipsFreeBtn;
-        void* _markContainer;
-        void* _markContainerLayers;
-        void* _markPrefab;
-        void* _container;
-        void* _goddessLevelGrp;
-        void* _rewardTipsGrp;
-        void* _rewardTipsList;
-        void* _cursor;
-        void* _ps4ButtonsGrp;
-        void* _joypadMapButtonsGrp;
+        struct MonoPrefabPlugin* _prefabPlugin;
+        struct MonoElementSwitch* _elementSwitch;
+        struct MonoMapMarkTips* _markTips;
+        struct Button_1* _markTipsFreeBtn;
+        struct RectTransform* _markContainer;
+        struct RectTransform__Array* _markContainerLayers;
+        struct GameObject* _markPrefab;
+        struct MonoLevelMapMarkContainer* _container;
+        struct RectTransform* _goddessLevelGrp;
+        struct RectTransform* _rewardTipsGrp;
+        struct MonoSimpleReusableList* _rewardTipsList;
+        struct RectTransform* _cursor;
+        struct RectTransform* _ps4ButtonsGrp;
+        struct RectTransform* _joypadMapButtonsGrp;
         bool _joypadMoveMapInverted;
         float _joypadMoveMapSensitivity;
         bool _joypadMoveCursorInverted;
         float _joypadMoveCursorSensitivity;
         float _joypadAttrackSpeed;
-        void* slider;
-        void* playerIndicator;
-        void* playerIndicatorParent;
+        struct MonoSliderWithButton* slider;
+        struct GameObject* playerIndicator;
+        struct RectTransform* playerIndicatorParent;
         struct MonoMapCursor* _monoMapCursor;
+        struct InputField* _customMarkTipsInputField;
+        struct MonoMaterialItemRow* _resin;
+        struct RectTransform* _cycleDungeonLookupGrp;
+        struct MonoUIContainer* _cycleDungeonLookupToggle;
+        struct Text* _cycleDungeonLookupText;
+        struct List_1_Queue_1_MoleMole_MonoMapMark_* KEIOHDAFIOC;
+        struct GameObject* _exploreDegreeGrp;
+        struct Text* _exploreArea;
+        struct Text* _exploreDegree;
+        struct Button_1* exploreTagButton;
+        struct GameObject* redPointAnchorExploreDegree;
+        struct Image_1* exploreDegreeImage;
+        struct GameObject* mapTagSwitch;
+        struct MonoGridScroller* mapTagScroller;
+        struct MonoElementSwitch* mapTagElementSwitch;
+        struct List_1_UnityEngine_GameObject_* topInfoTagGroup;
+        struct GameObject* dungeonTowerGO;
+        struct Text* dungeonTowerText;
+        struct MonoUIContainer* dungeonBtn;
+        struct Sprite* _questTrackSprite;
+        struct Sprite* _commonTrackSprite;
+        struct Button_1* homeworldVisitorBtn;
+        struct Text* _homeworldVisitorLabel;
+        struct MonoUIContainer* _homeworldVisitorPS4Container;
+        struct Animator* NFGDFFBFOCF;
     };
 
     struct MonoInLevelMapPage {
-        void* klass;
+        struct MonoInLevelMapPage__Class* klass;
         MonitorData* monitor;
         struct MonoInLevelMapPage__Fields fields;
     };
@@ -4678,16 +4715,16 @@ namespace app {
     struct ConfigMarkIcon {
         struct String* IFMMCPNGPDI;
         struct SimpleSafeUInt32 GNBMICNFLBF;
-        HOOPGAGKHLD__Enum markType;
+        MoleMole_Config_MarkType__Enum markType;
         struct String* HDPJJBGHFCH;
         bool BLBOCGLEGAG;
         struct String* PPCPDJAHHNK;
         struct String* ENFNJCEIBIB;
 
-        KAKICLDAAKA__Enum IFEKPECENLC;
+        MoleMole_Config_MarkOrder__Enum IFEKPECENLC;
 
-        GIPGFLCALHO__Enum RadarVisibility;
-        GIPGFLCALHO__Enum mapVisibility;
+        MoleMole_Config_MarkOrder__Enum RadarVisibility;
+        MoleMole_Config_MarkOrder__Enum mapVisibility;
         bool JABFACDGLDF;
         bool KKHGMKOLGDK;
         IACLLAMDHGF__Enum typeActor;
@@ -4711,12 +4748,12 @@ namespace app {
 
     struct MonoMapMark__Fields {
         struct MonoSpriteProxy__Fields _;
-        HOOPGAGKHLD__Enum _markType;
-        NOIPNNCFAAH__Enum _iconType;
-        KAKICLDAAKA__Enum _markOrder;
+        MoleMole_Config_MarkType__Enum _markType;
+        MoleMole_Config_MarkIconType__Enum _iconType;
+        MoleMole_Config_MarkOrder__Enum _markOrder;
         uint32_t _identifier;
-        GIPGFLCALHO__Enum realRadarVisibility;
-        GIPGFLCALHO__Enum realMapVisibility;
+        MoleMole_Config_MarkVisibilityType__Enum realRadarVisibility;
+        MoleMole_Config_MarkVisibilityType__Enum realMapVisibility;
         struct String* markerName;
         bool _alwaysShow;
         bool showHeight;
@@ -4725,18 +4762,18 @@ namespace app {
         bool hideIcon;
         bool hideUnderMist;
         struct Transform* _contentRoot;
-        void* _actionButton;
-        void* _pointGrp;
-        void* _icon;
-        void* _unlockEffect;
-        void* _effect;
+        struct Button_1* _actionButton;
+        struct RectTransform* _pointGrp;
+        struct Image_1* _icon;
+        struct MonoUIEffect* _unlockEffect;
+        struct MonoUIEffect* _effect;
         struct GameObject* _defaultEffectObj;
         struct GameObject* _customEffectObj;
-        void* _effectPrefabs;
-        void* _asyncPrefabs;
-        struct GameObject* AGOICOMOLFD;
-        void* _materials;
-        void* _rectTrans;
+        struct MonoPrefabPlugin* _effectPrefabs;
+        struct MonoAsyncPrefabPlugin* _asyncPrefabs;
+        struct GameObject* _areaGrp;
+        struct Material__Array* _materials;
+        struct RectTransform* _rectTrans;
         struct Vector2 _levelMapPos;
         struct ConfigMarkIcon config;
         uint32_t _dungeonIconLabelHandle;
@@ -4744,13 +4781,14 @@ namespace app {
         uint32_t _dungeonIconTipsHandle;
         struct GameObject* _dungeonIconTips;
         struct GeneralMarkData* generalMapData;
+        bool NLCJDMBMKPC;
         int32_t floor;
         bool _up;
         struct String* _currEffectName;
         struct ParticleSystem* _currEffect;
         float markAreaRadius;
         struct ColorStyle_MarkPointAreaColor _markPointAreaColor;
-        void* layerParent;
+        struct RectTransform* layerParent;
         bool _inLayer;
         int32_t _layer;
         struct Nullable_1_UInt32_ _appearAudio;
@@ -4759,14 +4797,14 @@ namespace app {
         struct GameObject* _completeIcon;
         struct Transform* _dungeonIconLabelRoot;
         struct GameObject* _bossGrp;
-        struct Image* _bossIcon;
-        struct Image* _bossIconNoBG;
+        struct Image_1* _bossIcon;
+        struct Image_1* _bossIconNoBG;
         struct Transform* _bossIconRoot;
         struct Transform* _bossIconRootNoBG;
         struct Transform* _bossEffect;
         struct String* imgPath;
         struct GameObject* _characterGrp;
-        void* _characterIcon;
+        struct Image_1* _characterIcon;
         struct Transform* _characterIconRoot;
         struct Transform* _characterIconRewardTrans;
         struct Transform* _characterIconTalkTrans;
@@ -4788,10 +4826,10 @@ namespace app {
 
     struct __declspec(align(8)) GeneralMarkData__Fields {
         uint32_t sceneID;
-        HOOPGAGKHLD__Enum markType;
+        MoleMole_Config_MarkType__Enum markType;
         uint32_t markID;
         struct Vector3 position;
-        NOIPNNCFAAH__Enum iconType;
+        MoleMole_Config_MarkIconType__Enum iconType;
         void* entity;
         bool hideOnMove;
         bool hideIcon;
@@ -4813,7 +4851,7 @@ namespace app {
         MonitorData* monitor;
         struct GeneralMarkData__Fields fields;
     };
-    
+
     enum class EnterType__Enum : int32_t {
         EnterNone = 0x00000000,
         EnterSelf = 0x00000001,
@@ -4909,7 +4947,7 @@ namespace app {
         struct Dictionary_2_System_UInt32_NHDFENBMHPA___Fields fields;
     };
 
-    struct OCMDGBELFPA__Fields {
+    struct Vector_1__Fields {
         struct MessageBase_1__Fields _;
         float x;
         float y;
@@ -4919,7 +4957,7 @@ namespace app {
     struct Vector_1 {
         void* klass;
         MonitorData* monitor;
-        struct OCMDGBELFPA__Fields fields;
+        struct Vector_1__Fields fields;
     };
 
     struct __declspec(align(8)) HNNKHOOAPAC_System_UInt32___Fields {
@@ -4933,71 +4971,57 @@ namespace app {
         struct HNNKHOOAPAC_System_UInt32___Fields fields;
     };
 
-    struct LDFJBNJCCCE__Fields {
-        struct MessageBase_1__Fields _;
-        uint32_t LEMDEHPDNJC;
-        struct Vector_1* AEFLOMAEIMF;
-        uint64_t needs_LAGFOEBAAAC;
-        EnterType__Enum someEnum_DDJMPHHFPJL;
-        uint32_t DCDMCEEGPHO;
-        uint32_t needs_MMDFDFBHDOI;
-        struct Vector_1* HFBINEPLJLC;
-        uint32_t OHDIEPEGDEC;
-        uint32_t needs_KAHJJKIAKBP;
-        uint32_t someIndex_MCFKIKNDEHA;
-        bool MHAGEIPMOPG;
-        struct HNNKHOOAPAC_System_UInt32_* ILHHMEMMNEK;
-        bool needs_LIMMEGOCHMB;
-        uint32_t needs_HBEPOHOIHAJ;
-        uint32_t IFHHPLEIHJI;
-        struct String* CIEHCIIHEBA;
+    struct PlayerEnterSceneNotify__Fields {
+        struct MessageBase_1__Fields  _;
+        uint32_t sceneId_;
+        struct Vector_1* pos_;
+        uint64_t sceneBeginTime_;
+        EnterType__Enum type_;
+        uint32_t targetUid_;
+        uint32_t prevSceneId_;
+        struct Vector_1* prevPos_;
+        uint32_t dungeonId_;
+        uint32_t worldLevel_;
+        uint32_t enterSceneToken_;
+        bool isFirstLoginEnterScene_;
+        struct Google_Protobuf_Collections_RepeatedPrimitiveField_1_System_UInt32_* sceneTagIdList_;
+        bool isSkipUi_;
+        uint32_t enterReason_;
+        uint32_t worldType_;
+        struct String* sceneTransaction_;
     };
 
     struct PlayerEnterSceneNotify {
         void* klass;
         MonitorData* monitor;
-        struct LDFJBNJCCCE__Fields fields;
+        struct PlayerEnterSceneNotify__Fields fields;
     };
 
-    struct __declspec(align(8)) FACLNBELICD__Fields {
-        struct PlayerEnterSceneNotify* PNMMAJAEBII;
-        bool NFOBFFMCPDA;
-        bool CGFJCKJILJH;
-        bool NIINJCNAELA;
-    };
-
-    struct FACLNBELICD {
-        void* klass;
-        MonitorData* monitor;
-        struct FACLNBELICD__Fields fields;
-    };
-
-    struct __declspec(align(8)) FJIDMGGJMEF__Fields {
-        struct Dictionary_2_System_UInt32_NHDFENBMHPA_* _loadingTasks;
-        struct NHDFENBMHPA* _curLoadingTask;
-        struct NHDFENBMHPA* _lastLoadingTask;
-        struct FACLNBELICD* _bornTask;
-        void* _bornCoroutine;
-        void* _transPreCallback;
-        void* _transFinishCallback;
+    struct __declspec(align(8)) LoadingManager__Fields {
+        struct Dictionary_2_System_UInt32_LoadingTask_* _loadingTasks;
+        struct LoadingTask* _curLoadingTask;
+        struct LoadingTask* _lastLoadingTask;
+        struct BornTask* _bornTask;
+        struct Coroutine* _bornCoroutine;
+        struct Action_1_ILuaActor_* _transPreCallback;
+        struct Action_1_ILuaActor_* _transFinishCallback;
         struct ILuaActor* _curActor;
         struct Vector3 _cacheJumpPos;
         EnterType__Enum _cacheEnterType;
-        uint32_t NACBCCNAGJC;
-        bool DEKNCKOFFOD;
-        bool mustBeTrue;
-        uint32_t BOEIOELEADE;
-        void* needs_IFHMCNOOPIF;
+        uint32_t _cacheToken;
+        bool _cacheIsSkipUI;
+        bool _isPlayerTransStart;
+        uint32_t _enterReaon;
+        struct Coroutine* _delayTransmitInCSCoroutine;
     };
 
-    // FJIDMGGJMEF
     struct LoadingManager {
-        struct FJIDMGGJMEF__Class* klass;
+        struct LoadingManager__Class* klass;
         MonitorData* monitor;
-        struct FJIDMGGJMEF__Fields fields;
+        struct LoadingManager__Fields fields;
     };
 
-    enum class CMHGHBNDBMG_ECPNDLCPDIE__Enum : int32_t {
+    enum class EvtTransmitAvatar_EvtTransmitAvatar_TransmitType__Enum : int32_t {
         Default = 0x00000000,
         Wormhole = 0x00000001,
         Quick = 0x00000002,
@@ -5005,7 +5029,7 @@ namespace app {
         QuickWithoutPaimonReminder = 0x00000004,
     };
 
-    enum class AJAPIFPNFKP__Enum : int32_t {
+    enum class MoleMole_NotifyTypes__Enum : int32_t {
         None = 0x00000000,
         NetworkPacket = 0x00000001,
         LoginNotify = 0x00000002,
@@ -5059,727 +5083,806 @@ namespace app {
         RefreshMapMarkTips = 0x00000032,
         MapAreaUpdated = 0x00000033,
         PlaceNameUpdated = 0x00000034,
-        DungeonEntryInfo = 0x00000035,
-        DungeonEntryAppeared = 0x00000036,
-        DungeonEntryDisappeared = 0x00000037,
-        DungeonPlayerDie = 0x00000038,
-        DungeonSettled = 0x00000039,
-        DungeonGetReward = 0x0000003a,
-        GetDailyDungeonEntryInfo = 0x0000003b,
-        GetDungeonEntryExploreCondition = 0x0000003c,
-        GeneralInteeCreate = 0x0000003d,
-        GeneralInteeCommand = 0x0000003e,
-        RegisterUICombatBar = 0x0000003f,
-        UnregisterUICombatBar = 0x00000040,
-        RefreshUICombatBars = 0x00000041,
-        ShowUICombatBarSpark = 0x00000042,
-        ShowUICombatBarCharge = 0x00000043,
-        ShowUICombatBarFireEffect = 0x00000044,
-        ShowShakeOff = 0x00000045,
-        InteractionUITrigger = 0x00000046,
-        InteractionUIClose = 0x00000047,
-        InteractionRealStart = 0x00000048,
-        GroupLinkUpdated = 0x00000049,
-        ChallengeBegin = 0x0000004a,
-        ChallengeUpdated = 0x0000004b,
-        ChallengeFailed = 0x0000004c,
-        ChallengeCompleted = 0x0000004d,
-        ChallengeAddSub = 0x0000004e,
-        ChallengeSubFinish = 0x0000004f,
-        ChallengeSubFail = 0x00000050,
-        DialogSelectNotify = 0x00000051,
-        DialogSelectFinishNotify = 0x00000052,
-        DialogSelectItemNotify = 0x00000053,
-        DialogSelectItemTimeOut = 0x00000054,
-        AutoTalkDialogFinish = 0x00000055,
-        ChangeAutoTalk = 0x00000056,
-        CoopSelectNotify = 0x00000057,
-        CurrCoopConfidenceValueChanged = 0x00000058,
-        CurrCoopTemperamentValueChanged = 0x00000059,
-        CoopTemperamentSelect = 0x0000005a,
-        CoopTakeChapterReward = 0x0000005b,
-        CoopUnlockChapter = 0x0000005c,
-        CoopStartPointFromPage = 0x0000005d,
-        CoopCancelQuest = 0x0000005e,
-        CoopUIRefresh = 0x0000005f,
-        CoopChapterViewed = 0x00000060,
-        CoopStartFirstPoint = 0x00000061,
-        CoopShowDefeatDialog = 0x00000062,
-        CoopTryStartPoint = 0x00000063,
-        CoopStartPointFailed = 0x00000064,
-        CoopDefeatNotify = 0x00000065,
-        QuestDialogToggle = 0x00000066,
-        QuestBookUpdate = 0x00000067,
-        QuestBookSelectItem = 0x00000068,
-        AddQuestHint = 0x00000069,
-        QuestTalkHistory = 0x0000006a,
-        PaimenNavigationEnabled = 0x0000006b,
-        PaimenNavigationFailed = 0x0000006c,
-        PaimenNavigationAlreadyInArea = 0x0000006d,
-        RemindQuest = 0x0000006e,
-        BindTransButton = 0x0000006f,
-        QuestProgressHint = 0x00000070,
-        ActiveMainQuestDeleted = 0x00000071,
-        QuestStateUpdated = 0x00000072,
-        MainQuestStateUpdated = 0x00000073,
-        QuestTalkFinished = 0x00000074,
-        QuestGlobalVarUpdate = 0x00000075,
-        QuestTakePhotograph = 0x00000076,
-        BagWeightUIRefresh = 0x00000077,
-        BagDialogToggle = 0x00000078,
-        BagSlotUpdate = 0x00000079,
-        BagItemUsed = 0x0000007a,
-        BagItemDrop = 0x0000007b,
-        BagAddChest = 0x0000007c,
-        BagAddWidget = 0x0000007d,
-        BagCombinableMaterialRPChanged = 0x0000007e,
-        ForceCloseBagPage = 0x0000007f,
-        BagItemDeleteReturnNotify = 0x00000080,
-        NewItemEncountered = 0x00000081,
-        SpecialItemEncountered = 0x00000082,
-        ItemAdded = 0x00000083,
-        MaterialDeleteReturnItemAdded = 0x00000084,
-        ItemAddExceedLimitNotify = 0x00000085,
-        GatherItemAdded = 0x00000086,
-        GeneralItemAdded = 0x00000087,
-        GeneralItemMiddleShowAdded = 0x00000088,
-        QuestItemAdded = 0x00000089,
-        DailyTaskItemAdded = 0x0000008a,
-        RandTaskItemAdded = 0x0000008b,
-        ActivityItemAdded = 0x0000008c,
-        HuntingItemAdded = 0x0000008d,
-        BlossomItemAdded = 0x0000008e,
-        VirtualShopItemAdded = 0x0000008f,
-        ItemGivingFinish = 0x00000090,
-        DestroyItemFinish = 0x00000091,
-        GetCalcWeaponUpgradeReturnItemsResult = 0x00000092,
-        ChangeEquipLockState = 0x00000093,
-        UseItemFail = 0x00000094,
-        AvatarVehicleStateChange = 0x00000095,
-        VehicleHPChange = 0x00000096,
-        VehicleLevelChange = 0x00000097,
-        AvatarInfoUIRefresh = 0x00000098,
-        AvatarFightPropRefresh = 0x00000099,
-        AvatarEquipUIRefresh = 0x0000009a,
-        AvatarEquipChanged = 0x0000009b,
-        AvatarSwitch = 0x0000009c,
-        ManekinCtrl = 0x0000009d,
-        TeamInfoRefresh = 0x0000009e,
-        TeamNameRefresh = 0x0000009f,
-        CurrentTeamChanged = 0x000000a0,
-        AvatarDead = 0x000000a1,
-        AvatarSkillDepotIdChanged = 0x000000a2,
-        AvatarBreakLevelChanged = 0x000000a3,
-        AvatarBreakRewardGet = 0x000000a4,
-        RefreshBreachMaterialBtnRPShow = 0x000000a5,
-        AvatarLifeStateChanged = 0x000000a6,
-        AvatarFetterExpChanged = 0x000000a7,
-        AvatarFetterRewardGet = 0x000000a8,
-        AvatarHPChanged = 0x000000a9,
-        AvatarHungerChanged = 0x000000aa,
-        BackgroundAvatarRefreshed = 0x000000ab,
-        AvatarUpgradeNotify = 0x000000ac,
-        AvatarLevelChanged = 0x000000ad,
-        AvatarEnergyAdded = 0x000000ae,
-        AvatarEnergyFull = 0x000000af,
-        CharacterSprintBS = 0x000000b0,
-        AvatarSkillChanged = 0x000000b1,
-        AvatarSkillDisable = 0x000000b2,
-        AvatarSkillCDChanged = 0x000000b3,
-        AvatarSkillEnable = 0x000000b4,
-        AvatarHideSkill = 0x000000b5,
-        CurAvatarNum = 0x000000b6,
-        FocusAvatar = 0x000000b7,
-        AvatarFlycloakChanged = 0x000000b8,
-        AvatarGainFlycloak = 0x000000b9,
-        ActivitySkillState = 0x000000ba,
-        ShowActivitySkill = 0x000000bb,
-        AvatarCostumeChanged = 0x000000bc,
-        AvatarGainCostume = 0x000000bd,
-        TipShow = 0x000000be,
-        TipClose = 0x000000bf,
-        ActivityCommonPlayerTipsStart = 0x000000c0,
-        ActivityCommonPlayerTipsFinish = 0x000000c1,
-        ActivityCommonPlayerTipsFail = 0x000000c2,
-        ShopOpen = 0x000000c3,
-        ShopClose = 0x000000c4,
-        ShopItemSelect = 0x000000c5,
-        ShopRefresh = 0x000000c6,
-        ShopMaterialRefresh = 0x000000c7,
-        ShopRequest = 0x000000c8,
-        ShopRequestRecommend = 0x000000c9,
-        ShopRequestPackage = 0x000000ca,
-        ShopMallRequest = 0x000000cb,
-        ShopDataUpdated = 0x000000cc,
-        ActivityShopSheetUpdated = 0x000000cd,
-        ShopOpenSubTab = 0x000000ce,
-        MallJumpRecommend = 0x000000cf,
-        ActivityRegionSearchProgressUpdate = 0x000000d0,
-        ActivityRegionSearchProgressBegin = 0x000000d1,
-        ActivityRegionSearchProgressComplete = 0x000000d2,
-        ActivityRegionSearchIn = 0x000000d3,
-        ActivityRegionSearchOut = 0x000000d4,
-        ActivityRegionSearchRegionRewardGet = 0x000000d5,
-        ActivityRegionSearchRegionDisappear = 0x000000d6,
-        ActivityRegionSearchRegionAppear = 0x000000d7,
-        ActivityRegionSearchRegionInfoUpdate = 0x000000d8,
-        CountDownUIStart = 0x000000d9,
-        CountDownUITerminate = 0x000000da,
-        DungeonCountDownUpdate = 0x000000db,
-        DungeonCountDownEnd = 0x000000dc,
-        CountNumUIStart = 0x000000dd,
-        CountNumUpdate = 0x000000de,
-        CountNumUITerminate = 0x000000df,
-        CountNumUIStartNew = 0x000000e0,
-        CountNumUpdateNew = 0x000000e1,
-        CountNumUITerminateNew = 0x000000e2,
-        QuestQuitShow = 0x000000e3,
-        QuestQuitHide = 0x000000e4,
-        GachaWishUpdate = 0x000000e5,
-        LoadingNewScenePre = 0x000000e6,
-        LoadingScene = 0x000000e7,
-        LevelPreLoaded = 0x000000e8,
-        LevelLoaded = 0x000000e9,
-        LevelPostLoad = 0x000000ea,
-        LevelLoadBegin = 0x000000eb,
-        LoadingBundle = 0x000000ec,
-        LevelLoadFinish = 0x000000ed,
-        NoStaminaStopSprint = 0x000000ee,
-        JumpFly = 0x000000ef,
-        PostAvatarEntityReady = 0x000000f0,
-        AudioEventPost = 0x000000f1,
-        LevelTagNotify = 0x000000f2,
-        TouchMsgBoard = 0x000000f3,
-        EasyTouchWorking = 0x000000f4,
-        RefreshUISetting = 0x000000f5,
-        ScreenResolutionChanged = 0x000000f6,
-        RefreshAvatarTalent = 0x000000f7,
-        RefreshAvatarTalentPRShow = 0x000000f8,
-        Resist = 0x000000f9,
-        GuideUpdate = 0x000000fa,
-        PageLoad = 0x000000fb,
-        UIContextOpen = 0x000000fc,
-        UIContextClose = 0x000000fd,
-        PageDestroy = 0x000000fe,
-        ElementViewChange = 0x000000ff,
-        SealProgress = 0x00000100,
-        CommonChallengeStartTips = 0x00000101,
-        CommonChallengeEndTips = 0x00000102,
-        RefreshGuide = 0x00000103,
-        RefreshDebugUI = 0x00000104,
-        CheckDebugLoginServerList = 0x00000105,
-        ShowDebugLoginPanel = 0x00000106,
-        TimeChanged = 0x00000107,
-        PlayerGameTimeNotify = 0x00000108,
-        TeamSceneReady = 0x00000109,
-        TeamChanged = 0x0000010a,
-        AvatarReviveRequested = 0x0000010b,
-        TeamRttRefresh = 0x0000010c,
-        ShowTeamBtn = 0x0000010d,
-        LevelUpItemFinished = 0x0000010e,
-        PostSetupMPTeamPanel = 0x0000010f,
-        WeaponUpgrade = 0x00000110,
-        WeaponPromote = 0x00000111,
-        WeaponAwaken = 0x00000112,
-        ReliquaryUpgrade = 0x00000113,
-        ReliquaryPromote = 0x00000114,
-        TeammateSpeechBegin = 0x00000115,
-        TeammateSpeechEnd = 0x00000116,
-        AvatarCardChange = 0x00000117,
-        SpringVolumeChanged = 0x00000118,
-        WebviewClose = 0x00000119,
-        MihoyoAccountInfoChanged = 0x0000011a,
-        MihoyoAccountRegisterSuccess = 0x0000011b,
-        CutsceneStart = 0x0000011c,
-        CutsceneFinish = 0x0000011d,
-        FinalTalkFinished = 0x0000011e,
-        SetMainPageMoveToggleActive = 0x0000011f,
-        SetMainPageMoveToggleToWalk = 0x00000120,
-        OpenStateInit = 0x00000121,
-        OpenStateChange = 0x00000122,
-        StartFadeOutWormhole = 0x00000123,
-        EnterSneakMode = 0x00000124,
-        ExitSneakMode = 0x00000125,
-        PlayModeChange = 0x00000126,
-        RefreshCookPage = 0x00000127,
-        GetCookQTEArgs = 0x00000128,
-        OnCookRecipeDataNotify = 0x00000129,
-        RefreshCookCompoundPage = 0x0000012a,
-        GetCompoundOutput = 0x0000012b,
-        GetCombineOutput = 0x0000012c,
-        CombineFormulaUnlock = 0x0000012d,
-        SmeltSuccess = 0x0000012e,
-        SmeltGetDrop = 0x0000012f,
-        GetForgeQueue = 0x00000130,
-        ForgeQueueUpdate = 0x00000131,
-        GetForgeOutput = 0x00000132,
-        ForgeStart = 0x00000133,
-        ForgeStop = 0x00000134,
-        ForgeFormulaUnlock = 0x00000135,
-        RefreshMailPage = 0x00000136,
-        RefreshMailPageAfterDel = 0x00000137,
-        MailDataReady = 0x00000138,
-        ShowMailItemGet = 0x00000139,
-        NewMailGot = 0x0000013a,
-        AddToFavorites = 0x0000013b,
-        RefreshMailFavoritesDialog = 0x0000013c,
-        RefreshMailFavoritesDialogAfterDel = 0x0000013d,
-        RefreshMailPageAfterFavMailChange = 0x0000013e,
-        RefreshCoinNum = 0x0000013f,
-        MutiPlayerAvailableChange = 0x00000140,
-        MutideChange = 0x00000141,
-        CompanionCurrAvatarChanged = 0x00000142,
-        CompanionAvatarHPChanged = 0x00000143,
-        KickGuestFailed = 0x00000144,
-        MPTeamChangeFailed = 0x00000145,
-        MPDeathOpenChat = 0x00000146,
-        MPCloseMainPageBtn = 0x00000147,
-        MPOpenMainPageBtn = 0x00000148,
-        PlayerMatchInfoUpdate = 0x00000149,
-        WorldPlayerDie = 0x0000014a,
-        MpSettingType = 0x0000014b,
-        JoinOtherPlayerScene = 0x0000014c,
-        BackMyWorld = 0x0000014d,
-        UpdateDungeonExitBtn = 0x0000014e,
-        DungeonTeamChanged = 0x0000014f,
-        DungeonTeamChangeFailed = 0x00000150,
-        DungeonTeamDismissed = 0x00000151,
-        DungeonInviteRefused = 0x00000152,
-        DungeonTeamKicked = 0x00000153,
-        EnterTowerLevel = 0x00000154,
-        TowerStarRefresh = 0x00000155,
-        TowerRecordHandbookRefresh = 0x00000156,
-        RefreshPlayGuestState = 0x00000157,
-        CloseMPPlayDialog = 0x00000158,
-        CloseMPPlayPage = 0x00000159,
-        MpPlayGuestReplyInviteSucc = 0x0000015a,
-        PlayerLevelChange = 0x0000015b,
-        PlayerExpChange = 0x0000015c,
-        PlayerWorldLevelChange = 0x0000015d,
-        ClosePlayerProfilePage = 0x0000015e,
-        PlayerWorldLevelAdjust = 0x0000015f,
-        ShowGuideRatingDialog = 0x00000160,
-        ChargeBarValueChange = 0x00000161,
-        DailyTaskStarted = 0x00000162,
-        DailyTaskProgresUpdated = 0x00000163,
-        DailyTaskComplete = 0x00000164,
-        DailyTaskExitRegion = 0x00000165,
-        DailyTaskScoreReward = 0x00000166,
-        DailyTaskRefresh = 0x00000167,
-        TaskVarChange = 0x00000168,
-        RandTaskStarted = 0x00000169,
-        RandTaskComplete = 0x0000016a,
-        RandTaskFail = 0x0000016b,
-        RandTaskExitRegion = 0x0000016c,
-        RoutineStarted = 0x0000016d,
-        RoutineProgresUpdated = 0x0000016e,
-        RoutineComplete = 0x0000016f,
-        RoutineExitRegion = 0x00000170,
-        RoutineScoreReward = 0x00000171,
-        RoutineRefresh = 0x00000172,
-        ProudSkillChange = 0x00000173,
-        CombatSkillChange = 0x00000174,
-        PlayerLevelRewardChange = 0x00000175,
-        GetInvestigationMonsterList = 0x00000176,
-        InvestigationChange = 0x00000177,
-        InvestigationChapterComplete = 0x00000178,
-        InvestigationTargetChange = 0x00000179,
-        ExplorationAllDataChange = 0x0000017a,
-        ExplorationCharacterDataChange = 0x0000017b,
-        MainPageTips = 0x0000017c,
-        MiracleRingItemAdded = 0x0000017d,
-        NewPlayerAppling = 0x0000017e,
-        PushTipsChange = 0x0000017f,
-        GetPushTipsReward = 0x00000180,
-        PushTipsNotifyFinish = 0x00000181,
-        NewPushTips = 0x00000182,
-        GetTowerAllData = 0x00000183,
-        GetTowerStarReward = 0x00000184,
-        VersusBattleBegin = 0x00000185,
-        VersusBattleUpdate = 0x00000186,
-        VersusBattleEnd = 0x00000187,
-        ActivityOpen = 0x00000188,
-        ActivityClose = 0x00000189,
-        ActivityContextClose = 0x0000018a,
-        ActivityRefresh = 0x0000018b,
-        ActivityUpdate = 0x0000018c,
-        ActivityBannerShow = 0x0000018d,
-        ActivityBannerEffectShow = 0x0000018e,
-        ActivitySeaLampContriFinish = 0x0000018f,
-        ActivityStart = 0x00000190,
-        ActivityCrucibleInfo = 0x00000191,
-        ActivityOperationBonusUpdate = 0x00000192,
-        ActivityWatcherUpdate = 0x00000193,
-        ActivityDeliveryRewardUpdate = 0x00000194,
-        ActivityDeliveryUpdate = 0x00000195,
-        ActivityWatcherFinish = 0x00000196,
-        ActivityAsterScoreUpdate = 0x00000197,
-        ActivitySaleUpdate = 0x00000198,
-        ActivityEchoShellUpdate = 0x00000199,
-        ActivityCoinInfoNotify = 0x0000019a,
-        ActivityBlitzRushContentClose = 0x0000019b,
-        ActivityCondUpdate = 0x0000019c,
-        ActivityPotionStageReset = 0x0000019d,
-        CloseActivityMainPage = 0x0000019e,
-        EffigyChallengeResultNotify = 0x0000019f,
-        MistTrialTimeOutNotify = 0x000001a0,
-        BannerReminderAppeared = 0x000001a1,
-        BannerReminderDisappeared = 0x000001a2,
-        CameraLookBegin = 0x000001a3,
-        CameraLock = 0x000001a4,
-        CameraFieldLook = 0x000001a5,
-        DisableMainPageControl = 0x000001a6,
-        DisableMainPageControlWithConfigName = 0x000001a7,
-        ResinChanged = 0x000001a8,
-        ResinPurchased = 0x000001a9,
-        BlossomBriefInfoNotify = 0x000001aa,
-        BlossomStart = 0x000001ab,
-        BlossomUpdate = 0x000001ac,
-        BlossomEnd = 0x000001ad,
-        BlossomFinish = 0x000001ae,
-        ShowDamageTextComponent = 0x000001af,
-        SinInRefresh = 0x000001b0,
-        OnSignInInfoRsp = 0x000001b1,
-        BonusActivityRewardRsp = 0x000001b2,
-        ShowActivityMainBtn = 0x000001b3,
-        OnBonusActivityInfoRsp = 0x000001b4,
-        OnOpActivityStateRsp = 0x000001b5,
-        OnOpActivityStateNotify = 0x000001b6,
-        TrialActivityRewardUpdate = 0x000001b7,
-        SalesManTakeRewardRsp = 0x000001b8,
-        SalesmanDeliverItemRsp = 0x000001b9,
-        GetAuthSalesmanInfoRsp = 0x000001ba,
-        OnVirtualDialAction = 0x000001bb,
-        OnVirtualDialEntryAction = 0x000001bc,
-        OnTransmitStart = 0x000001bd,
-        OnTransmitEnd = 0x000001be,
-        OnTransmitAfterAudioEvent = 0x000001bf,
-        BundleDownloadStart = 0x000001c0,
-        BundleDownloadRestart = 0x000001c1,
-        BundleDownloadStartForLogin = 0x000001c2,
-        BargainStart = 0x000001c3,
-        BargainPriceRsp = 0x000001c4,
-        BargainTerminate = 0x000001c5,
-        BargainDataRsp = 0x000001c6,
-        AllActivatedBargainData = 0x000001c7,
-        HideRoom = 0x000001c8,
-        ShowRoom = 0x000001c9,
-        DeleteFriend = 0x000001ca,
-        RefreshFriendList = 0x000001cb,
-        RefreshFriendListWithAni = 0x000001cc,
-        RefreshFriendRequestList = 0x000001cd,
-        RefreshFriendRequestListWithAni = 0x000001ce,
-        RefreshBlacklist = 0x000001cf,
-        RefreshMultiplayRecentlyListWithAni = 0x000001d0,
-        RefreshPSNFriendList = 0x000001d1,
-        RefreshPSNFriendListWithAni = 0x000001d2,
-        GetPlayerSocialDetail = 0x000001d3,
-        GetFriendShowAvatarInfo = 0x000001d4,
-        RefreshNickname = 0x000001d5,
-        RefreshRemarkname = 0x000001d6,
-        RefreshHeadPortrait = 0x000001d7,
-        RefreshNameCard = 0x000001d8,
-        RefreshAllNameCard = 0x000001d9,
-        RefreshSignature = 0x000001da,
-        RefreshAvatarShowList = 0x000001db,
-        RefreshNameCardShowList = 0x000001dc,
-        NicknameWordIllegal = 0x000001dd,
-        TeamNameIllegal = 0x000001de,
-        SignatureIllegal = 0x000001df,
-        RefreshBirthday = 0x000001e0,
-        AddInBlockChatList = 0x000001e1,
-        RemoveFromBlockChatList = 0x000001e2,
-        AddInBlacklist = 0x000001e3,
-        RemoveFromBlacklist = 0x000001e4,
-        ChatRoomInfoUpdate = 0x000001e5,
-        RefreshMainPageChatContent = 0x000001e6,
-        RefreshMainPageChatContentForce = 0x000001e7,
-        RefreshChatEmojiCollectionList = 0x000001e8,
-        BattlePassMissionChange = 0x000001e9,
-        BattlePassScheduleChange = 0x000001ea,
-        BattlePassProductPay = 0x000001eb,
-        BattlePassLevelChange = 0x000001ec,
-        BattlePassBuySuccess = 0x000001ed,
-        RefreshLocalNotification = 0x000001ee,
-        EnterSceneDone = 0x000001ef,
-        PSNStateChange = 0x000001f0,
-        PS5LaunchActivity = 0x000001f1,
-        MpPlayPrepareNotify = 0x000001f2,
-        GadgetPlayStartNotify = 0x000001f3,
-        GadgetPlayDataNotify = 0x000001f4,
-        GadgetPlayUidOpNotify = 0x000001f5,
-        GadgetPlayStopNotify = 0x000001f6,
-        ScenePlayBattlePrepare = 0x000001f7,
-        ScenePlayBattlePrestart = 0x000001f8,
-        ScenePlayBattleStart = 0x000001f9,
-        ScenePlayBattleStop = 0x000001fa,
-        ScenePlayBattleInterrupt = 0x000001fb,
-        ScenePlayUidOpNotify = 0x000001fc,
-        StartChargeCountDown = 0x000001fd,
-        InterruptChargeCountDown = 0x000001fe,
-        ShowTemplateReminderNotify = 0x000001ff,
-        CloseTemplateReminderDialog = 0x00000200,
-        ShowPromptDownReminderNotify = 0x00000201,
-        NormalUidOpNotify = 0x00000202,
-        OnDispatchConfigSet = 0x00000203,
-        ShowDistanceTarget = 0x00000204,
-        CloseDistanceTarget = 0x00000205,
-        ClimateMeterType = 0x00000206,
-        ClimateMeterValue = 0x00000207,
-        ClimateAreaType = 0x00000208,
-        ClimateAreaID = 0x00000209,
-        ClimateMeterValueChanged = 0x0000020a,
-        ClimateMeterTypeChanged = 0x0000020b,
-        ClimateAreaTypeChanged = 0x0000020c,
-        ClimateMeterWarning = 0x0000020d,
-        ClimateMeterRefresh = 0x0000020e,
-        ShowClimateInfoDialog = 0x0000020f,
-        DungeonFactorDialogClose = 0x00000210,
-        ShowMonthlyCardReward = 0x00000211,
-        AchievementPageRefresh = 0x00000212,
-        AchievementItemAdded = 0x00000213,
-        RefreshAvatarLinePage = 0x00000214,
-        OnPersonalLineAllDataRsp = 0x00000215,
-        AvatarLineGetKey = 0x00000216,
-        AvatarLineUnlock = 0x00000217,
-        ShareComplete = 0x00000218,
-        SDKPayStart = 0x00000219,
-        SDKPayEnd = 0x0000021a,
-        SDKGetProductList = 0x0000021b,
-        AvatarAddNotify = 0x0000021c,
-        TrialAvatarDelete = 0x0000021d,
-        OnTakeReputationLevelReward = 0x0000021e,
-        RefreshReputation = 0x0000021f,
-        OnCityReputationLevelup = 0x00000220,
-        RefreshHunting = 0x00000221,
-        HuntingStart = 0x00000222,
-        HuntingRevealClue = 0x00000223,
-        HuntingRevealFinal = 0x00000224,
-        HuntingSuccess = 0x00000225,
-        HuntingFail = 0x00000226,
-        CloseReputationHuntingDialog = 0x00000227,
-        CloseReputationRequestDialog = 0x00000228,
-        HuntingTaken = 0x00000229,
-        HuntingFinished = 0x0000022a,
-        TakeOfferingLevelReward = 0x0000022b,
-        OfferingLevelChange = 0x0000022c,
-        ForbiddenToggleMoveStateChange = 0x0000022d,
-        OnToggleMoveSettingChange = 0x0000022e,
-        KeyboardLayoutUpdate = 0x0000022f,
-        ControllerMapModified = 0x00000230,
-        OnControllerConnected = 0x00000231,
-        OnDeviceTypeSet = 0x00000232,
-        SetDeviceTypeInSettingPage = 0x00000233,
-        OnJoypadIconDisplayTypeChange = 0x00000234,
-        WidgetActionBtnRefresh = 0x00000235,
-        WidgetEquipChange = 0x00000236,
-        WidgetCollectorWindSeed = 0x00000237,
-        WidgetQuickUseButtonRelease = 0x00000238,
-        WidgetQuickUseRsp = 0x00000239,
-        ForcePlayBattleBtnCdEndEffect = 0x0000023a,
-        FlightChallengeBegin = 0x0000023b,
-        FlightChallengeFinish = 0x0000023c,
-        ReportSuccNotify = 0x0000023d,
-        PlayerQuitFromMpByHostBlock = 0x0000023e,
-        PlayerQuitFromMpByGuestBlock = 0x0000023f,
-        ActivityBlessingDataRefresh = 0x00000240,
-        ActivityBlessingScanSuccess = 0x00000241,
-        ActivityBlessingScanFail = 0x00000242,
-        ActivityBlessingRefresh = 0x00000243,
-        ActivityGiveFriendPicSuccess = 0x00000244,
-        TreasureHuntCurrencyNumChange = 0x00000245,
-        ReunionAddToOpActivityListNotify = 0x00000246,
-        ReunionRemoveFromOpActivityListNotify = 0x00000247,
-        ReunionGetFirstRewardSuccNotify = 0x00000248,
-        ReunionSignInGetRewardNotify = 0x00000249,
-        ReunionTaskClaimFinalRewardSuccNotify = 0x0000024a,
-        ReunionTaskClaimWatcherRewardSuccNotify = 0x0000024b,
-        AvatarExpeditionStartNtf = 0x0000024c,
-        ShowLendHistoryNotify = 0x0000024d,
-        ExpeditionActivityStartNotify = 0x0000024e,
-        ExpeditionActivityRecallNotify = 0x0000024f,
-        ExpeditionActivityRewardClaimedNotify = 0x00000250,
-        ExpeditionActivityInfoUpdateNotify = 0x00000251,
-        OpenExpeditionMap = 0x00000252,
-        OnExpeditionChallengeEnterRegion = 0x00000253,
-        OnExpeditionChallengeFinish = 0x00000254,
-        GetExpeditionRewardNotify = 0x00000255,
-        ActivityUpdateRegion = 0x00000256,
-        WalkModeChanged = 0x00000257,
-        FireUIEffectNotify = 0x00000258,
-        AttachUIEffectNotify = 0x00000259,
-        UntachUIEffectNotify = 0x0000025a,
-        PlayerApplyEnterMpResult = 0x0000025b,
-        PlayerQuitFromMp = 0x0000025c,
-        PlayerVehilceUpdate = 0x0000025d,
-        GetMechanicusInfoRsp = 0x0000025e,
-        UpdateGearItem = 0x0000025f,
-        UnLockGearItem = 0x00000260,
-        FoundationOpLockFailed = 0x00000261,
-        MechanicusCoinNotify = 0x00000262,
-        FoundationUpdateNotify = 0x00000263,
-        OnInBattleMechanicusStageKillStartNotify = 0x00000264,
-        OnInBattleMechanicusStageKillEndNotify = 0x00000265,
-        OnInBattleMechanicusStageCardFlipEndNotify = 0x00000266,
-        OnInBattleMechanicusStart = 0x00000267,
-        OnInBattleMechanicusUpdate = 0x00000268,
-        OnInBattleMechanicusFinish = 0x00000269,
-        OnInBattleMechanicusPickCardRsp = 0x0000026a,
-        OnInBattleMechanicusPickCardNotify = 0x0000026b,
-        OnInBattleMechanicusConfirmCardRsp = 0x0000026c,
-        OnInBattleMechanicusConfirmCardNotify = 0x0000026d,
-        OnInBattleMechanicusCardResultNotify = 0x0000026e,
-        OnInBattleChessPickCardNotify = 0x0000026f,
-        OnInBattleChessCandidateCardsNotify = 0x00000270,
-        FleurFairDungeonPreview = 0x00000271,
-        FleurFairDungeonPrepare = 0x00000272,
-        FleurFairDungeonGallery = 0x00000273,
-        FleurFairDungeonBoss = 0x00000274,
-        FleurFairDungeonGallerySettle = 0x00000275,
-        FleurFairDungeonBossSettle = 0x00000276,
-        FleurFairDungeonEnergy = 0x00000277,
-        FleurFairDungeonGalleryUpdate = 0x00000278,
-        SummerTimeStage4JoypadFocusChange = 0x00000279,
-        SummerTimeSprintBoatRedpointChange = 0x0000027a,
-        GalleryDialogShow = 0x0000027b,
-        GalleryStart = 0x0000027c,
-        GalleryStop = 0x0000027d,
-        GalleryUpdateAll = 0x0000027e,
-        GalleryBalloonShoot = 0x0000027f,
-        GalleryBalloonScore = 0x00000280,
-        GalleryFallCatch = 0x00000281,
-        GalleryFallScore = 0x00000282,
-        GalleryMusicGameClose = 0x00000283,
-        GallerySettleRestart = 0x00000284,
-        SlabCheckEnterLoopDungeon = 0x00000285,
-        SlabEquipBuffChange = 0x00000286,
-        GallerySumoStageStart = 0x00000287,
-        GallerySumoStageFinish = 0x00000288,
-        GallerySumoChangeTeam = 0x00000289,
-        GallerySumoChangeTeamCdUpdate = 0x0000028a,
-        GallerySumoChangeTeamUpdateScore = 0x0000028b,
-        QuickSwitchTeamFetchNextTeamInfo = 0x0000028c,
-        QuickSwitchTeamReqToChangeTeam = 0x0000028d,
-        ArenaChallengeStart = 0x0000028e,
-        ArenaChallengeTakeWatcherReward = 0x0000028f,
-        ActivityMistTrialTakeReward = 0x00000290,
-        ActivityMistTrialExhibitionRefresh = 0x00000291,
-        ActivityMistTrialGalleryCountDown = 0x00000292,
-        ActivityMiniTomoClose = 0x00000293,
-        HomeWorldCompInfoUpdate = 0x00000294,
-        HomeWorldModuleChange = 0x00000295,
-        HomeWorldModuleChoose = 0x00000296,
-        HomeWorldModuleSeenUpdate = 0x00000297,
-        HomeWorldModulePrepareGoIn = 0x00000298,
-        HomeWorldFurnitureMakeInfoRefresh = 0x00000299,
-        HomeWorldFurnitureMakeGetResult = 0x0000029a,
-        HomeWorldFurnitureMakeCancel = 0x0000029b,
-        HomeWorldFurnitureFormulaUnlock = 0x0000029c,
-        HomeWorldLevelUp = 0x0000029d,
-        HomeWorldSuiteDetailShow = 0x0000029e,
-        GetHomeworldVisitor = 0x0000029f,
-        HomeKickPlayerRspSuccess = 0x000002a0,
-        HomeWorldComfortInfoUpdate = 0x000002a1,
-        ClearDeployGadgetData = 0x000002a2,
-        HomeWorldChangeBGM = 0x000002a3,
-        HomeWorldUnlockBGM = 0x000002a4,
-        HideAndSeekStagePrepare = 0x000002a5,
-        HideAndSeekStagePick = 0x000002a6,
-        HideAndSeekStageHide = 0x000002a7,
-        HideAndSeekStageSeek = 0x000002a8,
-        HideAndSeekPlayerSetAvatarNotify = 0x000002a9,
-        HideAndSeekSelectSkillRsp = 0x000002aa,
-        HideAndSeekPlayerReadyNotify = 0x000002ab,
-        HideAndSeekStageSettle = 0x000002ac,
-        HideAndSeekCaught = 0x000002ad,
-        AvatarChargeSkillNotify = 0x000002ae,
-        LoginSceneNotify = 0x000002af,
-        CharacterPageNotify = 0x000002b0,
-        CloseCharacterPageNotify = 0x000002b1,
-        WeaponPageNotify = 0x000002b2,
-        CloseWeaponPageNotify = 0x000002b3,
-        LoadingBeginNotify = 0x000002b4,
-        LoadingEndNotify = 0x000002b5,
-        GachaItemNotify = 0x000002b6,
-        CloseGachaNotify = 0x000002b7,
-        GoToGachaPageNotify = 0x000002b8,
-        GrowFlowersUpdateTodaySeedNotify = 0x000002b9,
-        GrowFlowersUpdateExchangePage = 0x000002ba,
-        GrowFlowersUpdateFriendsWishNotify = 0x000002bb,
-        GrowFlowersUpdateRecvFlowersNotify = 0x000002bc,
-        GrowFlowersUpdateRecvInfo = 0x000002bd,
-        GrowFlowersUpdateGiveDialog = 0x000002be,
-        WinterCampSnowmanUpdateFriendsWishNotify = 0x000002bf,
-        WinterCampSnowmanUpdateRecvItemNotify = 0x000002c0,
-        WinterCampSnowmanUpdateRecvInfo = 0x000002c1,
-        WinterCampSnowmanUpdateGiveDialog = 0x000002c2,
-        StartBuoyantCombatGallerySuccess = 0x000002c3,
-        StartBuoyantCombatGalleryNotify = 0x000002c4,
-        UpdateBuoyantCombatGalleryNotify = 0x000002c5,
-        StopBuoyantCombatGalleryNotify = 0x000002c6,
-        StartGalleryProgressNotify = 0x000002c7,
-        UpdateGalleryProgressNotify = 0x000002c8,
-        StopGalleryProgressNotify = 0x000002c9,
-        StartDigCombatGalleryNotify = 0x000002ca,
-        UpdateDigCombatGalleryNotify = 0x000002cb,
-        StopDigCombatGalleryNotify = 0x000002cc,
-        SalvagePreventUpdateNotify = 0x000002cd,
-        SalvageEscortUpdateNotify = 0x000002ce,
-        UpdateSalvageBundleMark = 0x000002cf,
-        UpdateBounceConjuringScore = 0x000002d0,
-        AddBounceConjuringScore = 0x000002d1,
-        LunaRiteSacrificeSuccess = 0x000002d2,
-        LunaRiteRefresh = 0x000002d3,
-        MoonfinTrialWatcherUpdated = 0x000002d4,
-        TryShowQTEDialog = 0x000002d5,
-        CodexKillNumRefresh = 0x000002d6,
-        FishBaitUpdate = 0x000002d7,
-        FishQteStart = 0x000002d8,
-        FishBattleEnd = 0x000002d9,
-        ExitFishing = 0x000002da,
-        FishRippleEffectStart = 0x000002db,
-        FishRippleEffectEnd = 0x000002dc,
-        OnShikigamiSkillUpgrade = 0x000002dd,
-        OnRefreshRoguelikeDungeonCardRsp = 0x000002de,
-        OnTakeRoguelikeStageFirstPassReward = 0x000002df,
-        OnEnterRoguelikeDungeonNotify = 0x000002e0,
-        ActivityRogueContentClose = 0x000002e1,
-        CustomGadgetSubmitRsp = 0x000002e2,
-        CustomGadgetPendingDataUnexpectedlyRemoved = 0x000002e3,
-        ProjectionGameGuideFinishFreeRotationXY = 0x000002e4,
-        ProjectionGameGuideFinishFreeRotationZ = 0x000002e5,
-        ProjectionGameGuideFinishSwitch = 0x000002e6,
-        ProjectionGameAnswerUnlocked = 0x000002e7,
-        FireworkMakerRefreshPage = 0x000002e8,
-        FireworkReformSettlement = 0x000002e9,
-        LanternRiteStartFireworksReformRsp = 0x000002ea,
-        LanternRiteDoFireworksReformRsp = 0x000002eb,
-        LanternRiteEndFireworksReformRsp = 0x000002ec,
-        LanternRiteEndFireworksReform = 0x000002ed,
-        LanternRiteFireworksReformDoOnce = 0x000002ee,
-        LocalAvatarStateIDChanged = 0x000002ef,
-        LocalAvatarAttackTag = 0x000002f0,
-        LocalAvatarDoSkillSucc = 0x000002f1,
-        LocalAvatarAnimatorStateChangedBeforeClear = 0x000002f2,
-        CustomLevelDungeonUpdate = 0x000002f3,
-        CustomDungeonTryTypeChanged = 0x000002f4,
-        CustomLevelSearchResult = 0x000002f5,
-        CustomLevelSubscribeResult = 0x000002f6,
-        CustomLevelLikeResult = 0x000002f7,
-        CustomLevelSaveResult = 0x000002f8,
-        RegionalPlayEnable = 0x000002f9,
-        RegionalPlayDisable = 0x000002fa,
-        MichiaeBattleSkillUnlock = 0x000002fb,
-        ShowSignalMichiae = 0x000002fc,
-        LifeCountShow = 0x000002fd,
-        LifeCountHide = 0x000002fe,
-        LifeCountChange = 0x000002ff,
-        AttachBartenderEffectNotify = 0x00000300,
-        DetachBartenderEffectNotify = 0x00000301,
-        BartenderRecipeUnlockNotify = 0x00000302,
-        HomeBalloonShootStartNotify = 0x00000303,
-        HomeBalloonShootScoreUpdateNotify = 0x00000304,
-        HomeBalloonShootEndNotify = 0x00000305,
+        MarkManagerReady = 0x00000035,
+        DungeonEntryInfo = 0x00000036,
+        DungeonEntryAppeared = 0x00000037,
+        DungeonEntryDisappeared = 0x00000038,
+        DungeonPlayerDie = 0x00000039,
+        DungeonSettled = 0x0000003a,
+        DungeonGetReward = 0x0000003b,
+        GetDailyDungeonEntryInfo = 0x0000003c,
+        GetDungeonEntryExploreCondition = 0x0000003d,
+        GeneralInteeCreate = 0x0000003e,
+        GeneralInteeCommand = 0x0000003f,
+        RegisterUICombatBar = 0x00000040,
+        UnregisterUICombatBar = 0x00000041,
+        RefreshUICombatBars = 0x00000042,
+        ShowUICombatBarSpark = 0x00000043,
+        ShowUICombatBarCharge = 0x00000044,
+        ShowUICombatBarFireEffect = 0x00000045,
+        ShowShakeOff = 0x00000046,
+        InteractionUITrigger = 0x00000047,
+        InteractionUIClose = 0x00000048,
+        InteractionRealStart = 0x00000049,
+        GroupLinkUpdated = 0x0000004a,
+        ChallengeBegin = 0x0000004b,
+        ChallengeUpdated = 0x0000004c,
+        ChallengeFailed = 0x0000004d,
+        ChallengeCompleted = 0x0000004e,
+        ChallengeAddSub = 0x0000004f,
+        ChallengeSubFinish = 0x00000050,
+        ChallengeSubFail = 0x00000051,
+        DialogSelectNotify = 0x00000052,
+        DialogSelectFinishNotify = 0x00000053,
+        DialogSelectItemNotify = 0x00000054,
+        DialogSelectItemTimeOut = 0x00000055,
+        AutoTalkDialogFinish = 0x00000056,
+        ChangeAutoTalk = 0x00000057,
+        CoopSelectNotify = 0x00000058,
+        CurrCoopConfidenceValueChanged = 0x00000059,
+        CurrCoopTemperamentValueChanged = 0x0000005a,
+        CoopTemperamentSelect = 0x0000005b,
+        CoopTakeChapterReward = 0x0000005c,
+        CoopUnlockChapter = 0x0000005d,
+        CoopStartPointFromPage = 0x0000005e,
+        CoopCancelQuest = 0x0000005f,
+        CoopUIRefresh = 0x00000060,
+        CoopChapterViewed = 0x00000061,
+        CoopStartFirstPoint = 0x00000062,
+        CoopShowDefeatDialog = 0x00000063,
+        CoopTryStartPoint = 0x00000064,
+        CoopStartPointFailed = 0x00000065,
+        CoopDefeatNotify = 0x00000066,
+        QuestDialogToggle = 0x00000067,
+        QuestBookUpdate = 0x00000068,
+        QuestBookSelectItem = 0x00000069,
+        AddQuestHint = 0x0000006a,
+        QuestTalkHistory = 0x0000006b,
+        PaimenNavigationEnabled = 0x0000006c,
+        PaimenNavigationFailed = 0x0000006d,
+        PaimenNavigationAlreadyInArea = 0x0000006e,
+        RemindQuest = 0x0000006f,
+        BindTransButton = 0x00000070,
+        QuestProgressHint = 0x00000071,
+        QuestLackHint = 0x00000072,
+        ActiveMainQuestDeleted = 0x00000073,
+        QuestStateUpdated = 0x00000074,
+        MainQuestStateUpdated = 0x00000075,
+        QuestTalkFinished = 0x00000076,
+        QuestGlobalVarUpdate = 0x00000077,
+        QuestTakePhotograph = 0x00000078,
+        BagWeightUIRefresh = 0x00000079,
+        BagDialogToggle = 0x0000007a,
+        BagSlotUpdate = 0x0000007b,
+        BagItemUsed = 0x0000007c,
+        BagItemDrop = 0x0000007d,
+        BagAddChest = 0x0000007e,
+        BagAddWidget = 0x0000007f,
+        BagCombinableMaterialRPChanged = 0x00000080,
+        ForceCloseBagPage = 0x00000081,
+        BagItemDeleteReturnNotify = 0x00000082,
+        NewItemEncountered = 0x00000083,
+        SpecialItemEncountered = 0x00000084,
+        ItemAdded = 0x00000085,
+        MaterialDeleteReturnItemAdded = 0x00000086,
+        ItemAddExceedLimitNotify = 0x00000087,
+        GatherItemAdded = 0x00000088,
+        GeneralItemAdded = 0x00000089,
+        GeneralItemMiddleShowAdded = 0x0000008a,
+        QuestItemAdded = 0x0000008b,
+        DailyTaskItemAdded = 0x0000008c,
+        RandTaskItemAdded = 0x0000008d,
+        ActivityItemAdded = 0x0000008e,
+        HuntingItemAdded = 0x0000008f,
+        BlossomItemAdded = 0x00000090,
+        VirtualShopItemAdded = 0x00000091,
+        ItemGivingFinish = 0x00000092,
+        CloseItemGiving = 0x00000093,
+        DestroyItemFinish = 0x00000094,
+        GetCalcWeaponUpgradeReturnItemsResult = 0x00000095,
+        ChangeEquipLockState = 0x00000096,
+        UseItemFail = 0x00000097,
+        AvatarVehicleStateChange = 0x00000098,
+        VehicleHPChange = 0x00000099,
+        VehicleLevelChange = 0x0000009a,
+        AvatarInfoUIRefresh = 0x0000009b,
+        AvatarFightPropRefresh = 0x0000009c,
+        AvatarEquipUIRefresh = 0x0000009d,
+        AvatarEquipChanged = 0x0000009e,
+        AvatarSwitch = 0x0000009f,
+        ManekinCtrl = 0x000000a0,
+        TeamInfoRefresh = 0x000000a1,
+        TeamNameRefresh = 0x000000a2,
+        CurrentTeamChanged = 0x000000a3,
+        AvatarDead = 0x000000a4,
+        AvatarSkillDepotIdChanged = 0x000000a5,
+        AvatarBreakLevelChanged = 0x000000a6,
+        AvatarBreakRewardGet = 0x000000a7,
+        RefreshBreachMaterialBtnRPShow = 0x000000a8,
+        AvatarLifeStateChanged = 0x000000a9,
+        AvatarFetterExpChanged = 0x000000aa,
+        AvatarFetterRewardGet = 0x000000ab,
+        AvatarHPChanged = 0x000000ac,
+        AvatarHungerChanged = 0x000000ad,
+        BackgroundAvatarRefreshed = 0x000000ae,
+        AvatarUpgradeNotify = 0x000000af,
+        AvatarLevelChanged = 0x000000b0,
+        AvatarEnergyAdded = 0x000000b1,
+        AvatarEnergyFull = 0x000000b2,
+        CharacterSprintBS = 0x000000b3,
+        AvatarSkillChanged = 0x000000b4,
+        AvatarSkillDisable = 0x000000b5,
+        AvatarSkillCDChanged = 0x000000b6,
+        AvatarSkillEnable = 0x000000b7,
+        AvatarHideSkill = 0x000000b8,
+        CurAvatarNum = 0x000000b9,
+        FocusAvatar = 0x000000ba,
+        AvatarFlycloakChanged = 0x000000bb,
+        AvatarGainFlycloak = 0x000000bc,
+        ActivitySkillState = 0x000000bd,
+        ShowActivitySkill = 0x000000be,
+        AvatarCostumeChanged = 0x000000bf,
+        AvatarGainCostume = 0x000000c0,
+        TipShow = 0x000000c1,
+        TipClose = 0x000000c2,
+        ActivityCommonPlayerTipsStart = 0x000000c3,
+        ActivityCommonPlayerTipsFinish = 0x000000c4,
+        ActivityCommonPlayerTipsFail = 0x000000c5,
+        ShopOpen = 0x000000c6,
+        ShopClose = 0x000000c7,
+        ShopItemSelect = 0x000000c8,
+        ShopRefresh = 0x000000c9,
+        ShopMaterialRefresh = 0x000000ca,
+        ShopRequest = 0x000000cb,
+        ShopRequestRecommend = 0x000000cc,
+        ShopRequestPackage = 0x000000cd,
+        ShopMallRequest = 0x000000ce,
+        ShopDataUpdated = 0x000000cf,
+        ActivityShopSheetUpdated = 0x000000d0,
+        ShopOpenSubTab = 0x000000d1,
+        MallJumpRecommend = 0x000000d2,
+        ActivityRegionSearchProgressUpdate = 0x000000d3,
+        ActivityRegionSearchProgressBegin = 0x000000d4,
+        ActivityRegionSearchProgressComplete = 0x000000d5,
+        ActivityRegionSearchIn = 0x000000d6,
+        ActivityRegionSearchOut = 0x000000d7,
+        ActivityRegionSearchRegionRewardGet = 0x000000d8,
+        ActivityRegionSearchRegionDisappear = 0x000000d9,
+        ActivityRegionSearchRegionAppear = 0x000000da,
+        ActivityRegionSearchRegionInfoUpdate = 0x000000db,
+        CountDownUIStart = 0x000000dc,
+        CountDownUITerminate = 0x000000dd,
+        DungeonCountDownUpdate = 0x000000de,
+        DungeonCountDownEnd = 0x000000df,
+        CountNumUIStart = 0x000000e0,
+        CountNumUpdate = 0x000000e1,
+        CountNumUITerminate = 0x000000e2,
+        CountNumUIStartNew = 0x000000e3,
+        CountNumUpdateNew = 0x000000e4,
+        CountNumUITerminateNew = 0x000000e5,
+        QuestQuitShow = 0x000000e6,
+        QuestQuitHide = 0x000000e7,
+        GachaWishUpdate = 0x000000e8,
+        LoadingNewScenePre = 0x000000e9,
+        LoadingScene = 0x000000ea,
+        LevelPreLoaded = 0x000000eb,
+        LevelLoaded = 0x000000ec,
+        LevelPostLoad = 0x000000ed,
+        LevelLoadBegin = 0x000000ee,
+        LoadingBundle = 0x000000ef,
+        LevelLoadFinish = 0x000000f0,
+        NoStaminaStopSprint = 0x000000f1,
+        JumpFly = 0x000000f2,
+        PostAvatarEntityReady = 0x000000f3,
+        AudioEventPost = 0x000000f4,
+        LevelTagNotify = 0x000000f5,
+        TouchMsgBoard = 0x000000f6,
+        EasyTouchWorking = 0x000000f7,
+        RefreshUISetting = 0x000000f8,
+        ScreenResolutionChanged = 0x000000f9,
+        RefreshAvatarTalent = 0x000000fa,
+        RefreshAvatarTalentPRShow = 0x000000fb,
+        Resist = 0x000000fc,
+        GuideUpdate = 0x000000fd,
+        PageLoad = 0x000000fe,
+        UIContextOpen = 0x000000ff,
+        UIContextClose = 0x00000100,
+        PageDestroy = 0x00000101,
+        ElementViewChange = 0x00000102,
+        SealProgress = 0x00000103,
+        CommonChallengeStartTips = 0x00000104,
+        CommonChallengeEndTips = 0x00000105,
+        RefreshGuide = 0x00000106,
+        GeneralGuideFinish = 0x00000107,
+        RefreshDebugUI = 0x00000108,
+        CheckDebugLoginServerList = 0x00000109,
+        ShowDebugLoginPanel = 0x0000010a,
+        TimeChanged = 0x0000010b,
+        PlayerGameTimeNotify = 0x0000010c,
+        TeamSceneReady = 0x0000010d,
+        TeamChanged = 0x0000010e,
+        AvatarReviveRequested = 0x0000010f,
+        TeamRttRefresh = 0x00000110,
+        ShowTeamBtn = 0x00000111,
+        LevelUpItemFinished = 0x00000112,
+        PostSetupMPTeamPanel = 0x00000113,
+        WeaponUpgrade = 0x00000114,
+        WeaponPromote = 0x00000115,
+        WeaponAwaken = 0x00000116,
+        ReliquaryUpgrade = 0x00000117,
+        ReliquaryPromote = 0x00000118,
+        TeammateSpeechBegin = 0x00000119,
+        TeammateSpeechEnd = 0x0000011a,
+        AvatarCardChange = 0x0000011b,
+        SpringVolumeChanged = 0x0000011c,
+        WebviewClose = 0x0000011d,
+        MihoyoAccountInfoChanged = 0x0000011e,
+        MihoyoAccountRegisterSuccess = 0x0000011f,
+        CutsceneStart = 0x00000120,
+        CutsceneFinish = 0x00000121,
+        FinalTalkFinished = 0x00000122,
+        CutsceneQTEJump = 0x00000123,
+        CurrentQTEGiveUp = 0x00000124,
+        CurrentQTEBlackScreenStart = 0x00000125,
+        CutsceneQTEEnableSavePoint = 0x00000126,
+        CutsceneQTEEnableSavePointId = 0x00000127,
+        CutsceneChangeTimeScale = 0x00000128,
+        CutsceneResumeTimeScale = 0x00000129,
+        SetMainPageMoveToggleActive = 0x0000012a,
+        SetMainPageMoveToggleToWalk = 0x0000012b,
+        OpenStateInit = 0x0000012c,
+        OpenStateChange = 0x0000012d,
+        StartFadeOutWormhole = 0x0000012e,
+        EnterSneakMode = 0x0000012f,
+        ExitSneakMode = 0x00000130,
+        PlayModeChange = 0x00000131,
+        RefreshCookPage = 0x00000132,
+        GetCookQTEArgs = 0x00000133,
+        OnCookRecipeDataNotify = 0x00000134,
+        RefreshCookCompoundPage = 0x00000135,
+        GetCompoundOutput = 0x00000136,
+        GetCombineOutput = 0x00000137,
+        CombineFormulaUnlock = 0x00000138,
+        SmeltSuccess = 0x00000139,
+        SmeltGetDrop = 0x0000013a,
+        GetForgeQueue = 0x0000013b,
+        ForgeQueueUpdate = 0x0000013c,
+        GetForgeOutput = 0x0000013d,
+        ForgeStart = 0x0000013e,
+        ForgeStop = 0x0000013f,
+        ForgeFormulaUnlock = 0x00000140,
+        RefreshMailPage = 0x00000141,
+        RefreshMailPageAfterDel = 0x00000142,
+        MailDataReady = 0x00000143,
+        ShowMailItemGet = 0x00000144,
+        NewMailGot = 0x00000145,
+        AddToFavorites = 0x00000146,
+        RefreshMailFavoritesDialog = 0x00000147,
+        RefreshMailFavoritesDialogAfterDel = 0x00000148,
+        RefreshMailPageAfterFavMailChange = 0x00000149,
+        RefreshCoinNum = 0x0000014a,
+        MutiPlayerAvailableChange = 0x0000014b,
+        MutiPlayerModeChange = 0x0000014c,
+        CompanionCurrAvatarChanged = 0x0000014d,
+        CompanionAvatarHPChanged = 0x0000014e,
+        KickGuestFailed = 0x0000014f,
+        MPTeamChangeFailed = 0x00000150,
+        MPDeathOpenChat = 0x00000151,
+        MPCloseMainPageBtn = 0x00000152,
+        MPOpenMainPageBtn = 0x00000153,
+        PlayerMatchInfoUpdate = 0x00000154,
+        WorldPlayerDie = 0x00000155,
+        MpSettingType = 0x00000156,
+        JoinOtherPlayerScene = 0x00000157,
+        BackMyWorld = 0x00000158,
+        UpdateDungeonExitBtn = 0x00000159,
+        DungeonTeamChanged = 0x0000015a,
+        DungeonTeamChangeFailed = 0x0000015b,
+        DungeonTeamDismissed = 0x0000015c,
+        DungeonInviteRefused = 0x0000015d,
+        DungeonTeamKicked = 0x0000015e,
+        EnterTowerLevel = 0x0000015f,
+        TowerStarRefresh = 0x00000160,
+        TowerRecordHandbookRefresh = 0x00000161,
+        RefreshPlayGuestState = 0x00000162,
+        CloseMPPlayDialog = 0x00000163,
+        CloseMPPlayPage = 0x00000164,
+        MpPlayGuestReplyInviteSucc = 0x00000165,
+        PlayerLevelChange = 0x00000166,
+        PlayerExpChange = 0x00000167,
+        PlayerWorldLevelChange = 0x00000168,
+        ClosePlayerProfilePage = 0x00000169,
+        PlayerWorldLevelAdjust = 0x0000016a,
+        ShowGuideRatingDialog = 0x0000016b,
+        ChargeBarValueChange = 0x0000016c,
+        DailyTaskStarted = 0x0000016d,
+        DailyTaskProgresUpdated = 0x0000016e,
+        DailyTaskComplete = 0x0000016f,
+        DailyTaskExitRegion = 0x00000170,
+        DailyTaskScoreReward = 0x00000171,
+        DailyTaskRefresh = 0x00000172,
+        TaskVarChange = 0x00000173,
+        RandTaskStarted = 0x00000174,
+        RandTaskComplete = 0x00000175,
+        RandTaskFail = 0x00000176,
+        RandTaskExitRegion = 0x00000177,
+        RoutineStarted = 0x00000178,
+        RoutineProgresUpdated = 0x00000179,
+        RoutineComplete = 0x0000017a,
+        RoutineExitRegion = 0x0000017b,
+        RoutineScoreReward = 0x0000017c,
+        RoutineRefresh = 0x0000017d,
+        ProudSkillChange = 0x0000017e,
+        CombatSkillChange = 0x0000017f,
+        PlayerLevelRewardChange = 0x00000180,
+        GetInvestigationMonsterList = 0x00000181,
+        InvestigationChange = 0x00000182,
+        InvestigationChapterComplete = 0x00000183,
+        InvestigationTargetChange = 0x00000184,
+        ExplorationAllDataChange = 0x00000185,
+        ExplorationCharacterDataChange = 0x00000186,
+        MainPageTips = 0x00000187,
+        MiracleRingItemAdded = 0x00000188,
+        NewPlayerAppling = 0x00000189,
+        PushTipsChange = 0x0000018a,
+        GetPushTipsReward = 0x0000018b,
+        PushTipsNotifyFinish = 0x0000018c,
+        NewPushTips = 0x0000018d,
+        GetTowerAllData = 0x0000018e,
+        GetTowerStarReward = 0x0000018f,
+        VersusBattleBegin = 0x00000190,
+        VersusBattleUpdate = 0x00000191,
+        VersusBattleEnd = 0x00000192,
+        ActivityOpen = 0x00000193,
+        ActivityClose = 0x00000194,
+        ActivityContextClose = 0x00000195,
+        ActivityRefresh = 0x00000196,
+        ActivityUpdate = 0x00000197,
+        ActivityBannerShow = 0x00000198,
+        ActivityBannerEffectShow = 0x00000199,
+        ActivitySeaLampContriFinish = 0x0000019a,
+        ActivityStart = 0x0000019b,
+        ActivityCrucibleInfo = 0x0000019c,
+        ActivityOperationBonusUpdate = 0x0000019d,
+        ActivityWatcherUpdate = 0x0000019e,
+        ActivityDeliveryRewardUpdate = 0x0000019f,
+        ActivityDeliveryUpdate = 0x000001a0,
+        ActivityWatcherFinish = 0x000001a1,
+        ActivityAsterScoreUpdate = 0x000001a2,
+        ActivitySaleUpdate = 0x000001a3,
+        ActivityEchoShellUpdate = 0x000001a4,
+        ActivityCoinInfoNotify = 0x000001a5,
+        ActivityBlitzRushContentClose = 0x000001a6,
+        ActivityCondUpdate = 0x000001a7,
+        ActivityPotionStageReset = 0x000001a8,
+        CloseActivityMainPage = 0x000001a9,
+        EffigyChallengeResultNotify = 0x000001aa,
+        MistTrialTimeOutNotify = 0x000001ab,
+        BannerReminderAppeared = 0x000001ac,
+        BannerReminderDisappeared = 0x000001ad,
+        InLevelQuestHintReminderAppeared = 0x000001ae,
+        InLevelQuestHintReminderDisappeared = 0x000001af,
+        OnGetGameplayRecommendationNotify = 0x000001b0,
+        CloseRecommendationNotify = 0x000001b1,
+        OnGetGameplayRecommendationFailedNotify = 0x000001b2,
+        CameraLookBegin = 0x000001b3,
+        CameraLock = 0x000001b4,
+        CameraFieldLook = 0x000001b5,
+        DisableMainPageControl = 0x000001b6,
+        DisableMainPageControlWithConfigName = 0x000001b7,
+        ResinChanged = 0x000001b8,
+        ResinPurchased = 0x000001b9,
+        BlossomBriefInfoNotify = 0x000001ba,
+        BlossomStart = 0x000001bb,
+        BlossomUpdate = 0x000001bc,
+        BlossomEnd = 0x000001bd,
+        BlossomFinish = 0x000001be,
+        ShowDamageTextComponent = 0x000001bf,
+        SinInRefresh = 0x000001c0,
+        OnSignInInfoRsp = 0x000001c1,
+        BonusActivityRewardRsp = 0x000001c2,
+        ShowActivityMainBtn = 0x000001c3,
+        OnBonusActivityInfoRsp = 0x000001c4,
+        OnOpActivityStateRsp = 0x000001c5,
+        OnOpActivityStateNotify = 0x000001c6,
+        TrialActivityRewardUpdate = 0x000001c7,
+        SalesManTakeRewardRsp = 0x000001c8,
+        SalesmanDeliverItemRsp = 0x000001c9,
+        GetAuthSalesmanInfoRsp = 0x000001ca,
+        OnVirtualDialAction = 0x000001cb,
+        OnVirtualDialEntryAction = 0x000001cc,
+        OnTransmitStart = 0x000001cd,
+        OnTransmitEnd = 0x000001ce,
+        OnTransmitAfterAudioEvent = 0x000001cf,
+        BundleDownloadStart = 0x000001d0,
+        BundleDownloadRestart = 0x000001d1,
+        BundleDownloadStartForLogin = 0x000001d2,
+        BargainStart = 0x000001d3,
+        BargainPriceRsp = 0x000001d4,
+        BargainTerminate = 0x000001d5,
+        BargainDataRsp = 0x000001d6,
+        AllActivatedBargainData = 0x000001d7,
+        HideRoom = 0x000001d8,
+        ShowRoom = 0x000001d9,
+        DeleteFriend = 0x000001da,
+        RefreshFriendList = 0x000001db,
+        RefreshFriendListWithAni = 0x000001dc,
+        RefreshFriendRequestList = 0x000001dd,
+        RefreshFriendRequestListWithAni = 0x000001de,
+        RefreshBlacklist = 0x000001df,
+        RefreshMultiplayRecentlyListWithAni = 0x000001e0,
+        RefreshPSNFriendList = 0x000001e1,
+        RefreshPSNFriendListWithAni = 0x000001e2,
+        GetPlayerSocialDetail = 0x000001e3,
+        GetFriendShowAvatarInfo = 0x000001e4,
+        RefreshNickname = 0x000001e5,
+        RefreshRemarkname = 0x000001e6,
+        RefreshHeadPortrait = 0x000001e7,
+        RefreshNameCard = 0x000001e8,
+        RefreshAllNameCard = 0x000001e9,
+        RefreshSignature = 0x000001ea,
+        RefreshAvatarShowList = 0x000001eb,
+        RefreshNameCardShowList = 0x000001ec,
+        NicknameWordIllegal = 0x000001ed,
+        TeamNameIllegal = 0x000001ee,
+        SignatureIllegal = 0x000001ef,
+        RefreshBirthday = 0x000001f0,
+        AddInBlockChatList = 0x000001f1,
+        RemoveFromBlockChatList = 0x000001f2,
+        AddInBlacklist = 0x000001f3,
+        RemoveFromBlacklist = 0x000001f4,
+        ChatRoomInfoUpdate = 0x000001f5,
+        RefreshMainPageChatContent = 0x000001f6,
+        RefreshMainPageChatContentForce = 0x000001f7,
+        RefreshChatEmojiCollectionList = 0x000001f8,
+        BattlePassMissionChange = 0x000001f9,
+        BattlePassScheduleChange = 0x000001fa,
+        BattlePassProductPay = 0x000001fb,
+        BattlePassLevelChange = 0x000001fc,
+        BattlePassBuySuccess = 0x000001fd,
+        RefreshLocalNotification = 0x000001fe,
+        EnterSceneDone = 0x000001ff,
+        PSNStateChange = 0x00000200,
+        PS5LaunchActivity = 0x00000201,
+        MpPlayPrepareNotify = 0x00000202,
+        GadgetPlayStartNotify = 0x00000203,
+        GadgetPlayDataNotify = 0x00000204,
+        GadgetPlayUidOpNotify = 0x00000205,
+        GadgetPlayStopNotify = 0x00000206,
+        GadgetChainChangeNotify = 0x00000207,
+        ScenePlayBattlePrepare = 0x00000208,
+        ScenePlayBattlePrestart = 0x00000209,
+        ScenePlayBattleStart = 0x0000020a,
+        ScenePlayBattleStop = 0x0000020b,
+        ScenePlayBattleInterrupt = 0x0000020c,
+        ScenePlayUidOpNotify = 0x0000020d,
+        StartChargeCountDown = 0x0000020e,
+        InterruptChargeCountDown = 0x0000020f,
+        ShowTemplateReminderNotify = 0x00000210,
+        CloseTemplateReminderDialog = 0x00000211,
+        ShowPromptDownReminderNotify = 0x00000212,
+        NormalUidOpNotify = 0x00000213,
+        OnDispatchConfigSet = 0x00000214,
+        ShowDistanceTarget = 0x00000215,
+        CloseDistanceTarget = 0x00000216,
+        ClimateMeterType = 0x00000217,
+        ClimateMeterValue = 0x00000218,
+        ClimateAreaType = 0x00000219,
+        ClimateAreaID = 0x0000021a,
+        ClimateMeterValueChanged = 0x0000021b,
+        ClimateMeterTypeChanged = 0x0000021c,
+        ClimateAreaTypeChanged = 0x0000021d,
+        ClimateMeterWarning = 0x0000021e,
+        ClimateMeterRefresh = 0x0000021f,
+        ShowClimateInfoDialog = 0x00000220,
+        DungeonFactorDialogClose = 0x00000221,
+        ShowMonthlyCardReward = 0x00000222,
+        AchievementPageRefresh = 0x00000223,
+        AchievementItemAdded = 0x00000224,
+        RefreshAvatarLinePage = 0x00000225,
+        OnPersonalLineAllDataRsp = 0x00000226,
+        AvatarLineGetKey = 0x00000227,
+        AvatarLineUnlock = 0x00000228,
+        ShareComplete = 0x00000229,
+        SDKPayStart = 0x0000022a,
+        SDKPayEnd = 0x0000022b,
+        SDKGetProductList = 0x0000022c,
+        AvatarAddNotify = 0x0000022d,
+        TrialAvatarDelete = 0x0000022e,
+        OnTakeReputationLevelReward = 0x0000022f,
+        RefreshReputation = 0x00000230,
+        OnCityReputationLevelup = 0x00000231,
+        RefreshHunting = 0x00000232,
+        HuntingStart = 0x00000233,
+        HuntingRevealClue = 0x00000234,
+        HuntingRevealFinal = 0x00000235,
+        HuntingSuccess = 0x00000236,
+        HuntingFail = 0x00000237,
+        CloseReputationHuntingDialog = 0x00000238,
+        CloseReputationRequestDialog = 0x00000239,
+        HuntingTaken = 0x0000023a,
+        HuntingFinished = 0x0000023b,
+        TakeOfferingLevelReward = 0x0000023c,
+        OfferingLevelChange = 0x0000023d,
+        OfferingLevelChangeReward = 0x0000023e,
+        ForbiddenToggleMoveStateChange = 0x0000023f,
+        OnToggleMoveSettingChange = 0x00000240,
+        KeyboardLayoutUpdate = 0x00000241,
+        ControllerMapModified = 0x00000242,
+        OnControllerConnected = 0x00000243,
+        OnDeviceTypeSet = 0x00000244,
+        SetDeviceTypeInSettingPage = 0x00000245,
+        OnJoypadIconDisplayTypeChange = 0x00000246,
+        WidgetActionBtnRefresh = 0x00000247,
+        WidgetEquipChange = 0x00000248,
+        WidgetCollectorWindSeed = 0x00000249,
+        WidgetQuickUseButtonRelease = 0x0000024a,
+        WidgetQuickUseRsp = 0x0000024b,
+        ForcePlayBattleBtnCdEndEffect = 0x0000024c,
+        FlightChallengeBegin = 0x0000024d,
+        FlightChallengeFinish = 0x0000024e,
+        ReportSuccNotify = 0x0000024f,
+        PlayerQuitFromMpByHostBlock = 0x00000250,
+        PlayerQuitFromMpByGuestBlock = 0x00000251,
+        ActivityBlessingDataRefresh = 0x00000252,
+        ActivityBlessingScanSuccess = 0x00000253,
+        ActivityBlessingScanFail = 0x00000254,
+        ActivityBlessingRefresh = 0x00000255,
+        ActivityGiveFriendPicSuccess = 0x00000256,
+        TreasureHuntCurrencyNumChange = 0x00000257,
+        ReunionAddToOpActivityListNotify = 0x00000258,
+        ReunionRemoveFromOpActivityListNotify = 0x00000259,
+        ReunionGetFirstRewardSuccNotify = 0x0000025a,
+        ReunionSignInGetRewardNotify = 0x0000025b,
+        ReunionTaskClaimFinalRewardSuccNotify = 0x0000025c,
+        ReunionTaskClaimWatcherRewardSuccNotify = 0x0000025d,
+        AvatarExpeditionStartNtf = 0x0000025e,
+        ShowLendHistoryNotify = 0x0000025f,
+        ExpeditionActivityStartNotify = 0x00000260,
+        ExpeditionActivityRecallNotify = 0x00000261,
+        ExpeditionActivityRewardClaimedNotify = 0x00000262,
+        ExpeditionActivityInfoUpdateNotify = 0x00000263,
+        OpenExpeditionMap = 0x00000264,
+        OnExpeditionChallengeEnterRegion = 0x00000265,
+        OnExpeditionChallengeFinish = 0x00000266,
+        GetExpeditionRewardNotify = 0x00000267,
+        GadgetGroupButtonAddNotify = 0x00000268,
+        GadgetGroupButtonRemoveNotify = 0x00000269,
+        ActivityUpdateRegion = 0x0000026a,
+        WalkModeChanged = 0x0000026b,
+        FireUIEffectNotify = 0x0000026c,
+        AttachUIEffectNotify = 0x0000026d,
+        UntachUIEffectNotify = 0x0000026e,
+        PlayerApplyEnterMpResult = 0x0000026f,
+        PlayerQuitFromMp = 0x00000270,
+        PlayerVehilceUpdate = 0x00000271,
+        UpdateFriendsWishNotify = 0x00000272,
+        UpdateRecvGiftsNotify = 0x00000273,
+        UpdateGiftRecvInfoNotify = 0x00000274,
+        UpdateGiveGiftDialog = 0x00000275,
+        HaveRecvGiftNotify = 0x00000276,
+        GachaActivityPercentNotify = 0x00000277,
+        GachaActivityCreateRobotRsp = 0x00000278,
+        GachaActivityResetRsp = 0x00000279,
+        GachaActivityTakeRewardRsp = 0x0000027a,
+        GachaActivityNextStageRsp = 0x0000027b,
+        GetMechanicusInfoRsp = 0x0000027c,
+        UpdateGearItem = 0x0000027d,
+        UnLockGearItem = 0x0000027e,
+        FoundationOpLockFailed = 0x0000027f,
+        MechanicusCoinNotify = 0x00000280,
+        FoundationUpdateNotify = 0x00000281,
+        OnInBattleMechanicusStageKillStartNotify = 0x00000282,
+        OnInBattleMechanicusStageKillEndNotify = 0x00000283,
+        OnInBattleMechanicusStageCardFlipEndNotify = 0x00000284,
+        OnInBattleMechanicusStart = 0x00000285,
+        OnInBattleMechanicusUpdate = 0x00000286,
+        OnInBattleMechanicusFinish = 0x00000287,
+        OnInBattleMechanicusPickCardRsp = 0x00000288,
+        OnInBattleMechanicusPickCardNotify = 0x00000289,
+        OnInBattleMechanicusConfirmCardRsp = 0x0000028a,
+        OnInBattleMechanicusConfirmCardNotify = 0x0000028b,
+        OnInBattleMechanicusCardResultNotify = 0x0000028c,
+        OnInBattleChessPickCardNotify = 0x0000028d,
+        OnInBattleChessCandidateCardsNotify = 0x0000028e,
+        FleurFairDungeonPreview = 0x0000028f,
+        FleurFairDungeonPrepare = 0x00000290,
+        FleurFairDungeonGallery = 0x00000291,
+        FleurFairDungeonBoss = 0x00000292,
+        FleurFairDungeonGallerySettle = 0x00000293,
+        FleurFairDungeonBossSettle = 0x00000294,
+        FleurFairDungeonEnergy = 0x00000295,
+        FleurFairDungeonGalleryUpdate = 0x00000296,
+        SummerTimeStage4JoypadFocusChange = 0x00000297,
+        SummerTimeSprintBoatRedpointChange = 0x00000298,
+        GalleryDialogShow = 0x00000299,
+        GalleryStart = 0x0000029a,
+        GalleryStop = 0x0000029b,
+        GalleryUpdateAll = 0x0000029c,
+        GalleryBalloonShoot = 0x0000029d,
+        GalleryBalloonScore = 0x0000029e,
+        GalleryFallCatch = 0x0000029f,
+        GalleryFallScore = 0x000002a0,
+        GalleryMusicGameClose = 0x000002a1,
+        GallerySettleRestart = 0x000002a2,
+        SlabCheckEnterLoopDungeon = 0x000002a3,
+        SlabEquipBuffChange = 0x000002a4,
+        GallerySumoStageStart = 0x000002a5,
+        GallerySumoStageFinish = 0x000002a6,
+        GallerySumoChangeTeam = 0x000002a7,
+        GallerySumoChangeTeamCdUpdate = 0x000002a8,
+        GallerySumoChangeTeamUpdateScore = 0x000002a9,
+        StartCrystalLinkGalleryNotify = 0x000002aa,
+        UpdateCrystalLinkGalleryNotify = 0x000002ab,
+        StopCrystalLinkGalleryNotify = 0x000002ac,
+        CrystalLinkBuffUpdate = 0x000002ad,
+        CrystalLinkBuffEffect = 0x000002ae,
+        CrystalLinkBuffActiveNotify = 0x000002af,
+        QuickSwitchTeamFetchNextTeamInfo = 0x000002b0,
+        QuickSwitchTeamReqToChangeTeam = 0x000002b1,
+        ArenaChallengeStart = 0x000002b2,
+        ArenaChallengeTakeWatcherReward = 0x000002b3,
+        ActivityMistTrialTakeReward = 0x000002b4,
+        ActivityMistTrialExhibitionRefresh = 0x000002b5,
+        ActivityMistTrialGalleryCountDown = 0x000002b6,
+        ActivityMiniTomoClose = 0x000002b7,
+        HomeWorldCompInfoUpdate = 0x000002b8,
+        HomeWorldModuleChange = 0x000002b9,
+        HomeWorldModuleChoose = 0x000002ba,
+        HomeWorldModuleSeenUpdate = 0x000002bb,
+        HomeWorldModulePrepareGoIn = 0x000002bc,
+        HomeWorldFurnitureMakeInfoRefresh = 0x000002bd,
+        HomeWorldFurnitureMakeGetResult = 0x000002be,
+        HomeWorldFurnitureMakeCancel = 0x000002bf,
+        HomeWorldFurnitureFormulaUnlock = 0x000002c0,
+        HomeWorldLevelUp = 0x000002c1,
+        HomeWorldSuiteDetailShow = 0x000002c2,
+        GetHomeworldVisitor = 0x000002c3,
+        HomeKickPlayerRspSuccess = 0x000002c4,
+        HomeWorldComfortInfoUpdate = 0x000002c5,
+        ClearDeployGadgetData = 0x000002c6,
+        HomeWorldChangeBGM = 0x000002c7,
+        HomeWorldUnlockBGM = 0x000002c8,
+        HideAndSeekStagePrepare = 0x000002c9,
+        HideAndSeekStagePick = 0x000002ca,
+        HideAndSeekStageHide = 0x000002cb,
+        HideAndSeekStageSeek = 0x000002cc,
+        HideAndSeekPlayerSetAvatarNotify = 0x000002cd,
+        HideAndSeekSelectSkillRsp = 0x000002ce,
+        HideAndSeekPlayerReadyNotify = 0x000002cf,
+        HideAndSeekStageSettle = 0x000002d0,
+        HideAndSeekCaught = 0x000002d1,
+        AvatarChargeSkillNotify = 0x000002d2,
+        LoginSceneNotify = 0x000002d3,
+        CharacterPageNotify = 0x000002d4,
+        CloseCharacterPageNotify = 0x000002d5,
+        WeaponPageNotify = 0x000002d6,
+        CloseWeaponPageNotify = 0x000002d7,
+        LoadingBeginNotify = 0x000002d8,
+        LoadingEndNotify = 0x000002d9,
+        GachaItemNotify = 0x000002da,
+        CloseGachaNotify = 0x000002db,
+        GoToGachaPageNotify = 0x000002dc,
+        GrowFlowersUpdateTodaySeedNotify = 0x000002dd,
+        GrowFlowersUpdateExchangePage = 0x000002de,
+        GrowFlowersUpdateFriendsWishNotify = 0x000002df,
+        GrowFlowersUpdateRecvFlowersNotify = 0x000002e0,
+        GrowFlowersUpdateRecvInfo = 0x000002e1,
+        GrowFlowersUpdateGiveDialog = 0x000002e2,
+        WinterCampSnowmanUpdateFriendsWishNotify = 0x000002e3,
+        WinterCampSnowmanUpdateRecvItemNotify = 0x000002e4,
+        WinterCampSnowmanUpdateRecvInfo = 0x000002e5,
+        WinterCampSnowmanUpdateGiveDialog = 0x000002e6,
+        StartBuoyantCombatGallerySuccess = 0x000002e7,
+        StartBuoyantCombatGalleryNotify = 0x000002e8,
+        UpdateBuoyantCombatGalleryNotify = 0x000002e9,
+        StopBuoyantCombatGalleryNotify = 0x000002ea,
+        StartGalleryProgressNotify = 0x000002eb,
+        UpdateGalleryProgressNotify = 0x000002ec,
+        StopGalleryProgressNotify = 0x000002ed,
+        StartDigCombatGalleryNotify = 0x000002ee,
+        UpdateDigCombatGalleryNotify = 0x000002ef,
+        StopDigCombatGalleryNotify = 0x000002f0,
+        SalvagePreventUpdateNotify = 0x000002f1,
+        SalvageEscortUpdateNotify = 0x000002f2,
+        UpdateSalvageBundleMark = 0x000002f3,
+        UpdateBounceConjuringScore = 0x000002f4,
+        AddBounceConjuringScore = 0x000002f5,
+        LunaRiteSacrificeSuccess = 0x000002f6,
+        LunaRiteRefresh = 0x000002f7,
+        MoonfinTrialWatcherUpdated = 0x000002f8,
+        TryShowQTEDialog = 0x000002f9,
+        EnableSubtitleInputPenetrate = 0x000002fa,
+        CodexKillNumRefresh = 0x000002fb,
+        FishBaitUpdate = 0x000002fc,
+        FishQteStart = 0x000002fd,
+        FishBattleEnd = 0x000002fe,
+        ExitFishing = 0x000002ff,
+        FishRippleEffectStart = 0x00000300,
+        FishRippleEffectEnd = 0x00000301,
+        OnShikigamiSkillUpgrade = 0x00000302,
+        OnRefreshRoguelikeDungeonCardRsp = 0x00000303,
+        OnTakeRoguelikeStageFirstPassReward = 0x00000304,
+        OnEnterRoguelikeDungeonNotify = 0x00000305,
+        ActivityRogueContentClose = 0x00000306,
+        CustomGadgetSubmitRsp = 0x00000307,
+        IrodoriEditFlowerSubmitRsp = 0x00000308,
+        CustomGadgetPendingDataUnexpectedlyRemoved = 0x00000309,
+        ProjectionGameGuideFinishFreeRotationXY = 0x0000030a,
+        ProjectionGameGuideFinishFreeRotationZ = 0x0000030b,
+        ProjectionGameGuideFinishSwitch = 0x0000030c,
+        ProjectionGameAnswerUnlocked = 0x0000030d,
+        FireworkMakerRefreshPage = 0x0000030e,
+        FireworkReformSettlement = 0x0000030f,
+        LanternRiteStartFireworksReformRsp = 0x00000310,
+        LanternRiteDoFireworksReformRsp = 0x00000311,
+        LanternRiteEndFireworksReformRsp = 0x00000312,
+        LanternRiteEndFireworksReform = 0x00000313,
+        LanternRiteFireworksReformDoOnce = 0x00000314,
+        LocalAvatarStateIDChanged = 0x00000315,
+        LocalAvatarAttackTag = 0x00000316,
+        LocalAvatarDoSkillSucc = 0x00000317,
+        LocalAvatarAnimatorStateChangedBeforeClear = 0x00000318,
+        CustomLevelDungeonUpdate = 0x00000319,
+        CustomDungeonTryTypeChanged = 0x0000031a,
+        CustomLevelSearchResult = 0x0000031b,
+        CustomLevelSubscribeResult = 0x0000031c,
+        CustomLevelLikeResult = 0x0000031d,
+        CustomLevelSaveResult = 0x0000031e,
+        RegionalPlayEnable = 0x0000031f,
+        RegionalPlayDisable = 0x00000320,
+        MichiaeBattleSkillUnlock = 0x00000321,
+        ShowSignalMichiae = 0x00000322,
+        LifeCountShow = 0x00000323,
+        LifeCountHide = 0x00000324,
+        LifeCountChange = 0x00000325,
+        AttachBartenderEffectNotify = 0x00000326,
+        DetachBartenderEffectNotify = 0x00000327,
+        BartenderRecipeUnlockNotify = 0x00000328,
+        HomeBalloonShootStartNotify = 0x00000329,
+        HomeBalloonShootScoreUpdateNotify = 0x0000032a,
+        HomeBalloonShootEndNotify = 0x0000032b,
+        SpiceActivityProcessFoodRsp = 0x0000032c,
+        SpiceActivityFinishMakeSpiceRsp = 0x0000032d,
+        IrodoriAcitvityInfoUpdate = 0x0000032e,
+        IrodoriAcitvityWatcherInfoUpdate = 0x0000032f,
+        FillPoetry = 0x00000330,
+        ScanPoetryEntity = 0x00000331,
+        MasterGalleryStart = 0x00000332,
+        MasterGallerySettle = 0x00000333,
+        IrodoriChessEquipCardUpdate = 0x00000334,
+        WidgetToyOnPhotographRelease = 0x00000335,
+        WidgetToyStartTakingPhoto = 0x00000336,
+        OnPhotoSettleNotify = 0x00000337,
+        OnGalleryPhotoStart = 0x00000338,
+        OnGalleryPhotoEnd = 0x00000339,
+        GetQuestLackingResourceRsp = 0x0000033a,
+        ArrangeSaveFoundNotify = 0x0000033b,
+        ArrangeSaveNotFoundNotify = 0x0000033c,
+        UGCLimitedNotify = 0x0000033d,
+        UGCLockedNotify = 0x0000033e,
+        UGCStateUpdateNotify = 0x0000033f,
+        CheckHistorySavesUpdateNotify = 0x00000340,
+        MusicGameRewardUnlockNotify = 0x00000341,
+        MusicGameRefreshUgcArchivesNotify = 0x00000342,
+        MusicGameImportOfficialLevelNotify = 0x00000343,
+        MusicGameImportUgcLevelNotify = 0x00000344,
+        MusicGameCompareUgcLevelNotify = 0x00000345,
+        MusicGameTrialUgcLevelNotify = 0x00000346,
+        MusicGamePlayUgcLevelNotify = 0x00000347,
+        MusicGameSettleNotify = 0x00000348,
+        MusicGameEndNotify = 0x00000349,
+        MusicGameRestartNotify = 0x0000034a,
+        RogueDiaryCardReroll = 0x0000034b,
+        RogueDiaryStartDungeon = 0x0000034c,
+        RogueDiaryResetDungeon = 0x0000034d,
+        RogueDiaryCardSelected = 0x0000034e,
+        RogueDiaryAvatarRevive = 0x0000034f,
+        RogueDiaryFinishBanPick = 0x00000350,
+        ActivityQuickOpen = 0x00000351,
+        ActivitySpecialItem = 0x00000352,
+        ChasmChallengeGalleryInfoUpdateNotify = 0x00000353,
+        HomeSeekGalleryInfoUpdateNotify = 0x00000354,
     };
 
     enum class ScenePointType__Enum : int32_t {
@@ -5795,14 +5898,10 @@ namespace app {
         float _z;
     };
 
-    struct LAFKDOLNGNA {
-        uint16_t HFEHLAGCDLL;
-    };
-
     struct __declspec(align(8)) ConfigScenePoint__Fields {
         ScenePointType__Enum _type;
         struct SimpleSafeUInt32 gadgetIdRawNum;
-        struct LAFKDOLNGNA areaIdRawNum;
+        struct SimpleSafeUInt16 areaIdRawNum;
         struct Vector3 _pos;
         struct Vector3 _rot;
         struct Vector3 _tranPos;
@@ -5813,7 +5912,6 @@ namespace app {
         bool _isModelHidden;
     };
 
-    // CEHHMPEGDKF
     struct ConfigScenePoint {
         void* klass;
         MonitorData* monitor;
@@ -5840,7 +5938,7 @@ namespace app {
         COUNT = 0x0000000b,
     };
 
-    enum class BOLKMOALBNA__Enum : int32_t {
+    enum class Config_WorldAreaType__Enum : int32_t {
         LEVEL_NONE = 0x00000000,
         LEVEL_1 = 0x00000001,
         LEVEL_2 = 0x00000002,
@@ -5848,7 +5946,7 @@ namespace app {
         LEVEL_PLAY = 0x0000000a,
     };
 
-    enum class CCJPPAHINEE__Enum : int32_t {
+    enum class Config_AreaTerrainType__Enum : int32_t {
         AREA_TERRAIN_NONE = 0x00000000,
         AREA_TERRAIN_CITY = 0x00000001,
         AREA_TERRAIN_OUTDOOR = 0x00000002,
@@ -5858,25 +5956,25 @@ namespace app {
         uint32_t _value;
     };
 
-    struct __declspec(align(8)) BKNNJMLFFMG__Fields {
-        struct SimpleSafeUInt32 CLHKDEAFLGP;
-        struct SimpleSafeUInt32 AGHEDFKHLCC;
-        BOLKMOALBNA__Enum level;
-        struct SimpleSafeUInt32 JOEAFJNGFMH;
-        struct SimpleSafeUInt32 CBIJIEBKDFP;
-        bool HLCFEAIOGBI;
-        uint32_t NGHJKDEJKGA;
-        struct SimpleSafeUInt32 KHBJPADPMAC;
-        ElementType__Enum effectType;
-        CCJPPAHINEE__Enum areaTerrain;
-        bool HHKMHKOCPKM;
-        struct SimpleSafeFloat MGOHOBFBFGO;
+    struct __declspec(align(8)) MoleMole_Config_WorldAreaConfig__Fields {
+        struct SimpleSafeUInt32 IDRawNum;
+        struct SimpleSafeUInt32 SceneIDRawNum;
+        Config_WorldAreaType__Enum _AreaType;
+        struct SimpleSafeUInt32 AreaID_1RawNum;
+        struct SimpleSafeUInt32 AreaID_2RawNum;
+        bool _AreaDefaultLock;
+        uint32_t _AreaNameTextMapHash;
+        struct SimpleSafeUInt32 tower_point_idRawNum;
+        ElementType__Enum _elementType;
+        Config_AreaTerrainType__Enum _terrainType;
+        bool _showTips;
+        struct SimpleSafeFloat minimapScaleRawNum;
     };
 
-    struct BKNNJMLFFMG {
+    struct MoleMole_Config_WorldAreaConfig {
         void* klass;
         MonitorData* monitor;
-        struct BKNNJMLFFMG__Fields fields;
+        struct MoleMole_Config_WorldAreaConfig__Fields fields;
     };
 
     struct BaseEntity__Array {
@@ -5926,68 +6024,64 @@ namespace app {
         MonitorData* monitor;
         struct Dictionary_2_System_String_BaseEntity___Fields fields;
     };
-    
 
-    // MBHLOBDPKEC__Fields
     struct __declspec(align(8)) MapModule__Fields {
-        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MapModule_ScenePointData_* _scenePointDics;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_MoleMole_MapModule_ScenePointData_* _scenePointDics;
         struct Vector3 _bigworldPos;
-        struct String* _curLimitRegion;
         struct String* _activityLimitRegion;
+        struct String* _homeworldLimitRegion;
         uint32_t _checkScenePointTimer;
-        uint32_t _curDungeonID_k__BackingField;
-        uint32_t _dungeonEndTime_k__BackingField;
-        uint32_t _dungeonMonsterDieCount_k__BackingField;
-        uint32_t _JLIJNMLFAFC_k__BackingField;
-        uint32_t _HNAJCAOJILO_k__BackingField;
-        uint32_t _HNCKAOOIAHL_k__BackingField;
-        bool _NAILEAGILIG_k__BackingField;
-        void* NPKJAPNMBPI;
-        struct Nullable_1_UnityEngine_Vector3_ BBDLKBCJLMI;
-        void* PAGNEAEAEAN;
-        void* FNBIEPGABKN;
-        void* GLEOJIBPOAA;
-        void* OLJONACLPMB;
-        void* EPLACPMJLCG;
-        void* HOHHDMEHEFE;
-        void* ACIENPGKNEK;
-        uint32_t _CEIADDGBEEA_k__BackingField;
-        float GDGMDACHJIJ;
-        float KLKDOIJIAMG;
-        uint32_t _CODFBDCFOEC_k__BackingField;
-        void* BKAJAHKNELL;
-        void* CCDJCLGJCKK;
-        void* OMBMEBKGHPI;
-        struct BKNNJMLFFMG* areaInfo;
-        struct BaseEntity* someEntity;
-        struct Dictionary_2_System_UInt32_BaseEntity_* someEntities;
-        void* MLFBHJNHHJJ;
-        void* BJMIKECNLIC;
-        uint32_t JCIGCKMINJN;
-        struct Dictionary_2_System_String_BaseEntity_* someEntities2;
-        bool KGPMJHCIGMB;
-        void* CKANHDIMMDM;
-        bool AKMCKGIJAMK;
-        void* EOLNAPMDOBP;
-        void* BDGOOFHEIAL;
-        void* NEBNANNODPO;
-        void* PAHAOOLCCMB;
-        void* AAPEHDGPFNJ;
-        void* ENLPOCMOPHD;
-        void* NDJMAOPCOKA;
-        struct Transform* JBGMGJGMOKI;
-        void* EEIPAHPBHFO;
-        void* APLPJKGDKGO;
+        uint32_t _HENAPPPHGFA_k__BackingField;
+        uint32_t _IDKLCPBKKMC_k__BackingField;
+        uint32_t _HAIMNNOMKFE_k__BackingField;
+        uint32_t _BEGGBAFACOG_k__BackingField;
+        uint32_t _LJCHGOJHIBN_k__BackingField;
+        uint32_t _CEJAIKKNKEF_k__BackingField;
+        bool _isTowerUnlocked_k__BackingField;
+        struct List_1_System_UInt32_* dungeonDataLevelConfigIdList;
+        struct Nullable_1_UnityEngine_Vector3_ curClientAvatarRebornPoint;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_System_UInt32_* toBeExploredDungeonEntryDic;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_System_UInt32_* canNotBeExploredDungeonEntryDic;
+        struct HashSet_1_System_UInt32_* PGNGEOMEDEI;
+        struct Dictionary_2_System_UInt32_MoleMole_Config_ConfigScene_* _cfgSceneDic;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_Config_ConfigScenePoint_* _cfgPointDic;
+        struct List_1_System_UInt32_* _currTransPointList;
+        struct List_1_System_UInt32_* _currFunctionalPointList;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_LJADJIPKKIK_* CJJCAAMGCOM;
+        uint32_t _activityPlayId_k__BackingField;
+        float MAX_IN_LIMIT_REGION_TIME;
+        float _startInLimitRegionTime;
+        uint32_t _homeworldRegionSceneId_k__BackingField;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_MoleMole_MapModule_CityData_* _cityDataDic;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_MoleMole_MapModule_WorldAreaData_* _worldAreaDataDic;
+        struct Dictionary_2_System_UInt32_System_UInt32_* _areaId2ExplorePointDic;
+        struct MoleMole_Config_WorldAreaConfig* _currAreaConfig;
+        struct MoleMole_BaseEntity* _dungeonQuitPoint;
+        struct Dictionary_2_System_UInt32_MoleMole_BaseEntity_* _dungeonWayPointDic;
+        struct Dictionary_2_System_UInt32_List_1_System_UInt32_* _dungeonToEntrytDic;
+        struct Dictionary_2_System_UInt32_List_1_System_UInt32_* _dungeonToDateDic;
+        uint32_t _dungeonCloseTime;
+        struct Dictionary_2_System_String_MoleMole_BaseEntity_* _forceFieldDic;
+        bool _playerAudioOnEnterDungeonSuccess;
+        struct HashSet_1_System_UInt32_* _activatedDungeonWayPoint;
+        bool _dungeonEntryOpen;
+        struct Dictionary_2_System_UInt32_System_Boolean_* _sceneUnlockDic;
+        struct Dictionary_2_System_UInt32_List_1_System_UInt32_* _sceneTagList;
+        struct List_1_MoleMole_MapModule_MoleMole_MapModule_ScannerInfo_* _scannerInfoList;
+        struct List_1_MoleMole_MapAreaMistData_* _mistDataList;
+        struct List_1_MoleMole_MapAreaMistData_* _openMistDataList;
+        struct List_1_MoleMole_MapAreaMistData_* _newOpenMistDataList;
+        struct List_1_System_UInt32_* dirtyMistDataList;
+        struct Transform* _mapAreaFog;
+        struct Dictionary_2_System_String_MoleMole_MapModule_MoleMole_MapModule_PrefabHandle_* _prefabHandleDict;
     };
 
-    // MBHLOBDPKEC
-    struct MBHLOBDPKEC {
-        void* klass; // struct MBHLOBDPKEC__Class* klass;
+    struct MapModule {
+        struct MapModule__Class* klass;
         MonitorData* monitor;
         struct MapModule__Fields fields;
     };
 
-    // MBHLOBDPKEC_BHKOIJIKDFG
     struct MapModule_ScenePointData {
         bool isUnlocked;
         struct ConfigScenePoint* config;
@@ -5997,16 +6091,16 @@ namespace app {
         uint32_t level;
     };
 
-    enum class MHANBAIKDCD__Enum : int32_t {
+    enum class MoleMole_Config_MapTagType__Enum : int32_t {
         BigWorld = 0x00000000,
         HomeWorld = 0x00000001,
         Islands = 0x00000002,
         Abyssalisle = 0x00000003,
         MichiaeMatsuri = 0x00000004,
+        TheChasm = 0x00000005,
     };
 
-    enum class BJAPMFFMMCK__Enum : int32_t 
-    {
+    enum class MoleMole_CustomMarkTrackReasonType__Enum : int32_t {
         Noe = 0x00000000,
         Monster = 0x00000001,
         Quest = 0x00000002,
@@ -6019,7 +6113,7 @@ namespace app {
         float m_Height;
     };
 
-    enum class EAFLDMPLBHM_IBEOPIEDJDK__Enum : int32_t {
+    enum class MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_MarkTipsContentType__Enum : int32_t {
         Normal = 0x00000000,
         AddCustomMark = 0x00000001,
         EditCustomMark = 0x00000002,
@@ -6030,45 +6124,45 @@ namespace app {
         TemplateMapTips = 0x00000007,
     };
 
-    enum class EAFLDMPLBHM_BHFDPHAPALK__Enum : int32_t {
+    enum class MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryState__Enum : int32_t {
         LOCKED = 0x00000000,
         TOBEEXPLORE = 0x00000001,
         UNLOCKED = 0x00000002,
     };
 
-    enum class EAFLDMPLBHM_HJGDLNPCEGD__Enum : int32_t {
+    enum class MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonTabSelectState__Enum : int32_t {
         NotReady = 0x00000000,
         SelectTitle = 0x00000001,
         SelectReward = 0x00000002,
         DailyReward = 0x00000003,
     };
 
-    struct OFOEBDBECGO {
-        uint32_t KJADNNPICNF;
-        uint32_t IBGIJLNJKPB;
-        uint32_t MGNDNPJGGCI;
-        uint32_t HJCIJANLAGC;
+    struct MoleMole_WeeklyBossResinDiscountInfoStruct {
+        uint32_t discountNum;
+        uint32_t discountNumLimit;
+        uint32_t resinCost;
+        uint32_t originalResinCost;
     };
 
-    struct EAFLDMPLBHM_CBIPECMOKEK {
-        uint32_t JNAIAKGGLDL;
-        bool AKHGFICNCOJ;
-        uint32_t KMNBAGLDEJA;
-        uint32_t AJMJNHAKMLD;
-        uint32_t AFDGCILKPFM;
-        struct OFOEBDBECGO BDAGACDLCFN;
+    struct MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryInfo {
+        uint32_t id;
+        bool isPassed;
+        uint32_t maxBossChestNum;
+        uint32_t openedBossCheestNum;
+        uint32_t nextRefreshTime;
+        struct MoleMole_WeeklyBossResinDiscountInfoStruct weeklyBossResinDiscount;
     };
 
-    struct EAFLDMPLBHM_ICAOJBLGIAO {
-        int32_t OHALFFMCMLN;
-        struct EAFLDMPLBHM_CBIPECMOKEK HPOGLLPBNGA;
-        struct EAFLDMPLBHM_CBIPECMOKEK BNNNIJCBDJD;
-        struct EAFLDMPLBHM_CBIPECMOKEK MDBEHCFNNDC;
-        struct EAFLDMPLBHM_CBIPECMOKEK KDJFNBPIOAM;
+    struct MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryInfoList {
+        int32_t count;
+        struct MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryInfo first;
+        struct MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryInfo second;
+        struct MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryInfo third;
+        struct MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryInfo fourth;
     };
 
-    struct JBCMLPBCANL {
-        struct MLKPBABGEMJ* BIMFBCOJBGO;
+    struct MoleMole_ItemTipsDialogHelper {
+        struct MoleMole_ItemTipsDialogContext* _dialog;
     };
 
     enum class CursorLockMode__Enum : int32_t {
@@ -6078,15 +6172,15 @@ namespace app {
     };
 
     struct Dictionary_2_System_UInt32_MapModule_ScenePointData___Array {
-        struct Dictionary_2_System_UInt32_MBHLOBDPKEC_BHKOIJIKDFG___Array__Class* klass;
+        struct Dictionary_2_System_UInt32_MoleMole_MapModule_ScenePointData___Array__Class* klass;
         MonitorData* monitor;
         Il2CppArrayBounds* bounds;
         il2cpp_array_size_t max_length;
-        struct Dictionary_2_System_UInt32_MBHLOBDPKEC_BHKOIJIKDFG_* vector[32];
+        struct Dictionary_2_System_UInt32_MoleMole_MapModule_ScenePointData_* vector[32];
     };
 
     struct MapModule_ScenePointData__Array {
-        struct MBHLOBDPKEC_BHKOIJIKDFG__Array__Class* klass;
+        struct MoleMole_MapModule_MoleMole_MapModule_ScenePointData__Array__Class* klass;
         MonitorData* monitor;
         Il2CppArrayBounds* bounds;
         il2cpp_array_size_t max_length;
@@ -6127,14 +6221,14 @@ namespace app {
         struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MapModule_ScenePointData___Fields fields;
     };
 
-    struct Dictionary_2_System_UInt32_MBHLOBDPKEC_BHKOIJIKDFG_ {
+    struct Dictionary_2_System_UInt32_MoleMole_MapModule_ScenePointData_ {
         void* klass;
         MonitorData* monitor;
         struct Dictionary_2_System_UInt32_MapModule_ScenePointData___Fields fields;
     };
 
     struct Notify {
-        AJAPIFPNFKP__Enum type;
+        MoleMole_NotifyTypes__Enum type;
         struct Object* body;
         struct Packet* udpPacket;
     };
@@ -6240,38 +6334,38 @@ namespace app {
         PROP_IS_AUTO_UNLOCK_SPECIFIC_EQUIP = 0x0000273c,
     };
 
-	struct __declspec(align(8)) BaseComponentPlugin__Fields {
-		struct BaseComponent* owner;
-		bool isInited;
-		bool hasTick;
-		bool hasLateTick;
-		struct Int32__Array* _selfOnEventIDsCache;
-		bool _isSelfOnEventIDsCached;
-		struct Int32__Array* _selfOnEventResolvedIDsCache;
-		bool _isSelfOnEventResolvedIDsCached;
-		struct Int32__Array* _selfListenEventIDsCache;
-		bool _isSelfListenEventIDsCached;
-		bool _enabled;
-		bool _hasEnabledInited;
-		bool _listenEventValid_k__BackingField;
-	};
+    struct __declspec(align(8)) BaseComponentPlugin__Fields {
+        struct BaseComponent* owner;
+        bool isInited;
+        bool hasTick;
+        bool hasLateTick;
+        struct Int32__Array* _selfOnEventIDsCache;
+        bool _isSelfOnEventIDsCached;
+        struct Int32__Array* _selfOnEventResolvedIDsCache;
+        bool _isSelfOnEventResolvedIDsCached;
+        struct Int32__Array* _selfListenEventIDsCache;
+        bool _isSelfListenEventIDsCached;
+        bool _enabled;
+        bool _hasEnabledInited;
+        bool _listenEventValid_k__BackingField;
+    };
 
-	struct BaseComponentPlugin {
-		Il2CppClass* klass;
-		MonitorData* monitor;
-		struct BaseComponentPlugin__Fields fields;
-	};
+    struct BaseComponentPlugin {
+        Il2CppClass* klass;
+        MonitorData* monitor;
+        struct BaseComponentPlugin__Fields fields;
+    };
 
-    struct MoleMole_LevelSyncCombatPlugin__Fields {
+    struct LevelSyncCombatPlugin__Fields {
         struct BaseComponentPlugin__Fields _;
         struct List_1_MoleMole_CombatEntryProxy_* IKPLMBFILHG;
         float _flushTimeAcc;
     };
 
-    struct MoleMole_LevelSyncCombatPlugin {
-        struct MoleMole_LevelSyncCombatPlugin__Class* klass;
+    struct LevelSyncCombatPlugin {
+        struct LevelSyncCombatPlugin__Class* klass;
         MonitorData* monitor;
-        struct MoleMole_LevelSyncCombatPlugin__Fields fields;
+        struct LevelSyncCombatPlugin__Fields fields;
     };
 
     struct __declspec(align(8)) List_1_MoleMole_CombatEntryProxy___Fields {
@@ -6926,7 +7020,7 @@ namespace app {
         struct JNHGGGCKJNA MFPKMMCPBIA;
         struct Vector3 hitRetreatDir;
     };
-    
+
     // JKIICEAEJPO
     struct AttackResult {
         void* klass;
@@ -7329,7 +7423,6 @@ namespace app {
         struct String* _LODPatternName;
     };
 
-    // HEAOOGNDHBD
     struct EntityExcelConfig {
         struct HEAOOGNDHBD__Class* klass;
         MonitorData* monitor;
@@ -7355,8 +7448,7 @@ namespace app {
         NPCGLOBAL_ACTOR = 0x00000009,
     };
 
-    // NJABADIGNBD
-    struct __declspec(align(8)) NJABADIGNBD__Fields {
+    struct __declspec(align(8)) LocalEntityInfoData__Fields {
         int32_t _index_k__BackingField;
         uint32_t _entityId;
         ActorType__Enum _actorType_k__BackingField;
@@ -7374,9 +7466,9 @@ namespace app {
     };
 
     struct LocalEntityInfoData {
-        struct NJABADIGNBD__Class* klass;
+        struct LocalEntityInfoData__Class* klass;
         MonitorData* monitor;
-        struct NJABADIGNBD__Fields fields;
+        struct LocalEntityInfoData__Fields fields;
     };
 
     enum class GlobalVars_WorldType__Enum : int32_t {
@@ -7396,16 +7488,15 @@ namespace app {
         PSPrepare = 0x0000000c,
     };
 
-    // JJIFGBCGIBJ
-    struct __declspec(align(8)) JJIFGBCGIBJ__Fields {
+    struct __declspec(align(8)) GameWorld__Fields {
         struct String* _scenePath_k__BackingField;
         GlobalVars_WorldType__Enum _worldType_k__BackingField;
     };
 
     struct GameWorld {
-        struct JJIFGBCGIBJ__Class* klass;
+        struct GameWorld__Class* klass;
         MonitorData* monitor;
-        struct JJIFGBCGIBJ__Fields fields;
+        struct GameWorld__Fields fields;
     };
 
     struct GameManager__Fields {
@@ -7419,7 +7510,7 @@ namespace app {
         int32_t _lastFixedUpdateFrameCount;
         bool _isToGoBackHome;
         bool _isToGoBundleDownload;
-        uint64_t FPIDOPPIIEN;
+        uint64_t pauseApplicationTime;
         struct Coroutine* _setAndroidResolution;
         struct SchedulerMgr* _schedulerMgr;
         struct SchedulerGlobalMgr* _schedulerGlobalMgr;
@@ -7434,54 +7525,54 @@ namespace app {
 
     struct GameManager__StaticFields {
         struct GameManager* Instance;
-        struct DelegateBridge* FBPNECEFLOE;
-        struct DelegateBridge* HEDKJIHFKIF;
-        struct DelegateBridge* FIDKHJLHNGM;
-        struct DelegateBridge* NDAGNLKOLPE;
-        struct DelegateBridge* MMMJIKCBKBA;
-        struct DelegateBridge* FEMDJHNNGIP;
-        struct DelegateBridge* OFCBOBAPGNI;
-        struct DelegateBridge* MMIEBKHECHP;
-        struct DelegateBridge* NOGFLJJGCPM;
-        struct DelegateBridge* NAOBMCHCDNK;
-        struct DelegateBridge* ODFCDGOGKMK;
-        struct DelegateBridge* GOBHFHPLHNI;
-        struct DelegateBridge* CJMEPFLKHGC;
-        struct DelegateBridge* CCAIGGJLPCM;
-        struct DelegateBridge* DAENEDABADP;
-        struct DelegateBridge* FIJHOHDFHNM;
-        struct DelegateBridge* KNODOOBIECN;
-        struct DelegateBridge* IDNHIBHNLKN;
-        struct DelegateBridge* FKPGHAOKNNA;
-        struct DelegateBridge* OGIDMFALLCE;
-        struct DelegateBridge* HPMHMPBPIPH;
-        struct DelegateBridge* LKOKGFECHOC;
-        struct DelegateBridge* NEOMKFJBFMF;
-        struct DelegateBridge* PGNHHEOADGH;
-        struct DelegateBridge* PLCBHLBLAKM;
-        struct DelegateBridge* PODJJOCIKKE;
-        struct DelegateBridge* PJJFOIOBMNK;
-        struct DelegateBridge* BNGJOLFLBAO;
-        struct DelegateBridge* IBDCPHHFDOC;
-        struct DelegateBridge* GJFEALCDECN;
-        struct DelegateBridge* ADIEKJEJCFB;
-        struct DelegateBridge* NGKDGPHBKFF;
-        struct DelegateBridge* LAKJBLFGBKJ;
-        struct DelegateBridge* BCLEOEILLNC;
-        struct DelegateBridge* DAJMEAKBGAN;
-        struct DelegateBridge* BMOCIKJNBPF;
-        struct DelegateBridge* OLLLGOPIFOL;
-        struct DelegateBridge* FLPBGLJOHAM;
-        struct DelegateBridge* KLNKCCHCHNK;
-        struct DelegateBridge* FNPDOKCLJOO;
-        struct DelegateBridge* HHLEOPBAMLA;
-        struct DelegateBridge* JJCJBMMEANF;
-        struct DelegateBridge* OEEOBIOMLLN;
-        struct DelegateBridge* LELCNKFCKFJ;
-        struct DelegateBridge* INGDHADKJIA;
-        struct DelegateBridge* OGEJPOJNOJE;
-        struct DelegateBridge* KFFODBNIPKJ;
-        struct DelegateBridge* CBPFFHKDBBG;
+        struct DelegateBridge* OAGELDJLOJD;
+        struct DelegateBridge* NEABNMMILLI;
+        struct DelegateBridge* KEOKLBODBLP;
+        struct DelegateBridge* DEEMHHNNOEK;
+        struct DelegateBridge* KIMMOGJPFFD;
+        struct DelegateBridge* LBFLLENAFKB;
+        struct DelegateBridge* IABPFHNPPCJ;
+        struct DelegateBridge* BMEDOLOGBCB;
+        struct DelegateBridge* CCMJFDDMCFG;
+        struct DelegateBridge* BAFLDGOPNOO;
+        struct DelegateBridge* MAIMNJNJDGC;
+        struct DelegateBridge* BKILMOMOHAB;
+        struct DelegateBridge* HNMMHCNFPCD;
+        struct DelegateBridge* DACANBJAGPF;
+        struct DelegateBridge* JGPNHNMDPDB;
+        struct DelegateBridge* ADDDBIFJPFO;
+        struct DelegateBridge* JHLAEBJBMOD;
+        struct DelegateBridge* AHBOCPFBOCL;
+        struct DelegateBridge* POFODBIGLFB;
+        struct DelegateBridge* CDNGECKGDMH;
+        struct DelegateBridge* DCOPNDDOBKC;
+        struct DelegateBridge* OGMBELHIGBH;
+        struct DelegateBridge* KHENDDJCHIP;
+        struct DelegateBridge* NEEFOPMIMCF;
+        struct DelegateBridge* CMGIEDELLDJ;
+        struct DelegateBridge* DCKAELBHEEC;
+        struct DelegateBridge* PNLGKJHENMN;
+        struct DelegateBridge* MCONGDJILEF;
+        struct DelegateBridge* PDIGKMFPAME;
+        struct DelegateBridge* DLGKDHDBDEF;
+        struct DelegateBridge* INLLOKNJEPG;
+        struct DelegateBridge* EIMHAAKNEPG;
+        struct DelegateBridge* PBLANCHOJAG;
+        struct DelegateBridge* BGMPGGDLHJL;
+        struct DelegateBridge* CLELPJPKLKF;
+        struct DelegateBridge* GOCBMGBJNIM;
+        struct DelegateBridge* GJDECCBHKDJ;
+        struct DelegateBridge* EFBOILNAOGP;
+        struct DelegateBridge* GGAGDELBNNO;
+        struct DelegateBridge* FAFFFDMLIDM;
+        struct DelegateBridge* PLOIIMCGGLJ;
+        struct DelegateBridge* JMFLAJFLGAF;
+        struct DelegateBridge* BLEKOLCNEOI;
+        struct DelegateBridge* GJJMMCPAIOJ;
+        struct DelegateBridge* FBPBBLIMCMH;
+        struct DelegateBridge* KAFNJPDAOHE;
+        struct DelegateBridge* DCKCMNEFOLB;
+        struct DelegateBridge* NPNJEJGNKLP;
     };
 
     struct GameManager__Class {
@@ -7565,58 +7656,58 @@ namespace app {
     };
 
     struct __declspec(align(8)) BaseComponent__Fields {
-		uint32_t componentRuntimeID;
-		uint32_t entityRuntimeID;
-		bool preTick;
-		int32_t order;
-		struct ComponentManager* _componentManager;
-		struct BaseEntity* _entity;
-		bool _isToBeRemoved;
-		bool _enabled;
-		bool hasTick;
-		bool hasLateTick;
-		bool _selfHasTick;
-		bool _selfHasLateTick;
-		bool _managerTick;
-		bool _managerLateTick;
-		struct List_1_System_Int32_* onEventIDs;
-		struct List_1_System_Int32_* listenEventIDs;
-		struct Int32__Array* _selfOnEventIDsCache;
-		bool _isSelfOnEventIDsCached;
-		struct Int32__Array* _selfListenEventIDsCache;
-		bool _isSelfListenEventIDsCached;
-		struct Action* preInitCallback;
-		struct Action* initCallback;
-		bool _canTickIfDisable;
-		bool canTickIfDie;
-		bool canHandleEventIfDie;
-		bool _hasEnabledInited;
-		int32_t _tickIntervalRatio;
-		int32_t _lastTickInterval;
-		struct Action_1_Single_* _tickMethodForEntityTickManager;
-		struct Nullable_1_Boolean_ _isTickableForEntityTickManager;
-		struct Action_1_Single_* _lateTickMethodForEntityTickManager;
-		struct Nullable_1_Boolean_ _isLateTickableForEntityTickManager;
-		struct Action_1_Single_* _latePreTickMethodForEntityTickManager;
-		struct Nullable_1_Boolean_ _isLatePreTickableForEntityTickManager;
-		bool needRetarget;
-		bool isInited;
-		bool isPreInited;
-		bool hasCallEntityReady;
-		bool _isDestroied;
-		bool _listenEventValid_k__BackingField;
-		struct Dictionary_2_System_Type_MoleMole_BaseComponentPlugin_* _pluginMap;
-		struct List_1_MoleMole_BaseComponentPlugin_* _pluginList;
-		struct List_1_MoleMole_BaseComponentPlugin_* _tickPlugins;
-		struct List_1_MoleMole_BaseComponentPlugin_* _lateTickPlugins;
-		struct Dictionary_2_System_Type_System_Int32_* _disableNoTickPlugins;
-		struct Dictionary_2_System_Type_System_Int32_* _disableNoLateTickPlugins;
-		struct Dictionary_2_System_Int32_MoleMole_BaseComponentPlugin_* _onEventPluginMap;
-		struct Dictionary_2_System_Int32_List_1_MoleMole_BaseComponentPlugin_* _onEventPluginsMap;
-		struct Dictionary_2_System_Int32_MoleMole_BaseComponentPlugin_* _listenEventPluginMap;
-		struct Dictionary_2_System_Int32_List_1_MoleMole_BaseComponentPlugin_* _listenEventPluginsMap;
-		bool _bIgnoreIntervalTick_k__BackingField;
-		int32_t _greaterToDisableInterval_k__BackingField;
+        uint32_t componentRuntimeID;
+        uint32_t entityRuntimeID;
+        bool preTick;
+        int32_t order;
+        struct ComponentManager* _componentManager;
+        struct BaseEntity* _entity;
+        bool _isToBeRemoved;
+        bool _enabled;
+        bool hasTick;
+        bool hasLateTick;
+        bool _selfHasTick;
+        bool _selfHasLateTick;
+        bool _managerTick;
+        bool _managerLateTick;
+        struct List_1_System_Int32_* onEventIDs;
+        struct List_1_System_Int32_* listenEventIDs;
+        struct Int32__Array* _selfOnEventIDsCache;
+        bool _isSelfOnEventIDsCached;
+        struct Int32__Array* _selfListenEventIDsCache;
+        bool _isSelfListenEventIDsCached;
+        struct Action* preInitCallback;
+        struct Action* initCallback;
+        bool _canTickIfDisable;
+        bool canTickIfDie;
+        bool canHandleEventIfDie;
+        bool _hasEnabledInited;
+        int32_t _tickIntervalRatio;
+        int32_t _lastTickInterval;
+        struct Action_1_Single_* _tickMethodForEntityTickManager;
+        struct Nullable_1_Boolean_ _isTickableForEntityTickManager;
+        struct Action_1_Single_* _lateTickMethodForEntityTickManager;
+        struct Nullable_1_Boolean_ _isLateTickableForEntityTickManager;
+        struct Action_1_Single_* _latePreTickMethodForEntityTickManager;
+        struct Nullable_1_Boolean_ _isLatePreTickableForEntityTickManager;
+        bool needRetarget;
+        bool isInited;
+        bool isPreInited;
+        bool hasCallEntityReady;
+        bool _isDestroied;
+        bool _listenEventValid_k__BackingField;
+        struct Dictionary_2_System_Type_MoleMole_BaseComponentPlugin_* _pluginMap;
+        struct List_1_MoleMole_BaseComponentPlugin_* _pluginList;
+        struct List_1_MoleMole_BaseComponentPlugin_* _tickPlugins;
+        struct List_1_MoleMole_BaseComponentPlugin_* _lateTickPlugins;
+        struct Dictionary_2_System_Type_System_Int32_* _disableNoTickPlugins;
+        struct Dictionary_2_System_Type_System_Int32_* _disableNoLateTickPlugins;
+        struct Dictionary_2_System_Int32_MoleMole_BaseComponentPlugin_* _onEventPluginMap;
+        struct Dictionary_2_System_Int32_List_1_MoleMole_BaseComponentPlugin_* _onEventPluginsMap;
+        struct Dictionary_2_System_Int32_MoleMole_BaseComponentPlugin_* _listenEventPluginMap;
+        struct Dictionary_2_System_Int32_List_1_MoleMole_BaseComponentPlugin_* _listenEventPluginsMap;
+        bool _bIgnoreIntervalTick_k__BackingField;
+        int32_t _greaterToDisableInterval_k__BackingField;
     };
 
     // FJBDIDKHCPN__Fields
@@ -7713,7 +7804,7 @@ namespace app {
         struct NAPAIPLOOAL* _lcAblityState;
     };
 
-    
+
     struct VCAnimatorMove__Fields {
         struct VCNonHumanoidMoveBase__Fields _;
         struct FACKJKDBOPM* _cache;
@@ -7863,14 +7954,14 @@ namespace app {
         MonitorData* monitor;
         struct LCBaseCombat__Fields fields;
     };
-    
+
     // LDHCNBCCEKM_EHNNABNDBJN__Enum
     enum class EvtFallOnGround_GroundType__Enum : int32_t {
         Land = 0x00000000,
         Water = 0x00000001,
         LandUnderWater = 0x00000002,
     };
-    
+
     // LDHCNBCCEKM__Fields
     struct EvtFallOnGround__Fields {
         struct BaseEvent__Fields _;
@@ -8078,7 +8169,7 @@ namespace app {
         bool _isStarted;
         bool _isFinished;
     };
-    
+
     //PONANPEDGNL__Fields
     struct DialogNextAction__Fields {
         struct BaseInterAction__Fields _;
@@ -8450,7 +8541,7 @@ namespace app {
         struct BaseInterAction__Fields fields;
     };
 
-    struct __declspec(align(8)) ConfigBaseInterAction__Fields 
+    struct __declspec(align(8)) ConfigBaseInterAction__Fields
     {
         InteractionType__Enum _type;
         float _delayTime;
@@ -8551,7 +8642,7 @@ namespace app {
         MAIN_PAGE_MIDDLE_QUEST = 0x00000004,
         MAIN_TOP_HIGH_PRIORITY = 0x00000005,
     };
-    
+
     // IFIGONNBKLP__Enum
     enum class CanvasType__Enum : int32_t {
         Invalid = 0x00000000,
@@ -8598,72 +8689,72 @@ namespace app {
         Normal = 0x000003e8,
     };
 
-	struct __declspec(align(8)) BaseContext__Fields {
-		struct PLGGMHHGNJK* config;
-		int32_t uiType;
-		int32_t queueType;
-		int32_t canvasType;
-		int32_t _loadState;
-		int32_t _viewState;
-		int32_t layerOrder;
-		struct Queue_1_MoleMole_Notify_* _notifyQueue;
-		struct Queue_1_MoleMole_Notify_* _eternalNotifyQueue;
-		struct GameObject* _view_k__BackingField;
-		struct MonoUIProxy* _monoProxy;
-		struct UIMetaInfo _metaInfo_k__BackingField;
-		struct List_1_UnityEngine_Events_UnityEventBase_* _bindedEvents;
-		struct List_1_MoleMole_MonoEventTrigger_* _eventTriggers;
-		struct List_1_UnityEngine_Coroutine_* _bindedCoroutines;
-		struct Coroutine* _fadeOutCoroutine;
-		struct Action_1_MoleMole_BaseContext_* onLoadFinish;
-		struct Action* closeCallback;
-		struct Action* releaseCallback;
-		struct Action* fadeOutCallback;
-		bool _setViewAsLast;
-		bool _setViewAsFirst;
-		struct List_1_MoleMole_BaseContextComponent_* _baseComponentList;
-		struct List_1_MoleMole_BaseContextComponent_* _tickComponentList;
-		struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentNotifyRegister;
-		struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentPacketRegister;
-		struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentActionEventRegister;
-		uint32_t _pageHandler;
-		bool _isIndependentLoaded;
-		bool _UIResolutionChanged_k__BackingField;
-		bool _landFromBack_k__BackingField;
-		bool _layoutVersionChanged_k__BackingField;
-		struct HashSet_1_System_UInt16_* handlePacketSet;
-		struct LPGAIFHDAHC* _jsonConfig;
-		int32_t _stateID;
-		struct IPKLEDPCMIN__Array* _inputEvents;
-		bool _useCustomInputEvent;
-		struct List_1_IPKLEDPCMIN_* _customeInputEvent;
-		bool _enableJoypadVirtualCursor;
-		struct Nullable_1_Boolean_ _forceEnableJoypadVirtualCursor;
-		bool _handledInputEvents;
-		int32_t _inputMode;
-		uint32_t _keySettingID;
-		struct List_1_HHOMOPLIOLJ_* _joypadControllerCache;
-		bool _needResolveJoypadController;
-		bool _useCommonTemplateConfig;
-		bool _needResolveKeyMouseController;
-		bool _needAutoHideContextJoypadIconOnBackend;
-		struct Dictionary_2_System_Int32_UniRx_Tuple_3_* _storedJoypadIconStateIns;
-		struct Dictionary_2_System_String_HHOMOPLIOLJ_* _name2JoypadController;
-		int32_t _pcCursorMode;
-		bool _updateJoypadUIModule;
-		bool _contextClosed;
-		struct List_1_MoleMole_BaseContext_JoypadUIModulesList_* _joypadUIModules;
-		struct List_1_MoleMole_MonoJoypadUIModule_* _modulesToBeAdd;
-		struct List_1_MoleMole_MonoJoypadUIModule_* _modulesToBeRemove;
-		struct List_1_MoleMole_MonoJoypadUIModule_* _joypadUIModuleCache;
-		struct List_1_MoleMole_MonoJoypadNavRegionBase_* _navRegionCache;
-		bool _changeClimateLen;
-		bool _showClimateLenEff;
-		bool _immedialteClimateLenEff;
-		struct Dictionary_2_MoleMole_MonoControllerIcon_Stack_1_System_Boolean_* _controllerIconWithState;
-		struct List_1_MoleMole_MonoControllerIcon_* controllerIcons;
-		struct MJNGIMLAOFN* _spriteLoadProxy;
-	};
+    struct __declspec(align(8)) BaseContext__Fields {
+        struct PLGGMHHGNJK* config;
+        int32_t uiType;
+        int32_t queueType;
+        int32_t canvasType;
+        int32_t _loadState;
+        int32_t _viewState;
+        int32_t layerOrder;
+        struct Queue_1_MoleMole_Notify_* _notifyQueue;
+        struct Queue_1_MoleMole_Notify_* _eternalNotifyQueue;
+        struct GameObject* _view_k__BackingField;
+        struct MonoUIProxy* _monoProxy;
+        struct UIMetaInfo _metaInfo_k__BackingField;
+        struct List_1_UnityEngine_Events_UnityEventBase_* _bindedEvents;
+        struct List_1_MoleMole_MonoEventTrigger_* _eventTriggers;
+        struct List_1_UnityEngine_Coroutine_* _bindedCoroutines;
+        struct Coroutine* _fadeOutCoroutine;
+        struct Action_1_MoleMole_BaseContext_* onLoadFinish;
+        struct Action* closeCallback;
+        struct Action* releaseCallback;
+        struct Action* fadeOutCallback;
+        bool _setViewAsLast;
+        bool _setViewAsFirst;
+        struct List_1_MoleMole_BaseContextComponent_* _baseComponentList;
+        struct List_1_MoleMole_BaseContextComponent_* _tickComponentList;
+        struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentNotifyRegister;
+        struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentPacketRegister;
+        struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentActionEventRegister;
+        uint32_t _pageHandler;
+        bool _isIndependentLoaded;
+        bool _UIResolutionChanged_k__BackingField;
+        bool _landFromBack_k__BackingField;
+        bool _layoutVersionChanged_k__BackingField;
+        struct HashSet_1_System_UInt16_* handlePacketSet;
+        struct LPGAIFHDAHC* _jsonConfig;
+        int32_t _stateID;
+        struct IPKLEDPCMIN__Array* _inputEvents;
+        bool _useCustomInputEvent;
+        struct List_1_IPKLEDPCMIN_* _customeInputEvent;
+        bool _enableJoypadVirtualCursor;
+        struct Nullable_1_Boolean_ _forceEnableJoypadVirtualCursor;
+        bool _handledInputEvents;
+        int32_t _inputMode;
+        uint32_t _keySettingID;
+        struct List_1_HHOMOPLIOLJ_* _joypadControllerCache;
+        bool _needResolveJoypadController;
+        bool _useCommonTemplateConfig;
+        bool _needResolveKeyMouseController;
+        bool _needAutoHideContextJoypadIconOnBackend;
+        struct Dictionary_2_System_Int32_UniRx_Tuple_3_* _storedJoypadIconStateIns;
+        struct Dictionary_2_System_String_HHOMOPLIOLJ_* _name2JoypadController;
+        int32_t _pcCursorMode;
+        bool _updateJoypadUIModule;
+        bool _contextClosed;
+        struct List_1_MoleMole_BaseContext_JoypadUIModulesList_* _joypadUIModules;
+        struct List_1_MoleMole_MonoJoypadUIModule_* _modulesToBeAdd;
+        struct List_1_MoleMole_MonoJoypadUIModule_* _modulesToBeRemove;
+        struct List_1_MoleMole_MonoJoypadUIModule_* _joypadUIModuleCache;
+        struct List_1_MoleMole_MonoJoypadNavRegionBase_* _navRegionCache;
+        bool _changeClimateLen;
+        bool _showClimateLenEff;
+        bool _immedialteClimateLenEff;
+        struct Dictionary_2_MoleMole_MonoControllerIcon_Stack_1_System_Boolean_* _controllerIconWithState;
+        struct List_1_MoleMole_MonoControllerIcon_* controllerIcons;
+        struct MJNGIMLAOFN* _spriteLoadProxy;
+    };
 
     //BLDKFDKIPLL__Fields
     struct BasePageContext__Fields {
@@ -8679,8 +8770,7 @@ namespace app {
         bool _joyFocusOnParentPage;
     };
 
-    struct EAFLDMPLBHM__Fields
-    {
+    struct InLevelMapPageContext__Fields {
         struct BasePageContext__Fields _;
         struct GameObject* _mapGameObject;
         struct MonoLevelMapUI* _mapScript;
@@ -8693,40 +8783,42 @@ namespace app {
         struct Rect _mapViewRect;
         struct MonoMapMark* _localAvatarMark;
         struct Rect _markContainerViewport;
-        struct KOMADDJAPGE* _infoTextDialog;
+        struct HFMNOFIECPF* _infoTextDialog;
         int32_t _markLayer;
         uint32_t _markId;
         struct GeneralMarkData* _trackingMark;
-        HOOPGAGKHLD__Enum _markType;
+        MoleMole_Config_MarkType__Enum _markType;
         bool _needTrack;
         struct List_1_MoleMole_MonoMapMark_* _nearMarks;
         struct MonoMapMark* _hintMark;
-        struct List_1_EAFLDMPLBHM_NLCLBJEHBMN_* _rewardTipsDataList;
         struct Vector3 _customMarkWorldPos;
-        struct csh_String* _customMarkTitle;
-        NOIPNNCFAAH__Enum _customMarktype;
+        struct String* _customMarkTitle;
+        MoleMole_Config_MarkIconType__Enum _customMarktype;
         bool _isCreatCustomMark;
         bool _isCenterCameraNoReason;
-        bool FBKBFCDAEDI;
+        bool GBCMNPNHCBH;
         uint32_t _customMarkTrackMonsterID;
         uint32_t _customMarkTrackQuestID;
-        BJAPMFFMMCK__Enum _customMarkTrackReasonType;
+        MoleMole_CustomMarkTrackReasonType__Enum _customMarkTrackReasonType;
         bool _isAdventureHandbookOpened;
         float _slideValue;
-        struct HOHOGPGIKKN* _resinComp;
-        struct BPCFKJMPBBC* _zoomAudioComp;
+        struct MoleMole_ResinViewComponent* _resinComp;
+        struct MoleMole_ZoomAudioComponent* _zoomAudioComp;
         struct Dictionary_2_MoleMole_MonoMapMark_UnityEngine_GameObject_* trackingIndictor;
-        bool _HEAOOGEKNJK_k__BackingField;
+        struct Coroutine* ELELLFBCPFM;
+        bool _NJHAEHLFGNP_k__BackingField;
+        bool JNBIIIHNPOL;
         float currAnimTime;
         struct Vector2 startPos;
+        float EGDCGHPCIGD;
+        float NNGIPKNIHHL;
+        struct Vector2 MABOFOAAIDK;
         float resetPeriod;
-        float BPLBOIGMCCO;
-        struct Vector2 MBGMMKGDHFN;
-        float undef;
-        bool FOOHKNKEEPD;
+        bool DAMOBDBBBPD;
         struct Vector2 _currRectPos;
         struct Vector2 _currRectSize;
         struct Dictionary_2_System_UInt32_UnityEngine_GameObject_* _companionIndicators;
+        struct List_1_System_UInt32_* EDDEMHGPOBD;
         struct GameObject* _playerIndicator;
         struct Vector2 _newPos;
         struct Dictionary_2_System_UInt32_UnityEngine_GameObject_* _questAreaMarkDic;
@@ -8739,49 +8831,43 @@ namespace app {
         struct List_1_UnityEngine_EventSystems_RaycastResult_* _raycastResults;
         struct GameObject* _currOverGameObject;
         bool _anyMarkUnderCursor;
-        int32_t _selectedRewardTipsIndex;
         bool _resinOpened;
-        MHANBAIKDCD__Enum _currTag;
+        MoleMole_Config_MapTagType__Enum _currTag;
         uint32_t _currShownID;
         uint32_t _currSelectedID;
-        struct PKCJCICHFJC* _currSelectedConfig;
-        struct List_1_PKCJCICHFJC_* _mapTagConfig;
+        struct MoleMole_Config_MapTagDataConfig* _currSelectedConfig;
+        struct List_1_MoleMole_Config_MapTagDataConfig_* _mapTagConfig;
         uint32_t _sceneToLoad;
         int32_t _currSelectIndex;
         struct MonoMapMark* _selectedDungeonMark;
         uint32_t BOSS_DUNGEON_ENTRY_ID;
-        EAFLDMPLBHM_IBEOPIEDJDK__Enum _markTipsContentType;
-        struct List_1_EBCLABJBIDD_* _reward;
-        struct List_1_GAIJHKCIOOP_* _rewardPreviewList;
-        struct JCCCCPCLMGF* _selectedDungeonEntry;
-        EAFLDMPLBHM_BHFDPHAPALK__Enum _selectDungeonEntryState;
+        MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_MarkTipsContentType__Enum _markTipsContentType;
+        struct List_1_MoleMole_BagItem_* _reward;
+        struct List_1_MoleMole_Config_IdCountStrConfig_* _rewardPreviewList;
+        float BCHEAHAGENA;
+        uint32_t GJBPAHMALJE;
+        struct MoleMole_Config_DungeonEntry* _selectedDungeonEntry;
+        MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryState__Enum _selectDungeonEntryState;
         struct Coroutine* _updateDungeonCooldownTipsCoroutine;
-        struct EAFLDMPLBHM_ICAOJBLGIAO _dungeonEntryInfoList;
-        uint32_t _dungeonEntryPointID;
-        EAFLDMPLBHM_HJGDLNPCEGD__Enum _dungeonTabSelectState;
-        struct MonoDungeonTabTip* _selectedTitle;
-        int32_t _selectedTitleIndex;
-        struct MonoItemSlot* _selectedReward;
-        int32_t _selectedRewardIndex;
-        int32_t _rewardPerRow;
-        struct JBCMLPBCANL _itemTipsHelper;
+        struct MoleMole_ItemTipsDialogHelper _itemTipsHelper;
         struct Coroutine* _updateFarmFieldCoroutine;
         struct GameObject* _newMaxLevelGO;
-        struct KEPFBCOBFLP* _moonfinTrialRewardPreviewComponent;
+        struct DHJFLMJAIED* _moonfinTrialRewardPreviewComponent;
         struct Coroutine* _updateReviveCooldownCoroutine;
         int32_t _selectedMapTagIndex;
         int32_t _selectedPanelTagIndex;
         struct MonoMapMark* _selectedCustomMark;
         int32_t _customMarkCount;
-        struct NOIPNNCFAAH__Enum__Array* _customMarkIcons;
+        struct MoleMole_Config_MarkIconType__Enum__Array* _customMarkIcons;
         struct Vector2 _currMapPos;
+        struct Dictionary_2_System_UInt32_List_1_MoleMole_InLevelMapPageContext_BKKFEMNNBMG_* LOLNIIFFJON;
+        int32_t MAPJENKCNNE;
     };
 
-    // EAFLDMPLBHM 
     struct InLevelMapPageContext {
         void* klass;
         MonitorData* monitor;
-        EAFLDMPLBHM__Fields fields;
+        InLevelMapPageContext__Fields fields;
     };
 
     // IMNNHKGBACI__Fields
@@ -9077,7 +9163,7 @@ namespace app {
         MonitorData* monitor;
         struct NLHGPLIGNNJ__Fields fields;
     };
-    
+
     struct EvtCrash__Fields {
         struct BaseEvent__Fields _;
         float velChange;
@@ -9242,25 +9328,25 @@ namespace app {
         struct FFFIBMKHGML__Fields fields;
     };
 
-	enum class Miscs_ChangeAvatarFailType__Enum : int32_t {
-		NONE = 0x00000000,
-		FAIL_AIM = 0x00000001,
-		FAIL_CLIMB = 0x00000002,
-		FAIL_FLY = 0x00000003,
-		FAIL_JUMP = 0x00000004,
-		FAIL_LADDER = 0x00000005,
-		FAIL_SWIM = 0x00000006,
-		FAIL_IN_PROCESS = 0x00000007,
-		FAIL_LEVEL_FORBIDDEN = 0x00000008,
-		FAIL_TARGETAVATAR = 0x00000009,
-		FAIL_PERFORM = 0x0000000a,
-		FAIL_DEAD = 0x0000000b,
-		FAIL_COOLDOWN = 0x0000000c,
-	};
+    enum class Miscs_ChangeAvatarFailType__Enum : int32_t {
+        NONE = 0x00000000,
+        FAIL_AIM = 0x00000001,
+        FAIL_CLIMB = 0x00000002,
+        FAIL_FLY = 0x00000003,
+        FAIL_JUMP = 0x00000004,
+        FAIL_LADDER = 0x00000005,
+        FAIL_SWIM = 0x00000006,
+        FAIL_IN_PROCESS = 0x00000007,
+        FAIL_LEVEL_FORBIDDEN = 0x00000008,
+        FAIL_TARGETAVATAR = 0x00000009,
+        FAIL_PERFORM = 0x0000000a,
+        FAIL_DEAD = 0x0000000b,
+        FAIL_COOLDOWN = 0x0000000c,
+    };
 
-	struct __declspec(align(8)) GMNHONOINDB__Fields {
-		struct Dictionary_2_System_UInt32_Dictionary_2_System_Int32_List_1_CFKBGDNLDGP_* MFEPPBMCAGP;
-	};
+    struct __declspec(align(8)) GMNHONOINDB__Fields {
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_Int32_List_1_CFKBGDNLDGP_* MFEPPBMCAGP;
+    };
 
     enum class MoleMole_Config_JsonClimateType__Enum : int32_t {
         Normal = 0x00000000,
@@ -9280,7 +9366,7 @@ namespace app {
         Count = 0x0000000e,
     };
 
-    struct __declspec(align(8)) MoleMole_DataItem__Fields {
+    struct __declspec(align(8)) DataItem__Fields {
         uint32_t _entityId_k__BackingField;
         struct Dictionary_2_MoleMole_SafeUInt32_MoleMole_SafeDouble_* _cacheNormalPropValueDic;
         struct Dictionary_2_MoleMole_SafeUInt32_MoleMole_SafeFloat_* _cacheFightPropValueDic;
@@ -9291,9 +9377,9 @@ namespace app {
     };
 
     struct DataItem {
-        struct MoleMole_DataItem__Class* klass;
+        struct DataItem__Class* klass;
         MonitorData* monitor;
-        struct MoleMole_DataItem__Fields fields;
+        struct DataItem__Fields fields;
     };
 
     struct BEKFICFOHKL__Fields {
@@ -9340,981 +9426,981 @@ namespace app {
         //uint32_t curAvatarEntityID;
     };
 
-	struct AccountDataItem {
+    struct AccountDataItem {
         struct AccountDataItem__Class* klass;
         MonitorData* monitor;
         struct BEKFICFOHKL__Fields fields;
     };
 
-	struct NEOGDEDNDHF__Fields {
-		struct GMNHONOINDB__Fields _;
-		struct AccountDataItem* _accountData_k__BackingField;
-		struct HBFICKPEILE* openState;
-		uint32_t curWorldType;
-		uint32_t curSceneID;
-		struct OGNHDKJOONG* _curSceneConfig;
-		bool isSereverLevelPaused;
-		uint32_t extraAbilityId;
-		bool extraAbilityEnable;
-		uint64_t extraAbilityUseTime;
-		float AJMFBGNGPIB;
-		float KJKAPGLEELE;
-		struct List_1_UniRx_Tuple_3_* INANHBPCBLC;
-		bool MAOHENNPOMB;
-		bool HEJLGFNHKND;
-		bool NABCGFBLKDJ;
-		bool PNGMLKJFKND;
-		bool MNMODNDPIDD;
-		uint32_t OODBAMHAGPO;
-		uint32_t JPKIAEFDHMD;
-		bool NFMOCKLFAOF;
-		float JJLIHANGKEO;
-		struct Dictionary_2_System_UInt64_System_UInt32_* ICPIOBFBPGA;
-		struct LGPKIADMOBE_System_UInt64_CJFLLIKJGLF_* BDBFEGIMOFI;
-		struct DPHDLLFCIBC* HDOGLGNGMAP;
-		struct PHHEDBDLADE* ANDABFFFNHE;
-		struct Action_1_Single_* KGABFCPEBDG;
-		struct Dictionary_2_System_UInt32_System_UInt32_* EPNCJKKPNIN;
-		struct List_1_System_UInt64_* IDPDPDAENDP;
-		bool HJOJBIBHGEC;
-		struct List_1_JBONEPGMKAD_* ODDFKLCINLC;
-		struct Coroutine* FCJOEAPBMHB;
-		Miscs_ChangeAvatarFailType__Enum FDFCHGCAIPL;
-		uint32_t MFKCKBGCADE;
-		struct String* DMMKLMDFDLE;
-		struct String* JKFKIOAJPKF;
-		struct Dictionary_2_System_UInt32_System_UInt32_* FMMDIGIIBJB;
-		float NDFMECJGCKK;
-		float BHAMGAPDFEH;
-		uint32_t AFIIDKIKKMB;
-		struct List_1_System_UInt32_* DNKMPLJPOHG;
-		uint32_t MAPMNIDOJCG;
-		bool MIMGJGCADKB;
-		uint32_t LCMMMGHFEGG;
-		uint32_t DCGJMGBIDLD;
-		uint32_t GGJMEBPNECC;
-		uint32_t PIJHFCGJBJM;
-		struct CAIMHKHHLHK_LJBGLAADLNC_* FFMOHPPEKLN;
-		struct CAIMHKHHLHK_LJBGLAADLNC_* BLPNAPNOPFN;
-		uint64_t ONAPAACFOBM;
-		struct JIBKJBJNFED* LGADGGJMODA;
-	};
-
-	struct PlayerModule {
-		struct PlayerModule__Class* klass;
-		MonitorData* monitor;
-		struct NEOGDEDNDHF__Fields fields;
-	};
-
-	enum class MapManager_FEDPCJIHAJJ__Enum : int32_t {
-		None = 0x00000000,
-		Morning = 0x00000001,
-		Day = 0x00000002,
-		Afternoon = 0x00000003,
-		Night = 0x00000004,
-		BadWeather = 0x00000005,
-	};
-
-	struct Nullable_1_MoleMole_AsyncJob_ {
-		struct AsyncJob value;
-		bool has_value;
-	};
-
-	struct __declspec(align(8)) MHCEDJLGNMG__Fields {
-		struct String* _curLimitRegionName;
-		bool _isCurActivityLimitRegion;
-		bool _isCurHomeworldLimitRegion;
-		struct Coroutine* _curDestroyLimitRegionCoroutine;
-		struct Dictionary_2_System_String_MKKACPLIBDI_* _polygonLimitRegions;
-		struct MKKACPLIBDI* _curPolygonLimitRegion;
-		struct String* _curPolygonLimitRegionName;
-		bool GJKFDGHHMFA;
-		float _limitRegionDistance;
-		struct Vector3 _limitRegionDirection;
-		struct GameObject* mapObj;
-		struct MonoLevelMapUI* monoLevelMapUI;
-		uint32_t _mapContainerHandle;
-		uint32_t playerSceneID;
-		uint32_t mapSceneID;
-		struct SceneScriptData* _sceneDataInMap;
-		struct MapScriptData* mapData;
-		struct String* _currMapPrefabPath;
-		struct Nullable_1_MoleMole_AsyncJob_ IPADPFPPDJI;
-		bool _forceCurrentScene;
-		uint32_t _mapSceneIDSelected;
-		bool DebugNewmap;
-		struct String* currMapString;
-		struct RectTransform* currParent;
-		struct GameObject* mapGameObjectInst;
-		uint32_t _mapImageHandle;
-		struct MonoLevelMap* levelMap;
-		float mainPageCheckDistance;
-        MapManager_FEDPCJIHAJJ__Enum _currState;
-		bool _hasSignal;
-		struct Vector3 _signalPos;
-		float _distanceThreshold;
-		uint32_t _id;
-		bool CHKBLNNDFDH;
-		struct Dictionary_2_System_UInt32_List_1_CCHDCNEBLGP_* KKDHHBEFNNF;
-		struct List_1_System_String_* EENBABIJFKD;
-		struct List_1_System_String_* FDFHCABDDFE;
-		bool NMJJKJPPIGC;
-	};
-
-	struct MapManager {
-		struct MapManager__Class* klass;
-		MonitorData* monitor;
-		struct MHCEDJLGNMG__Fields fields;
-	};
-
-	struct ANPOFFEGJHG__Fields {
-		struct BaseEntity__Fields _;
-		uint32_t groupId;
-		uint32_t markFlag;
-		uint32_t propOwnerRuntimeID;
-		bool hasSyncCreate;
-		bool _lifeByOwnerLife;
-		bool _registedLifeToOwner;
-		uint32_t _ownerRuntimeID;
-		struct Action* _ownerReadyAction;
-		uint32_t _originOwnerRuntimeID;
-		struct List_1_System_UInt32_* _childrenRuntimeIds;
-		struct List_1_System_String_* _tags;
-        /*
-		struct ANPOFFEGJHG_NGHFEJMFKFL EPLELPAMJBC;
-		bool KCCHJICIHOH;
-		struct CDIKPMFDALH* AALEGLLIIMC;
-		struct LIILPNJKBJI* CFNHGPAJECO;
-		bool NKJDGPLLBBD;
-	    */
+    struct NEOGDEDNDHF__Fields {
+        struct GMNHONOINDB__Fields _;
+        struct AccountDataItem* _accountData_k__BackingField;
+        struct HBFICKPEILE* openState;
+        uint32_t curWorldType;
+        uint32_t curSceneID;
+        struct OGNHDKJOONG* _curSceneConfig;
+        bool isSereverLevelPaused;
+        uint32_t extraAbilityId;
+        bool extraAbilityEnable;
+        uint64_t extraAbilityUseTime;
+        float AJMFBGNGPIB;
+        float KJKAPGLEELE;
+        struct List_1_UniRx_Tuple_3_* INANHBPCBLC;
+        bool MAOHENNPOMB;
+        bool HEJLGFNHKND;
+        bool NABCGFBLKDJ;
+        bool PNGMLKJFKND;
+        bool MNMODNDPIDD;
+        uint32_t OODBAMHAGPO;
+        uint32_t JPKIAEFDHMD;
+        bool NFMOCKLFAOF;
+        float JJLIHANGKEO;
+        struct Dictionary_2_System_UInt64_System_UInt32_* ICPIOBFBPGA;
+        struct LGPKIADMOBE_System_UInt64_CJFLLIKJGLF_* BDBFEGIMOFI;
+        struct DPHDLLFCIBC* HDOGLGNGMAP;
+        struct PHHEDBDLADE* ANDABFFFNHE;
+        struct Action_1_Single_* KGABFCPEBDG;
+        struct Dictionary_2_System_UInt32_System_UInt32_* EPNCJKKPNIN;
+        struct List_1_System_UInt64_* IDPDPDAENDP;
+        bool HJOJBIBHGEC;
+        struct List_1_JBONEPGMKAD_* ODDFKLCINLC;
+        struct Coroutine* FCJOEAPBMHB;
+        Miscs_ChangeAvatarFailType__Enum FDFCHGCAIPL;
+        uint32_t MFKCKBGCADE;
+        struct String* DMMKLMDFDLE;
+        struct String* JKFKIOAJPKF;
+        struct Dictionary_2_System_UInt32_System_UInt32_* FMMDIGIIBJB;
+        float NDFMECJGCKK;
+        float BHAMGAPDFEH;
+        uint32_t AFIIDKIKKMB;
+        struct List_1_System_UInt32_* DNKMPLJPOHG;
+        uint32_t MAPMNIDOJCG;
+        bool MIMGJGCADKB;
+        uint32_t LCMMMGHFEGG;
+        uint32_t DCGJMGBIDLD;
+        uint32_t GGJMEBPNECC;
+        uint32_t PIJHFCGJBJM;
+        struct CAIMHKHHLHK_LJBGLAADLNC_* FFMOHPPEKLN;
+        struct CAIMHKHHLHK_LJBGLAADLNC_* BLPNAPNOPFN;
+        uint64_t ONAPAACFOBM;
+        struct JIBKJBJNFED* LGADGGJMODA;
     };
 
-	struct GadgetEntity {
-		struct GadgetEntity__Class* klass;
-		MonitorData* monitor;
-		struct ANPOFFEGJHG__Fields fields;
-	};
+    struct PlayerModule {
+        struct PlayerModule__Class* klass;
+        MonitorData* monitor;
+        struct NEOGDEDNDHF__Fields fields;
+    };
 
-	struct BaseComponent__Array {
-		struct BaseComponent__Array__Class* klass;
-		MonitorData* monitor;
-		Il2CppArrayBounds* bounds;
-		il2cpp_array_size_t max_length;
-		struct BaseComponent* vector[32];
-	};
+    enum class MapManager_FEDPCJIHAJJ__Enum : int32_t {
+        None = 0x00000000,
+        Morning = 0x00000001,
+        Day = 0x00000002,
+        Afternoon = 0x00000003,
+        Night = 0x00000004,
+        BadWeather = 0x00000005,
+    };
+
+    struct Nullable_1_MoleMole_AsyncJob_ {
+        struct AsyncJob value;
+        bool has_value;
+    };
+
+    struct __declspec(align(8)) MHCEDJLGNMG__Fields {
+        struct String* _curLimitRegionName;
+        bool _isCurActivityLimitRegion;
+        bool _isCurHomeworldLimitRegion;
+        struct Coroutine* _curDestroyLimitRegionCoroutine;
+        struct Dictionary_2_System_String_MKKACPLIBDI_* _polygonLimitRegions;
+        struct MKKACPLIBDI* _curPolygonLimitRegion;
+        struct String* _curPolygonLimitRegionName;
+        bool GJKFDGHHMFA;
+        float _limitRegionDistance;
+        struct Vector3 _limitRegionDirection;
+        struct GameObject* mapObj;
+        struct MonoLevelMapUI* monoLevelMapUI;
+        uint32_t _mapContainerHandle;
+        uint32_t playerSceneID;
+        uint32_t mapSceneID;
+        struct SceneScriptData* _sceneDataInMap;
+        struct MapScriptData* mapData;
+        struct String* _currMapPrefabPath;
+        struct Nullable_1_MoleMole_AsyncJob_ IPADPFPPDJI;
+        bool _forceCurrentScene;
+        uint32_t _mapSceneIDSelected;
+        bool DebugNewmap;
+        struct String* currMapString;
+        struct RectTransform* currParent;
+        struct GameObject* mapGameObjectInst;
+        uint32_t _mapImageHandle;
+        struct MonoLevelMap* levelMap;
+        float mainPageCheckDistance;
+        MapManager_FEDPCJIHAJJ__Enum _currState;
+        bool _hasSignal;
+        struct Vector3 _signalPos;
+        float _distanceThreshold;
+        uint32_t _id;
+        bool CHKBLNNDFDH;
+        struct Dictionary_2_System_UInt32_List_1_CCHDCNEBLGP_* KKDHHBEFNNF;
+        struct List_1_System_String_* EENBABIJFKD;
+        struct List_1_System_String_* FDFHCABDDFE;
+        bool NMJJKJPPIGC;
+    };
+
+    struct MapManager {
+        struct MapManager__Class* klass;
+        MonitorData* monitor;
+        struct MHCEDJLGNMG__Fields fields;
+    };
+
+    struct ANPOFFEGJHG__Fields {
+        struct BaseEntity__Fields _;
+        uint32_t groupId;
+        uint32_t markFlag;
+        uint32_t propOwnerRuntimeID;
+        bool hasSyncCreate;
+        bool _lifeByOwnerLife;
+        bool _registedLifeToOwner;
+        uint32_t _ownerRuntimeID;
+        struct Action* _ownerReadyAction;
+        uint32_t _originOwnerRuntimeID;
+        struct List_1_System_UInt32_* _childrenRuntimeIds;
+        struct List_1_System_String_* _tags;
+        /*
+        struct ANPOFFEGJHG_NGHFEJMFKFL EPLELPAMJBC;
+        bool KCCHJICIHOH;
+        struct CDIKPMFDALH* AALEGLLIIMC;
+        struct LIILPNJKBJI* CFNHGPAJECO;
+        bool NKJDGPLLBBD;
+        */
+    };
+
+    struct GadgetEntity {
+        struct GadgetEntity__Class* klass;
+        MonitorData* monitor;
+        struct ANPOFFEGJHG__Fields fields;
+    };
+
+    struct BaseComponent__Array {
+        struct BaseComponent__Array__Class* klass;
+        MonitorData* monitor;
+        Il2CppArrayBounds* bounds;
+        il2cpp_array_size_t max_length;
+        struct BaseComponent* vector[32];
+    };
 
     struct LCChestPlugin__Class {
         Il2CppClass_0 _0;
     };
 
-	struct BaseComponent__Class {
-		Il2CppClass_0 _0;
-		Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
-		struct BaseComponent__StaticFields* static_fields;
-		const Il2CppRGCTXData* rgctx_data;
-		Il2CppClass_1 _1;
-		// struct BaseComponent__VTable vtable;
-	};
+    struct BaseComponent__Class {
+        Il2CppClass_0 _0;
+        Il2CppRuntimeInterfaceOffsetPair* interfaceOffsets;
+        struct BaseComponent__StaticFields* static_fields;
+        const Il2CppRGCTXData* rgctx_data;
+        Il2CppClass_1 _1;
+        // struct BaseComponent__VTable vtable;
+    };
 
 
-	struct BaseComponent {
-		struct BaseComponent__Class* klass;
-		MonitorData* monitor;
-		struct BaseComponent__Fields fields;
-	};
+    struct BaseComponent {
+        struct BaseComponent__Class* klass;
+        MonitorData* monitor;
+        struct BaseComponent__Fields fields;
+    };
 
-	struct __declspec(align(8)) List_1_MoleMole_BaseComponent___Fields {
-		struct BaseComponent__Array* _items;
-		int32_t _size;
-		int32_t _version;
-	};
+    struct __declspec(align(8)) List_1_MoleMole_BaseComponent___Fields {
+        struct BaseComponent__Array* _items;
+        int32_t _size;
+        int32_t _version;
+    };
 
-	struct List_1_MoleMole_BaseComponent_ {
-		struct List_1_MoleMole_BaseComponent___Class* klass;
-		MonitorData* monitor;
-		struct List_1_MoleMole_BaseComponent___Fields fields;
-	};
+    struct List_1_MoleMole_BaseComponent_ {
+        struct List_1_MoleMole_BaseComponent___Class* klass;
+        MonitorData* monitor;
+        struct List_1_MoleMole_BaseComponent___Fields fields;
+    };
 
-	enum class HOILKKLDNMA_LFAKNILHEEN__Enum : int32_t {
-		None = 0x00000000,
-		TrifleItem = 0x0000000c,
-		GatherGadget = 0x0000000d,
-		Worktop = 0x0000000e,
-		ClientGadget = 0x0000000f,
-		Weather = 0x00000011,
-		AbilityGadget = 0x00000012,
-		StatueGadget = 0x00000013,
-		BossChest = 0x00000014,
-		BlossomChest = 0x00000029,
-		MpPlayReward = 0x0000002a,
-		GeneralReward = 0x0000002b,
-		OfferingInfo = 0x0000002c,
-		FoundationInfo = 0x0000002d,
-		VehicleInfo = 0x0000002e,
-		ShellInfo = 0x0000002f,
-		ScreenInfo = 0x00000030,
-		FishPoolInfo = 0x0000003b,
-		CustomGadgetTreeInfo = 0x0000003c,
-		RoguelikeGadgetInfo = 0x0000003d,
-	};
+    enum class HOILKKLDNMA_LFAKNILHEEN__Enum : int32_t {
+        None = 0x00000000,
+        TrifleItem = 0x0000000c,
+        GatherGadget = 0x0000000d,
+        Worktop = 0x0000000e,
+        ClientGadget = 0x0000000f,
+        Weather = 0x00000011,
+        AbilityGadget = 0x00000012,
+        StatueGadget = 0x00000013,
+        BossChest = 0x00000014,
+        BlossomChest = 0x00000029,
+        MpPlayReward = 0x0000002a,
+        GeneralReward = 0x0000002b,
+        OfferingInfo = 0x0000002c,
+        FoundationInfo = 0x0000002d,
+        VehicleInfo = 0x0000002e,
+        ShellInfo = 0x0000002f,
+        ScreenInfo = 0x00000030,
+        FishPoolInfo = 0x0000003b,
+        CustomGadgetTreeInfo = 0x0000003c,
+        RoguelikeGadgetInfo = 0x0000003d,
+    };
 
-	struct WeeklyBossResinDiscountInfoStruct {
-		uint32_t discountNum;
-		uint32_t discountNumLimit;
-		uint32_t resinCost;
-		uint32_t originalResinCost;
-	};
+    struct WeeklyBossResinDiscountInfoStruct {
+        uint32_t discountNum;
+        uint32_t discountNumLimit;
+        uint32_t resinCost;
+        uint32_t originalResinCost;
+    };
 
 
-	struct GadgetDataItem_CBGKCHACFPE {
-		uint32_t resinCost;
-		uint32_t configId;
-		uint32_t lifeTime;
-		uint32_t blossomRefreshType;
-		uint32_t blossomRefreshId;
-		struct List_1_System_UInt32_* authorisedUIDList;
-		struct List_1_System_UInt32_* openableUID;
-		HOILKKLDNMA_LFAKNILHEEN__Enum type;
-		struct WeeklyBossResinDiscountInfoStruct weeklyBossResinDiscountInfo;
-	};
+    struct GadgetDataItem_CBGKCHACFPE {
+        uint32_t resinCost;
+        uint32_t configId;
+        uint32_t lifeTime;
+        uint32_t blossomRefreshType;
+        uint32_t blossomRefreshId;
+        struct List_1_System_UInt32_* authorisedUIDList;
+        struct List_1_System_UInt32_* openableUID;
+        HOILKKLDNMA_LFAKNILHEEN__Enum type;
+        struct WeeklyBossResinDiscountInfoStruct weeklyBossResinDiscountInfo;
+    };
 
-	struct Nullable_1_MoleMole_GadgetDataItem_CBGKCHACFPE_ {
-		struct GadgetDataItem_CBGKCHACFPE value;
-		bool has_value;
-	};
+    struct Nullable_1_MoleMole_GadgetDataItem_CBGKCHACFPE_ {
+        struct GadgetDataItem_CBGKCHACFPE value;
+        bool has_value;
+    };
 
-	enum class GadgetState__Enum : int32_t {
-		Default = 0x00000000,
-		GatherDrop = 0x00000001,
-		ChestLocked = 0x00000065,
-		ChestOpened = 0x00000066,
-		ChestTrap = 0x00000067,
-		ChestBramble = 0x00000068,
-		ChestFrozen = 0x00000069,
-		ChestRock = 0x0000006a,
-		GearStart = 0x000000c9,
-		GearStop = 0x000000ca,
-		GearAction1 = 0x000000cb,
-		GearAction2 = 0x000000cc,
-		CrystalResonate1 = 0x0000012d,
-		CrystalResonate2 = 0x0000012e,
-		CrystalExplode = 0x0000012f,
-		CrystalDrain = 0x00000130,
-		StatueActive = 0x00000191,
-		Action01 = 0x00000385,
-		Action02 = 0x00000386,
-		Action03 = 0x00000387,
-	};
+    enum class GadgetState__Enum : int32_t {
+        Default = 0x00000000,
+        GatherDrop = 0x00000001,
+        ChestLocked = 0x00000065,
+        ChestOpened = 0x00000066,
+        ChestTrap = 0x00000067,
+        ChestBramble = 0x00000068,
+        ChestFrozen = 0x00000069,
+        ChestRock = 0x0000006a,
+        GearStart = 0x000000c9,
+        GearStop = 0x000000ca,
+        GearAction1 = 0x000000cb,
+        GearAction2 = 0x000000cc,
+        CrystalResonate1 = 0x0000012d,
+        CrystalResonate2 = 0x0000012e,
+        CrystalExplode = 0x0000012f,
+        CrystalDrain = 0x00000130,
+        StatueActive = 0x00000191,
+        Action01 = 0x00000385,
+        Action02 = 0x00000386,
+        Action03 = 0x00000387,
+    };
 
-	enum class AGGAOKGNDPF__Enum : int32_t {
-		GadgetBornNone = 0x00000000,
-		GadgetBornInAir = 0x00000001,
-		GadgetBornPlayer = 0x00000002,
-		GadgetBornMonsterHit = 0x00000003,
-		GadgetBornMonsterDie = 0x00000004,
-		GadgetBornGadget = 0x00000005,
-		GadgetBornGround = 0x00000006
-	};
+    enum class AGGAOKGNDPF__Enum : int32_t {
+        GadgetBornNone = 0x00000000,
+        GadgetBornInAir = 0x00000001,
+        GadgetBornPlayer = 0x00000002,
+        GadgetBornMonsterHit = 0x00000003,
+        GadgetBornMonsterDie = 0x00000004,
+        GadgetBornGadget = 0x00000005,
+        GadgetBornGround = 0x00000006
+    };
 
-	struct __declspec(align(8)) AALJCABGFEP__Fields {
-		uint32_t _entityId_k__BackingField;
-		struct Dictionary_2_KFEENBPGJJA_JMOFLAAALOE_* _cacheNormalPropValueDic;
-		struct Dictionary_2_KFEENBPGJJA_IPEPPEAIJEC_* _cacheFightPropValueDic;
-		bool _isToBeRemoved;
-		bool _unCacheEntity;
-		int32_t climateType;
-		uint32_t climateAreaID;
-	};
+    struct __declspec(align(8)) AALJCABGFEP__Fields {
+        uint32_t _entityId_k__BackingField;
+        struct Dictionary_2_KFEENBPGJJA_JMOFLAAALOE_* _cacheNormalPropValueDic;
+        struct Dictionary_2_KFEENBPGJJA_IPEPPEAIJEC_* _cacheFightPropValueDic;
+        bool _isToBeRemoved;
+        bool _unCacheEntity;
+        int32_t climateType;
+        uint32_t climateAreaID;
+    };
 
-	struct LCIKPOFEIAP_IOJMGCFMHAN {
-		struct DNPMEDDBDLJ* GLJPNCEBHIO;
-	};
+    struct LCIKPOFEIAP_IOJMGCFMHAN {
+        struct DNPMEDDBDLJ* GLJPNCEBHIO;
+    };
 
-	struct Nullable_1_LCIKPOFEIAP_IOJMGCFMHAN_ {
-		struct LCIKPOFEIAP_IOJMGCFMHAN value;
-		bool has_value;
-	};
+    struct Nullable_1_LCIKPOFEIAP_IOJMGCFMHAN_ {
+        struct LCIKPOFEIAP_IOJMGCFMHAN value;
+        bool has_value;
+    };
 
-	struct LCIKPOFEIAP__Fields {
-		struct AALJCABGFEP__Fields _;
-		uint32_t configId;
-		uint32_t mapInstId;
-		uint32_t groupId;
-		uint32_t markFlag;
-		AGGAOKGNDPF__Enum bornType;
-		struct DFMGHHMLIJK* item;
-		uint32_t gatherItemId;
-		bool isForbitGuest;
-		bool isShowCutscene;
+    struct LCIKPOFEIAP__Fields {
+        struct AALJCABGFEP__Fields _;
+        uint32_t configId;
+        uint32_t mapInstId;
+        uint32_t groupId;
+        uint32_t markFlag;
+        AGGAOKGNDPF__Enum bornType;
+        struct DFMGHHMLIJK* item;
+        uint32_t gatherItemId;
+        bool isForbitGuest;
+        bool isShowCutscene;
         uint32_t gadgetState;
         bool isEnableInteract;
         uint32_t authorityPeerId;
-		struct LHANLGFNKOH* platformInfo;
-		uint32_t interactId;
-		bool isOpenedStatue;
-		struct NKLKOKAKOJB* entityClientData;
-		uint32_t mpPlayId;
-		uint32_t draftId;
-		uint32_t chainID;
-		struct List_1_System_UInt32_* optionList;
-		struct List_1_System_UInt32_* interactUids;
-		struct Nullable_1_MoleMole_GadgetDataItem_CBGKCHACFPE_ _openData;
-		struct Nullable_1_LCIKPOFEIAP_IOJMGCFMHAN_ _foundationData;
-		uint32_t liveId;
-		uint32_t vodInteeId;
-		struct UInt64__Array* _avatarsInVehicle;
-		uint32_t ownerUid;
-		uint32_t VEHICLE_SEAT_MAX;
-		float cur_stamina;
-		struct BIMFGAMJHFJ* fishPoolInfo;
-		uint32_t roguelikeCellId;
-		uint32_t roguelikeCellType;
-		uint32_t roguelikeCellState;
-	};
+        struct LHANLGFNKOH* platformInfo;
+        uint32_t interactId;
+        bool isOpenedStatue;
+        struct NKLKOKAKOJB* entityClientData;
+        uint32_t mpPlayId;
+        uint32_t draftId;
+        uint32_t chainID;
+        struct List_1_System_UInt32_* optionList;
+        struct List_1_System_UInt32_* interactUids;
+        struct Nullable_1_MoleMole_GadgetDataItem_CBGKCHACFPE_ _openData;
+        struct Nullable_1_LCIKPOFEIAP_IOJMGCFMHAN_ _foundationData;
+        uint32_t liveId;
+        uint32_t vodInteeId;
+        struct UInt64__Array* _avatarsInVehicle;
+        uint32_t ownerUid;
+        uint32_t VEHICLE_SEAT_MAX;
+        float cur_stamina;
+        struct BIMFGAMJHFJ* fishPoolInfo;
+        uint32_t roguelikeCellId;
+        uint32_t roguelikeCellType;
+        uint32_t roguelikeCellState;
+    };
 
-	struct GadgetDataItem {
-		struct GadgetDataItem__Class* klass;
-		MonitorData* monitor;
-		struct LCIKPOFEIAP__Fields fields;
-	};
+    struct GadgetDataItem {
+        struct GadgetDataItem__Class* klass;
+        MonitorData* monitor;
+        struct LCIKPOFEIAP__Fields fields;
+    };
 
-	struct OMBJBEDFEJP__Fields {
-		struct LCBase__Fields _;
-		struct ConfigGadgetMisc* config;
+    struct OMBJBEDFEJP__Fields {
+        struct LCBase__Fields _;
+        struct ConfigGadgetMisc* config;
         GadgetState__Enum curGadgetState;
-		struct GadgetDataItem* _dataItem;
-		struct LCPose* _lcPos;
-		struct LCChestPlugin* _chestPlugin;
-	};
+        struct GadgetDataItem* _dataItem;
+        struct LCPose* _lcPos;
+        struct LCChestPlugin* _chestPlugin;
+    };
 
-	struct LCGadgetMisc {
-		struct LCGadgetMisc__Class* klass;
-		MonitorData* monitor;
-		struct OMBJBEDFEJP__Fields fields;
-	};
+    struct LCGadgetMisc {
+        struct LCGadgetMisc__Class* klass;
+        MonitorData* monitor;
+        struct OMBJBEDFEJP__Fields fields;
+    };
 
-	struct __declspec(align(8)) ConfigChest__Fields {
-		bool _bornLockedByAbility;
-		struct String* _openEffect;
-		bool _triggerOpenChestVo;
-	};
+    struct __declspec(align(8)) ConfigChest__Fields {
+        bool _bornLockedByAbility;
+        struct String* _openEffect;
+        bool _triggerOpenChestVo;
+    };
 
-	struct ConfigChest {
-		struct ConfigChest__Class* klass;
-		MonitorData* monitor;
-		struct ConfigChest__Fields fields;
-	};
+    struct ConfigChest {
+        struct ConfigChest__Class* klass;
+        MonitorData* monitor;
+        struct ConfigChest__Fields fields;
+    };
 
-	struct LCChestPlugin__Fields {
-		struct BaseComponentPlugin__Fields _;
-		struct ConfigChest* config;
-		struct LCGadgetMisc* _owner;
-		bool _marked;
-		bool _isLockByAbility;
-		struct LevelGadget* _levelGadget;
-		struct Nullable_1_MoleMole_GadgetDataItem_CBGKCHACFPE_ _bossChestData;
-		struct EntityTimerReceiver* _inteeActiveTimer;
-	};
+    struct LCChestPlugin__Fields {
+        struct BaseComponentPlugin__Fields _;
+        struct ConfigChest* config;
+        struct LCGadgetMisc* _owner;
+        bool _marked;
+        bool _isLockByAbility;
+        struct LevelGadget* _levelGadget;
+        struct Nullable_1_MoleMole_GadgetDataItem_CBGKCHACFPE_ _bossChestData;
+        struct EntityTimerReceiver* _inteeActiveTimer;
+    };
 
-	struct LCChestPlugin {
-		struct INNLBCONIIK__Class* klass;
-		MonitorData* monitor;
-		struct LCChestPlugin__Fields fields;
-	};
+    struct LCChestPlugin {
+        struct INNLBCONIIK__Class* klass;
+        MonitorData* monitor;
+        struct LCChestPlugin__Fields fields;
+    };
 
-	struct __declspec(align(8)) FKHDAEKGMKC__Fields
-	{
-		struct ScenePropEffectConfigs* _scenePropEffectConfigs;
-		uint32_t _scenePropEffectConfigsHandle;
-		struct SceneChairConfigs* _sceneChairConfigs;
-		uint32_t _sceneChairConfigsHandle;
-		struct SceneBushConfigs* _sceneBushConfigs;
-		uint32_t _sceneBushConfigsHandle;
-		struct SceneTreeConfigs* _sceneTreeConfigs;
-		uint32_t _sceneTreeConfigsHandle;
-		struct SceneStoneTintConfigs* IJAJFDDPIBF;
-		uint32_t MPGIOKCAEDG;
-		struct Dictionary_2_System_Int32_IIJMGCIOIAP_* _treeBushCollection;
-		struct List_1_NAKCOANCOHK_* _treeBushList;
-		struct Dictionary_2_System_Int32_UnityEngine_Vector3_* _treeBushId2Pos;
-		struct Vector3 _rangeQueryLen;
-		struct Dictionary_2_System_Int32_NAKCOANCOHK_* _scenePropDict;
-		struct Dictionary_2_System_Int32_ECGLPBEEEAA_* _treeTypeDict;
-		struct List_1_MoleMole_MonoEnviroLight_* _pointLights;
-		struct List_1_MoleMole_MonoEnviroCityLight_* _cityLights;
-		struct Vector3 _lastSectorPos;
-		struct FKHDAEKGMKC_DEGEMNHILIP__Array* _treeLeafInfos;
-		int32_t _treeLeafNum;
-		struct MaterialPropertyBlock* _mpb;
-		struct Camera* _mainCam;
-		struct List_1_UnityEngine_Material_* _leafDitherMaterials;
-		struct Dictionary_2_System_Int32_UnityEngine_Vector3__1* _shakeAnims;
-		struct List_1_NAKCOANCOHK_* _playingScenePropShakes;
-		struct List_1_JNFKAAAPLGE_* _chairs;
-		struct GameObject* iceBlockRoot;
-		struct GameObject* _surfaceMeshObjectRoot;
-		struct GameObject* _tileMeshObjectRoot;
-	};
+    struct __declspec(align(8)) FKHDAEKGMKC__Fields
+    {
+        struct ScenePropEffectConfigs* _scenePropEffectConfigs;
+        uint32_t _scenePropEffectConfigsHandle;
+        struct SceneChairConfigs* _sceneChairConfigs;
+        uint32_t _sceneChairConfigsHandle;
+        struct SceneBushConfigs* _sceneBushConfigs;
+        uint32_t _sceneBushConfigsHandle;
+        struct SceneTreeConfigs* _sceneTreeConfigs;
+        uint32_t _sceneTreeConfigsHandle;
+        struct SceneStoneTintConfigs* IJAJFDDPIBF;
+        uint32_t MPGIOKCAEDG;
+        struct Dictionary_2_System_Int32_IIJMGCIOIAP_* _treeBushCollection;
+        struct List_1_NAKCOANCOHK_* _treeBushList;
+        struct Dictionary_2_System_Int32_UnityEngine_Vector3_* _treeBushId2Pos;
+        struct Vector3 _rangeQueryLen;
+        struct Dictionary_2_System_Int32_NAKCOANCOHK_* _scenePropDict;
+        struct Dictionary_2_System_Int32_ECGLPBEEEAA_* _treeTypeDict;
+        struct List_1_MoleMole_MonoEnviroLight_* _pointLights;
+        struct List_1_MoleMole_MonoEnviroCityLight_* _cityLights;
+        struct Vector3 _lastSectorPos;
+        struct FKHDAEKGMKC_DEGEMNHILIP__Array* _treeLeafInfos;
+        int32_t _treeLeafNum;
+        struct MaterialPropertyBlock* _mpb;
+        struct Camera* _mainCam;
+        struct List_1_UnityEngine_Material_* _leafDitherMaterials;
+        struct Dictionary_2_System_Int32_UnityEngine_Vector3__1* _shakeAnims;
+        struct List_1_NAKCOANCOHK_* _playingScenePropShakes;
+        struct List_1_JNFKAAAPLGE_* _chairs;
+        struct GameObject* iceBlockRoot;
+        struct GameObject* _surfaceMeshObjectRoot;
+        struct GameObject* _tileMeshObjectRoot;
+    };
 
-	struct ScenePropManager
-	{
-		struct FKHDAEKGMKC__Class* klass;
-		MonitorData* monitor;
-		struct FKHDAEKGMKC__Fields fields;
-	};
-
-
-	enum class ScenePropType__Enum : int32_t {
-		None = 0x00000000,
-		Tree = 0x00000001,
-		Bush = 0x00000002,
-		Stone = 0x00000003,
-		TreeLeaf = 0x00000004,
-		EnviroLight = 0x00000005,
-		RoomLight = 0x00000006,
-		Chair = 0x00000007,
-		EnviroCityLight = 0x00000008,
-		Count = 0x00000009,
-	};
+    struct ScenePropManager
+    {
+        struct FKHDAEKGMKC__Class* klass;
+        MonitorData* monitor;
+        struct FKHDAEKGMKC__Fields fields;
+    };
 
 
-	struct Bounds {
-		struct Vector3 m_Center;
-		struct Vector3 m_Extents;
-	};
-	struct __declspec(align(8)) BaseScenePropObject__Fields {
-		uint32_t patternNameHash;
-		uint32_t effectPatternNameHash;
-		struct GameObject* mainObj;
-		int32_t instanceId;
-		ScenePropType__Enum sceneType;
-	};
+    enum class ScenePropType__Enum : int32_t {
+        None = 0x00000000,
+        Tree = 0x00000001,
+        Bush = 0x00000002,
+        Stone = 0x00000003,
+        TreeLeaf = 0x00000004,
+        EnviroLight = 0x00000005,
+        RoomLight = 0x00000006,
+        Chair = 0x00000007,
+        EnviroCityLight = 0x00000008,
+        Count = 0x00000009,
+    };
 
-	struct BaseCombatScenePropObject__Fields {
-		struct BaseScenePropObject__Fields _;
-		struct Bounds realBounds;
-		uint32_t entityId;
-		struct Vector3__Array* _anims;
-		struct Vector3 originalPos;
-		float _playTime;
-		bool _isFinish;
-		bool _die;
-	};
 
-	struct JDJGACCAFAA__Fields
-	{
-		struct BaseCombatScenePropObject__Fields _;
-		struct SceneTreeConfig* _config;
-		uint64_t _lastTreeDropTimeStamp;
-		uint64_t _lastHitEffectTimeStamp;
-	};
-    
+    struct Bounds {
+        struct Vector3 m_Center;
+        struct Vector3 m_Extents;
+    };
+    struct __declspec(align(8)) BaseScenePropObject__Fields {
+        uint32_t patternNameHash;
+        uint32_t effectPatternNameHash;
+        struct GameObject* mainObj;
+        int32_t instanceId;
+        ScenePropType__Enum sceneType;
+    };
+
+    struct BaseCombatScenePropObject__Fields {
+        struct BaseScenePropObject__Fields _;
+        struct Bounds realBounds;
+        uint32_t entityId;
+        struct Vector3__Array* _anims;
+        struct Vector3 originalPos;
+        float _playTime;
+        bool _isFinish;
+        bool _die;
+    };
+
+    struct JDJGACCAFAA__Fields
+    {
+        struct BaseCombatScenePropObject__Fields _;
+        struct SceneTreeConfig* _config;
+        uint64_t _lastTreeDropTimeStamp;
+        uint64_t _lastHitEffectTimeStamp;
+    };
+
     struct SceneTreeObject__Class
     { };
 
-	struct SceneTreeObject
-	{
-		struct JDJGACCAFAA__Class* klass;
-		MonitorData* monitor;
-		struct JDJGACCAFAA__Fields fields;
-	};
-
-	struct __declspec(align(8)) ScenePropBaseConfig__Fields {
-		struct String* scenePropPatternName;
-	};
-
-	struct ScenePropCombatBaseConfig__Fields {
-		struct ScenePropBaseConfig__Fields _;
-		struct Bounds triggerBounds;
-		float shakeScale;
-	};
-
-	struct SceneTreeConfig__Fields {
-		struct ScenePropCombatBaseConfig__Fields _;
-		uint32_t configId;
-		bool canDropItem;
-		struct Vector3 dropOffsetPos;
-		struct String* hitEffectName;
-		uint64_t hitEffectCooldown;
-	};
-
-	struct SceneTreeConfig {
-		struct SceneTreeConfig__Class* klass;
-		MonitorData* monitor;
-		struct SceneTreeConfig__Fields fields;
-	};
-
-	enum class ECGLPBEEEAA__Enum : int32_t 
+    struct SceneTreeObject
     {
-		TREE_TYPE_BIRCH = 0x00000001,
-		TREE_TYPE_MAPLE = 0x00000002,
-		TREE_TYPE_PINE = 0x00000003,
-		TREE_TYPE_POPULUS_EUPHRATICA = 0x00000004,
-		TREE_TYPE_BAMBOO = 0x00000005,
-		TREE_TYPE_ENERGY_WOOD = 0x00000006,
-		TREE_TYPE_CYPRESS = 0x00000007,
-		TREE_TYPE_FIRTREE = 0x00000008,
-		TREE_TYPE_CERASUS = 0x00000009,
-		TREE_TYPE_ACER = 0x0000000a,
-		TREE_TYPE_CRYPTOMERIA = 0x0000000b,
-		TREE_TYPE_OTOGI = 0x0000000c,
-	};
+        struct JDJGACCAFAA__Class* klass;
+        MonitorData* monitor;
+        struct JDJGACCAFAA__Fields fields;
+    };
 
-	struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single_ {
-		struct ActorModifier* item1;
-		float item2;
-		struct IElementDurability* item3;
-		float item4;
-	};
+    struct __declspec(align(8)) ScenePropBaseConfig__Fields {
+        struct String* scenePropPatternName;
+    };
 
-	struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single___Boxed {
-		struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single___Class* klass;
-		MonitorData* monitor;
-		struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single_ fields;
-	};
+    struct ScenePropCombatBaseConfig__Fields {
+        struct ScenePropBaseConfig__Fields _;
+        struct Bounds triggerBounds;
+        float shakeScale;
+    };
 
-	struct Nullable_1_UniRx_Tuple_4_ {
-		struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single_ value;
-		bool has_value;
-	};
+    struct SceneTreeConfig__Fields {
+        struct ScenePropCombatBaseConfig__Fields _;
+        uint32_t configId;
+        bool canDropItem;
+        struct Vector3 dropOffsetPos;
+        struct String* hitEffectName;
+        uint64_t hitEffectCooldown;
+    };
 
-	struct IDPLOHKAJML__Fields {
-		struct LCBase__Fields _;
-		struct Dictionary_2_System_Int32_List_1_MLAAELGDIJH_* _elementModifierMap;
-		struct Action* _act;
-		struct List_1_System_Nullable_1_* _modifierDurabilities;
-		struct List_1_UniRx_Tuple_3__1* _elemAccuDurabilities;
-		struct OJGKFFDAGON* _levelAbilityCom;
-		struct OJGKFFDAGON* _selfLCAbility;
-		struct KMALPDEBPFP* _lcAbilityState;
-		struct DGLICFPOFBE* _vcBillboard;
-		float _purgeRate;
-		float _purgeIncement;
-		bool _ignorePurgeRate;
-		struct EDDKNGCGJFI* _grassScenePlugin;
-		struct EADDBDCPBMJ* _waterScenePlugin;
-		struct EBLDCCEGAOF* _bushScenePlugin;
-		struct BDFMIJCPDIC* _shakeInterval;
-		bool _showReactionText;
-		struct String* elementDecrateGroup;
-		bool BHDLGGOBAME;
-		bool AKLPKDONCJH;
-		struct Func_2_MLAAELGDIJH_Boolean_* NEMHEFJLFEA;
-		struct Action_3_GLPNBMKEPPD_CCAMDLAOBAA_Nullable_1_UnityEngine_Vector3_* FDHMHGFNCFD;
-		struct Action_3_GLPNBMKEPPD_CCAMDLAOBAA_Nullable_1_UnityEngine_Vector3_* NIHADNAGOND;
-		struct Vector3 elementReactionPos;
-		bool triggerFrozenBroken;
-		float _lastCrystallizeTime;
-	};
+    struct SceneTreeConfig {
+        struct SceneTreeConfig__Class* klass;
+        MonitorData* monitor;
+        struct SceneTreeConfig__Fields fields;
+    };
 
-	struct LCAbilityElement {
-		struct LCAbilityElement__Class* klass;
-		MonitorData* monitor;
-		struct IDPLOHKAJML__Fields fields;
-	};
+    enum class ECGLPBEEEAA__Enum : int32_t
+    {
+        TREE_TYPE_BIRCH = 0x00000001,
+        TREE_TYPE_MAPLE = 0x00000002,
+        TREE_TYPE_PINE = 0x00000003,
+        TREE_TYPE_POPULUS_EUPHRATICA = 0x00000004,
+        TREE_TYPE_BAMBOO = 0x00000005,
+        TREE_TYPE_ENERGY_WOOD = 0x00000006,
+        TREE_TYPE_CYPRESS = 0x00000007,
+        TREE_TYPE_FIRTREE = 0x00000008,
+        TREE_TYPE_CERASUS = 0x00000009,
+        TREE_TYPE_ACER = 0x0000000a,
+        TREE_TYPE_CRYPTOMERIA = 0x0000000b,
+        TREE_TYPE_OTOGI = 0x0000000c,
+    };
 
-	struct Camera__Fields {
-		struct Behaviour__Fields _;
-	};
+    struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single_ {
+        struct ActorModifier* item1;
+        float item2;
+        struct IElementDurability* item3;
+        float item4;
+    };
 
-	struct Camera {
-		struct Camera__Class* klass;
-		MonitorData* monitor;
-		struct Camera__Fields fields;
-	};
+    struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single___Boxed {
+        struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single___Class* klass;
+        MonitorData* monitor;
+        struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single_ fields;
+    };
 
-	struct Resolution {
-		int32_t m_Width;
-		int32_t m_Height;
-		int32_t m_RefreshRate;
-	};
+    struct Nullable_1_UniRx_Tuple_4_ {
+        struct Tuple_4_MoleMole_ActorModifier_System_Single_MoleMole_IElementDurability_System_Single_ value;
+        bool has_value;
+    };
 
-	struct Collider__Array {
-		struct Collider__Array__Class* klass;
-		MonitorData* monitor;
-		Il2CppArrayBounds* bounds;
-		il2cpp_array_size_t max_length;
-		struct Collider* vector[32];
-	};
+    struct IDPLOHKAJML__Fields {
+        struct LCBase__Fields _;
+        struct Dictionary_2_System_Int32_List_1_MLAAELGDIJH_* _elementModifierMap;
+        struct Action* _act;
+        struct List_1_System_Nullable_1_* _modifierDurabilities;
+        struct List_1_UniRx_Tuple_3__1* _elemAccuDurabilities;
+        struct OJGKFFDAGON* _levelAbilityCom;
+        struct OJGKFFDAGON* _selfLCAbility;
+        struct KMALPDEBPFP* _lcAbilityState;
+        struct DGLICFPOFBE* _vcBillboard;
+        float _purgeRate;
+        float _purgeIncement;
+        bool _ignorePurgeRate;
+        struct EDDKNGCGJFI* _grassScenePlugin;
+        struct EADDBDCPBMJ* _waterScenePlugin;
+        struct EBLDCCEGAOF* _bushScenePlugin;
+        struct BDFMIJCPDIC* _shakeInterval;
+        bool _showReactionText;
+        struct String* elementDecrateGroup;
+        bool BHDLGGOBAME;
+        bool AKLPKDONCJH;
+        struct Func_2_MLAAELGDIJH_Boolean_* NEMHEFJLFEA;
+        struct Action_3_GLPNBMKEPPD_CCAMDLAOBAA_Nullable_1_UnityEngine_Vector3_* FDHMHGFNCFD;
+        struct Action_3_GLPNBMKEPPD_CCAMDLAOBAA_Nullable_1_UnityEngine_Vector3_* NIHADNAGOND;
+        struct Vector3 elementReactionPos;
+        bool triggerFrozenBroken;
+        float _lastCrystallizeTime;
+    };
 
-	struct Collider__Fields {
-		struct Component_1__Fields _;
-	};
+    struct LCAbilityElement {
+        struct LCAbilityElement__Class* klass;
+        MonitorData* monitor;
+        struct IDPLOHKAJML__Fields fields;
+    };
 
-	struct Collider {
-		struct Collider__Class* klass;
-		MonitorData* monitor;
-		struct Collider__Fields fields;
-	};
+    struct Camera__Fields {
+        struct Behaviour__Fields _;
+    };
 
-	struct Behaviour {
-		struct Behaviour__Class* klass;
-		MonitorData* monitor;
-		struct Behaviour__Fields fields;
-	};
+    struct Camera {
+        struct Camera__Class* klass;
+        MonitorData* monitor;
+        struct Camera__Fields fields;
+    };
 
-	struct IGKEDHHIDMA__Fields
-	{
-		struct BasePageContext__Fields _;
-		float EnterCountDown;
-		struct String* CountDownPrefab;
-		struct GameObject* _CountDownGo;
-		struct MonoInLevelProgressBar* _script;
-		float _countDownTime;
-		uint32_t _handle;
-		struct Image* _fillImage;
-		struct Coroutine* countCoroutine;
-		bool _panelActive;
-		bool _countDownAcitve;
-		bool _isEndingCountdown;
-		struct Nullable_1_MoleMole_AsyncJob_ _countDownLoadingJob;
-		int32_t _versusBattleTotle;
-		struct CNCFAOMBJIP* _countDown;
-		struct EAPNPEGAAII* _inteePanelCom;
-		struct AJEAPLJOAON* _directionIndicator;
-		struct ELCMPFBKPBA* _targetIndicator;
-		struct GDIAIBAJMDC* _gadgetIndicator;
-		struct OOKIJPIAEGD* _navigationIndicator;
-		struct LNBLFPFIGFF* _galleryPlay;
-		struct BPJHCKHOCIO* _quickChangeTeamCom;
-		struct MonoParticleDamageTextContainer* _damageParticleTextContainer;
-		void* _pageMono;
-		struct MonoInLevelLimitRegion* _monoBlackMask;
-		struct BEJJFHHKIBA* _newItemDialog;
-		struct NBMGJNBMIOA* _specialItemDialog;
-		struct MLHLCCGMGOP* _galleryDialog;
-		struct GJPBGPGKGNN* _localAvatar;
-		struct Button* _transBtn;
+    struct Resolution {
+        int32_t m_Width;
+        int32_t m_Height;
+        int32_t m_RefreshRate;
+    };
+
+    struct Collider__Array {
+        struct Collider__Array__Class* klass;
+        MonitorData* monitor;
+        Il2CppArrayBounds* bounds;
+        il2cpp_array_size_t max_length;
+        struct Collider* vector[32];
+    };
+
+    struct Collider__Fields {
+        struct Component_1__Fields _;
+    };
+
+    struct Collider {
+        struct Collider__Class* klass;
+        MonitorData* monitor;
+        struct Collider__Fields fields;
+    };
+
+    struct Behaviour {
+        struct Behaviour__Class* klass;
+        MonitorData* monitor;
+        struct Behaviour__Fields fields;
+    };
+
+    struct IGKEDHHIDMA__Fields
+    {
+        struct BasePageContext__Fields _;
+        float EnterCountDown;
+        struct String* CountDownPrefab;
+        struct GameObject* _CountDownGo;
+        struct MonoInLevelProgressBar* _script;
+        float _countDownTime;
+        uint32_t _handle;
+        struct Image* _fillImage;
+        struct Coroutine* countCoroutine;
+        bool _panelActive;
+        bool _countDownAcitve;
+        bool _isEndingCountdown;
+        struct Nullable_1_MoleMole_AsyncJob_ _countDownLoadingJob;
+        int32_t _versusBattleTotle;
+        struct CNCFAOMBJIP* _countDown;
+        struct EAPNPEGAAII* _inteePanelCom;
+        struct AJEAPLJOAON* _directionIndicator;
+        struct ELCMPFBKPBA* _targetIndicator;
+        struct GDIAIBAJMDC* _gadgetIndicator;
+        struct OOKIJPIAEGD* _navigationIndicator;
+        struct LNBLFPFIGFF* _galleryPlay;
+        struct BPJHCKHOCIO* _quickChangeTeamCom;
+        struct MonoParticleDamageTextContainer* _damageParticleTextContainer;
+        void* _pageMono;
+        struct MonoInLevelLimitRegion* _monoBlackMask;
+        struct BEJJFHHKIBA* _newItemDialog;
+        struct NBMGJNBMIOA* _specialItemDialog;
+        struct MLHLCCGMGOP* _galleryDialog;
+        struct GJPBGPGKGNN* _localAvatar;
+        struct Button* _transBtn;
         int32_t _lastLayoutVersion;
-		bool _canChangeMoveType;
-		bool _autoOpenedDungeonFactor;
-		bool _forbiddenToggleMoveByState;
-		bool _isPaimonNormal;
-		bool _isChatEnabled;
-		struct MBKDBIHKAGD* chatBubbleDisplayer;
-		bool _chatPanelResolved;
-		bool _mapActive;
-		bool _transAppear;
-		struct DateTime _rttRefreshTime;
-		struct Color _rttGreen;
-		struct Color _rttYellow;
-		struct Color _rttRed;
-		uint32_t _rttLowLimit;
-		uint32_t _rttMidLimit;
-		uint32_t _rttHighLimit;
-		uint32_t _rttRefreshDeltaTime;
-		struct String* KMBJFGJMNMH;
-		struct Coroutine* _dungeonItemCoroutine;
-		bool _isOpenInputContainer;
-		bool _isOpenActionContainer;
-		bool _isOpenMessageContainer;
-		uint32_t _lastTimeLeft;
-		uint32_t _lastCount;
+        bool _canChangeMoveType;
+        bool _autoOpenedDungeonFactor;
+        bool _forbiddenToggleMoveByState;
+        bool _isPaimonNormal;
+        bool _isChatEnabled;
+        struct MBKDBIHKAGD* chatBubbleDisplayer;
+        bool _chatPanelResolved;
+        bool _mapActive;
+        bool _transAppear;
+        struct DateTime _rttRefreshTime;
+        struct Color _rttGreen;
+        struct Color _rttYellow;
+        struct Color _rttRed;
+        uint32_t _rttLowLimit;
+        uint32_t _rttMidLimit;
+        uint32_t _rttHighLimit;
+        uint32_t _rttRefreshDeltaTime;
+        struct String* KMBJFGJMNMH;
+        struct Coroutine* _dungeonItemCoroutine;
+        bool _isOpenInputContainer;
+        bool _isOpenActionContainer;
+        bool _isOpenMessageContainer;
+        uint32_t _lastTimeLeft;
+        uint32_t _lastCount;
         int32_t combatBarType;
-		struct List_1_EJFOBCPHDFP_* _saveCombatsData;
-		struct GameObject* m_LightingInfoUI;
-		struct GameObject* m_TreeOverdrawInfoUI;
-		struct GameObject* m_QuickRenderMenu;
-		bool _inShakeOff;
-		struct OKGLPFDFCPK* _challengeConfig;
-		struct Coroutine* _blossomBeginCoroutine;
-		struct MonoTowerHintText* _hintPage;
-		struct Coroutine* fleurFairDungeonStartAnimCoroutine;
-		float _curFleurFairDungeonBarValue;
-		bool _isInFlightChallenge;
-		bool _isShowFlightChallengeHint;
-		struct OKGLPFDFCPK* _flightSubChallengeConfig;
-		bool _waitStart;
-		struct Coroutine* _startCoroutine;
-		struct Coroutine* _uidCoroutine;
-		bool _playUidOpEnd;
-		uint32_t _curStage;
-		struct HDMIAHJPLCJ* _combat;
-		struct Coroutine* _altPressCoroutine;
-		struct Coroutine* _cameraLookEndCoroutine;
-		bool _disableSkillInput;
-		bool _disableMoveInput;
-		bool _disableActionInput;
-		bool _mapInfoVisible;
-		bool _chatInfoVisible;
-		struct Dictionary_2_System_Int32_HashSet_1_System_Int32_* _uiDisableStateDic;
-		struct Dictionary_2_System_Int32_HashSet_1_System_Int32_* _inputEnableStateDic;
-		struct HashSet_1_System_Int32_* _mainPageDisableSet;
-		struct DODHAKHMNDK* zoomSmoother;
-		struct KOOFBIDHECP* _virtualDialDialog;
-		struct NOIFCOKPBBI* AEKMPNKPJCK;
-		int32_t _prevState;
-		bool _changeWithSkill;
-		struct DINCOJBJLML* _messageDialog;
-		bool showHazadousWarning;
-		struct List_1_DINCOJBJLML_PGCPDEKPCKM_* HGLADPDCIEO;
-		struct IKECDNKKMJM* _questHintDialog;
-		struct FBCIMPOLFEI* _questProgressDialog;
-		struct ECDKKGFNMNF* _rewardDialogGeneral;
-		struct ECDKKGFNMNF* _rewardDialogQuest;
-		struct ECDKKGFNMNF* _rewardDialogDailyTask;
-		struct ECDKKGFNMNF* _rewardDialogRandTask;
-		struct ECDKKGFNMNF* _rewardDialogGather;
-		struct GCMPGGFPHDJ* _deblockingDialog;
-		struct OEBIPCONBLK* _taskTitleDialog;
-		struct Coroutine* _templateReminderCoroutine;
-		struct PCIKGHOIFOO* _reminderDialog;
-		bool HICPKFKAOCK;
-		struct Nullable_1_UnityEngine_Vector3_ _targetPos;
-		int32_t _lastIntDst;
-		bool _pushtipsShowed;
-		bool BPENOEMPIBP;
-		uint32_t APGMBPPFPDH;
-		struct PGGJOHPFKCO* HIJIBGFKGAC;
-		bool NLNAHEMFIDM;
-		struct MonoMiniMap* _miniMap;
-		struct MonoMapFogAreaGrp* _miniMapFog;
-		bool _mapImgReady;
-		uint32_t _mapImageHandle;
-		uint32_t _mapFogHandle;
-		struct Dictionary_2_System_Int32_Dictionary_2_System_UInt32_MoleMole_MonoMapMark_* _marks;
-		struct HashSet_1_MoleMole_MonoMapMark_* _activeMarks;
-		struct HashSet_1_MoleMole_MonoMapMark_* _candidateMarks;
-		struct Vector2 _searchRegionCenter;
-		struct MonoMapMark* _mapMarkPrefab;
-		uint32_t _sceneID;
-		float _sqrUpdateSearchDistance;
-		float _sqrSearchRegionRadius;
-		struct GameObject* _mapImageInst;
-		float _miniMapScale;
-		float _defaultMiniMapScale;
-		struct RectTransform* _miniMapBackImg;
-		struct MonoLevelMap* _levelMap;
-		struct RectTransform* _levelMapTrans;
-		struct Vector2 rectSize;
-		struct Coroutine* _setScaleCoroutine;
-		float _currTime;
-		float _tweenTime;
-		float _targetScale;
-		float _preScale;
-		bool _forceUpdateMark;
-		struct Vector3 _lastPlayerPos;
-		float _lastCameraAngle;
-		float _lastAvatarAngle;
-		struct BaseEntity* _teamEntity;
-		struct Transform* _cameraTrans;
-		float _markContainerLocalEulerAngleZ;
-		bool updateCamera;
-		struct Vector3 newEulerAngle;
-		int32_t _lastFixType;
-		struct HashSet_1_System_UInt32_* _fakemarkTobeRemoved;
-		bool _mapBackRotateDirty;
-		bool _mapContainerDiry;
-		bool _isSignalActive;
-		float _checkInterval;
-		float _checkTime;
-		float _lastDistance;
-		float _audioTime;
-		float _audioPeriod;
-		uint32_t _signalAudioID;
-		struct String* miniMapQuestMarkPath;
-		struct Dictionary_2_System_UInt32_MoleMole_MonoMapMark_* _fakeMarkDic;
-		uint32_t _fakeMarkHandle;
-		float _sightWorldRadius_k__BackingField;
-		float _markReachToUIRatio_k__BackingField;
-		float _worldUnitPerPixel_k__BackingField;
-		bool _questEnable;
-		struct Coroutine* _spPresstartCoroutine;
-		uint64_t _currentAvatarID;
-		struct List_1_MoleMole_MonoTeamBtn_* _buttonList;
-		struct List_1_System_UInt64_* _avatarGuidList;
-		bool _showChangeAvatarCDText;
-		int32_t _count;
-		struct List_1_MoleMole_MonoMPTeamBtn_* teamBtnList;
-		bool _hideTeamBtnName;
-		float HFFMDBPJNCL;
-		struct Dictionary_2_System_Int32_Queue_1_MoleMole_BaseContext_* _widgetQueueDic;
-		float DELAY_TIME;
-		struct Action* _onSetActiveHandler;
-	};
+        struct List_1_EJFOBCPHDFP_* _saveCombatsData;
+        struct GameObject* m_LightingInfoUI;
+        struct GameObject* m_TreeOverdrawInfoUI;
+        struct GameObject* m_QuickRenderMenu;
+        bool _inShakeOff;
+        struct OKGLPFDFCPK* _challengeConfig;
+        struct Coroutine* _blossomBeginCoroutine;
+        struct MonoTowerHintText* _hintPage;
+        struct Coroutine* fleurFairDungeonStartAnimCoroutine;
+        float _curFleurFairDungeonBarValue;
+        bool _isInFlightChallenge;
+        bool _isShowFlightChallengeHint;
+        struct OKGLPFDFCPK* _flightSubChallengeConfig;
+        bool _waitStart;
+        struct Coroutine* _startCoroutine;
+        struct Coroutine* _uidCoroutine;
+        bool _playUidOpEnd;
+        uint32_t _curStage;
+        struct HDMIAHJPLCJ* _combat;
+        struct Coroutine* _altPressCoroutine;
+        struct Coroutine* _cameraLookEndCoroutine;
+        bool _disableSkillInput;
+        bool _disableMoveInput;
+        bool _disableActionInput;
+        bool _mapInfoVisible;
+        bool _chatInfoVisible;
+        struct Dictionary_2_System_Int32_HashSet_1_System_Int32_* _uiDisableStateDic;
+        struct Dictionary_2_System_Int32_HashSet_1_System_Int32_* _inputEnableStateDic;
+        struct HashSet_1_System_Int32_* _mainPageDisableSet;
+        struct DODHAKHMNDK* zoomSmoother;
+        struct KOOFBIDHECP* _virtualDialDialog;
+        struct NOIFCOKPBBI* AEKMPNKPJCK;
+        int32_t _prevState;
+        bool _changeWithSkill;
+        struct DINCOJBJLML* _messageDialog;
+        bool showHazadousWarning;
+        struct List_1_DINCOJBJLML_PGCPDEKPCKM_* HGLADPDCIEO;
+        struct IKECDNKKMJM* _questHintDialog;
+        struct FBCIMPOLFEI* _questProgressDialog;
+        struct ECDKKGFNMNF* _rewardDialogGeneral;
+        struct ECDKKGFNMNF* _rewardDialogQuest;
+        struct ECDKKGFNMNF* _rewardDialogDailyTask;
+        struct ECDKKGFNMNF* _rewardDialogRandTask;
+        struct ECDKKGFNMNF* _rewardDialogGather;
+        struct GCMPGGFPHDJ* _deblockingDialog;
+        struct OEBIPCONBLK* _taskTitleDialog;
+        struct Coroutine* _templateReminderCoroutine;
+        struct PCIKGHOIFOO* _reminderDialog;
+        bool HICPKFKAOCK;
+        struct Nullable_1_UnityEngine_Vector3_ _targetPos;
+        int32_t _lastIntDst;
+        bool _pushtipsShowed;
+        bool BPENOEMPIBP;
+        uint32_t APGMBPPFPDH;
+        struct PGGJOHPFKCO* HIJIBGFKGAC;
+        bool NLNAHEMFIDM;
+        struct MonoMiniMap* _miniMap;
+        struct MonoMapFogAreaGrp* _miniMapFog;
+        bool _mapImgReady;
+        uint32_t _mapImageHandle;
+        uint32_t _mapFogHandle;
+        struct Dictionary_2_System_Int32_Dictionary_2_System_UInt32_MoleMole_MonoMapMark_* _marks;
+        struct HashSet_1_MoleMole_MonoMapMark_* _activeMarks;
+        struct HashSet_1_MoleMole_MonoMapMark_* _candidateMarks;
+        struct Vector2 _searchRegionCenter;
+        struct MonoMapMark* _mapMarkPrefab;
+        uint32_t _sceneID;
+        float _sqrUpdateSearchDistance;
+        float _sqrSearchRegionRadius;
+        struct GameObject* _mapImageInst;
+        float _miniMapScale;
+        float _defaultMiniMapScale;
+        struct RectTransform* _miniMapBackImg;
+        struct MonoLevelMap* _levelMap;
+        struct RectTransform* _levelMapTrans;
+        struct Vector2 rectSize;
+        struct Coroutine* _setScaleCoroutine;
+        float _currTime;
+        float _tweenTime;
+        float _targetScale;
+        float _preScale;
+        bool _forceUpdateMark;
+        struct Vector3 _lastPlayerPos;
+        float _lastCameraAngle;
+        float _lastAvatarAngle;
+        struct BaseEntity* _teamEntity;
+        struct Transform* _cameraTrans;
+        float _markContainerLocalEulerAngleZ;
+        bool updateCamera;
+        struct Vector3 newEulerAngle;
+        int32_t _lastFixType;
+        struct HashSet_1_System_UInt32_* _fakemarkTobeRemoved;
+        bool _mapBackRotateDirty;
+        bool _mapContainerDiry;
+        bool _isSignalActive;
+        float _checkInterval;
+        float _checkTime;
+        float _lastDistance;
+        float _audioTime;
+        float _audioPeriod;
+        uint32_t _signalAudioID;
+        struct String* miniMapQuestMarkPath;
+        struct Dictionary_2_System_UInt32_MoleMole_MonoMapMark_* _fakeMarkDic;
+        uint32_t _fakeMarkHandle;
+        float _sightWorldRadius_k__BackingField;
+        float _markReachToUIRatio_k__BackingField;
+        float _worldUnitPerPixel_k__BackingField;
+        bool _questEnable;
+        struct Coroutine* _spPresstartCoroutine;
+        uint64_t _currentAvatarID;
+        struct List_1_MoleMole_MonoTeamBtn_* _buttonList;
+        struct List_1_System_UInt64_* _avatarGuidList;
+        bool _showChangeAvatarCDText;
+        int32_t _count;
+        struct List_1_MoleMole_MonoMPTeamBtn_* teamBtnList;
+        bool _hideTeamBtnName;
+        float HFFMDBPJNCL;
+        struct Dictionary_2_System_Int32_Queue_1_MoleMole_BaseContext_* _widgetQueueDic;
+        float DELAY_TIME;
+        struct Action* _onSetActiveHandler;
+    };
 
-	struct InLevelMainPageContext
-	{
-		struct IGKEDHHIDMA__Class* klass;
-		MonitorData* monitor;
-		struct IGKEDHHIDMA__Fields fields;
-	};
+    struct InLevelMainPageContext
+    {
+        struct IGKEDHHIDMA__Class* klass;
+        MonitorData* monitor;
+        struct IGKEDHHIDMA__Fields fields;
+    };
 
-	struct MonoMiniMap__Fields {
-		struct MonoBehaviour__Fields _;
-		struct Button* _actionButton;
-		struct RectTransform* _grpMap;
-		struct RectTransform* _grpMapBack;
-		struct RectTransform* _markContainer;
-		struct RectTransform* _unusedMarkContainer;
-		struct RectTransform* _maskedMarkLayer;
-		struct RectTransform__Array* _markContainerLayers;
-		struct RectTransform* _localAvatarMark;
-		struct RectTransform* _sightFanMark;
-		struct RectTransform* _directionMark;
-		struct RectTransform* _grpMiniBackRotate;
-		struct Image* _imgMiniBack;
-		float _areaMinDistance;
-		struct Queue_1_MoleMole_MonoMapMark_* _unusedMarkPool;
-		struct MonoMapMark* _markPrefab;
-		struct RectTransform* _hazardousArea;
+    struct MonoMiniMap__Fields {
+        struct MonoBehaviour__Fields _;
+        struct Button* _actionButton;
+        struct RectTransform* _grpMap;
+        struct RectTransform* _grpMapBack;
+        struct RectTransform* _markContainer;
+        struct RectTransform* _unusedMarkContainer;
+        struct RectTransform* _maskedMarkLayer;
+        struct RectTransform__Array* _markContainerLayers;
+        struct RectTransform* _localAvatarMark;
+        struct RectTransform* _sightFanMark;
+        struct RectTransform* _directionMark;
+        struct RectTransform* _grpMiniBackRotate;
+        struct Image* _imgMiniBack;
+        float _areaMinDistance;
+        struct Queue_1_MoleMole_MonoMapMark_* _unusedMarkPool;
+        struct MonoMapMark* _markPrefab;
+        struct RectTransform* _hazardousArea;
         float _warningCooldown;
         float _warningTime;
         bool _isWarning;
-		struct InLevelMainPageContext* context;
-	};
+        struct InLevelMainPageContext* context;
+    };
 
-	struct MonoMiniMap {
-		struct MonoMiniMap__Class* klass;
-		MonitorData* monitor;
-		struct MonoMiniMap__Fields fields;
-	};
+    struct MonoMiniMap {
+        struct MonoMiniMap__Class* klass;
+        MonitorData* monitor;
+        struct MonoMiniMap__Fields fields;
+    };
 
-	struct RectTransform__Fields {
-		struct Transform__Fields _;
-	};
+    struct RectTransform__Fields {
+        struct Transform__Fields _;
+    };
 
-	struct RectTransform {
-		struct RectTransform__Class* klass;
-		MonitorData* monitor;
-		struct RectTransform__Fields fields;
-	};
+    struct RectTransform {
+        struct RectTransform__Class* klass;
+        MonitorData* monitor;
+        struct RectTransform__Fields fields;
+    };
 
-	struct Quaternion__Boxed {
-		struct Quaternion__Class* klass;
-		MonitorData* monitor;
-		struct Quaternion fields;
-	};
+    struct Quaternion__Boxed {
+        struct Quaternion__Class* klass;
+        MonitorData* monitor;
+        struct Quaternion fields;
+    };
 
-	enum class InteractType__Enum : int32_t {
-		InteractNone = 0x00000000,
-		InteractPickItem = 0x00000001,
-		InteractGather = 0x00000002,
-		InteractOpenChest = 0x00000003,
-		InteractOpenStatue = 0x00000004,
-		InteractConsum = 0x00000005,
-		InteractMpPlayReward = 0x00000006,
-		InteractView = 0x00000007,
-		InteractGeneralReward = 0x00000008,
-		InteractMiracleRing = 0x00000009,
-		InteractFoundation = 0x0000000a,
-		InteractEchoShell = 0x0000000b,
-		InteractHomeGather = 0x0000000c,
-		InteractEnvAnimal = 0x0000000d,
-		InteractQuestGadget = 0x0000000e,
+    enum class InteractType__Enum : int32_t {
+        InteractNone = 0x00000000,
+        InteractPickItem = 0x00000001,
+        InteractGather = 0x00000002,
+        InteractOpenChest = 0x00000003,
+        InteractOpenStatue = 0x00000004,
+        InteractConsum = 0x00000005,
+        InteractMpPlayReward = 0x00000006,
+        InteractView = 0x00000007,
+        InteractGeneralReward = 0x00000008,
+        InteractMiracleRing = 0x00000009,
+        InteractFoundation = 0x0000000a,
+        InteractEchoShell = 0x0000000b,
+        InteractHomeGather = 0x0000000c,
+        InteractEnvAnimal = 0x0000000d,
+        InteractQuestGadget = 0x0000000e,
         LGHNPMNCLLI = 0x0000000f,
-	};
+    };
 
-	enum InterOpType__Enum {
-		InterOpType__Enum_InterOpFinish = 0x00000000,
-		InterOpType__Enum_InterOpStart = 0x00000001,
-	};
+    enum InterOpType__Enum {
+        InterOpType__Enum_InterOpFinish = 0x00000000,
+        InterOpType__Enum_InterOpStart = 0x00000001,
+    };
 
-	struct GadgetInteractRsp__Fields {
-		struct MessageBase_1__Fields _;
-		int32_t retcode_;
-		uint32_t gadgetEntityId_;
-		InteractType__Enum interactType_;
+    struct GadgetInteractRsp__Fields {
+        struct MessageBase_1__Fields _;
+        int32_t retcode_;
+        uint32_t gadgetEntityId_;
+        InteractType__Enum interactType_;
         InterOpType__Enum opType_;
-		uint32_t gadgetId_;
-	};
+        uint32_t gadgetId_;
+    };
 
-	struct GadgetInteractRsp {
-		struct GadgetInteractRsp__Class* klass;
-		MonitorData* monitor;
-		struct GadgetInteractRsp__Fields fields;
-	};
+    struct GadgetInteractRsp {
+        struct GadgetInteractRsp__Class* klass;
+        MonitorData* monitor;
+        struct GadgetInteractRsp__Fields fields;
+    };
 
     struct EntityHandle_1_BaseEntity_ {
         uint32_t runtimeID;
         struct BaseEntity* _entityRef;
     };
-	
+
     struct GGGIOOJFONN_CCAMDLAOBAA_ {
-		uint32_t ODBALKCAMHN;
-		struct CCAMDLAOBAA* KCIDMFKGBFB;
-	};
+        uint32_t ODBALKCAMHN;
+        struct CCAMDLAOBAA* KCIDMFKGBFB;
+    };
 
     struct __declspec(align(8)) FishingManager__Fields {
-		struct DBEHAHEIEIP__Array* _levelFishBait;
-		struct UInt32__Array* _failedReminder;
-		struct UInt32__Array* _preSuccessReminder;
-		struct UInt32__Array* _star3Reminder;
-		struct UInt32__Array* _star4Reminder;
-		float _lastPreSuccessTime;
-		uint32_t _lastPreSuccessReminder;
-		uint32_t baitId;
-		uint32_t rodId;
-		uint32_t _rodEntityId;
-		uint32_t poolId;
-		uint32_t poolEntityId;
-		uint32_t fishRuntimeId;
-		bool _enterPosChecked;
-		struct Vector3 _enterPos;
-		float _curForce_k__BackingField;
-		float _curDmg_k__BackingField;
-		float _lastForce;
-		float _baseAddForce;
-		float _addForceAcce;
-		float _addForceMax;
-		float _addForceStartTime;
-		float _addForceTime;
-		float _curAddForce;
-		float _baseReduceForce;
-		float _reduceForceAcce;
-		float _reduceForceMax;
-		float _reduceForceStartTime;
-		float _reduceForceTime;
-		float _curReduceForce;
-		float _forceFactorX;
-		float _baseAddAtk;
-		float _addAtkAcce;
-		float _addAtkMax;
-		float _curAddAtk;
-		float _baseReduceAtk;
-		float _dmgFactorX;
-		float _triggerInterval;
-		float _releaseInterval;
-		int32_t _inBonusFlag;
-		float _enterBonusTime;
-		float _maxBonusTime;
-		bool _isEnterFishing_k__BackingField;
-		bool _isFishing;
-		bool _isCastingAnchorPoint_k__BackingField;
-		float _maxDmg;
-		float _triggerTime;
-		float _releaseTime;
-		float _damageZeroTimeStart;
-		float _lastWarnningTime;
-		uint32_t _strength;
-		struct GGGIOOJFONN_CCAMDLAOBAA_ _fishHandle;
-		float LEFNBAMIIFA;
-		float IAGEFBOLFGL;
-		float _bonusCenter;
-		float _bonusRadius;
-		float _curBonusRadius_k__BackingField;
-		float _bonusRadiusSpeed;
-		float _bonusRadiusTime;
-		float _bonusSpeed;
-		float _bonusTarget;
-		float _bonusDir;
-		float _bonusTime;
-		float _bonusDuration;
-		struct Vector2 _bonusDurationRange;
-		struct Vector2 _bonusOffsetRange;
-		struct Vector2 _bonusSpeedRange;
-		float _curBonusSpeed;
-		float _bonusStartAcc;
-		float _bonusEndAcc;
-		float _bonusMoveDst;
-		struct LJHBAOBBLDE* _fishConfig;
-		bool _dmgStart;
-		uint64_t _qteStartTime;
-		int32_t _tipsFlag;
-		struct List_1_HJJINBLMFFC_BDBAIICPIMN_* _skillList;
-		struct HJJINBLMFFC_BDBAIICPIMN* _curForceSkill;
-		struct HJJINBLMFFC_BDBAIICPIMN* _curBonusSkill;
-		struct PCIKGHOIFOO* _generalDialogContext;
+        struct DBEHAHEIEIP__Array* _levelFishBait;
+        struct UInt32__Array* _failedReminder;
+        struct UInt32__Array* _preSuccessReminder;
+        struct UInt32__Array* _star3Reminder;
+        struct UInt32__Array* _star4Reminder;
+        float _lastPreSuccessTime;
+        uint32_t _lastPreSuccessReminder;
+        uint32_t baitId;
+        uint32_t rodId;
+        uint32_t _rodEntityId;
+        uint32_t poolId;
+        uint32_t poolEntityId;
+        uint32_t fishRuntimeId;
+        bool _enterPosChecked;
+        struct Vector3 _enterPos;
+        float _curForce_k__BackingField;
+        float _curDmg_k__BackingField;
+        float _lastForce;
+        float _baseAddForce;
+        float _addForceAcce;
+        float _addForceMax;
+        float _addForceStartTime;
+        float _addForceTime;
+        float _curAddForce;
+        float _baseReduceForce;
+        float _reduceForceAcce;
+        float _reduceForceMax;
+        float _reduceForceStartTime;
+        float _reduceForceTime;
+        float _curReduceForce;
+        float _forceFactorX;
+        float _baseAddAtk;
+        float _addAtkAcce;
+        float _addAtkMax;
+        float _curAddAtk;
+        float _baseReduceAtk;
+        float _dmgFactorX;
+        float _triggerInterval;
+        float _releaseInterval;
+        int32_t _inBonusFlag;
+        float _enterBonusTime;
+        float _maxBonusTime;
+        bool _isEnterFishing_k__BackingField;
+        bool _isFishing;
+        bool _isCastingAnchorPoint_k__BackingField;
+        float _maxDmg;
+        float _triggerTime;
+        float _releaseTime;
+        float _damageZeroTimeStart;
+        float _lastWarnningTime;
+        uint32_t _strength;
+        struct GGGIOOJFONN_CCAMDLAOBAA_ _fishHandle;
+        float LEFNBAMIIFA;
+        float IAGEFBOLFGL;
+        float _bonusCenter;
+        float _bonusRadius;
+        float _curBonusRadius_k__BackingField;
+        float _bonusRadiusSpeed;
+        float _bonusRadiusTime;
+        float _bonusSpeed;
+        float _bonusTarget;
+        float _bonusDir;
+        float _bonusTime;
+        float _bonusDuration;
+        struct Vector2 _bonusDurationRange;
+        struct Vector2 _bonusOffsetRange;
+        struct Vector2 _bonusSpeedRange;
+        float _curBonusSpeed;
+        float _bonusStartAcc;
+        float _bonusEndAcc;
+        float _bonusMoveDst;
+        struct LJHBAOBBLDE* _fishConfig;
+        bool _dmgStart;
+        uint64_t _qteStartTime;
+        int32_t _tipsFlag;
+        struct List_1_HJJINBLMFFC_BDBAIICPIMN_* _skillList;
+        struct HJJINBLMFFC_BDBAIICPIMN* _curForceSkill;
+        struct HJJINBLMFFC_BDBAIICPIMN* _curBonusSkill;
+        struct PCIKGHOIFOO* _generalDialogContext;
     };
 
     struct FishingManager {
@@ -10323,81 +10409,81 @@ namespace app {
         struct FishingManager__Fields fields;
     };
 
-	struct FishBiteRsp__Fields {
-		struct MessageBase_1__Fields _;
-		int32_t retcode_;
-	};
-
-	struct FishBiteRsp {
-		struct FishBiteRsp__Class* klass;
-		MonitorData* monitor;
-		struct FishBiteRsp__Fields fields;
-	};
-
-	struct FishBattleBeginRsp__Fields {
-		struct MessageBase_1__Fields _;
-		int32_t retcode_;
-	};
-
-	struct FishBattleBeginRsp {
-		struct FishBattleBeginRsp__Class* klass;
-		MonitorData* monitor;
-		struct FishBattleBeginRsp__Fields fields;
-	};
-
-	enum class FishBattleResult__Enum : int32_t {
-		None = 0x00000000,
-		Succ = 0x00000001,
-		Fail = 0x00000002,
-		Timeout = 0x00000003,
-		Cancel = 0x00000004,
-		Exit = 0x00000005,
-	};
-
-	enum class FishingEvent__Enum : int32_t {
-		None = 0x00000000,
-		QteStart = 0x00000001,
-		QteTrigger = 0x00000002,
-		RequestQuit = 0x00000003,
-		CastAnchorPoint = 0x00000004,
-		SelectBait = 0x00000005,
-		Pull = 0x00000006,
-		NotifyBait = 0x00000007,
-	};
-
-	struct FishBattleEndRsp__Fields {
-		struct MessageBase_1__Fields _;
-		int32_t retcode_;
-		FishBattleResult__Enum battleResult_;
-		/*
-        bool isGotReward_;
-		FishBattleEndRsp_DFMONJENODL_BCGICPPBNDK__Enum noRewardReason_;
-		struct JKGMNHEOCKM_Proto_ItemParam_* rewardItemList_;
-		struct JKGMNHEOCKM_Proto_ItemParam_* dropItemList_;
-		struct JKGMNHEOCKM_Proto_ItemParam_* talentItemList_;
-	    */
+    struct FishBiteRsp__Fields {
+        struct MessageBase_1__Fields _;
+        int32_t retcode_;
     };
 
-	struct FishBattleEndRsp {
-		struct FishBattleEndRsp__Class* klass;
-		MonitorData* monitor;
-		struct FishBattleEndRsp__Fields fields;
-	};
+    struct FishBiteRsp {
+        struct FishBiteRsp__Class* klass;
+        MonitorData* monitor;
+        struct FishBiteRsp__Fields fields;
+    };
+
+    struct FishBattleBeginRsp__Fields {
+        struct MessageBase_1__Fields _;
+        int32_t retcode_;
+    };
+
+    struct FishBattleBeginRsp {
+        struct FishBattleBeginRsp__Class* klass;
+        MonitorData* monitor;
+        struct FishBattleBeginRsp__Fields fields;
+    };
+
+    enum class FishBattleResult__Enum : int32_t {
+        None = 0x00000000,
+        Succ = 0x00000001,
+        Fail = 0x00000002,
+        Timeout = 0x00000003,
+        Cancel = 0x00000004,
+        Exit = 0x00000005,
+    };
+
+    enum class FishingEvent__Enum : int32_t {
+        None = 0x00000000,
+        QteStart = 0x00000001,
+        QteTrigger = 0x00000002,
+        RequestQuit = 0x00000003,
+        CastAnchorPoint = 0x00000004,
+        SelectBait = 0x00000005,
+        Pull = 0x00000006,
+        NotifyBait = 0x00000007,
+    };
+
+    struct FishBattleEndRsp__Fields {
+        struct MessageBase_1__Fields _;
+        int32_t retcode_;
+        FishBattleResult__Enum battleResult_;
+        /*
+        bool isGotReward_;
+        FishBattleEndRsp_DFMONJENODL_BCGICPPBNDK__Enum noRewardReason_;
+        struct JKGMNHEOCKM_Proto_ItemParam_* rewardItemList_;
+        struct JKGMNHEOCKM_Proto_ItemParam_* dropItemList_;
+        struct JKGMNHEOCKM_Proto_ItemParam_* talentItemList_;
+        */
+    };
+
+    struct FishBattleEndRsp {
+        struct FishBattleEndRsp__Class* klass;
+        MonitorData* monitor;
+        struct FishBattleEndRsp__Fields fields;
+    };
 
 
 
-    #if defined(_CPLUSPLUS_)
-        enum class DataPropOp__Enum : int32_t {
-            Reset = 0x00000000,
-            Change = 0x00000001,
-        };
-    #else
-        enum DataPropOp__Enum {
-            DataPropOp__Enum_Reset = 0x00000000,
-            DataPropOp__Enum_Change = 0x00000001,
-        };
+#if defined(_CPLUSPLUS_)
+    enum class DataPropOp__Enum : int32_t {
+        Reset = 0x00000000,
+        Change = 0x00000001,
+    };
+#else
+    enum DataPropOp__Enum {
+        DataPropOp__Enum_Reset = 0x00000000,
+        DataPropOp__Enum_Change = 0x00000001,
+    };
 
-    #endif
+#endif
 
     struct __declspec(align(8)) NormalTimer__Fields {
         float _timer_k__BackingField;

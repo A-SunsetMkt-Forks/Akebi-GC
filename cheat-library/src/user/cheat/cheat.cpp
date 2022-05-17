@@ -144,7 +144,7 @@ namespace cheat
 		CALL_ORIGIN(GameManager_Update_Hook, __this, method);
 	}
 
-	static void LevelSyncCombatPlugin_RequestSceneEntityMoveReq_Hook(app::BKFGGJFIIKC* __this, uint32_t entityId, app::MotionInfo* syncInfo,
+	static void LevelSyncCombatPlugin_RequestSceneEntityMoveReq_Hook(app::LevelSyncCombatPlugin* __this, uint32_t entityId, app::MotionInfo* syncInfo,
 		bool isReliable, uint32_t relseq, MethodInfo* method)
 	{
 		events::MoveSyncEvent(entityId, syncInfo);

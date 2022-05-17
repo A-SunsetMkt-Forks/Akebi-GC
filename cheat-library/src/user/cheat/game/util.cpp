@@ -8,7 +8,7 @@ namespace cheat::game
 {
 	std::vector<WaypointInfo> GetUnlockedWaypoints(uint32_t targetSceneId)
 	{
-		auto mapModule = GET_SINGLETON(MBHLOBDPKEC);
+		auto mapModule = GET_SINGLETON(MapModule);
 		if (mapModule == nullptr)
 			return {};
 
