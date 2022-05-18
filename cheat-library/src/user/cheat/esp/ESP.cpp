@@ -649,6 +649,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, OozingConcretions);
 		ADD_FILTER_FIELD(puzzle, PirateHelm);
 		ADD_FILTER_FIELD(puzzle, PressurePlate);
+		ADD_FILTER_FIELD(puzzle, SealLocations);
 		ADD_FILTER_FIELD(puzzle, Seelie);
 		ADD_FILTER_FIELD(puzzle, SeelieLamp);
 		ADD_FILTER_FIELD(puzzle, SmallRockPile);

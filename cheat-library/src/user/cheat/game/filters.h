@@ -244,6 +244,7 @@ namespace cheat::game::filters
 		extern SimpleFilter OozingConcretions;
 		extern SimpleFilter PirateHelm;
 		extern WhitelistFilter PressurePlate;
+		extern SimpleFilter SealLocations;
 		extern SimpleFilter SeelieLamp;
 		extern SimpleFilter Seelie;
 		extern SimpleFilter SmallRockPile;

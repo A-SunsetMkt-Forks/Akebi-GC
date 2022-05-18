@@ -245,6 +245,7 @@ namespace cheat::game::filters
 		SimpleFilter OozingConcretions = { app::EntityType__Enum_1::Gadget, "_AbyssCoreLv" };
 		SimpleFilter PirateHelm = { app::EntityType__Enum_1::Field, "_PirateHelm" };
 		WhitelistFilter PressurePlate = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::Field, app::EntityType__Enum_1::Gadget }, std::vector<std::string> {"Gear_Gravity", "_LitPathPlate" } };
+		SimpleFilter SealLocations = { app::EntityType__Enum_1::Gadget, "_RunesKey" };
 		SimpleFilter SeelieLamp = { app::EntityType__Enum_1::Field, "Gear_SeeliaLamp" };
 		SimpleFilter Seelie = { app::EntityType__Enum_1::Platform, "Gear_Seelie" };
 		SimpleFilter SmallRockPile = { app::EntityType__Enum_1::Gadget, "_StonePile_01" };
