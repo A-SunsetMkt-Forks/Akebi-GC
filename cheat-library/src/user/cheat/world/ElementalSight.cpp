@@ -45,7 +45,7 @@ namespace cheat::feature
     {
         ElementalSight& ElementalSight = ElementalSight::GetInstance();
         if (ElementalSight.f_Enabled)
-            __this->fields.elementalSightActivated = true;
+            __this->fields._triggerElementView = true;
         CALL_ORIGIN(LevelSceneElementViewPlugin_Tick_Hook, __this, inDeltaTime, method);
     }
 }

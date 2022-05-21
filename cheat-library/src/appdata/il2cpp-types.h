@@ -3984,7 +3984,6 @@ namespace app {
         struct DTimer__Fields fields;
     };
 
-    // Entity type
     enum class EntityType__Enum_1 : int32_t {
         None = 0x00000000,
         Avatar = 0x00000001,
@@ -4148,9 +4147,9 @@ namespace app {
         struct EntityExcelConfig* excelConfig;
         uint32_t _runtimeID_k__BackingField;
         uint32_t _preRuntimeID_k__BackingField;
-        uint32_t _entityRefCountKey_k__BackingField;
         uint32_t _configID_k__BackingField;
         uint32_t _questID_k__BackingField;
+        uint32_t _switchToQuestID_k__BackingField;
         struct SimpleSafeUInt32 campID;
         bool isDestroied;
         bool isToBeRemoved;
@@ -4215,7 +4214,7 @@ namespace app {
         bool FEFIECBENHD;
         bool MGNKEDPIJKG;
         struct HashList_1_BaseComponent_* _componentsForEntityTickManager;
-        float _APAEMHPDOBM_k__BackingField;
+        float _lastTickTime_k__BackingField;
         struct List_1_BaseEntity_BaseEntity_ComponentInitNotifyData_* _notifyListOnComponentInit;
         struct Dictionary_2_System_String_DynamicCollisionInfo_* _collisionTagDic;
         bool _needSafeEntityInit;
@@ -4239,7 +4238,7 @@ namespace app {
         struct Func_1_Single_* _getBalanceTickDeltaTimeHandler;
         struct Func_1_Boolean_* _getRequestPauseHandler;
         uint64_t animatorConfigPath;
-        struct ConfigAnimator* _animatorConfig;
+        struct Config_ConfigAnimator* _animatorConfig;
         struct AnimatorOverrideController* _animatorOverrideController;
         int32_t _lastSetOverrideAnimeFrame;
         struct AnimatorOverrideController* _originAnimatorController;
@@ -4299,9 +4298,9 @@ namespace app {
         int32_t LPNNDJDEGMI;
         int32_t GFMAMAGCBNE;
         int32_t IPKBDFGENOE;
-        bool BACMMDJGPMH;
-        bool BKIJHDKCOAO;
-        bool DFFPHGGNFOG;
+        bool _isForceDisableEffect;
+        bool _isActorHided;
+        bool _isRoomHided;
         struct Vector3 LMBBHMDGPGE;
         struct Quaternion BFHGMCMIANA;
         float LMACHNHENOB;
@@ -6195,17 +6194,16 @@ namespace app {
     };
 
     struct __declspec(align(8)) Dictionary_2_System_UInt32_BaseEntity___Fields {
-        struct Int32__Array* table;
-        struct Link__Array* linkSlots;
-        struct UInt32__Array* keySlots;
-        struct BaseEntity__Array* valueSlots;
-        int32_t touchedSlots;
-        int32_t emptySlot;
+        struct Int32__Array* buckets;
+        struct Dictionary_2_TKey_TValue_Entry_System_UInt32_MoleMole_BaseEntity___Array* entries;
         int32_t count;
-        int32_t threshold;
-        void* hcp;
-        void* serialization_info;
-        int32_t generation;
+        int32_t version;
+        int32_t freeList;
+        int32_t freeCount;
+        struct IEqualityComparer_1_System_UInt32_* comparer;
+        struct Dictionary_2_TKey_TValue_KeyCollection_System_UInt32_MoleMole_BaseEntity_* keys;
+        struct Dictionary_2_TKey_TValue_ValueCollection_System_UInt32_MoleMole_BaseEntity_* values;
+        struct Object* _syncRoot;
     };
 
     struct Dictionary_2_System_UInt32_BaseEntity_ {
@@ -6215,17 +6213,16 @@ namespace app {
     };
 
     struct __declspec(align(8)) Dictionary_2_System_String_BaseEntity___Fields {
-        struct Int32__Array* table;
-        struct Link__Array* linkSlots;
-        struct String__Array* keySlots;
-        struct BaseEntity__Array* valueSlots;
-        int32_t touchedSlots;
-        int32_t emptySlot;
+        struct Int32__Array* buckets;
+        struct Dictionary_2_TKey_TValue_Entry_System_String_MoleMole_BaseEntity___Array* entries;
         int32_t count;
-        int32_t threshold;
-        void* hcp;
-        void* serialization_info;
-        int32_t generation;
+        int32_t version;
+        int32_t freeList;
+        int32_t freeCount;
+        struct IEqualityComparer_1_System_String_* comparer;
+        struct Dictionary_2_TKey_TValue_KeyCollection_System_String_MoleMole_BaseEntity_* keys;
+        struct Dictionary_2_TKey_TValue_ValueCollection_System_String_MoleMole_BaseEntity_* values;
+        struct Object* _syncRoot;
     };
 
     struct Dictionary_2_System_String_BaseEntity_ {
@@ -6442,37 +6439,37 @@ namespace app {
         struct Packet* udpPacket;
     };
 
-    struct __declspec(align(8)) Dictionary_2_JNHGGGCKJNA_JKNLDEEBGLL___Fields {
+    struct __declspec(align(8)) Dictionary_2_SafeUInt32_JKNLDEEBGLL___Fields {
         struct Int32__Array* table;
         struct Link__Array* linkSlots;
-        struct JNHGGGCKJNA__Array* keySlots;
+        struct SafeUInt32__Array* keySlots;
         struct JKNLDEEBGLL__Array* valueSlots;
         int32_t touchedSlots;
         int32_t emptySlot;
         int32_t count;
         int32_t threshold;
-        struct IEqualityComparer_1_JNHGGGCKJNA_* hcp;
+        struct IEqualityComparer_1_SafeUInt32_* hcp;
         struct SerializationInfo* serialization_info;
         int32_t generation;
     };
 
-    struct JNHGGGCKJNA {
-        int64_t OBMDKAHDODE;
-        int64_t EEADNINIHGI;
+    struct SafeUInt32 {
+        int64_t _data1;
+        int64_t _data2;
     };
 
-    struct JNHGGGCKJNA__Array {
-        struct JNHGGGCKJNA__Array__Class* klass;
+    struct SafeUInt32__Array {
+        struct SafeUInt32__Array__Class* klass;
         MonitorData* monitor;
         Il2CppArrayBounds* bounds;
         il2cpp_array_size_t max_length;
-        struct JNHGGGCKJNA vector[32];
+        struct SafeUInt32 vector[32];
     };
 
-    struct Dictionary_2_JNHGGGCKJNA_JKNLDEEBGLL_ {
+    struct Dictionary_2_SafeUInt32_JKNLDEEBGLL_ {
         void* klass;
         MonitorData* monitor;
-        struct Dictionary_2_JNHGGGCKJNA_JKNLDEEBGLL___Fields fields;
+        struct Dictionary_2_SafeUInt32_JKNLDEEBGLL___Fields fields;
     };
 
     struct JKNLDEEBGLL {
@@ -6840,7 +6837,6 @@ namespace app {
         EvtCount = 0x000000a9,
     };
 
-    // GDNBHGDOMHL__Enum
     enum class EventRemoteState__Enum {
         Local = 0x00000000,
         IsForwarded = 0x00000001,
@@ -6857,7 +6853,7 @@ namespace app {
         bool canBeHandledByDispatcher;
         bool canBeHandledOnlyByListeners;
         bool canBeHandledIfDie;
-        bool warnIfEntityMiss;
+        bool fromEventCache;
         EventRemoteState__Enum remoteState;
         ForwardType__Enum forwardType;
         uint32_t fromPeerID;
@@ -7064,11 +7060,6 @@ namespace app {
         struct ConfigHitPattern__Fields fields;
     };
 
-    struct SafeUInt32 {
-        int64_t _data1;
-        int64_t _data2;
-    };
-
     struct SafeUInt64 {
         int64_t _data1;
         int64_t _data2;
@@ -7212,9 +7203,9 @@ namespace app {
         bool muteElementHurt;
         struct String* onHitEffectName;
         uint32_t attackTimeStamp;
-        struct Nullable_1_MoleMole_Config_TargetType_ targetType;
+        struct Nullable_1_MoleMole_Config_TargetType_  targetType;
         AttackResult_AttackSpecific__Enum attackType;
-        struct AttackResult_HitCollsion hitCollision;
+        struct AttackResult_HitCollsion  hitCollision;
         HitBoxType__Enum hitPosType;
         struct String* animEventId;
         struct String* attackTag;
@@ -7242,9 +7233,9 @@ namespace app {
         struct ConfigHitPattern* attackerHitPattern;
         struct AttackResult_AttackHitEffectResult hitEffResult;
         bool attackerForceCameraShake;
-        void* attackerCameraShake;
+        struct ConfigCameraShake* attackerCameraShake;
         float bulletFlyTime;
-        void* bulletWane;
+        struct ConfigBulletWane* bulletWane;
         int32_t rejectState;
         struct SafeUInt32 AADHIMJJCHK;
         struct SafeUInt32 CMNNNKEGKFI;
@@ -7446,6 +7437,7 @@ namespace app {
         struct BaseEntity__Array* _items;
         int32_t _size;
         int32_t _version;
+        struct Object* _syncRoot;
     };
 
     struct List_1_MoleMole_BaseEntity_ {
@@ -7454,6 +7446,7 @@ namespace app {
         struct List_1_MoleMole_BaseEntity___Fields fields;
     };
 
+    // Entity fields
     struct __declspec(align(8)) EntityManager__Fields {
         bool useTickFunctionTick;
         struct EntityTickContext* _normalEntityTickContext;
@@ -7554,7 +7547,7 @@ namespace app {
     };
 
     struct ConfigEntityPoint {
-        struct BHDHJEAKDNC__Class* klass;
+        struct ConfigEntityPoint__Class* klass;
         MonitorData* monitor;
         struct ConfigEntityPoint__Fields fields;
     };
@@ -7580,7 +7573,6 @@ namespace app {
         struct ConfigEntityTags__Fields fields;
     };
 
-    // HCOMIOBNLBC
     struct ConfigEntity {
         struct ConfigEntity__Class* klass;
         MonitorData* monitor;
@@ -7637,9 +7629,8 @@ namespace app {
         struct SimpleSafeFloat GIDINJKEKGG;
     };
 
-    // EMPFLEMHKJB
     struct ConfigEntityCommon {
-        struct EMPFLEMHKJB__Class* klass;
+        struct ConfigEntityCommon__Class* klass;
         MonitorData* monitor;
         struct ConfigEntityCommon__Fields fields;
     };
@@ -7660,7 +7651,7 @@ namespace app {
     };
 
     struct EntityExcelConfig {
-        struct HEAOOGNDHBD__Class* klass;
+        struct EntityExcelConfig__Class* klass;
         MonitorData* monitor;
         struct EntityExcelConfig__Fields fields;
     };
@@ -8988,7 +8979,7 @@ namespace app {
     //BLDKFDKIPLL__Fields
     struct BasePageContext__Fields {
         struct BaseContext__Fields _;
-        struct List_1_IMNNHKGBACI_* dialogContextList;
+        struct List_1_BaseDialogContext_* dialogContextList;
         struct List_1_KFFFGJNHFBL_* subPageContextList;
         bool _forceLodOff;
         bool _autoClosePageOnBackEvent;
@@ -9004,7 +8995,7 @@ namespace app {
         struct GameObject* _mapGameObject;
         struct MonoLevelMapUI* _mapScript;
         struct MonoInLevelMapPage* _pageMono;
-        struct KEPFBCOBFLP* _rewardPreviewComponent;
+        struct MoleMole_RewardPreviewComponent* _rewardPreviewComponent;
         uint32_t _mapFogHandle;
         struct Action* _loadingCallback;
         struct Dictionary_2_System_UInt32_MoleMole_MonoMapMark_* _transPointMarks;
@@ -9012,7 +9003,7 @@ namespace app {
         struct Rect _mapViewRect;
         struct MonoMapMark* _localAvatarMark;
         struct Rect _markContainerViewport;
-        struct HFMNOFIECPF* _infoTextDialog;
+        struct MoleMole_InfoTextDialogContext* _infoTextDialog;
         int32_t _markLayer;
         uint32_t _markId;
         struct GeneralMarkData* _trackingMark;
@@ -9023,12 +9014,12 @@ namespace app {
         struct Vector3 _customMarkWorldPos;
         struct String* _customMarkTitle;
         MoleMole_Config_MarkIconType__Enum _customMarktype;
-        bool _isCreatCustomMark;
-        bool _isCenterCameraNoReason;
+        bool KHDDHMIGLMH;
+        bool AGABBDCCGPJ;
         bool GBCMNPNHCBH;
         uint32_t _customMarkTrackMonsterID;
         uint32_t _customMarkTrackQuestID;
-        MoleMole_CustomMarkTrackReasonType__Enum _customMarkTrackReasonType;
+        MoleMole_CustomMarkTrackReasonType__Enum NHIIHLLCJAI;
         bool _isAdventureHandbookOpened;
         float _slideValue;
         struct MoleMole_ResinViewComponent* _resinComp;
@@ -9037,12 +9028,12 @@ namespace app {
         struct Coroutine* ELELLFBCPFM;
         bool _NJHAEHLFGNP_k__BackingField;
         bool JNBIIIHNPOL;
-        float currAnimTime;
-        struct Vector2 startPos;
+        float FMNNMKICFCN;
+        struct Vector2 JIEJCHOKMCH;
         float EGDCGHPCIGD;
         float NNGIPKNIHHL;
         struct Vector2 MABOFOAAIDK;
-        float resetPeriod;
+        float OOOKLDFFEOK;
         bool DAMOBDBBBPD;
         struct Vector2 _currRectPos;
         struct Vector2 _currRectSize;
@@ -9074,14 +9065,14 @@ namespace app {
         struct List_1_MoleMole_BagItem_* _reward;
         struct List_1_MoleMole_Config_IdCountStrConfig_* _rewardPreviewList;
         float BCHEAHAGENA;
-        uint32_t GJBPAHMALJE;
+        uint32_t _dungeonEntryPointID;
         struct MoleMole_Config_DungeonEntry* _selectedDungeonEntry;
         MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryState__Enum _selectDungeonEntryState;
         struct Coroutine* _updateDungeonCooldownTipsCoroutine;
         struct MoleMole_ItemTipsDialogHelper _itemTipsHelper;
         struct Coroutine* _updateFarmFieldCoroutine;
         struct GameObject* _newMaxLevelGO;
-        struct DHJFLMJAIED* _moonfinTrialRewardPreviewComponent;
+        struct MoleMole_RewardPreviewComponent* _moonfinTrialRewardPreviewComponent;
         struct Coroutine* _updateReviveCooldownCoroutine;
         int32_t _selectedMapTagIndex;
         int32_t _selectedPanelTagIndex;
@@ -9099,7 +9090,6 @@ namespace app {
         InLevelMapPageContext__Fields fields;
     };
 
-    // IMNNHKGBACI__Fields
     struct BaseDialogContext__Fields {
         struct BaseContext__Fields _;
         bool attachToPage;
@@ -9107,28 +9097,28 @@ namespace app {
         struct BLDKFDKIPLL* _pageContext_k__BackingField;
     };
 
-    // MKACNKDDOPB__Fields
-    struct MKACNKDDOPB__Fields {
+    struct TalkDialogContext__Fields {
         struct BaseDialogContext__Fields _;
         bool _inCoopSelect;
         bool _inCoopTemperamentSelect;
         bool _coopSelectShow;
         int32_t _selectCoopIndex;
-        struct List_1_MoleMole_MonoUIContainer_* _confidenceItemArray;
-        struct CKDLOLMAOIK* _currDialogAction;
-        struct NPNBHKMGLOM* _currDialogSelectAction;
+        struct List_1_MonoUIContainer_* _confidenceItemArray;
+        struct DialogAction* _currDialogAction;
+        struct DialogSelectAction* _currDialogSelectAction;
         struct MonoTalkDialog* _dialogMono;
-        struct JFGGHEFFDEL* _currDialog;
+        struct Config_ConfigDialogScheme* _currDialog;
         float _protectTime;
         bool _autoClick;
         struct String* CountDownProgressPrefab;
         uint32_t _handle;
         struct GameObject* _countDownGo;
         struct MonoTalkCountDownProgress* _countDownScript;
-        struct List_1_FGBMPOMILIC_* _selectParamList;
+        struct List_1_SelectItemParam_* _selectParamList;
         struct Action* _updateGrpSelectBottom;
         struct List_1_System_UInt32_* _selectDialogIdList;
-        bool NBGOEEPGJEE;
+        bool EHOPIEOHBIJ;
+        bool IEFCCCNLHFG;
         struct Action* _onFreeClick;
         float _interactableTime;
         float _autoTalkInteractableTime;
@@ -9139,13 +9129,11 @@ namespace app {
         struct Coroutine* WaitDialogSelectCoroutine;
     };
 
-    // MKACNKDDOPB
     struct TalkDialogContext {
-        struct MKACNKDDOPB__Class* klass;
+        struct TalkDialogContext__Class* klass;
         MonitorData* monitor;
-        struct MKACNKDDOPB__Fields fields;
+        struct TalkDialogContext__Fields fields;
     };
-
 
     struct MonoTalkDialog__Fields {
         struct MonoUIProxy__Fields _;
@@ -9175,7 +9163,7 @@ namespace app {
         struct MonoTalkDialog__Fields fields;
     };
 
-    struct LOCHENIGEOO__Fields {
+    struct InLevelCutScenePageContext__Fields {
         struct BasePageContext__Fields _;
         struct MonoInLevelCutScenePage* _pageMono;
         struct TalkDialogContext* _talkDialog;
@@ -9187,7 +9175,7 @@ namespace app {
         struct Coroutine* _wait2ShowLoadingDialog;
         bool _talking;
         uint32_t _inteeID;
-        struct EKAPLGFLIPO* FODDCACCEDI;
+        struct MCNNFIPCOBO* MDJKLCLFDMJ;
         float _durationToHide;
         struct Vector2 _lastMousePos;
         float _lastMouseMoveTime;
@@ -9196,9 +9184,9 @@ namespace app {
     };
 
     struct InLevelCutScenePageContext {
-        struct LOCHENIGEOO__Class* klass;
+        struct InLevelCutScenePageContext__Class* klass;
         MonitorData* monitor;
-        struct LOCHENIGEOO__Fields fields;
+        struct InLevelCutScenePageContext__Fields fields;
     };
 
     struct Int32__Class {
@@ -9279,11 +9267,10 @@ namespace app {
         UGCDirectedForceType = 0x0000000d,
     };
 
-    // DPLADHCBJOP
     struct ItemModule {
-        struct DPLADHCBJOP__Class* klass;
+        struct ItemModule__Class* klass;
         MonitorData* monitor;
-        // struct DPLADHCBJOP__Fields fields;
+        // struct ItemModule__Fields fields;
     };
 
     struct LevelSceneElementViewPlugin__VTable
@@ -9332,12 +9319,12 @@ namespace app {
     struct LevelSceneElementViewPlugin__Fields
     {
         struct BaseComponentPlugin__Fields _;
-        bool elementalSightActivated;
-        float JJLPILGECJP;
-        struct ElementView* CJLJMMNOFBP;
-        float GBEPFGGJBOF;
-        struct Action* DKFFCMKNNGC;
-        struct Action* NIBNGEAILBH;
+        bool _triggerElementView;
+        float _keepElementViewTime;
+        struct ElementView* _elementViewSetting;
+        float _transition;
+        struct Action* onStartElementView;
+        struct Action* onFinishElementView;
     };
 
     struct LevelSceneElementViewPlugin
@@ -9352,23 +9339,25 @@ namespace app {
         bool has_value;
     };
 
-    struct DNPCBHKHGMO__Fields {
+    struct CameraEntity__Fields {
         struct BaseEntity__Fields _;
-        bool _isMainCamera_k__BackingField;
-        struct Camera* _camera_k__BackingField;
-        struct AMFIHBKLLOL* _vcStackCamera;
-        struct JCOMDPAHEEE* _vcSensors;
-        bool _OIOGGJEMMBH_k__BackingField;
-        float _GLAIDJHGMLG_k__BackingField;
-        float _FGJJGABEDPO_k__BackingField;
-        bool _CPBPKKPKOAG_k__BackingField;
-        float _ABBLOHKNLOE_k__BackingField;
+        bool _KHMCIEEKOKE_k__BackingField;
+        struct Camera* _AOBHHGONMME_k__BackingField;
+        struct MoleMole_VCStackCamera* _vcStackCamera;
+        struct MoleMole_VCCameraCharacterAmbientSensors* _vcSensors;
+        bool _KKCBBGNJFOA_k__BackingField;
+        float _MFBEFHCONNJ_k__BackingField;
+        float _AEMIJJPOBLN_k__BackingField;
+        bool _JFJEPKEONHO_k__BackingField;
+        float _CKDMDCFIDBL_k__BackingField;
+        struct Vector3d_1 _KCGNBELKOFL_k__BackingField;
+        void* /*HNGOGENCDGD__Enum*/ _GKAKGCPIPIK_k__BackingField;
     };
 
     struct CameraEntity {
-        struct DNPCBHKHGMO__Class* klass;
+        struct CameraEntity__Class* klass;
         MonitorData* monitor;
-        struct DNPCBHKHGMO__Fields fields;
+        struct CameraEntity__Fields fields;
     };
 
     struct __declspec(align(8)) NLHGPLIGNNJ__Fields {
@@ -10954,23 +10943,14 @@ namespace app {
     };
 
 #endif
-#if defined(_CPLUSPLUS_)
-    enum class ODBAPAHHJKN__Enum : int32_t {
+
+    enum class HNGOGENCDGD__Enum : int32_t {
         None = 0x00000000,
         LerpingIn = 0x00000001,
         Free = 0x00000002,
         LerpingOut = 0x00000003,
     };
 
-#else
-    enum ODBAPAHHJKN__Enum {
-        ODBAPAHHJKN__Enum_None = 0x00000000,
-        ODBAPAHHJKN__Enum_LerpingIn = 0x00000001,
-        ODBAPAHHJKN__Enum_Free = 0x00000002,
-        ODBAPAHHJKN__Enum_LerpingOut = 0x00000003,
-    };
-
-#endif
     struct CameraShareData {
         int32_t targetFrameRate;
         bool isBackground;
@@ -11038,12 +11018,12 @@ namespace app {
         bool CNNNLIMHHKK;
         bool EPCDPKNLHEA;
 #if defined(_CPLUSPLUS_)
-        ODBAPAHHJKN__Enum CJOOGBBKNPM;
+        HNGOGENCDGD__Enum CJOOGBBKNPM;
 #else
         int32_t CJOOGBBKNPM;
 #endif
 #if defined(_CPLUSPLUS_)
-        ODBAPAHHJKN__Enum LMKHMGGMCGF;
+        HNGOGENCDGD__Enum LMKHMGGMCGF;
 #else
         int32_t LMKHMGGMCGF;
 #endif
