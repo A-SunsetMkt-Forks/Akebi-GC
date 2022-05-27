@@ -6,6 +6,7 @@
 
 namespace cheat::feature
 {
+    static bool _prevEnabledState = false;
     NoFog::NoFog() : Feature(),
         NFEX(f_Enabled, "No Fog", "NoFog", "Visuals", false, false)
     {
@@ -41,7 +42,11 @@ namespace cheat::feature
 
     void NoFog::OnGameUpdate()
     {
-        app::RenderSettings_set_fog(nullptr, !f_Enabled, nullptr);
+		if (_prevEnabledState != f_Enabled)
+		{
+			app::RenderSettings_set_fog(nullptr, !f_Enabled, nullptr);
+			_prevEnabledState = f_Enabled;
+		}
     }
 }
 
