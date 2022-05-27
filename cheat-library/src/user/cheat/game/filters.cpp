@@ -141,7 +141,7 @@ namespace cheat::game::filters
 		SimpleFilter Tartaglia = { app::EntityType__Enum_1::Monster, "_Tartaglia" };
 		SimpleFilter Azhdaha = { app::EntityType__Enum_1::Monster, "_Dahaka" };
 		SimpleFilter Signora = { app::EntityType__Enum_1::Monster, "_LaSignora" };
-		SimpleFilter Shogun = { app::EntityType__Enum_1::Monster, "_Shougan" };
+		SimpleFilter Shogun = { app::EntityType__Enum_1::Monster, "_Shougun" };
 		SimpleFilter EyeOfTheStorm = { app::EntityType__Enum_1::Monster, "_Elemental_Wind" };
 		SimpleFilter ElectroHypostasis = { app::EntityType__Enum_1::Monster, "_Effigy_Electric" };
 		SimpleFilter AnemoHypostasis = { app::EntityType__Enum_1::Monster, "_Effigy_Wind" };
