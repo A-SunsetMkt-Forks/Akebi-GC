@@ -29,7 +29,7 @@ namespace cheat::game
 					continue;
 
 				auto& config = waypoint.config->fields;
-				uint16_t areaId = app::SimpleSafeUInt16_get_Value(nullptr, config.areaIdRawNum, nullptr);
+				uint16_t areaId = app::SimpleSafeUInt16_get_Value(config.areaIdRawNum, nullptr);
 				bool isAreaUnlocked = app::MapModule_IsAreaUnlock(mapModule, sceneId, areaId, nullptr);
 
 				if (waypoint.isUnlocked && isAreaUnlocked && !config._unlocked && !waypoint.isGroupLimit && !waypoint.isModelHidden)
@@ -45,7 +45,7 @@ namespace cheat::game
 		float minDistance = -1;
 		WaypointInfo result{};
 		for (const auto& info : GetUnlockedWaypoints(targetSceneId)) {
-			float distance = app::Vector3_Distance(nullptr, position, info.position, nullptr);
+			float distance = app::Vector3_Distance(position, info.position, nullptr);
 			if (minDistance < 0 || distance < minDistance)
 			{
 				minDistance = distance;

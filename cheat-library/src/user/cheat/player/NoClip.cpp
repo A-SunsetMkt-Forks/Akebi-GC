@@ -154,7 +154,7 @@ namespace cheat::feature
 		if (IsVectorZero(prevPos))
 			return;
 
-		float deltaTime = app::Time_get_deltaTime(nullptr, nullptr);
+		float deltaTime = app::Time_get_deltaTime(nullptr);
 
 		app::Vector3 newPos = prevPos + dir * speed * deltaTime;
 		if (!f_VelocityMode)

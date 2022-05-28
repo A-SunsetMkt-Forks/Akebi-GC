@@ -183,7 +183,7 @@ namespace cheat::feature
 		byteArray->max_length = length;
 		memcpy_s(byteArray->vector, length, content, length);
 
-		app::Packet_XorEncrypt(nullptr, &byteArray, length, nullptr);
+		app::Packet_XorEncrypt(&byteArray, length, nullptr);
 
 		auto result = new char[length];
 		memcpy_s(result, length, byteArray->vector, length);
@@ -249,13 +249,13 @@ namespace cheat::feature
 		return sniffer.OnPacketIO(evt->_evt.packet, PacketIOType::Receive);
 	}
 
-	int32_t PacketSniffer::KcpNative_kcp_client_send_packet_Hook(void* __this, void* kcp_client, app::KcpPacket_1* packet, MethodInfo* method)
+	int32_t PacketSniffer::KcpNative_kcp_client_send_packet_Hook(void* kcp_client, app::KcpPacket_1* packet, MethodInfo* method)
 	{
 		auto& sniffer = GetInstance();
 		if (!sniffer.OnPacketIO(packet, PacketIOType::Send))
 			return 0;
 
-		return CALL_ORIGIN(KcpNative_kcp_client_send_packet_Hook, __this, kcp_client, packet, method);
+		return CALL_ORIGIN(KcpNative_kcp_client_send_packet_Hook, kcp_client, packet, method);
 	}
 }
 

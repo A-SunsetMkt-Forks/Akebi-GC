@@ -112,10 +112,10 @@ namespace cheat::feature
 			if (combatProp == nullptr)
 				continue;
 
-			auto maxHP = app::SafeFloat_GetValue(nullptr, combatProp->fields.maxHP, nullptr);
+			auto maxHP = app::SafeFloat_GetValue(combatProp->fields.maxHP, nullptr);
 			auto isLockHp = combatProp->fields.islockHP == nullptr || app::FixedBoolStack_get_value(combatProp->fields.islockHP, nullptr);
 			auto isInvincible = combatProp->fields.isInvincible == nullptr || app::FixedBoolStack_get_value(combatProp->fields.isInvincible, nullptr);
-			auto HP = app::SafeFloat_GetValue(nullptr, combatProp->fields.HP, nullptr);
+			auto HP = app::SafeFloat_GetValue(combatProp->fields.HP, nullptr);
 			if (maxHP < 10 || HP < 2 || isLockHp || isInvincible)
 				continue;
 
@@ -151,9 +151,9 @@ namespace cheat::feature
 		attackSet.erase(monster->runtimeID());
 
 		auto combat = monster->combat();
-		auto maxHP = app::SafeFloat_GetValue(nullptr, combat->fields._combatProperty_k__BackingField->fields.maxHP, nullptr);
+		auto maxHP = app::SafeFloat_GetValue(combat->fields._combatProperty_k__BackingField->fields.maxHP, nullptr);
 
-		auto crashEvt = app::CreateCrashEvent(nullptr, *app::CreateCrashEvent__MethodInfo);
+		auto crashEvt = app::CreateCrashEvent(*app::CreateCrashEvent__MethodInfo);
 		app::EvtCrash_Init(crashEvt, monster->runtimeID(), nullptr);
 		crashEvt->fields.maxHp = maxHP;
 		crashEvt->fields.velChange = 1000;

@@ -99,7 +99,7 @@ namespace cheat::feature
         AutoCook& autoCook = AutoCook::GetInstance();
         if (autoCook.f_Enabled)
         {
-            uint32_t maxCount = app::SimpleSafeUInt32_get_Value(nullptr, __this->fields.maxProficiencyRawNum, nullptr);
+            uint32_t maxCount = app::SimpleSafeUInt32_get_Value(__this->fields.maxProficiencyRawNum, nullptr);
             autoCook.CookCount = maxCount;
         }
         return CALL_ORIGIN(CookRecipeExcelConfig_get_maxProficiency, __this, method);

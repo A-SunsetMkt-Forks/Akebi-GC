@@ -128,11 +128,11 @@ namespace cheat::feature
 		NoCD& noCD = NoCD::GetInstance();
 		if (noCD.f_AbilityReduce)
 		{
-			auto cdTimer = app::SafeFloat_GetValue(nullptr, skillInfo->fields.cdTimer, nullptr);
+			auto cdTimer = app::SafeFloat_GetValue(skillInfo->fields.cdTimer, nullptr);
 
 			if (cdTimer > noCD.f_TimerReduce * 5.0f)
 			{
-				struct app::SafeFloat MyValueProtect = app::SafeFloat_SetValue(nullptr, noCD.f_TimerReduce * 5.0f, nullptr);
+				struct app::SafeFloat MyValueProtect = app::SafeFloat_SetValue(noCD.f_TimerReduce * 5.0f, nullptr);
 				skillInfo->fields.cdTimer = MyValueProtect;
 			}
 		}

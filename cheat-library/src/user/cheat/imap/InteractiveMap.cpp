@@ -483,7 +483,7 @@ namespace cheat::feature
 			if (nearestLabelPoint == nullptr)
 				continue;
 
-			float distance = app::Vector2_Distance(nullptr, levelPosition, nearestLabelPoint->levelPosition, nullptr);
+			float distance = app::Vector2_Distance(levelPosition, nearestLabelPoint->levelPosition, nullptr);
 			if (distance < minDistance || minDistancePoint == nullptr)
 			{
 				minDistance = distance;
@@ -506,7 +506,7 @@ namespace cheat::feature
 			if (!completed && point.completed)
 				continue;
 
-			float distance = app::Vector2_Distance(nullptr, levelPosition, point.levelPosition, nullptr);
+			float distance = app::Vector2_Distance(levelPosition, point.levelPosition, nullptr);
 			if (distance < minDistance || minDistancePoint == nullptr)
 			{
 				minDistance = distance;
@@ -1274,11 +1274,11 @@ namespace cheat::feature
 
 	static bool IsMapActive()
 	{
-		auto uimanager = GET_SINGLETON(UIManager_1);
+		auto uimanager = GET_SINGLETON(UIManager);
 		if (uimanager == nullptr)
 			return false;
 
-		return app::UIManager_1_HasEnableMapCamera(uimanager, nullptr);
+		return app::UIManager_HasEnableMapCamera(uimanager, nullptr);
 	}
 
 	static app::Rect s_MapViewRect = { 0, 0, 1, 1 };
@@ -1300,8 +1300,8 @@ namespace cheat::feature
 		screenPosition.y = (levelPosition.y - s_MapViewRect.m_YMin) / s_MapViewRect.m_Height;
 
 		// Scaling to screen position
-		screenPosition.x = screenPosition.x * app::Screen_get_width(nullptr, nullptr);
-		screenPosition.y = (1.0f - screenPosition.y) * app::Screen_get_height(nullptr, nullptr);
+		screenPosition.x = screenPosition.x * app::Screen_get_width(nullptr);
+		screenPosition.y = (1.0f - screenPosition.y) * app::Screen_get_height(nullptr);
 
 		return screenPosition;
 	}
@@ -1491,8 +1491,8 @@ namespace cheat::feature
 		if (m_ScenesData.count(sceneID) == 0)
 			return;
 
-		ImVec2 screenSize = { static_cast<float>(app::Screen_get_width(nullptr, nullptr)),
-			static_cast<float>(app::Screen_get_height(nullptr, nullptr)) };
+		ImVec2 screenSize = { static_cast<float>(app::Screen_get_width(nullptr)),
+			static_cast<float>(app::Screen_get_height(nullptr)) };
 
 		
 		auto iconSize = (f_DynamicSize && s_MapViewRect.m_Width != 0.0f) ? f_IconSize * (relativeSizeX / s_MapViewRect.m_Width) : f_IconSize;
@@ -1549,7 +1549,7 @@ namespace cheat::feature
 
 		UPDATE_DELAY_VAR(ImCircle, _miniMapCircle, 2000);
 
-		auto uiManager = GET_SINGLETON(UIManager_1);
+		auto uiManager = GET_SINGLETON(UIManager);
 		if (uiManager == nullptr || uiManager->fields._sceneCanvas == nullptr)
 			return {};
 
@@ -1559,7 +1559,7 @@ namespace cheat::feature
 
 		auto mapPos = app::Transform_get_position(reinterpret_cast<app::Transform*>(back), nullptr);
 		auto center = app::Camera_WorldToScreenPoint(uiManager->fields._uiCamera, mapPos, nullptr);
-		center.y = app::Screen_get_height(nullptr, nullptr) - center.y;
+		center.y = app::Screen_get_height(nullptr) - center.y;
 
 		auto mapRect = app::RectTransform_get_rect(back, nullptr);
 		float scaleFactor = app::Canvas_get_scaleFactor(uiManager->fields._sceneCanvas, nullptr);

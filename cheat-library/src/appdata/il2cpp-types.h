@@ -7937,19 +7937,16 @@ namespace app {
         int32_t _greaterToDisableInterval_k__BackingField;
     };
 
-    // FJBDIDKHCPN__Fields
     struct VCBase__Fields {
         struct BaseComponent__Fields _;
     };
 
-    // FJBDIDKHCPN
     struct VCBase {
         struct FJBDIDKHCPN__Class* klass;
         MonitorData* monitor;
         struct VCBase__Fields fields;
     };
 
-    // ECBDOKJDPGH__Fields
     struct VCBaseMove__Fields {
         struct VCBase__Fields _;
         struct EOOCBMLHHIF* _moveData;
@@ -9197,7 +9194,7 @@ namespace app {
         Il2CppClass_1 _1;
     };
 
-    struct __declspec(align(8)) FHEJEJANBLD__Fields {
+    struct __declspec(align(8)) UIManager__Fields {
         struct LinkedList_1_MoleMole_BaseContext_* _inputContextList;
         struct HashSet_1_MoleMole_BaseContext_* _inputContextSet;
         PCCursorMode__Enum _currCursorMode;
@@ -9208,10 +9205,10 @@ namespace app {
         struct Camera* _uiCamera;
     };
 
-    struct UIManager_1 {
-        struct FHEJEJANBLD__Class* klass;
+    struct UIManager {
+        struct UIManager__Class* klass;
         MonitorData* monitor;
-        struct FHEJEJANBLD__Fields fields;
+        struct UIManager__Fields fields;
     };
 
     enum class CanBeModifiedBy__Enum : int32_t {
@@ -10147,7 +10144,7 @@ namespace app {
         struct SceneTreeConfig__Fields fields;
     };
 
-    enum class ECGLPBEEEAA__Enum : int32_t
+    enum class MoleMole_Config_TreeType__Enum : int32_t
     {
         TREE_TYPE_BIRCH = 0x00000001,
         TREE_TYPE_MAPLE = 0x00000002,

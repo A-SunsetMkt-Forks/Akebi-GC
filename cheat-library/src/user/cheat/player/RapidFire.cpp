@@ -121,7 +121,7 @@ namespace cheat::feature
 			return f_Multiplier;
 
 		auto safeHP = baseCombat->fields._combatProperty_k__BackingField->fields.HP;
-		auto HP = app::SafeFloat_GetValue(nullptr, safeHP, nullptr);
+		auto HP = app::SafeFloat_GetValue(safeHP, nullptr);
 		int attackCount = (int)ceil(HP / attackDamage);
 		return std::clamp(attackCount, 1, 200);
 	}

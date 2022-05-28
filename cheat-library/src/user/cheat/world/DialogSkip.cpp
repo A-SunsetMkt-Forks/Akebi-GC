@@ -77,7 +77,7 @@ namespace cheat::feature
             return;
 
         if (f_FastDialog)
-            app::Time_set_timeScale(nullptr, f_TimeSpeedup, nullptr);
+            app::Time_set_timeScale(f_TimeSpeedup, nullptr);
 
         bool isImportant = false;
         if (f_ExcludeImportant)
@@ -107,7 +107,7 @@ namespace cheat::feature
 		{
 			int32_t value = 0;
 			auto object = il2cpp_value_box((Il2CppClass*)*app::Int32__TypeInfo, &value);
-			auto notify = app::Notify_CreateNotify_1(nullptr, app::MoleMole_NotifyTypes__Enum::DialogSelectItemNotify, (app::Object*)object, nullptr);
+			auto notify = app::Notify_CreateNotify_1(app::MoleMole_NotifyTypes__Enum::DialogSelectItemNotify, (app::Object*)object, nullptr);
 			app::TalkDialogContext_OnDialogSelectItem(talkDialog, &notify, nullptr);
 		}
 		else if (!talkDialog->fields._inSelect)
@@ -126,9 +126,9 @@ namespace cheat::feature
     // Should be a better way to store the pre-dialog speed using Time_get_timeScale.
     static void InLevelCutScenePageContext_ClearView_Hook(app::InLevelCutScenePageContext* __this, MethodInfo* method)
     {
-        float gameSpeed = app::Time_get_timeScale(nullptr, nullptr);
+        float gameSpeed = app::Time_get_timeScale(nullptr);
         if (gameSpeed > 1.0f)
-            app::Time_set_timeScale(nullptr, 1.0f, nullptr);
+            app::Time_set_timeScale(1.0f, nullptr);
         CALL_ORIGIN(InLevelCutScenePageContext_ClearView_Hook, __this, method);
     }
 }

@@ -77,7 +77,7 @@ namespace cheat::game
 		if (m_RawEntity == nullptr)
 			return {};
 
-		return app::Miscs_GenLevelPos_1(nullptr, absolutePosition(), nullptr);
+		return app::Miscs_GenLevelPos_1(absolutePosition(), nullptr);
 	}
 
 	float Entity::distance(Entity* entity)
@@ -102,7 +102,7 @@ namespace cheat::game
 		if (m_RawEntity == nullptr)
 			return 10000;
 
-		auto dist = app::Vector3_Distance(nullptr, relativePosition(), point, nullptr);
+		auto dist = app::Vector3_Distance(relativePosition(), point, nullptr);
 		return dist;
 	}
 
@@ -111,7 +111,7 @@ namespace cheat::game
 		if (m_RawEntity == nullptr)
 			return 10000;
 
-		return app::Vector2_Distance(nullptr, levelPosition(), levelPoint, nullptr);
+		return app::Vector2_Distance(levelPosition(), levelPoint, nullptr);
 	}
 
 	bool Entity::isGadget()
