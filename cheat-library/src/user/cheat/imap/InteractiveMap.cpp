@@ -97,9 +97,9 @@ namespace cheat::feature
 
 		// Hooking
 		HookManager::install(app::MonoMiniMap_Update, InteractiveMap::MonoMiniMap_Update_Hook);
-		HookManager::install(app::GadgetModule_OnGadgetInteractRsp, InteractiveMap::GadgetModule_OnGadgetInteractRsp_Hook);
-		HookManager::install(app::InLevelMapPageContext_UpdateView, InteractiveMap::InLevelMapPageContext_UpdateView_Hook);
-		HookManager::install(app::InLevelMapPageContext_ZoomMap, InteractiveMap::InLevelMapPageContext_ZoomMap_Hook);
+		HookManager::install(app::MoleMole_GadgetModule_OnGadgetInteractRsp, InteractiveMap::GadgetModule_OnGadgetInteractRsp_Hook);
+		HookManager::install(app::MoleMole_InLevelMapPageContext_UpdateView, InteractiveMap::InLevelMapPageContext_UpdateView_Hook);
+		HookManager::install(app::MoleMole_InLevelMapPageContext_ZoomMap, InteractiveMap::InLevelMapPageContext_ZoomMap_Hook);
 	}
 
 	const FeatureGUIInfo& InteractiveMap::GetGUIInfo() const
@@ -1274,11 +1274,11 @@ namespace cheat::feature
 
 	static bool IsMapActive()
 	{
-		auto uimanager = GET_SINGLETON(UIManager);
+		auto uimanager = GET_SINGLETON(MoleMole_UIManager);
 		if (uimanager == nullptr)
 			return false;
 
-		return app::UIManager_HasEnableMapCamera(uimanager, nullptr);
+		return app::MoleMole_UIManager_HasEnableMapCamera(uimanager, nullptr);
 	}
 
 	static app::Rect s_MapViewRect = { 0, 0, 1, 1 };
@@ -1382,7 +1382,7 @@ namespace cheat::feature
 		if (!mapActive)
             return;
 
-		auto mapManager = GET_SINGLETON(MapManager);
+		auto mapManager = GET_SINGLETON(MoleMole_MapManager);
 		if (mapManager == nullptr)
 			return;
 
@@ -1549,7 +1549,7 @@ namespace cheat::feature
 
 		UPDATE_DELAY_VAR(ImCircle, _miniMapCircle, 2000);
 
-		auto uiManager = GET_SINGLETON(UIManager);
+		auto uiManager = GET_SINGLETON(MoleMole_UIManager);
 		if (uiManager == nullptr || uiManager->fields._sceneCanvas == nullptr)
 			return {};
 
@@ -1576,7 +1576,7 @@ namespace cheat::feature
 		if (_monoMiniMap == nullptr || _monoMiniMap->fields.context == nullptr)
 			return 1.0f;
 
-		return app::InLevelMainPageContext_get_miniMapScale(_monoMiniMap->fields.context, nullptr);
+		return app::MoleMole_InLevelMainPageContext_get_miniMapScale(_monoMiniMap->fields.context, nullptr);
 	}
 
 	static float GetMinimapRotation()

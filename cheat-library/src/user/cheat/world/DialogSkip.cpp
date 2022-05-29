@@ -16,8 +16,8 @@ namespace cheat::feature
         NF(f_FastDialog,            "Fast dialog",              "AutoTalk", false),
         NF(f_TimeSpeedup,           "Time Speed",               "AutoTalk", 5.0f)
     {
-        HookManager::install(app::InLevelCutScenePageContext_UpdateView, InLevelCutScenePageContext_UpdateView_Hook);
-        HookManager::install(app::InLevelCutScenePageContext_ClearView, InLevelCutScenePageContext_ClearView_Hook);
+        HookManager::install(app::MoleMole_InLevelCutScenePageContext_UpdateView, InLevelCutScenePageContext_UpdateView_Hook);
+        HookManager::install(app::MoleMole_InLevelCutScenePageContext_ClearView, InLevelCutScenePageContext_ClearView_Hook);
     }
 
     const FeatureGUIInfo& DialogSkip::GetGUIInfo() const
@@ -108,10 +108,10 @@ namespace cheat::feature
 			int32_t value = 0;
 			auto object = il2cpp_value_box((Il2CppClass*)*app::Int32__TypeInfo, &value);
 			auto notify = app::Notify_CreateNotify_1(app::MoleMole_NotifyTypes__Enum::DialogSelectItemNotify, (app::Object*)object, nullptr);
-			app::TalkDialogContext_OnDialogSelectItem(talkDialog, &notify, nullptr);
+			app::MoleMole_TalkDialogContext_OnDialogSelectItem(talkDialog, &notify, nullptr);
 		}
 		else if (!talkDialog->fields._inSelect)
-			app::InLevelCutScenePageContext_OnFreeClick(context, nullptr);
+			app::MoleMole_InLevelCutScenePageContext_OnFreeClick(context, nullptr);
     }
 
 	static void InLevelCutScenePageContext_UpdateView_Hook(app::InLevelCutScenePageContext* __this, MethodInfo* method)

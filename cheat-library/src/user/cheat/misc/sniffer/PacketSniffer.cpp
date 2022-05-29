@@ -24,8 +24,8 @@ namespace cheat::feature
 	{
 		sniffer::MessageManager::Connect("genshin_packet_pipe");
 
-		HookManager::install(app::KcpNative_kcp_client_send_packet, KcpNative_kcp_client_send_packet_Hook);
-		HookManager::install(app::KcpClient_TryDequeueEvent, KcpClient_TryDequeueEvent_Hook);
+		HookManager::install(app::Kcp_KcpNative_kcp_client_send_packet, KcpNative_kcp_client_send_packet_Hook);
+		HookManager::install(app::MoleMole_KcpClient_TryDequeueEvent, KcpClient_TryDequeueEvent_Hook);
 	}
 
 	const FeatureGUIInfo& PacketSniffer::GetGUIInfo() const
@@ -183,7 +183,7 @@ namespace cheat::feature
 		byteArray->max_length = length;
 		memcpy_s(byteArray->vector, length, content, length);
 
-		app::Packet_XorEncrypt(&byteArray, length, nullptr);
+		app::MoleMole_Packet_XorEncrypt(&byteArray, length, nullptr);
 
 		auto result = new char[length];
 		memcpy_s(result, length, byteArray->vector, length);

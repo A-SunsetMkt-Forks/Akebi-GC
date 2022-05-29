@@ -17,12 +17,12 @@ namespace cheat::feature
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(AutoFish::OnGameUpdate);
 
-        HookManager::install(app::FishingModule_RequestFishCastRod, FishingModule_RequestFishCastRod_Hook);
-        HookManager::install(app::FishingModule_onFishChosenNotify, FishingModule_onFishChosenNotify_Hook);
-        HookManager::install(app::FishingModule_OnFishBiteRsp, FishingModule_OnFishBiteRsp_Hook);
-        HookManager::install(app::FishingModule_OnFishBattleBeginRsp, FishingModule_OnFishBattleBeginRsp_Hook);
-        HookManager::install(app::FishingModule_OnFishBattleEndRsp, FishingModule_OnFishBattleEndRsp_Hook);
-        HookManager::install(app::FishingModule_OnExitFishingRsp, FishingModule_OnExitFishingRsp_Hook);
+        HookManager::install(app::MoleMole_FishingModule_RequestFishCastRod, FishingModule_RequestFishCastRod_Hook);
+        HookManager::install(app::MoleMole_FishingModule_onFishChosenNotify, FishingModule_onFishChosenNotify_Hook);
+        HookManager::install(app::MoleMole_FishingModule_OnFishBiteRsp, FishingModule_OnFishBiteRsp_Hook);
+        HookManager::install(app::MoleMole_FishingModule_OnFishBattleBeginRsp, FishingModule_OnFishBattleBeginRsp_Hook);
+        HookManager::install(app::MoleMole_FishingModule_OnFishBattleEndRsp, FishingModule_OnFishBattleEndRsp_Hook);
+        HookManager::install(app::MoleMole_FishingModule_OnExitFishingRsp, FishingModule_OnExitFishingRsp_Hook);
     }
 
     const FeatureGUIInfo& AutoFish::GetGUIInfo() const
@@ -66,7 +66,7 @@ namespace cheat::feature
         if (!autoFish.f_Enabled)
             return;
 
-        app::FishingModule_RequestFishBite(__this, nullptr);
+        app::MoleMole_FishingModule_RequestFishBite(__this, nullptr);
     }
 
     void AutoFish::FishingModule_OnFishBiteRsp_Hook(void* __this, app::FishBiteRsp* rsp, MethodInfo* method)
@@ -78,7 +78,7 @@ namespace cheat::feature
             return;
         }
 
-        app::FishingModule_RequestFishBattleBegin(__this, nullptr);
+        app::MoleMole_FishingModule_RequestFishBattleBegin(__this, nullptr);
     }
 
     void AutoFish::FishingModule_OnFishBattleBeginRsp_Hook(void* __this, app::FishBattleBeginRsp* rsp, MethodInfo* method)
@@ -91,7 +91,7 @@ namespace cheat::feature
         }
 
         std::lock_guard<std::mutex> catchLock(autoFish.m_BattleFinishTimestampMutex);
-        autoFish.m_BattleFinishTimestamp = app::TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
+        autoFish.m_BattleFinishTimestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
     }
 
     void AutoFish::FishingModule_OnFishBattleEndRsp_Hook(void* __this, app::FishBattleEndRsp* rsp, MethodInfo* method)
@@ -115,7 +115,7 @@ namespace cheat::feature
         {
             LOG_WARNING("Failed to catch fish, retrying in %u ms", autoFish.f_DelayBeforeCatch);
             std::lock_guard<std::mutex> catchLock(autoFish.m_BattleFinishTimestampMutex);
-            autoFish.m_BattleFinishTimestamp = app::TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
+            autoFish.m_BattleFinishTimestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
             return;
         }
 
@@ -123,7 +123,7 @@ namespace cheat::feature
             return;
 
         std::lock_guard<std::mutex> _lock(autoFish.m_RecastTimestampMutex);
-        autoFish.m_RecastTimestamp = app::TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeRecast;
+        autoFish.m_RecastTimestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeRecast;
     }
 
     void AutoFish::FishingModule_OnExitFishingRsp_Hook(void* __this, void* rsp, MethodInfo* method)
@@ -154,7 +154,7 @@ namespace cheat::feature
 
     void AutoFish::OnGameUpdate()
     {
-        auto timestamp = app::TimeUtil_get_NowTimeStamp(nullptr);
+        auto timestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr);
 
         std::lock_guard<std::mutex> _lock(m_BattleFinishTimestampMutex);
         std::lock_guard<std::mutex> _lock2(m_RecastTimestampMutex);
@@ -166,7 +166,7 @@ namespace cheat::feature
         {
             m_BattleFinishTimestamp = 0;
 
-            app::FishingModule_RequestFishBattleEnd(m_LastCastData.fishingModule, app::FishBattleResult__Enum::Succ, f_DelayBeforeCatch == 4.0f,
+            app::MoleMole_FishingModule_RequestFishBattleEnd(m_LastCastData.fishingModule, app::FishBattleResult__Enum::Succ, f_DelayBeforeCatch == 4.0f,
                 static_cast<float>(f_DelayBeforeCatch / 1000), nullptr);
         }
 
@@ -174,7 +174,7 @@ namespace cheat::feature
         {
             m_RecastTimestamp = 0;
 
-            app::FishingModule_RequestFishCastRod(m_LastCastData.fishingModule, m_LastCastData.baitId,
+            app::MoleMole_FishingModule_RequestFishCastRod(m_LastCastData.fishingModule, m_LastCastData.baitId,
                 m_LastCastData.rodId, m_LastCastData.pos, m_LastCastData.rodEntityId, nullptr);
         }
     }

@@ -22,7 +22,7 @@ namespace cheat::feature
 		NF(f_AltSpeedEnabled,	 "Alt speed enabled",    "NoClip", false),
 		NF(f_AltSpeed,			 "Alt speed",            "NoClip", 1.0f)
     {
-		HookManager::install(app::HumanoidMoveFSM_LateTick, HumanoidMoveFSM_LateTick_Hook);
+		HookManager::install(app::MoleMole_HumanoidMoveFSM_LateTick, HumanoidMoveFSM_LateTick_Hook);
 
 		events::GameUpdateEvent += MY_METHOD_HANDLER(NoClip::OnGameUpdate);
 		events::MoveSyncEvent += MY_METHOD_HANDLER(NoClip::OnMoveSync);

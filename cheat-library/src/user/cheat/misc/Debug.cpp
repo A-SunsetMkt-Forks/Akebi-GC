@@ -28,9 +28,9 @@ namespace cheat::feature
     Debug::Debug() : Feature()
     {
         events::GameUpdateEvent += FUNCTION_HANDLER(OnGameUpdate);
-        HookManager::install(app::ActorAbilityPlugin_OnEvent, ActorAbilityPlugin_OnEvent_Hook);
-        // HookManager::install(app::LuaShellManager_ReportLuaShellResult, LuaShellManager_ReportLuaShellResult_Hook);
-        // HookManager::install(app::LuaShellManager_DoString, LuaShellManager_DoString_Hook);
+        HookManager::install(app::MoleMole_ActorAbilityPlugin_OnEvent, ActorAbilityPlugin_OnEvent_Hook);
+        // HookManager::install(app::MoleMole_LuaShellManager_ReportLuaShellResult, LuaShellManager_ReportLuaShellResult_Hook);
+        // HookManager::install(app::MoleMole_LuaShellManager_DoString, LuaShellManager_DoString_Hook);
         // HookManager::install(app::LuaEnv_DoString, LuaEnv_DoString_Hook);
         // HookManager::install(app::Lua_xlua_pushasciistring, Lua_xlua_pushasciistring_Hook);
 
@@ -53,7 +53,7 @@ namespace cheat::feature
 
     // Raise when player start game log in (after press a door)
     // Contains information about player system and game integrity
-    static void SendInfo_Hook(app::NetworkManager_1* __this, app::GKOJAICIOPA* info, MethodInfo* method)
+    static void SendInfo_Hook(app::MoleMole_NetworkManager* __this, app::GKOJAICIOPA* info, MethodInfo* method)
     {
         LOG_TRACE("Game sending game info to server.");
         LOG_TRACE("Content: ");
@@ -128,7 +128,7 @@ namespace cheat::feature
             return;
         }
 
-        auto singleton = GET_SINGLETON(MapModule);
+        auto singleton = GET_SINGLETON(MoleMole_MapModule);
 
         for (const auto& [sceneId, waypoints] : waypointsGrops->pairs())
         {
@@ -152,9 +152,9 @@ namespace cheat::feature
                             ImGui::Text("Object position: %s", il2cppi_to_string(location._pos).c_str());
                             ImGui::Text("_unlocked: %s", location._unlocked ? "true" : "false");
                             ImGui::Text("_groupLimit: %s", location._groupLimit ? "true" : "false");
-                            uint16_t areaId = app::SimpleSafeUInt16_get_Value(location.areaIdRawNum, nullptr);
+                            uint16_t areaId = app::MoleMole_SimpleSafeUInt16_get_Value(location.areaIdRawNum, nullptr);
                             ImGui::Text("areaId: %u", areaId);
-                            ImGui::Text("areaUnlocked: %s", app::MapModule_IsAreaUnlock(singleton, sceneId, areaId, nullptr) ? "true" : "false");
+                            ImGui::Text("areaUnlocked: %s", app::MoleMole_MapModule_IsAreaUnlock(singleton, sceneId, areaId, nullptr) ? "true" : "false");
                             ImGui::Text("gadgetIdRawNum: %u", location.gadgetIdRawNum);
                         }
 
@@ -169,7 +169,7 @@ namespace cheat::feature
 
     void DrawManagerData()
     {
-        auto singleton = GET_SINGLETON(MapModule);
+        auto singleton = GET_SINGLETON(MoleMole_MapModule);
         if (singleton == nullptr)
         {
             ImGui::Text("Manager not initialized.");
@@ -236,10 +236,10 @@ namespace cheat::feature
         auto combat = entity->combat();
         if (combat != nullptr) {
             auto combatProp = combat->fields._combatProperty_k__BackingField;
-            auto maxHP = app::SafeFloat_GetValue(combatProp->fields.maxHP, nullptr);
-            auto HP = app::SafeFloat_GetValue(combatProp->fields.HP, nullptr);
-            auto isLockHp = combatProp->fields.islockHP == nullptr || app::FixedBoolStack_get_value(combatProp->fields.islockHP, nullptr);
-            auto isInvincible = combatProp->fields.isInvincible == nullptr || app::FixedBoolStack_get_value(combatProp->fields.isInvincible, nullptr);
+            auto maxHP = app::MoleMole_SafeFloat_get_Value(combatProp->fields.maxHP, nullptr);
+            auto HP = app::MoleMole_SafeFloat_get_Value(combatProp->fields.HP, nullptr);
+            auto isLockHp = combatProp->fields.islockHP == nullptr || app::MoleMole_FixedBoolStack_get_value(combatProp->fields.islockHP, nullptr);
+            auto isInvincible = combatProp->fields.isInvincible == nullptr || app::MoleMole_FixedBoolStack_get_value(combatProp->fields.isInvincible, nullptr);
             ImGui::BeginTooltip();
             ImGui::Text("Combat: %s", combat == nullptr ? "No" : "Yes");
             ImGui::Text("Combat Prop: %s", combatProp == nullptr ? "No" : "Yes");
@@ -841,7 +841,7 @@ namespace cheat::feature
 
     void DrawMapManager()
     {
-        auto mapManager = GET_SINGLETON(MapManager);
+        auto mapManager = GET_SINGLETON(MoleMole_MapManager);
         if (mapManager == nullptr)
             return;
 
@@ -952,7 +952,7 @@ namespace cheat::feature
 
     void DrawScenePropManager()
     {
-        auto scenePropManager = GET_SINGLETON(ScenePropManager);
+        auto scenePropManager = GET_SINGLETON(MoleMole_ScenePropManager);
         if (scenePropManager == nullptr)
         {
             ImGui::Text("Scene prop manager not loaded.");
@@ -980,7 +980,7 @@ namespace cheat::feature
 
             auto pattern = config._._.scenePropPatternName;
             app::MoleMole_Config_TreeType__Enum value;
-            bool result = app::ScenePropManager_GetTreeTypeByPattern(scenePropManager, pattern, &value, nullptr);
+            bool result = app::MoleMole_ScenePropManager_GetTreeTypeByPattern(scenePropManager, pattern, &value, nullptr);
             if (!result)
                 continue;
 

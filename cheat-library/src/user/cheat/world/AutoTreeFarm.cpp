@@ -68,7 +68,7 @@ namespace cheat::feature
 
 	std::unordered_set<app::SceneTreeObject*> GetTreeSet()
 	{
-		auto scenePropManager = GET_SINGLETON(ScenePropManager);
+		auto scenePropManager = GET_SINGLETON(MoleMole_ScenePropManager);
 		if (scenePropManager == nullptr)
 			return {};
 
@@ -126,13 +126,13 @@ namespace cheat::feature
 		static std::unordered_set<app::SceneTreeObject*> s_AttackQueueSet;
 		static uint64_t s_LastAttackTimestamp = 0;
 
-		uint64_t timestamp = app::TimeUtil_get_NowTimeStamp(nullptr);
+		uint64_t timestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr);
 		if (!m_Enabled || s_LastAttackTimestamp + m_AttackDelay > timestamp)
 			return;
 
 		auto& manager = game::EntityManager::instance();
-		auto scenePropManager = GET_SINGLETON(ScenePropManager);
-		auto networkManager = GET_SINGLETON(NetworkManager_1);
+		auto scenePropManager = GET_SINGLETON(MoleMole_ScenePropManager);
+		auto networkManager = GET_SINGLETON(MoleMole_NetworkManager);
 		if (networkManager == nullptr || scenePropManager == nullptr)
 			return;
 
@@ -168,7 +168,7 @@ namespace cheat::feature
 
 			app::MoleMole_Config_TreeType__Enum treeType;
 			auto pattern = tree->fields._config->fields._._.scenePropPatternName;
-			if (!app::ScenePropManager_GetTreeTypeByPattern(scenePropManager, pattern, &treeType, nullptr))
+			if (!app::MoleMole_ScenePropManager_GetTreeTypeByPattern(scenePropManager, pattern, &treeType, nullptr))
 				continue;
 
 			if (m_AttackPerTree > 0)
@@ -183,7 +183,7 @@ namespace cheat::feature
 			}
 
 			tree->fields._lastTreeDropTimeStamp = timestamp;
-			app::NetworkManager_1_RequestHitTreeDropNotify(networkManager, position, position, treeType, nullptr);
+			app::MoleMole_NetworkManager_RequestHitTreeDropNotify(networkManager, position, position, treeType, nullptr);
 			break;
 		}
 

@@ -12,8 +12,8 @@ namespace cheat::feature
 	static void InLevelMapPageContext_OnMarkClicked_Hook(app::InLevelMapPageContext* __this, app::MonoMapMark* mark, MethodInfo* method);
 	static app::Vector3 LocalEntityInfoData_get_initPos_Hook(app::LocalEntityInfoData* __this, MethodInfo* method);
 
-	static bool LoadingManager_NeedTransByServer_Hook(app::LoadingManager* __this, uint32_t sceneId, app::Vector3 position, MethodInfo* method);
-	static void LoadingManager_PerformPlayerTransmit_Hook(app::LoadingManager* __this, app::Vector3 position, app::EnterType__Enum someEnum,
+	static bool LoadingManager_NeedTransByServer_Hook(app::MoleMole_LoadingManager* __this, uint32_t sceneId, app::Vector3 position, MethodInfo* method);
+	static void LoadingManager_PerformPlayerTransmit_Hook(app::MoleMole_LoadingManager* __this, app::Vector3 position, app::EnterType__Enum someEnum,
 		uint32_t someUint1, app::EvtTransmitAvatar_EvtTransmitAvatar_TransmitType__Enum teleportType, uint32_t someUint2, MethodInfo* method);
 	static void Entity_SetRelativePosition_Hook(app::BaseEntity* __this, app::Vector3 position, bool someBool, MethodInfo* method);
 
@@ -24,18 +24,18 @@ namespace cheat::feature
 		NF(f_Key, "Teleport key", "MapTeleport", Hotkey('T'))
 	{
 		// Map touch
-		HookManager::install(app::InLevelMapPageContext_OnMarkClicked, InLevelMapPageContext_OnMarkClicked_Hook);
-		HookManager::install(app::InLevelMapPageContext_OnMapClicked, InLevelMapPageContext_OnMapClicked_Hook);
+		HookManager::install(app::MoleMole_InLevelMapPageContext_OnMarkClicked, InLevelMapPageContext_OnMarkClicked_Hook);
+		HookManager::install(app::MoleMole_InLevelMapPageContext_OnMapClicked, InLevelMapPageContext_OnMapClicked_Hook);
 
 		// Stage 1
-		HookManager::install(app::LocalEntityInfoData_get_initPos, LocalEntityInfoData_get_initPos_Hook);
-		HookManager::install(app::LoadingManager_NeedTransByServer, LoadingManager_NeedTransByServer_Hook);
+		HookManager::install(app::MoleMole_LocalEntityInfoData_get_initPos, LocalEntityInfoData_get_initPos_Hook);
+		HookManager::install(app::MoleMole_LoadingManager_NeedTransByServer, LoadingManager_NeedTransByServer_Hook);
 
 		// Stage 2
-		HookManager::install(app::LoadingManager_PerformPlayerTransmit, LoadingManager_PerformPlayerTransmit_Hook);
+		HookManager::install(app::MoleMole_LoadingManager_PerformPlayerTransmit, LoadingManager_PerformPlayerTransmit_Hook);
 
 		// Stage 3
-		HookManager::install(app::Entity_SetRelativePosition, Entity_SetRelativePosition_Hook);
+		HookManager::install(app::MoleMole_BaseEntity_SetRelativePosition, Entity_SetRelativePosition_Hook);
 
 		events::GameUpdateEvent += MY_METHOD_HANDLER(MapTeleport::OnGameUpdate);
 	}
@@ -88,8 +88,8 @@ namespace cheat::feature
 		if (taskInfo.waitingThread)
 		{
 			taskInfo.waitingThread = false;
-			auto someSingleton = GET_SINGLETON(LoadingManager);
-			app::LoadingManager_RequestSceneTransToPoint(someSingleton, taskInfo.sceneId, taskInfo.waypointId, nullptr, nullptr);
+			auto someSingleton = GET_SINGLETON(MoleMole_LoadingManager);
+			app::MoleMole_LoadingManager_RequestSceneTransToPoint(someSingleton, taskInfo.sceneId, taskInfo.waypointId, nullptr, nullptr);
 		}
 	}
 
@@ -122,7 +122,7 @@ namespace cheat::feature
 		if (!mapBackground)
 			return false;
 
-		auto uimanager = GET_SINGLETON(UIManager);
+		auto uimanager = GET_SINGLETON(MoleMole_UIManager);
 		if (uimanager == nullptr)
 			return false;
 
@@ -267,7 +267,7 @@ namespace cheat::feature
 		return result;
 	}
 
-	static bool LoadingManager_NeedTransByServer_Hook(app::LoadingManager* __this, uint32_t sceneId, app::Vector3 position, MethodInfo* method)
+	static bool LoadingManager_NeedTransByServer_Hook(app::MoleMole_LoadingManager* __this, uint32_t sceneId, app::Vector3 position, MethodInfo* method)
 	{
 		auto result = CALL_ORIGIN(LoadingManager_NeedTransByServer_Hook, __this, sceneId, position, method);
 
@@ -278,7 +278,7 @@ namespace cheat::feature
 	}
 
 
-	static void LoadingManager_PerformPlayerTransmit_Hook(app::LoadingManager* __this, app::Vector3 position, app::EnterType__Enum someEnum,
+	static void LoadingManager_PerformPlayerTransmit_Hook(app::MoleMole_LoadingManager* __this, app::Vector3 position, app::EnterType__Enum someEnum,
 		uint32_t someUint1, app::EvtTransmitAvatar_EvtTransmitAvatar_TransmitType__Enum teleportType, uint32_t someUint2, MethodInfo* method)
 	{
 		MapTeleport& mapTeleport = MapTeleport::GetInstance();

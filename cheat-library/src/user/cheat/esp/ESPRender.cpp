@@ -26,8 +26,8 @@ namespace cheat::feature::esp::render
 
 		s_Camera = nullptr;
 
-		auto loadingManager = GET_SINGLETON(LoadingManager);
-		if (loadingManager == nullptr || !app::LoadingManager_IsLoaded(loadingManager, nullptr))
+		auto loadingManager = GET_SINGLETON(MoleMole_LoadingManager);
+		if (loadingManager == nullptr || !app::MoleMole_LoadingManager_IsLoaded(loadingManager, nullptr))
 			return;
 
 		SAFE_BEGIN();
