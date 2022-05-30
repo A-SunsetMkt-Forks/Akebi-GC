@@ -13,7 +13,7 @@
 
 #include "il2cpp-metadata-version.h"
 
-#define IS_SINGLETON_LOADED(className) (*app::Singleton_1_## className ##___TypeInfo != nullptr && *app::Singleton_1_ ## className ## __get_Instance__MethodInfo != nullptr)
+#define IS_SINGLETON_LOADED(className) (/**app::Singleton_1_## className ##___TypeInfo != nullptr &&*/ *app::Singleton_1_ ## className ## __get_Instance__MethodInfo != nullptr)
 #define GET_SINGLETON(tpname) IS_SINGLETON_LOADED(tpname) ? reinterpret_cast<app:: ## tpname ## *>(app::Singleton_GetInstance(nullptr, *app::Singleton_1_ ## tpname ## __get_Instance__MethodInfo)) : nullptr
 
 #define INIT_ILCPP_CLASS(className, expr) (il2cpp_runtime_class_init(reinterpret_cast<Il2CppClass*>(*app::## className ##__TypeInfo)), expr)

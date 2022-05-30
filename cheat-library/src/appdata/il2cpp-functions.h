@@ -110,7 +110,7 @@ DO_APP_FUNC(0x0167B1A0, bool, MoleMole_FixedBoolStack_get_value, (FixedBoolStack
 // possible:
 // DO_APP_FUNC(0x039E2030, MoleMole_EvtCrash_1 *, EventHelper_Allocate_103, (MethodInfo * method));
 DO_APP_FUNC(0x039E2030, EvtCrash*, MoleMole_EventHelper_Allocate_103, (MethodInfo* method));
-DO_APP_FUNC_METHODINFO(0x0971A140, MoleMole_EventHelper_Allocate_103__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x09723528, MoleMole_EventHelper_Allocate_103__MethodInfo);
 
 DO_APP_FUNC(0x034BC360, void, MoleMole_BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo, (BaseMoveSyncPlugin* __this, MethodInfo* method));
 
@@ -191,10 +191,10 @@ DO_APP_FUNC(0x039E22C0, VCBaseMove*, MoleMole_BaseEntity_GetMoveComponent_1, (Ba
 DO_APP_FUNC(0x035C3850, List_1_MoleMole_BaseComponent_*, MoleMole_BaseEntity_GetAllLogicComponents, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x0187FDC0, GameObject*, MoleMole_BaseEntity_get_gameObject, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x035ACC70, GameObject*, MoleMole_BaseEntity_get_rootGameObject, (BaseEntity* __this, MethodInfo* method));
-DO_APP_FUNC_METHODINFO(0x096EE7D8, MoleMole_BaseEntity_GetMoveComponent_1__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096EAD20, MoleMole_BaseEntity_GetMoveComponent_1__MethodInfo);
 
 //DO_APP_FUNC_METHODINFO(0x096EF950, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo); // double check
-DO_APP_FUNC_METHODINFO(0x096EF950, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096EC0B8, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo);
 
 // check comparison from 2.2 & 2.6
 // function type & name is wrong
@@ -280,15 +280,15 @@ DO_APP_FUNC(0x06677BD0, float, Canvas_get_scaleFactor, (/*Canvas**/void* __this,
 
 // Singletons
 DO_APP_FUNC(0x05189A90, void*, Singleton_GetInstance, (void* __this, MethodInfo* method));
-DO_APP_FUNC_METHODINFO(0x096EE180, Singleton_1_MoleMole_MapModule__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EE1C0, Singleton_1_MoleMole_LoadingManager__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EA380, Singleton_1_MoleMole_EntityManager__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EB1E8, Singleton_1_InteractionManager__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EA278, Singleton_1_MoleMole_UIManager__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096ED720, Singleton_1_MoleMole_ItemModule__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EB530, Singleton_1_MoleMole_EventManager__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EA298, Singleton_1_MoleMole_PlayerModule__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EA4F8, Singleton_1_MoleMole_MapManager__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096ECB80, Singleton_1_MoleMole_ScenePropManager__get_Instance__MethodInfo);
-DO_APP_FUNC_METHODINFO(0x096EA9A8, Singleton_1_MoleMole_NetworkManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096EA3B0, Singleton_1_MoleMole_MapModule__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096EA470, Singleton_1_MoleMole_LoadingManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E5D68, Singleton_1_MoleMole_EntityManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E6D98, Singleton_1_InteractionManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E5C20, Singleton_1_MoleMole_UIManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E9868, Singleton_1_MoleMole_ItemModule__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E7148, Singleton_1_MoleMole_EventManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E5C58, Singleton_1_MoleMole_PlayerModule__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E5EE8, Singleton_1_MoleMole_MapManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E8A10, Singleton_1_MoleMole_ScenePropManager__get_Instance__MethodInfo);
+DO_APP_FUNC_METHODINFO(0x096E63A0, Singleton_1_MoleMole_NetworkManager__get_Instance__MethodInfo);
 
