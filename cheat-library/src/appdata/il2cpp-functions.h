@@ -243,7 +243,7 @@ DO_APP_FUNC(0x065ECB70, void, RenderSettings_set_fog, (void* __this, bool value,
 DO_APP_FUNC(0x06621FF0, void, Application_set_targetFrameRate, (void* __this, int32_t value, MethodInfo* method));
 DO_APP_FUNC(0x06621D80, int32_t, Application_get_targetFrameRate, (void* __this, MethodInfo* method));
 
-DO_APP_FUNC(0x06678780, bool, RectTransformUtility_ScreenPointToLocalPointInRectangle, (void* __this, void* rect, Vector2 screenPoint, void* cam, Vector2* localPoint, MethodInfo* method));
+DO_APP_FUNC(0x06678780, bool, RectTransformUtility_ScreenPointToLocalPointInRectangle, (void* rect, Vector2 screenPoint, void* cam, Vector2* localPoint, MethodInfo* method));
 
 DO_APP_FUNC(0x06555BA0, Vector3, Transform_get_position, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x065548F0, void, Transform_set_position, (Transform* __this, Vector3 value, MethodInfo* method));

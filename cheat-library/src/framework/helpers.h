@@ -113,20 +113,27 @@ struct UniList
 };
 
 template<typename KeyT, typename ValT>
+struct UniDictEntry
+{
+    int32_t hashCode;
+    int32_t next;
+    KeyT key;
+    ValT value;
+};
+
+template<typename KeyT, typename ValT>
 struct __declspec(align(8)) UniDict {
     void* klass;
     MonitorData* monitor;
-    struct app::Int32__Array* table;
-    struct app::Link__Array* linkSlots;
-    struct UniArray<KeyT>* keySlots;
-    struct UniArray<ValT>* valueSlots;
-    int32_t touchedSlots;
-    int32_t emptySlot;
-    int32_t count;
-    int32_t threshold;
-    void* hcp;
-    void* serialization_info;
-    int32_t generation;
+    void* buckets;
+    UniArray<UniDictEntry<KeyT, ValT>>* entries;
+	int32_t count;
+	int32_t version;
+	int32_t freeList;
+	int32_t freeCount;
+	void* comparer;
+    void* keys;
+    void* values;
 
     std::vector<std::pair<KeyT, ValT>> pairs() 
     {
@@ -134,27 +141,19 @@ struct __declspec(align(8)) UniDict {
 
 #define DictCheckNull(field, msg) if (field == nullptr) { LOG_WARNING("Failed to get dict pairs: %s", msg); return pairs; }
 
-        DictCheckNull(linkSlots, "LinkSlots pointer is null.");
-        DictCheckNull(keySlots, "Key slots is null.");
-        DictCheckNull(valueSlots, "ValueSlots pointer is null.");
+        DictCheckNull(buckets, "Buckets is null.");
+        DictCheckNull(entries, "Entries is null.");
 
 #undef DictCheckNull
 
-        int32_t next = 0;
-        const int HASH_FLAG = 0x80000000;
-        while (next < touchedSlots)
+        for (auto& entry : *entries)
         {
-            int32_t cur = next++;
-            if ((linkSlots->vector[cur].HashCode & HASH_FLAG) != 0)
-            {
-                pairs.push_back(
-                    std::make_pair(
-                        keySlots->vector[cur],
-                        valueSlots->vector[cur]
-                    )
-                );
-            }
+			if (entry.next != 0xffffffff)
+				break;
+
+            pairs.push_back({ entry.key, entry.value });
         }
+
         return pairs;
     }
 };
