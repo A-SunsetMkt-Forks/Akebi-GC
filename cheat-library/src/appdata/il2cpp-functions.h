@@ -279,7 +279,7 @@ DO_APP_FUNC(0x06677BD0, float, Canvas_get_scaleFactor, (/*Canvas**/void* __this,
 
 
 // Singletons
-DO_APP_FUNC(0x05189A90, void*, Singleton_GetInstance, (void* __this, MethodInfo* method));
+DO_APP_FUNC(0x05189A90, void*, Singleton_GetInstance, (MethodInfo* method));
 DO_APP_FUNC_METHODINFO(0x096EA3B0, Singleton_1_MoleMole_MapModule__get_Instance__MethodInfo);
 DO_APP_FUNC_METHODINFO(0x096EA470, Singleton_1_MoleMole_LoadingManager__get_Instance__MethodInfo);
 DO_APP_FUNC_METHODINFO(0x096E5D68, Singleton_1_MoleMole_EntityManager__get_Instance__MethodInfo);
