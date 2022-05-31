@@ -8,14 +8,6 @@
 
 namespace cheat::feature
 {
-	static void InLevelMapPageContext_OnMapClicked_Hook(app::InLevelMapPageContext* __this, app::Vector2 screenPos, MethodInfo* method);
-	static void InLevelMapPageContext_OnMarkClicked_Hook(app::InLevelMapPageContext* __this, app::MonoMapMark* mark, MethodInfo* method);
-	static app::Vector3 LocalEntityInfoData_get_initPos_Hook(app::LocalEntityInfoData* __this, MethodInfo* method);
-
-	static bool LoadingManager_NeedTransByServer_Hook(app::MoleMole_LoadingManager* __this, uint32_t sceneId, app::Vector3 position, MethodInfo* method);
-	static void LoadingManager_PerformPlayerTransmit_Hook(app::MoleMole_LoadingManager* __this, app::Vector3 position, app::EnterType__Enum someEnum,
-		uint32_t someUint1, app::EvtTransmitAvatar_EvtTransmitAvatar_TransmitType__Enum teleportType, uint32_t someUint2, MethodInfo* method);
-	static void Entity_SetRelativePosition_Hook(app::BaseEntity* __this, app::Vector3 position, bool someBool, MethodInfo* method);
 
 	MapTeleport::MapTeleport() : Feature(),
 		NF(f_Enabled, "Map teleport", "MapTeleport", false),
@@ -28,14 +20,13 @@ namespace cheat::feature
 		HookManager::install(app::MoleMole_InLevelMapPageContext_OnMapClicked, InLevelMapPageContext_OnMapClicked_Hook);
 
 		// Stage 1
-		HookManager::install(app::MoleMole_LocalEntityInfoData_get_initPos, LocalEntityInfoData_get_initPos_Hook);
 		HookManager::install(app::MoleMole_LoadingManager_NeedTransByServer, LoadingManager_NeedTransByServer_Hook);
 
 		// Stage 2
 		HookManager::install(app::MoleMole_LoadingManager_PerformPlayerTransmit, LoadingManager_PerformPlayerTransmit_Hook);
 
 		// Stage 3
-		HookManager::install(app::MoleMole_BaseEntity_SetRelativePosition, Entity_SetRelativePosition_Hook);
+		HookManager::install(app::MoleMole_BaseEntity_SetAbsolutePosition, MoleMole_BaseEntity_SetAbsolutePosition_Hook);
 
 		events::GameUpdateEvent += MY_METHOD_HANDLER(MapTeleport::OnGameUpdate);
 	}
@@ -130,7 +121,7 @@ namespace cheat::feature
 		if (screenCamera == nullptr)
 			return false;
 
-		bool result = app::RectTransformUtility_ScreenPointToLocalPointInRectangle(nullptr, mapBackground, screenPos, screenCamera, outMapPos, nullptr);
+		bool result = app::RectTransformUtility_ScreenPointToLocalPointInRectangle(mapBackground, screenPos, screenCamera, outMapPos, nullptr);
 		if (!result)
 			return false;
 
@@ -160,9 +151,9 @@ namespace cheat::feature
 	// Calling teleport if map clicked.
 	// This event invokes only when free space of map clicked,
 	// if clicked mark, invokes InLevelMapPageContext_OnMarkClicked_Hook.
-	static void InLevelMapPageContext_OnMapClicked_Hook(app::InLevelMapPageContext* __this, app::Vector2 screenPos, MethodInfo* method)
+	void MapTeleport::InLevelMapPageContext_OnMapClicked_Hook(app::InLevelMapPageContext* __this, app::Vector2 screenPos, MethodInfo* method)
 	{
-		MapTeleport& mapTeleport = MapTeleport::GetInstance();
+		MapTeleport& mapTeleport = GetInstance();
 
 		if (!mapTeleport.f_Enabled || !mapTeleport.f_Key.value().IsPressed())
 			return CALL_ORIGIN(InLevelMapPageContext_OnMapClicked_Hook, __this, screenPos, method);
@@ -176,36 +167,30 @@ namespace cheat::feature
 	}
 
 	// Calling teleport if map marks clicked.
-	static void InLevelMapPageContext_OnMarkClicked_Hook(app::InLevelMapPageContext* __this, app::MonoMapMark* mark, MethodInfo* method)
+	void MapTeleport::InLevelMapPageContext_OnMarkClicked_Hook(app::InLevelMapPageContext* __this, app::MonoMapMark* mark, MethodInfo* method)
 	{
-		MapTeleport& mapTeleport = MapTeleport::GetInstance();
+		MapTeleport& mapTeleport = GetInstance();
 		if (!mapTeleport.f_Enabled || !mapTeleport.f_Key.value().IsPressed())
 			return CALL_ORIGIN(InLevelMapPageContext_OnMarkClicked_Hook, __this, mark, method);
 
 		mapTeleport.TeleportTo(mark->fields._levelMapPos);
 	}
 
-	// Before call, game checked if distance is near (<60) to cast near teleport.
-	// But it check distance to waypoint location, given by this function.
-	// So, we need to replace target position to do correct check.
-	void MapTeleport::OnGetTargetPos(app::Vector3& position)
-	{
-		if (taskInfo.currentStage == 3)
-		{
-			position = taskInfo.targetPosition;
-			taskInfo.currentStage--;
-			LOG_DEBUG("Stage 1. Replace waypoint tp position.");
-		}
-	}
-
 	// Checking is teleport is far (>60m), if it isn't we clear stage.
-	void MapTeleport::OnCheckTeleportDistance(bool needTransByServer)
+	bool MapTeleport::IsNeedTransByServer(bool originResult, app::Vector3& position)
 	{
-		if (!needTransByServer && taskInfo.currentStage == 2)
-		{
+		if (taskInfo.currentStage != 3)
+			return originResult;
+		
+		auto& entityManager = game::EntityManager::instance();
+		bool needServerTrans = entityManager.avatar()->distance(taskInfo.targetPosition) > 60.0f;
+		if (needServerTrans)
+			LOG_DEBUG("Stage 1. Distance is more than 60m. Performing server tp.");
+		else
 			LOG_DEBUG("Stage 1. Distance is less than 60m. Performing fast tp.");
-			taskInfo.currentStage = 0;
-		}
+
+		taskInfo.currentStage--;
+		return needServerTrans;
 	}
 
 	// After server responded, it will give us the waypoint target location to load. 
@@ -257,28 +242,16 @@ namespace cheat::feature
 		}
 	}
 
-	static app::Vector3 LocalEntityInfoData_get_initPos_Hook(app::LocalEntityInfoData* __this, MethodInfo* method)
-	{
-		auto result = CALL_ORIGIN(LocalEntityInfoData_get_initPos_Hook, __this, method);
-
-		MapTeleport& mapTeleport = MapTeleport::GetInstance();
-		mapTeleport.OnGetTargetPos(result);
-
-		return result;
-	}
-
-	static bool LoadingManager_NeedTransByServer_Hook(app::MoleMole_LoadingManager* __this, uint32_t sceneId, app::Vector3 position, MethodInfo* method)
+	bool MapTeleport::LoadingManager_NeedTransByServer_Hook(app::MoleMole_LoadingManager* __this, uint32_t sceneId, app::Vector3 position, MethodInfo* method)
 	{
 		auto result = CALL_ORIGIN(LoadingManager_NeedTransByServer_Hook, __this, sceneId, position, method);
 
-		MapTeleport& mapTeleport = MapTeleport::GetInstance();
-		mapTeleport.OnCheckTeleportDistance(result);
-
-		return result;
+		auto& mapTeleport = GetInstance();
+		return mapTeleport.IsNeedTransByServer(result, position);
 	}
 
 
-	static void LoadingManager_PerformPlayerTransmit_Hook(app::MoleMole_LoadingManager* __this, app::Vector3 position, app::EnterType__Enum someEnum,
+	void MapTeleport::LoadingManager_PerformPlayerTransmit_Hook(app::MoleMole_LoadingManager* __this, app::Vector3 position, app::EnterType__Enum someEnum,
 		uint32_t someUint1, app::EvtTransmitAvatar_EvtTransmitAvatar_TransmitType__Enum teleportType, uint32_t someUint2, MethodInfo* method)
 	{
 		MapTeleport& mapTeleport = MapTeleport::GetInstance();
@@ -288,7 +261,7 @@ namespace cheat::feature
 	}
 
 
-	static void Entity_SetRelativePosition_Hook(app::BaseEntity* __this, app::Vector3 position, bool someBool, MethodInfo* method)
+	void MapTeleport::MoleMole_BaseEntity_SetAbsolutePosition_Hook(app::BaseEntity* __this, app::Vector3 position, bool someBool, MethodInfo* method)
 	{
 		auto& manager = game::EntityManager::instance();
 		if (manager.avatar()->raw() == __this)
@@ -297,7 +270,7 @@ namespace cheat::feature
 			mapTeleport.OnSetAvatarPosition(position);
 		}
 
-		CALL_ORIGIN(Entity_SetRelativePosition_Hook, __this, position, someBool, method);
+		CALL_ORIGIN(MoleMole_BaseEntity_SetAbsolutePosition_Hook, __this, position, someBool, method);
 	}
 
 }

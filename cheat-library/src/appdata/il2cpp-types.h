@@ -8145,6 +8145,7 @@ namespace app {
     struct LCBaseCombat_AttackTarget {
         uint32_t runtimeID;
         struct String* lockedPoint;
+        int32_t MBCDNGIFGDD;
     };
 
     struct LCBaseCombat__Fields {
