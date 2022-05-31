@@ -272,6 +272,7 @@ DO_APP_FUNC(0x06533C30, int32_t, Screen_get_height, (MethodInfo* method));
 
 DO_APP_FUNC(0x0664CF50, bool, Behaviour_get_isActiveAndEnabled, (Behaviour* __this, MethodInfo* method));
 
+DO_APP_FUNC(0x066306D0, Vector3, Quaternion_ToEulerAngles, (Quaternion rotation, MethodInfo* method));
 DO_APP_FUNC(0x066309A0, Vector3, Quaternion_get_eulerAngles, (Quaternion__Boxed* __this, MethodInfo* method));
 DO_APP_FUNC(0x06555C70, Quaternion, Transform_get_rotation, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x06552F50, Rect, RectTransform_get_rect, (RectTransform* __this, MethodInfo* method));

@@ -1591,14 +1591,14 @@ namespace cheat::feature
 		auto rotation = app::Transform_get_rotation(reinterpret_cast<app::Transform*>(back), nullptr);
 
 		app::Quaternion__Boxed boxed = { nullptr, nullptr, rotation };
-		return app::Quaternion_get_eulerAngles(&boxed, nullptr).z;
+		return app::Quaternion_ToEulerAngles(rotation, nullptr).z;
 	}
 
 	void InteractiveMap::DrawMinimapPoints()
 	{
 		// Found by hands. Only in Teyvat (3rd scene), need also test another scenes.
 		static const float minimapAreaLevelRadius = 175.0f;
-		constexpr float PI = 3.14159265f;
+		constexpr float TWO_PI = 2 * 3.14159265f;
 
 		auto sceneID = game::GetCurrentPlayerSceneID();
 		if (m_ScenesData.count(sceneID) == 0)
@@ -1608,7 +1608,7 @@ namespace cheat::feature
 		ImVec2 rotationMult = ImVec2(1.0f, 0.0f);
 		if (rotation != 0)
 		{
-			auto rad =  ( (360.0f - rotation) * PI ) / 180.0f;
+			auto rad = TWO_PI - rotation;// ((360.0f - rotation) * PI) / 180.0f;
 			rotationMult = { sin(rad), cos(rad) };
 		}
 

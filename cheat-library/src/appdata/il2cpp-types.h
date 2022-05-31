@@ -8932,6 +8932,7 @@ namespace app {
         bool _setViewAsFirst;
         struct List_1_MoleMole_BaseContextComponent_* _baseComponentList;
         struct List_1_MoleMole_BaseContextComponent_* _tickComponentList;
+        struct List_1_MoleMole_BaseContextComponent_* _lateTickComponentList;
         struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentNotifyRegister;
         struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentPacketRegister;
         struct Dictionary_2_System_Int32_List_1_MoleMole_BaseContextComponent_* _baseComponentActionEventRegister;
