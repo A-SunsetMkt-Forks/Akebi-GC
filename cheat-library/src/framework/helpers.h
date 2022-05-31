@@ -139,7 +139,7 @@ struct __declspec(align(8)) UniDict {
     {
         auto pairs = std::vector<std::pair<KeyT, ValT>>();
 
-#define DictCheckNull(field, msg) if (field == nullptr) { LOG_WARNING("Failed to get dict pairs: %s", msg); return pairs; }
+#define DictCheckNull(field, msg) if (field == nullptr) { /*LOG_WARNING("Failed to get dict pairs: %s", msg);*/ return pairs; }
 
         DictCheckNull(buckets, "Buckets is null.");
         DictCheckNull(entries, "Entries is null.");
