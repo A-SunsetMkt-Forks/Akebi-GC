@@ -146,12 +146,16 @@ struct __declspec(align(8)) UniDict {
 
 #undef DictCheckNull
 
+        int32_t index = 0;
         for (auto& entry : *entries)
         {
-			if (entry.next != 0xffffffff)
-				break;
+            if (index >= count)
+                break;
 
-            pairs.push_back({ entry.key, entry.value });
+            if (entry.hashCode > 0)
+				pairs.push_back({ entry.key, entry.value });
+            
+            index++;
         }
 
         return pairs;
