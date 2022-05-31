@@ -239,9 +239,9 @@ DO_APP_FUNC(0x00A8D650, float, MoleMole_InLevelMainPageContext_get_miniMapScale,
 
 
 // UnityEngine
-DO_APP_FUNC(0x065ECB70, void, RenderSettings_set_fog, (void* __this, bool value, MethodInfo* method));
-DO_APP_FUNC(0x06621FF0, void, Application_set_targetFrameRate, (void* __this, int32_t value, MethodInfo* method));
-DO_APP_FUNC(0x06621D80, int32_t, Application_get_targetFrameRate, (void* __this, MethodInfo* method));
+DO_APP_FUNC(0x065ECB70, void, RenderSettings_set_fog, (bool value, MethodInfo* method));
+DO_APP_FUNC(0x06621FF0, void, Application_set_targetFrameRate, (int32_t value, MethodInfo* method));
+DO_APP_FUNC(0x06621D80, int32_t, Application_get_targetFrameRate, (MethodInfo* method));
 
 DO_APP_FUNC(0x06678780, bool, RectTransformUtility_ScreenPointToLocalPointInRectangle, (void* rect, Vector2 screenPoint, void* cam, Vector2* localPoint, MethodInfo* method));
 
