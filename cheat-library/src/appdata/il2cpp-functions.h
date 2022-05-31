@@ -101,7 +101,7 @@ DO_APP_FUNC(0x023D4A90, bool, MoleMole_ActorAbilityPlugin_OnEvent, (void* __this
 
 
 // Kill aura
-DO_APP_FUNC(0x00B8EB30, void, MoleMole_EvtCrash_Init, (EvtCrash* __this, uint32_t targetID, MethodInfo* method)); // Manual offset
+DO_APP_FUNC(0x03A52200, void, MoleMole_EvtCrash_Init, (EvtCrash* __this, uint32_t targetID, MethodInfo* method)); // Manual offset
 DO_APP_FUNC(0x00941E80, void, MoleMole_EventManager_FireEvent, (MoleMole_EventManager* __this, BaseEvent* e, bool immediately, MethodInfo* method));
 DO_APP_FUNC(0x0167B1A0, bool, MoleMole_FixedBoolStack_get_value, (FixedBoolStack* __this, MethodInfo* method));
 
