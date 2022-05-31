@@ -23,11 +23,11 @@ namespace cheat::feature
         NF(f_Sprint,             "No Sprint Cooldown",           "NoCD", false),
 		NF(f_InstantBow,         "Instant bow",                  "NoCD", false)
     {
-		HookManager::install(app::LCAvatarCombat_IsEnergyMax, LCAvatarCombat_IsEnergyMax_Hook);
-		HookManager::install(app::LCAvatarCombat_IsSkillInCD_1, LCAvatarCombat_IsSkillInCD_1);
+		HookManager::install(app::MoleMole_LCAvatarCombat_IsEnergyMax, LCAvatarCombat_IsEnergyMax_Hook);
+		HookManager::install(app::MoleMole_LCAvatarCombat_IsSkillInCD_1, LCAvatarCombat_IsSkillInCD_1);
 
-		HookManager::install(app::HumanoidMoveFSM_CheckSprintCooldown, HumanoidMoveFSM_CheckSprintCooldown_Hook);
-		HookManager::install(app::ActorAbilityPlugin_AddDynamicFloatWithRange, ActorAbilityPlugin_AddDynamicFloatWithRange_Hook);
+		HookManager::install(app::MoleMole_HumanoidMoveFSM_CheckSprintCooldown, HumanoidMoveFSM_CheckSprintCooldown_Hook);
+		HookManager::install(app::MoleMole_ActorAbilityPlugin_AddDynamicFloatWithRange, ActorAbilityPlugin_AddDynamicFloatWithRange_Hook);
     }
 
     const FeatureGUIInfo& NoCD::GetGUIInfo() const
@@ -128,11 +128,11 @@ namespace cheat::feature
 		NoCD& noCD = NoCD::GetInstance();
 		if (noCD.f_AbilityReduce)
 		{
-			auto cdTimer = app::SafeFloat_GetValue(nullptr, skillInfo->fields.cdTimer, nullptr);
+			auto cdTimer = app::MoleMole_SafeFloat_get_Value(skillInfo->fields.cdTimer, nullptr);
 
 			if (cdTimer > noCD.f_TimerReduce * 5.0f)
 			{
-				struct app::SafeFloat MyValueProtect = app::SafeFloat_SetValue(nullptr, noCD.f_TimerReduce * 5.0f, nullptr);
+				struct app::SafeFloat MyValueProtect = app::MoleMole_SafeFloat_set_Value(noCD.f_TimerReduce * 5.0f, nullptr);
 				skillInfo->fields.cdTimer = MyValueProtect;
 			}
 		}
