@@ -279,6 +279,9 @@ DO_APP_FUNC(0x06552F50, Rect, RectTransform_get_rect, (RectTransform* __this, Me
 DO_APP_FUNC(0x06677BD0, float, Canvas_get_scaleFactor, (/*Canvas**/void* __this, MethodInfo* method));
 
 
+DO_APP_FUNC(0x00935700, void, LevelTimeManager_SetInternalTimeOfDay, (/*LevelTimeManager**/void* __this, float inHours, bool force, bool refreshEnviroTime, MethodInfo* method));
+
+
 // Singletons
 DO_APP_FUNC(0x05189A90, void*, Singleton_GetInstance, (MethodInfo* method));
 DO_APP_FUNC_METHODINFO(0x096EA3B0, Singleton_1_MoleMole_MapModule__get_Instance__MethodInfo);
