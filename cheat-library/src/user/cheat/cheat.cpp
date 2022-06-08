@@ -42,6 +42,7 @@
 #include <cheat/visuals/FPSUnlock.h>
 #include <cheat/visuals/CameraZoom.h>
 #include <cheat/visuals/ShowChestIndicator.h>
+#include <cheat/visuals/ProfileChanger.h>
 
 #include "GenshinCM.h"
 
@@ -95,7 +96,8 @@ namespace cheat
 			FEAT_INST(NoFog),
 			FEAT_INST(FPSUnlock),
 			FEAT_INST(CameraZoom),
-			FEAT_INST(ChestIndicator)
+			FEAT_INST(ChestIndicator),
+			FEAT_INST(ProfileChanger)
 
 			});
 #undef FEAT_INST

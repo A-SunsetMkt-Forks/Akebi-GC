@@ -17,6 +17,8 @@ DO_APP_FUNC(0x00F0DCE0, bool, MoleMole_MapModule_IsAreaUnlock, (MoleMole_MapModu
 // DBDMOONJALD => op_Implicit
 DO_APP_FUNC(0x01B0A910, uint16_t, MoleMole_SimpleSafeUInt16_get_Value, (SimpleSafeUInt16 v, MethodInfo* method));
 DO_APP_FUNC(0x0400F280, uint32_t, MoleMole_SimpleSafeUInt32_get_Value, (SimpleSafeUInt32 v, MethodInfo* method));
+DO_APP_FUNC(0x05DF4590, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
+
 
 // Map utility
 DO_APP_FUNC(0x00E866B0, Rect, MonoInLevelMapPage_get_mapRect, (MonoInLevelMapPage* __this, MethodInfo* method));
@@ -73,6 +75,9 @@ DO_APP_FUNC(0x00F97D70, void, MoleMole_TalkDialogContext_OnDialogSelectItem, (Ta
 DO_APP_FUNC(0x02BF0040, void, MoleMole_InLevelCutScenePageContext_OnFreeClick, (InLevelCutScenePageContext* __this, MethodInfo* method));
 DO_APP_FUNC(0x02BF1AC0, void, MoleMole_InLevelCutScenePageContext_UpdateView, (InLevelCutScenePageContext* __this, MethodInfo* method));
 DO_APP_FUNC(0x02BEF110, void, MoleMole_InLevelCutScenePageContext_ClearView, (InLevelCutScenePageContext* __this, MethodInfo* method));
+// Skip Cutscene | RyujinZX#6666
+DO_APP_FUNC(0x0363A300, void, CriwareMediaPlayer_Update, (CriwareMediaPlayer* __this, MethodInfo* method));
+DO_APP_FUNC(0x0363A0D0, void, CriwareMediaPlayer_Skip, (CriwareMediaPlayer* __this, MethodInfo* method));
 
 
 // Protection bypass
@@ -145,8 +150,23 @@ DO_APP_FUNC(0x02858180, void, MoleMole_PlayerModule_OnPlayerCookRsp, (MoleMole_P
 DO_APP_FUNC(0x033F5820, void, MoleMole_CookingQtePageContext_UpdateProficiency, (CookingQtePageContext* __this, MethodInfo* method));
 DO_APP_FUNC(0x0116AA10, uint32_t, CookRecipeExcelConfig_get_maxProficiency, (CookRecipeExcelConfig* __this, MethodInfo* method));
 
+// Profile Changer | RyujinZX#6666
+DO_APP_FUNC(0x027A41A0, Button_1*, ProfilePage, (MonoInLevelPlayerProfilePage* __this, MethodInfo* method)); // MonoInLevelPlayerProfilePage_get_logoutButton
+DO_APP_FUNC(0x016A77B0, void, ProfileEditPage, (MonoFriendInformationDialog* __this, Sprite* value, MethodInfo* method)); // MonoFriendInformationDialog_set_icon 
+
+// Game Object Utility
+DO_APP_FUNC(0x0662F130, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
+DO_APP_FUNC(0x0662F190, Component_1*, GameObject_GetComponentByName, (GameObject* __this, String* type, MethodInfo* method));
 
 // Utility
+DO_APP_FUNC(0x06568060, void, Text_set_text, (Text* __this, String* value, MethodInfo* method));
+DO_APP_FUNC(0x0658D6B0, void, Slider_1_set_value, (Slider_1* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x0658D560, void, Slider_1_set_maxValue, (Slider_1* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x0658D5E0, void, Slider_1_set_minValue, (Slider_1* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x065F6470, Rect, Sprite_get_rect, (Sprite* __this, MethodInfo* method));
+DO_APP_FUNC(0x0667D6A0, Texture2D*, NativeGallery_LoadImageAtPath, (String* imagePath, int32_t maxSize, bool markTextureNonReadable, bool generateMipmaps, bool linearColorSpace, MethodInfo* method));
+DO_APP_FUNC(0x065F6270, Sprite*, Sprite_Create, (Texture2D* texture, Rect rect, Vector2 pivot, float pixelsPerUnit, MethodInfo* method));
+
 DO_APP_FUNC(0x036865D0, float, Miscs_CalcCurrentGroundWaterHeight, (float x, float z, MethodInfo* method));
 DO_APP_FUNC(0x03685E00, float, Miscs_CalcCurrentGroundHeight, (float x, float z, MethodInfo* method));
 DO_APP_FUNC(0x03685F10, float, Miscs_CalcCurrentGroundHeight_1, (float x, float z, float rayStartHeight, float rayDetectLength, int32_t layer, MethodInfo* method));
