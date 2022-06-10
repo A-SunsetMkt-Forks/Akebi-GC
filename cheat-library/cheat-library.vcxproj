@@ -53,6 +53,7 @@
     <ClInclude Include="src\user\cheat\visuals\CameraZoom.h" />
     <ClInclude Include="src\user\cheat\visuals\FPSUnlock.h" />
     <ClInclude Include="src\user\cheat\visuals\NoFog.h" />
+    <ClInclude Include="src\user\cheat\visuals\PaimonFollow.h" />
     <ClInclude Include="src\user\cheat\visuals\ProfileChanger.h" />
     <ClInclude Include="src\user\cheat\visuals\ShowChestIndicator.h" />
     <ClInclude Include="src\user\cheat\world\AutoCook.h" />
@@ -164,6 +165,7 @@
     <ClCompile Include="src\user\cheat\visuals\CameraZoom.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FPSUnlock.cpp" />
     <ClCompile Include="src\user\cheat\visuals\NoFog.cpp" />
+    <ClCompile Include="src\user\cheat\visuals\PaimonFollow.cpp" />
     <ClCompile Include="src\user\cheat\visuals\ProfileChanger.cpp" />
     <ClCompile Include="src\user\cheat\visuals\ShowChestIndicator.cpp" />
     <ClCompile Include="src\user\cheat\world\AutoCook.cpp" />

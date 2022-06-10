@@ -157,6 +157,8 @@ DO_APP_FUNC(0x016A77B0, void, ProfileEditPage, (MonoFriendInformationDialog* __t
 // Game Object Utility
 DO_APP_FUNC(0x0662F130, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
 DO_APP_FUNC(0x0662F190, Component_1*, GameObject_GetComponentByName, (GameObject* __this, String* type, MethodInfo* method));
+DO_APP_FUNC(0x0662F660, bool, GameObject_get_active, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x0662F720, void, GameObject_set_active, (GameObject* __this, bool value, MethodInfo* method));
 
 // Utility
 DO_APP_FUNC(0x06568060, void, Text_set_text, (Text* __this, String* value, MethodInfo* method));
