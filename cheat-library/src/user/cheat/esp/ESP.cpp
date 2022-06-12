@@ -460,11 +460,15 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(featured, TimeTrialChallenge);
 
 		ADD_FILTER_FIELD(guide, CampfireTorch);
+		ADD_FILTER_FIELD(guide, DayNightSwitchingMechanism);
+		ADD_FILTER_FIELD(guide, EnkanomiyaPhaseGate);
 		ADD_FILTER_FIELD(guide, MysteriousCarvings);
 		ADD_FILTER_FIELD(guide, PhaseGate);
+		ADD_FILTER_FIELD(guide, PlacesofEssenceWorship);
 		ADD_FILTER_FIELD(guide, Pot);
 		ADD_FILTER_FIELD(guide, RuinBrazier);
 		ADD_FILTER_FIELD(guide, Stormstone);
+		ADD_FILTER_FIELD(guide, TriangularMechanism);
 
 		ADD_FILTER_FIELD(living, BakeDanuki);
 		ADD_FILTER_FIELD(living, BirdEgg);
@@ -643,6 +647,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, OozingConcretions);
 		ADD_FILTER_FIELD(puzzle, PirateHelm);
 		ADD_FILTER_FIELD(puzzle, PressurePlate);
+		ADD_FILTER_FIELD(puzzle, SealLocations);
 		ADD_FILTER_FIELD(puzzle, Seelie);
 		ADD_FILTER_FIELD(puzzle, SeelieLamp);
 		ADD_FILTER_FIELD(puzzle, SmallRockPile);
