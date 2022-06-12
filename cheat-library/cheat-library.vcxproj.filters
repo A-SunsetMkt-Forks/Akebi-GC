@@ -231,6 +231,9 @@
     <ClInclude Include="src\user\cheat\visuals\PaimonFollow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\user\cheat\visuals\HideUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\Ruda-Bold.ttf" />
@@ -418,6 +421,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\visuals\PaimonFollow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\visuals\HideUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -44,6 +44,7 @@
 #include <cheat/visuals/ShowChestIndicator.h>
 #include <cheat/visuals/ProfileChanger.h>
 #include <cheat/visuals/PaimonFollow.h>
+#include <cheat/visuals/HideUI.h>
 
 #include "GenshinCM.h"
 
@@ -99,7 +100,8 @@ namespace cheat
 			FEAT_INST(CameraZoom),
 			FEAT_INST(ChestIndicator),
 			FEAT_INST(ProfileChanger),
-			FEAT_INST(PaimonFollow)
+			FEAT_INST(PaimonFollow),
+			FEAT_INST(HideUI)
 			
 			});
 #undef FEAT_INST
