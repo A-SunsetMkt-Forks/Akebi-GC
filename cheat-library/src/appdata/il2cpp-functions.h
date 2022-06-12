@@ -148,19 +148,23 @@ DO_APP_FUNC(0x04C9A750, void, MoleMole_LCIndicatorPlugin_HideIcon, (LCIndicatorP
 DO_APP_FUNC(0x02854E30, void, MoleMole_PlayerModule_RequestPlayerCook, (MoleMole_PlayerModule* __this, uint32_t recipeId, uint32_t avatarId, uint32_t qteQuality, uint32_t count, MethodInfo* method));
 DO_APP_FUNC(0x02858180, void, MoleMole_PlayerModule_OnPlayerCookRsp, (MoleMole_PlayerModule* __this, PlayerCookRsp* rsp, MethodInfo* method));
 DO_APP_FUNC(0x033F5820, void, MoleMole_CookingQtePageContext_UpdateProficiency, (CookingQtePageContext* __this, MethodInfo* method));
-DO_APP_FUNC(0x0116AA10, uint32_t, CookRecipeExcelConfig_get_maxProficiency, (CookRecipeExcelConfig* __this, MethodInfo* method));
+DO_APP_FUNC(0x008ECD70, uint32_t, MoleMole_Config_CookRecipeExcelConfig_CheckCookFoodMaxNum, (uint32_t UpdateCookRecipeDic, MethodInfo* method));
+DO_APP_FUNC(0x032256C0, void, CookingQtePageContext_CloseItemGotPanel, (CookingQtePageContext* __this, MethodInfo* method));
 
 // Profile Changer | RyujinZX#6666
 DO_APP_FUNC(0x027A41A0, Button_1*, ProfilePage, (MonoInLevelPlayerProfilePage* __this, MethodInfo* method)); // MonoInLevelPlayerProfilePage_get_logoutButton
 DO_APP_FUNC(0x016A77B0, void, ProfileEditPage, (MonoFriendInformationDialog* __this, Sprite* value, MethodInfo* method)); // MonoFriendInformationDialog_set_icon 
 
-// Game Object Utility
+// Game Object, Component, Transform Utility
 DO_APP_FUNC(0x0662F130, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
 DO_APP_FUNC(0x0662F190, Component_1*, GameObject_GetComponentByName, (GameObject* __this, String* type, MethodInfo* method));
 DO_APP_FUNC(0x0662F660, bool, GameObject_get_active, (GameObject* __this, MethodInfo* method));
 DO_APP_FUNC(0x0662F720, void, GameObject_set_active, (GameObject* __this, bool value, MethodInfo* method));
+DO_APP_FUNC(0x065546E0, Transform*, Transform_GetChild, (Transform* __this, int32_t index, MethodInfo* method));
+DO_APP_FUNC(0x0652EA10, Component_1*, Component_1_GetComponent_1, (Component_1* __this, String* type, MethodInfo* method));
 
 // Utility
+DO_APP_FUNC(0x03551B60, String*, Text_get_text, (Text* __this, MethodInfo* method));
 DO_APP_FUNC(0x06568060, void, Text_set_text, (Text* __this, String* value, MethodInfo* method));
 DO_APP_FUNC(0x0658D6B0, void, Slider_1_set_value, (Slider_1* __this, float value, MethodInfo* method));
 DO_APP_FUNC(0x0658D560, void, Slider_1_set_maxValue, (Slider_1* __this, float value, MethodInfo* method));

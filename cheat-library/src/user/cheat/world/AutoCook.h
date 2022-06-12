@@ -9,10 +9,13 @@ namespace cheat::feature
 	{
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
-		config::Field<int> f_Count;
-		config::Field<int> f_Quality;
+		config::Field<config::Toggle<Hotkey>> f_FastProficiency;
 
-		uint32_t CookCount;
+		config::Field<int> f_CountField;
+		config::Field<int> f_QualityField;
+
+		int CookFoodMaxNum; // Maximum quantity at a time
+		int CookCount; 
 
 		static AutoCook& GetInstance();
 
