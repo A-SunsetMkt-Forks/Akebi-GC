@@ -9,7 +9,7 @@ namespace cheat::feature
     app::GameObject* ui_camera{};
 
     HideUI::HideUI() : Feature(),
-		NF(f_Enabled, "Hide UI", "Hide UI", false)
+		NFEX(f_Enabled, "Hide UI", "HideUI", "Visuals", false, false)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(HideUI::OnGameUpdate);
     }

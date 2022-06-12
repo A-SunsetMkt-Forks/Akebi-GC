@@ -12,7 +12,7 @@ namespace cheat::feature
     }
 
     PaimonFollow::PaimonFollow() : Feature(),
-        NF(f_Enabled, "Paimon Follow", "Visuals", false),
+        NFEX(f_Enabled, "Paimon Follow", "PaimonFollow", "Visuals", false, false),
         toBeUpdate(), nextUpdate(0)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(PaimonFollow::OnGameUpdate);

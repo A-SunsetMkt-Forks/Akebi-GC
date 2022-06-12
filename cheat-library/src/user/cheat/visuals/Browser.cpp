@@ -14,7 +14,7 @@ namespace cheat::feature
     static std::string f_URL;
 
     Browser::Browser() : Feature(),
-        NF(f_Enabled, "Browser", "Visuals", false),
+        NFEX(f_Enabled, "Browser", "Browser", "Visuals", false, false),
         toBeUpdate(), nextUpdate(0)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(Browser::OnGameUpdate);

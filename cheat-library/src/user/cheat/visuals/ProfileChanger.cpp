@@ -31,18 +31,18 @@ namespace cheat::feature
     static void ProfileEditPage(app::MonoFriendInformationDialog* __this, app::Sprite* value, MethodInfo* method);
 
     ProfileChanger::ProfileChanger() : Feature(),
-        NF(f_Enabled, "Custom Profile", "Visuals", false),
-        NF(f_UID, "UID", "Visuals", false),
-        NF(f_NickName, "NickName", "Visuals", false),
-        NF(f_Level, "Level", "Visuals", false),
-        NF(f_Exp, "Exp", "Visuals", false),
-        NF(f_CurExp, "CurExp", "Visuals", 1),
-        NF(f_MaxExp, "MaxExp", "Visuals", 1),
-        NF(f_ExpBar, "ExpBar", "Visuals", false),
-        NF(f_ExpBarValue, "ExpBarValue", "Visuals", 20.0f),
-        NF(f_WorldLevel, "WorldLevel", "Visuals", false),
-        NF(f_Avatar, "AvatarImage", "Visuals", false),
-        NF(f_Card, "CardImage", "Visuals", false),
+        NF(f_Enabled, "Custom Profile", "Visuals::ProfileChanger", false),
+        NF(f_UID, "UID", "Visuals::ProfileChanger", false),
+        NF(f_NickName, "NickName", "Visuals::ProfileChanger", false),
+        NF(f_Level, "Level", "Visuals::ProfileChanger", false),
+        NF(f_Exp, "Exp", "Visuals::ProfileChanger", false),
+        NF(f_CurExp, "CurExp", "Visuals::ProfileChanger", 1),
+        NF(f_MaxExp, "MaxExp", "Visuals::ProfileChanger", 1),
+        NF(f_ExpBar, "ExpBar", "Visuals::ProfileChanger", false),
+        NF(f_ExpBarValue, "ExpBarValue", "Visuals::ProfileChanger", 20.0f),
+        NF(f_WorldLevel, "WorldLevel", "Visuals::ProfileChanger", false),
+        NF(f_Avatar, "AvatarImage", "Visuals::ProfileChanger", false),
+        NF(f_Card, "CardImage", "Visuals::ProfileChanger", false),
         toBeUpdate(), nextUpdate(0)
     {
         HookManager::install(app::ProfilePage, ProfilePage);
