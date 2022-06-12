@@ -3818,6 +3818,12 @@ namespace app {
         void* m_CachedPtr;
     };
 
+    struct Object_1 {
+        struct Object_1__Class* klass;
+        MonitorData* monitor;
+        struct Object_1__Fields fields;
+    };
+
     struct Component_1__Fields {
         struct Object_1__Fields _;
     };
@@ -11536,6 +11542,103 @@ namespace app {
         struct MonoFriendInformationDialog__Class* klass;
         MonitorData* monitor;
         struct MonoFriendInformationDialog__Fields fields;
+    };
+
+    struct Color32 {
+        int32_t rgba;
+        uint8_t r;
+        uint8_t g;
+        uint8_t b;
+        uint8_t a;
+    };
+
+    enum class PrimitiveType__Enum : int32_t {
+        Sphere = 0x00000000,
+        Capsule = 0x00000001,
+        Cylinder = 0x00000002,
+        Cube = 0x00000003,
+        Plane = 0x00000004,
+        Quad = 0x00000005,
+    };
+
+    enum class BrowserNative_ContextMenuOrigin__Enum : int32_t {
+        Editable = 0x00000002,
+        Image = 0x00000004,
+        Selection = 0x00000008,
+        Other = 0x00000001,
+    };
+
+    enum class Browser_NewWindowAction__Enum : int32_t {
+        Ignore = 0x00000001,
+        Redirect = 0x00000002,
+        NewBrowser = 0x00000003,
+        NewWindow = 0x00000004,
+    };
+
+    struct Browser__Fields {
+        struct MonoBehaviour__Fields _;
+        bool offScreen;
+        struct IBrowserUI* _uiHandler;
+        bool uiHandlerAssigned;
+        struct String* _url;
+        int32_t _width;
+        int32_t _height;
+        bool generateMipmap;
+        struct Color32 baseColor;
+        float _zoom;
+        struct Action_2_String_String_* onConsoleMessage;
+        BrowserNative_ContextMenuOrigin__Enum allowContextMenuOn;
+        Browser_NewWindowAction__Enum newWindowAction;
+        struct INewWindowHandler* _NewWindowHandler_k__BackingField;
+        bool _EnableRendering_k__BackingField;
+        bool _EnableInput_k__BackingField;
+        struct CookieManager* _CookieManager_k__BackingField;
+        int32_t browserId;
+        int32_t unsafeBrowserId;
+        bool browserIdRequested;
+        struct Texture2D* texture;
+        struct Action_1_UnityEngine_Texture2D_* afterResize;
+        bool textureIsOurs;
+        bool forceNextRender;
+        bool isPopup;
+        struct List_1_System_Action_* thingsToDo;
+        struct List_1_System_Action_* onloadActions;
+        struct List_1_System_Object_* thingsToRemember;
+        int32_t nextCallbackId;
+        struct Dictionary_2_System_Int32_ZenFulcrum_EmbeddedBrowser_Browser_JSResultFunc_* registeredCallbacks;
+        struct BrowserNative_ReadyFunc* onNativeReady;
+        struct Action_1_ZenFulcrum_EmbeddedBrowser_JSONNode_* onLoad;
+        struct Action_1_ZenFulcrum_EmbeddedBrowser_JSONNode_* onFetch;
+        struct Action_1_ZenFulcrum_EmbeddedBrowser_JSONNode_* onFetchError;
+        struct Action_1_ZenFulcrum_EmbeddedBrowser_JSONNode_* onCertError;
+        struct Action* onSadTab;
+        struct Action* onTextureUpdated;
+        struct Action* onNavStateChange;
+        struct Action_2_Int32_ZenFulcrum_EmbeddedBrowser_JSONNode_* onDownloadStarted;
+        struct Action_2_Int32_ZenFulcrum_EmbeddedBrowser_JSONNode_* onDownloadStatus;
+        struct Action_3_String_Boolean_String_* onNodeFocus;
+        struct Action_1_ZenFulcrum_EmbeddedBrowser_JSONNode_* onUniWebviewMsgReceive;
+        struct Action_1_ZenFulcrum_EmbeddedBrowser_JSONNode_* onBeforeNavigationMsgReceive;
+        struct Action_2_Boolean_Boolean_* onBrowserFocus;
+        struct BrowserFocusState* focusState;
+        struct BrowserInput* browserInput;
+        struct Browser* overlay;
+        bool skipNextLoad;
+        bool loadPending;
+        struct BrowserNavState* navState;
+        bool newWindowHandlerSet;
+        struct INewWindowHandler* newWindowHandler;
+        struct DialogHandler* dialogHandler;
+        struct Action* pageReplacer;
+        float pageReplacerPriority;
+        struct List_1_System_Action_* thingsToDoClone;
+        struct Color32__Array* colorBuffer;
+    };
+
+    struct Browser {
+        struct Browser__Class* klass;
+        MonitorData* monitor;
+        struct Browser__Fields fields;
     };
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)
