@@ -26,7 +26,8 @@ namespace cheat::feature
 
     void PaimonFollow::DrawMain()
     {
-        ConfigWidget(f_Enabled, "Paimon Follow.");
+        ConfigWidget(f_Enabled, "To display paimon, turn on the function, open the profile (esc) and close it. \n" \
+            "If the paimon disappeared after teleportation, do not disable the function, open and close the profile.");
     }
 
     bool PaimonFollow::NeedStatusDraw() const
