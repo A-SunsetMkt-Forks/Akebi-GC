@@ -388,13 +388,19 @@ namespace cheat::feature::esp::render
 			return;
 
 		auto draw = ImGui::GetBackgroundDrawList();
-		ImRect screen_rect = { 0.0f, 0.0f, ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y };
-		auto screen_center = screen_rect.GetCenter();
+
 		auto& esp = ESP::GetInstance();
-		if (!esp.f_MiddleScreenTracer)
-			draw->AddLine(s_AvatarPosition, *screenPos, color);
-		else
+		if (esp.f_MiddleScreenTracer)
+		{
+			ImRect screen_rect = { 0.0f, 0.0f, ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y };
+			auto screen_center = screen_rect.GetCenter();
 			draw->AddLine(screen_center, *screenPos, color);
+		}
+		else
+		{
+			draw->AddLine(s_AvatarPosition, *screenPos, color);
+		}
+			
 	}
   
 #define PI 3.14159265358979323846
