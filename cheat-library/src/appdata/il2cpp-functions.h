@@ -162,6 +162,8 @@ DO_APP_FUNC(0x0662F660, bool, GameObject_get_active, (GameObject* __this, Method
 DO_APP_FUNC(0x0662F720, void, GameObject_set_active, (GameObject* __this, bool value, MethodInfo* method));
 DO_APP_FUNC(0x065546E0, Transform*, Transform_GetChild, (Transform* __this, int32_t index, MethodInfo* method));
 DO_APP_FUNC(0x0652EA10, Component_1*, Component_1_GetComponent_1, (Component_1* __this, String* type, MethodInfo* method));
+DO_APP_FUNC(0x0662F520, void, GameObject_SetActive, (GameObject* __this, bool value, MethodInfo* method));
+
 
 // Utility
 DO_APP_FUNC(0x03551B60, String*, Text_get_text, (Text* __this, MethodInfo* method));
@@ -195,8 +197,6 @@ DO_APP_FUNC(0x01AA5200, Notify, Notify_CreateNotify_1, (MoleMole_NotifyTypes__En
 DO_APP_FUNC(0x020C7AA0, float, MoleMole_SafeFloat_get_Value, (SafeFloat safeFloat, MethodInfo* method));
 // DO_APP_FUNC(0x020C7920, MoleMole_SafeFloat, MoleMole_SafeFloat_DBDMOONJALD, (float IGFNEICJINB, MethodInfo * method));
 DO_APP_FUNC(0x020C7920, SafeFloat, MoleMole_SafeFloat_set_Value, (float value, MethodInfo* method));
-
-//DO_APP_FUNC(0x039E2290, MoleMole_LCBaseCombat *, MoleMole_BaseEntity_GetLogicCombatComponent_1, (MoleMole_BaseEntity * __this, MethodInfo * method));
 DO_APP_FUNC(0x039E2290, LCBaseCombat*, MoleMole_BaseEntity_GetLogicCombatComponent_1, (BaseEntity* __this, MethodInfo* method));
 
 DO_APP_FUNC(0x035CC430, String*, MoleMole_BaseEntity_ToStringRelease, (BaseEntity* __this, MethodInfo* method));
@@ -210,21 +210,13 @@ DO_APP_FUNC(0x035C08A0, Vector3, MoleMole_BaseEntity_GetRight, (BaseEntity* __th
 DO_APP_FUNC(0x035CB210, Vector3, MoleMole_BaseEntity_GetUp, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x035D5B30, bool, MoleMole_BaseEntity_IsActive, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x035C7A50, Rigidbody*, MoleMole_BaseEntity_GetRigidbody, (BaseEntity* __this, MethodInfo* method));
-
-//DO_APP_FUNC(0x039E22C0, MoleMole_VCBaseMove_1 *, MoleMole_BaseEntity_GetMoveComponent_1, (MoleMole_BaseEntity * __this, MethodInfo * method));
 DO_APP_FUNC(0x039E22C0, VCBaseMove*, MoleMole_BaseEntity_GetMoveComponent_1, (BaseEntity* __this, MethodInfo* method)); // double check
 
 DO_APP_FUNC(0x035C3850, List_1_MoleMole_BaseComponent_*, MoleMole_BaseEntity_GetAllLogicComponents, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x0187FDC0, GameObject*, MoleMole_BaseEntity_get_gameObject, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x035ACC70, GameObject*, MoleMole_BaseEntity_get_rootGameObject, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC_METHODINFO(0x096EAD20, MoleMole_BaseEntity_GetMoveComponent_1__MethodInfo);
-
-//DO_APP_FUNC_METHODINFO(0x096EF950, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo); // double check
 DO_APP_FUNC_METHODINFO(0x096EC0B8, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo);
-
-// check comparison from 2.2 & 2.6
-// function type & name is wrong
-// DO_APP_FUNC(0, MoleMole_AvatarEntity *, MoleMole_EntityManager_GetLocalAvatarEntity, (MoleMole_EntityManager * __this, MethodInfo * method));
 DO_APP_FUNC(0x01BF68A0, BaseEntity*, MoleMole_EntityManager_GetLocalAvatarEntity, (MoleMole_EntityManager* __this, MethodInfo* method));
 
 DO_APP_FUNC(0x01BF4E50, CameraEntity*, MoleMole_EntityManager_GetMainCameraEntity, (MoleMole_EntityManager* __this, MethodInfo* method));
@@ -232,10 +224,6 @@ DO_APP_FUNC(0x01BEB030, BaseEntity*, MoleMole_EntityManager_GetValidEntity, (Mol
 DO_APP_FUNC(0x01BF2D60, bool, MoleMole_EntityManager_RemoveEntity, (MoleMole_EntityManager* __this, BaseEntity* entity, uint32_t specifiedRuntimeID, MethodInfo* method));
 DO_APP_FUNC(0x01C02800, bool, MoleMole_EntityManager_IsCachedEntity, (MoleMole_EntityManager* __this, BaseEntity* entity, MethodInfo* method));
 DO_APP_FUNC(0x01BF01F0, List_1_MoleMole_BaseEntity_*, MoleMole_EntityManager_GetEntities, (MoleMole_EntityManager* __this, MethodInfo* method));
-
-// check comparison with 2.6
-// function name changed to:
-// DO_APP_FUNC(0, Bounds, Utils_4_GetBounds, (GameObject * go, MethodInfo * method));
 DO_APP_FUNC(0x044B8970, Bounds, Utils_4_GetBounds, (GameObject* go, MethodInfo* method));
 
 // Modify | RyujinZX#6666
