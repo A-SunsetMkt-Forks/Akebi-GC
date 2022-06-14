@@ -1,7 +1,7 @@
 <h1 align="center">Akebi GC</h1>
 The great software for some game that exploiting anime girls (and boys).
 
-We opened Discord server: https://discord.gg/qRCNYaVg
+We opened Discord server: [https://discord.gg/qRCNYaVg](https://discord.gg/MmV8hNZB9S)
 <hr>
 <h1 align="center">Getting Started</h1>
 
