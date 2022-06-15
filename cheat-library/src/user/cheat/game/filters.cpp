@@ -69,7 +69,7 @@ namespace cheat::game::filters
 		SimpleFilter LizardTail = { app::EntityType__Enum_1::EnvAnimal, "Lizard" };
 		SimpleFilter LuminescentSpine = { app::EntityType__Enum_1::EnvAnimal, "FireFly" };
 		SimpleFilter Onikabuto = { app::EntityType__Enum_1::GatherObject, "Electrohercules" };
-		SimpleFilter Starconch = { app::EntityType__Enum_1::GatherObject, "Shell" };
+		SimpleFilter Starconch = { app::EntityType__Enum_1::GatherObject, "_Shell" };
 		SimpleFilter Eel = { app::EntityType__Enum_1::EnvAnimal, "Eel_" };
 		SimpleFilter Inu = { app::EntityType__Enum_1::EnvAnimal, "_Inu_Shihandai" };
 		SimpleFilter Boar = { app::EntityType__Enum_1::Monster, "Boar" };
