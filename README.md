@@ -93,11 +93,6 @@ As well as setting up **`cheat-library`** as startup project.
   <img src="https://github.com/CallowBlack/gif-demos/blob/main/genshin-cheat/auto-talk-demo.gif"/>
 </details>
 
-<h1 align="center">Roadmap</h1>
-
-- [ ] Cutscene Skipping
-- [ ] Create database for chests, oculi, etc.
-
 <h1 align="center">Contributing</h1>
 
 ## Adding a feature
