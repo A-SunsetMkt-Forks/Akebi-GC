@@ -18,7 +18,6 @@
 
 namespace cheat::feature
 {
-	app::Rect mapRect = {};
 
 	InteractiveMap::InteractiveMap() : Feature(),
 		NFEX(f_Enabled, "Interactive map", "m_InteractiveMap", "InteractiveMap", false, false),
@@ -1545,6 +1544,7 @@ namespace cheat::feature
 
 	static ImCircle GetMinimapCircle()
 	{
+		static app::Rect mapRect = {};
 		if (_monoMiniMap == nullptr)
 			return {};
 
