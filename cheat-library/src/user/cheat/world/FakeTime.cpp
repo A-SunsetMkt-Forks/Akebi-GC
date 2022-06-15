@@ -8,7 +8,9 @@ namespace cheat::feature
 	//CNLouisLiu
 	void* LevelTimeManager = NULL;
 	FakeTime::FakeTime() : Feature(),
-		NF(f_Enabled, "FakeTime", "Enabled", false)
+		NF(f_Enabled, "FakeTime", "Enabled", false),
+		NF(f_TimeHour, "FakeTime", "TimeHour", 12),
+		NF(f_TimeMinute, "FakeTime", "TimeMinute", 0)
 	{
 		HookManager::install(app::LevelTimeManager_SetInternalTimeOfDay, LevelTimeManager_SetInternalTimeOfDay_Hook);
 
@@ -26,7 +28,9 @@ namespace cheat::feature
 	}
 	void FakeTime::DrawMain()
 	{
-		ConfigWidget("Enabled", f_Enabled, "Keep the game in daylight (12 noon)");
+		ConfigWidget("Enabled", f_Enabled, "Keep game time the same");
+		ConfigWidget("TimeHour", f_TimeHour, 1, 0, 24);
+		ConfigWidget("TimeMinute", f_TimeMinute, 1, 0, 60);
 	}
 	bool FakeTime::NeedStatusDraw() const
 	{
@@ -34,23 +38,30 @@ namespace cheat::feature
 	}
 	void FakeTime::DrawStatus()
 	{
-		ImGui::Text("FakeTime");
+		ImGui::Text("FakeTime|%d:%d", f_TimeHour.value(), f_TimeMinute.value());
+	}
+	float FakeTime::ConversionTime() {
+
+		float time = float(f_TimeHour);
+		float timemin = f_TimeMinute / 60;
+		return time + timemin;
 	}
 	void FakeTime::OnGameUpdate()
 	{
-		if (LevelTimeManager != NULL&& f_Enabled) {
-			CALL_ORIGIN(LevelTimeManager_SetInternalTimeOfDay_Hook, LevelTimeManager, 12.00f, false, false, (MethodInfo*)0);
+		if (LevelTimeManager != NULL && f_Enabled) {
+			auto& faketime = GetInstance();
+			CALL_ORIGIN(LevelTimeManager_SetInternalTimeOfDay_Hook, LevelTimeManager, faketime.ConversionTime(), false, false, (MethodInfo*)0);
 		}
 	}
 	void FakeTime::LevelTimeManager_SetInternalTimeOfDay_Hook(void* __this, float inHours, bool force, bool refreshEnviroTime, MethodInfo* method) {
 		float Hours = inHours;
-
-		if (GetInstance().f_Enabled)
+		auto& faketime = GetInstance();
+		if (faketime.f_Enabled)
 		{
-			Hours = 12.00f;
+			Hours = faketime.ConversionTime();
 		}
 		CALL_ORIGIN(LevelTimeManager_SetInternalTimeOfDay_Hook, __this, Hours, force, refreshEnviroTime, method);
-		
+
 	}
 
 }
