@@ -635,6 +635,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, CubeDevices);
 		ADD_FILTER_FIELD(puzzle, EightStoneTablets);
 		ADD_FILTER_FIELD(puzzle, ElectricConduction);
+		ADD_FILTER_FIELD(puzzle, RelayStone);
 		ADD_FILTER_FIELD(puzzle, ElectroSeelie);
 		ADD_FILTER_FIELD(puzzle, ElementalMonument);
 		ADD_FILTER_FIELD(puzzle, FloatingAnemoSlime);

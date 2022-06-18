@@ -228,9 +228,10 @@ namespace cheat::game::filters
 		extern SimpleFilter BakeDanuki;
 		extern SimpleFilter BloattyFloatty;
 		extern WhitelistFilter CubeDevices;
-
+		
 		extern SimpleFilter EightStoneTablets;
 		extern SimpleFilter ElectricConduction;
+		extern SimpleFilter RelayStone;
 		extern WhitelistFilter ElectroSeelie;
 		extern SimpleFilter ElementalMonument;
 		extern SimpleFilter FloatingAnemoSlime;
