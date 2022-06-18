@@ -158,7 +158,6 @@ namespace cheat::feature
 	void AutoTreeFarm::OnGameUpdate()
 	{
 		static lra_map<Vector3d, uint32_t, 10, hash_fn> s_AttackCountMap;
-
 		static std::queue<app::SceneTreeObject*> s_AttackQueue;
 		static std::unordered_set<app::SceneTreeObject*> s_AttackQueueSet;
 		static uint64_t s_LastAttackTimestamp = 0;
@@ -179,7 +178,7 @@ namespace cheat::feature
 			if (s_AttackQueueSet.count(tree) > 0)
 				continue;
 
-			if (tree->fields._lastTreeDropTimeStamp + m_RepeatDelay > timestamp)
+			if (s_LastAttackTimestamp + m_RepeatDelay > timestamp)
 				continue;
 
 			auto position = tree->fields._.realBounds.m_Center;
@@ -220,7 +219,7 @@ namespace cheat::feature
 					continue;
 			}
 
-			tree->fields._lastTreeDropTimeStamp = timestamp;
+			s_LastAttackTimestamp = timestamp;
 			app::MoleMole_NetworkManager_RequestHitTreeDropNotify(networkManager, position, position, treeType, nullptr);
 			break;
 		}
