@@ -513,6 +513,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(mineral, ScarletQuartz);
 		ADD_FILTER_FIELD(mineral, StarSilver);
 		ADD_FILTER_FIELD(mineral, WhiteIronChunk);
+		ADD_FILTER_FIELD(mineral, DunlinsTooth);
 
 		// Trounce. Arranged by appearance in-game.
 		ADD_FILTER_FIELD(monster, Dvalin);

@@ -107,6 +107,7 @@ namespace cheat::game::filters
 		extern SimpleFilter ScarletQuartz;
 		extern SimpleFilter StarSilver;
 		extern SimpleFilter WhiteIronChunk;
+		extern SimpleFilter DunlinsTooth;
 	}
 
 	namespace monster
