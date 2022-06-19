@@ -47,6 +47,7 @@
 #include <cheat/visuals/PaimonFollow.h>
 #include <cheat/visuals/HideUI.h>
 #include <cheat/visuals/Browser.h>
+#include <cheat/visuals/EnablePeaking.h>
 
 #include "GenshinCM.h"
 
@@ -105,7 +106,8 @@ namespace cheat
 			FEAT_INST(ProfileChanger),
 			FEAT_INST(PaimonFollow),
 			FEAT_INST(HideUI),
-			FEAT_INST(Browser)
+			FEAT_INST(Browser),
+			FEAT_INST(EnablePeaking)
 			
 			});
 #undef FEAT_INST

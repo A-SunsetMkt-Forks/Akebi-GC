@@ -240,6 +240,9 @@
     <ClInclude Include="src\user\cheat\world\MusicEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\Ruda-Bold.ttf" />
@@ -436,6 +439,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\world\MusicEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

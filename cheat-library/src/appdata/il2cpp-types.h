@@ -11814,6 +11814,40 @@ namespace app {
         struct MusicMetaInfo__Fields fields;
     };
 
+    struct MoleMole_VCBaseSetDitherValue__Fields {
+        void* _;
+        bool _usingDitherAlpha;
+        float _ditherAlphaValue;
+        float _managerDitherAlphaValue;
+        float _localDitherAlphaValue;
+        bool IBKAJMBMGAE;
+        struct MoleMole_VCBaseModel* _modelComponent;
+        float _showStartDitherDuration;
+        bool _needStartDitherAction;
+        float _detectDitherRangeBetweenCameraAndAvatar;
+        float _detectDitherRangeNormalBetweenCamera;
+        float _detectDitherRangeNormalBetweenCameraInTimeLine;
+        bool GCEGGKLBFPG;
+        struct List_1_MoleMole_BaseDither_* _dithers;
+        bool _isDitherChangeStarted;
+        float _spd;
+        float _fromValue;
+        float _toValue;
+        struct Action* _changeFinishHandler;
+        bool _triggerUpdateDitherShow;
+        bool _prevUsingDitherAlpha;
+        float _prevDitherAlphaValue;
+        float _prevTextureBias;
+        bool _prevInMotionVectorMode;
+        bool _isVisible;
+    };
+
+    struct MoleMole_VCBaseSetDitherValue {
+        struct MoleMole_VCBaseSetDitherValue__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_VCBaseSetDitherValue__Fields fields;
+    };
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif
