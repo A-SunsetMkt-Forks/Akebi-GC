@@ -11651,142 +11651,6 @@ namespace app {
         struct Browser__Fields fields;
     };
 
-    enum class CinemachineBrain_UpdateMethod__Enum : int32_t {
-        FixedUpdate = 0x00000000,
-        LateUpdate = 0x00000001,
-        SmartUpdate = 0x00000002,
-    };
-
-    struct CameraState_CustomBlendable {
-        struct Object_1* m_Custom;
-        float m_Weight;
-    };
-
-    struct CinemachineBlenderSettings__Fields {
-        void* _;
-        struct CinemachineBlenderSettings_CustomBlend__Array* m_CustomBlends;
-    };
-
-    struct CinemachineBlenderSettings {
-        struct CinemachineBlenderSettings__Class* klass;
-        MonitorData* monitor;
-        struct CinemachineBlenderSettings__Fields fields;
-    };
-
-    struct LensSettings {
-        float FieldOfView;
-        float OrthographicSize;
-        float NearClipPlane;
-        float FarClipPlane;
-        float Dutch;
-        bool _Orthographic_k__BackingField;
-        float _Aspect_k__BackingField;
-    };
-
-    struct CameraState {
-        struct LensSettings _Lens_k__BackingField;
-        struct Vector3 _ReferenceUp_k__BackingField;
-        struct Vector3 _ReferenceLookAt_k__BackingField;
-        struct Vector3 _RawPosition_k__BackingField;
-        struct Quaternion _RawOrientation_k__BackingField;
-        struct Vector3 _PositionDampingBypass_k__BackingField;
-        float _ShotQuality_k__BackingField;
-        struct Vector3 _PositionCorrection_k__BackingField;
-        struct Quaternion _OrientationCorrection_k__BackingField;
-        struct CameraState_CustomBlendable mCustom0;
-        struct CameraState_CustomBlendable mCustom1;
-        struct CameraState_CustomBlendable mCustom2;
-        struct CameraState_CustomBlendable mCustom3;
-        struct List_1_Cinemachine_CameraState_CustomBlendable_* m_CustomOverflow;
-        int32_t _NumCustomBlendables_k__BackingField;
-    };
-
-    enum class CinemachineBlendDefinition_Style__Enum : int32_t {
-        Cut = 0x00000000,
-        EaseInOut = 0x00000001,
-        EaseIn = 0x00000002,
-        EaseOut = 0x00000003,
-        HardIn = 0x00000004,
-        HardOut = 0x00000005,
-        Linear = 0x00000006,
-        Spherical_Linear = 0x00000007,
-    };
-
-    struct CinemachineBlendDefinition {
-        CinemachineBlendDefinition_Style__Enum m_Style;
-        float m_Time;
-        struct AnimationCurve* m_BlendCurve;
-    };
-
-    struct CinemachineBrain__Fields {
-        struct MonoBehaviour__Fields _;
-        bool m_SelfUpdate;
-        bool m_ShowDebugText;
-        bool m_ShowCameraFrustum;
-        bool m_IgnoreTimeScale;
-        struct Transform* m_WorldUpOverride;
-        CinemachineBrain_UpdateMethod__Enum m_UpdateMethod;
-        struct CinemachineBlendDefinition m_DefaultBlend;
-        struct CinemachineBlenderSettings* m_CustomBlends;
-        struct Camera* m_OutputCamera;
-        float mFieldOfView;
-        float mNearClipPlane;
-        float mDutch;
-        float mOrthographicSize;
-        struct Vector3 mFinalPosition;
-        struct Quaternion mOrientationWithoutDutch;
-        struct Quaternion mFinalOrientation;
-        struct CinemachineBrain_BrainEvent* m_CameraCutEvent;
-        struct CinemachineBrain_VcamEvent* m_CameraActivatedEvent;
-        struct CinemachineBrain_BlendEvent* m_CameraBlendCompeleteEvent;
-        struct Component_1* _PostProcessingComponent_k__BackingField;
-        struct ICinemachineCamera* mActiveCameraPreviousFrame;
-        struct ICinemachineCamera* mOutgoingCameraPreviousFrame;
-        struct CinemachineBlend* mActiveBlend;
-        bool mPreviousFrameWasOverride;
-        struct List_1_Cinemachine_CinemachineBrain_OverrideStackFrame_* mOverrideStack;
-        int32_t mNextOverrideId;
-        struct CinemachineBrain_OverrideStackFrame* mOverrideBlendFromNothing;
-        struct WaitForFixedUpdate* mWaitForFixedUpdate;
-        struct CameraState _CurrentCameraState_k__BackingField;
-    };
-
-    struct CinemachineBrain {
-        struct CinemachineBrain__Class* klass;
-        MonitorData* monitor;
-        struct CinemachineBrain__Fields fields;
-    };
-
-    struct CinemachineExternalCamera__Fields {
-        void* _;
-        struct Transform* m_LookAt;
-        struct Camera* m_Camera;
-        struct CameraState m_State;
-        struct Transform* _Follow_k__BackingField;
-    };
-
-    struct CinemachineExternalCamera {
-        struct CinemachineExternalCamera__Class* klass;
-        MonitorData* monitor;
-        struct CinemachineExternalCamera__Fields fields;
-    };
-
-    struct MusicGamePlayComponent__Fields {
-        void* _;
-        uint32_t _combo;
-        float _score_k__BackingField;
-        uint32_t _maxCombo_k__BackingField;
-        uint32_t _perfectCnt_k__BackingField;
-        uint32_t _greatCnt_k__BackingField;
-        uint32_t _missCnt_k__BackingField;
-    };
-
-    struct MusicGamePlayComponent {
-        struct MusicGamePlayComponent__Class* klass;
-        MonitorData* monitor;
-        struct MusicGamePlayComponent__Fields fields;
-    };
-
     struct __declspec(align(8)) BeatMapData__Fields {
         struct List_1_MoleMole_MusicGame_TrackData_* trackDatas;
         struct POLBDGNBFKM* config;
@@ -11812,6 +11676,22 @@ namespace app {
         struct MusicMetaInfo__Class* klass;
         MonitorData* monitor;
         struct MusicMetaInfo__Fields fields;
+    };
+
+    struct MusicGamePlayComponent__Fields {
+        void* _;
+        uint32_t _combo;
+        float _score_k__BackingField;
+        uint32_t _maxCombo_k__BackingField;
+        uint32_t _perfectCnt_k__BackingField;
+        uint32_t _greatCnt_k__BackingField;
+        uint32_t _missCnt_k__BackingField;
+    };
+
+    struct MusicGamePlayComponent {
+        struct MusicGamePlayComponent__Class* klass;
+        MonitorData* monitor;
+        struct MusicGamePlayComponent__Fields fields;
     };
 
     struct MoleMole_VCBaseSetDitherValue__Fields {

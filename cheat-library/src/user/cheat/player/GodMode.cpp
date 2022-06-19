@@ -88,9 +88,8 @@ namespace cheat::feature
     {        
         auto& gm = GodMode::GetInstance();
         auto& manager = game::EntityManager::instance();
-        if (gm.f_AltGodMode)
-            if (manager.avatar()->runtimeID() == attackeeRuntimeID)
-                return;
+        if (gm.f_AltGodMode && manager.avatar()->runtimeID() == attackeeRuntimeID)
+            return;
 
         CALL_ORIGIN(LCBaseCombat_FireBeingHitEvent_Hook, __this, attackeeRuntimeID, attackResult, method);
     }

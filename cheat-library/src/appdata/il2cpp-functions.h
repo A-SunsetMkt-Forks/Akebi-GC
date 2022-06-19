@@ -165,35 +165,17 @@ DO_APP_FUNC(0x0662F720, void, GameObject_set_active, (GameObject* __this, bool v
 DO_APP_FUNC(0x065546E0, Transform*, Transform_GetChild, (Transform* __this, int32_t index, MethodInfo* method));
 DO_APP_FUNC(0x0652EA10, Component_1*, Component_1_GetComponent_1, (Component_1* __this, String* type, MethodInfo* method));
 DO_APP_FUNC(0x0662F520, void, GameObject_SetActive, (GameObject* __this, bool value, MethodInfo* method));
-
-DO_APP_FUNC(0x0418FEB0, Camera*, Component_1_GetComponent_17, (Component_1* __this, MethodInfo* method));
-DO_APP_FUNC(0x041A7D40, Camera*, GameObject_AddComponent_24, (GameObject* __this, MethodInfo* method));
-DO_APP_FUNC(0x041A8080, CinemachineBrain*, GameObject_GetComponent_189, (GameObject* __this, MethodInfo* method));
-DO_APP_FUNC(0x041A8080, CinemachineExternalCamera*, GameObject_GetComponent_741, (GameObject* __this, MethodInfo* method));
-
-DO_APP_FUNC(0x06550C00, Object_1*, Object_1_Instantiate_2, (Object_1* original, MethodInfo* method));
-DO_APP_FUNC(0x041B0BB0, Object*, Object_1_Instantiate_5, (Object* original, MethodInfo* method));
-DO_APP_FUNC(0x041B0BB0, GameObject*, Object_1_Instantiate_11, (GameObject* original, MethodInfo* method));
-
-// Browser
 DO_APP_FUNC(0x0662F100, GameObject*, GameObject_CreatePrimitive, (PrimitiveType__Enum type, MethodInfo* method));
 DO_APP_FUNC(0x0662F700, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method));
 DO_APP_FUNC(0x06555EF0, void, Transform_set_localRotation, (Transform* __this, Quaternion value, MethodInfo* method));
 DO_APP_FUNC(0x065548E0, void, Transform_set_localScale, (Transform* __this, Vector3 value, MethodInfo* method));
 DO_APP_FUNC(0x06555EE0, void, Transform_set_localPosition, (Transform* __this, Vector3 value, MethodInfo* method));
 DO_APP_FUNC(0x0662F090, Component_1*, GameObject_AddComponentInternal, (GameObject* __this, String* className, MethodInfo* method));
-DO_APP_FUNC(0x064296D0, void, Browser_Show, (Browser* __this, MethodInfo* method));
-DO_APP_FUNC(0x06427060, void, Browser_Hide, (Browser* __this, MethodInfo* method));
-DO_APP_FUNC(0x00C21580, void, Browser_set_EnableRendering, (Browser* __this, bool value, MethodInfo* method));
-DO_APP_FUNC(0x0642C5D0, void, Browser_set_Url, (Browser* __this, String* value, MethodInfo* method));
-DO_APP_FUNC(0x064273E0, void, Browser_LoadURL, (Browser* __this, String* url, bool force, MethodInfo* method));
-DO_APP_FUNC(0x06427610, void, Browser_OnDestroy, (Browser* __this, MethodInfo* method));
-DO_APP_FUNC(0x0642A200, void, Browser_Update, (Browser* __this, MethodInfo* method));
-DO_APP_FUNC(0x06427100, void, Browser_LateUpdate, (Browser* __this, MethodInfo* method));
-DO_APP_FUNC(0x06429770, void, Browser_Stop, (Browser* __this, MethodInfo* method));
-DO_APP_FUNC(0x06550910, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
 DO_APP_FUNC(0x0662F0A0, Component_1*, GameObject_AddComponent, (GameObject* __this, Type* componentType, MethodInfo* method));
 DO_APP_FUNC(0x065508C0, void, Object_1_DestroyImmediate_1, (Object_1* obj, MethodInfo* method));
+DO_APP_FUNC(0x06550C00, Object_1*, Object_1_Instantiate_2, (Object_1* original, MethodInfo* method));
+DO_APP_FUNC(0x041B0BB0, Object*, Object_1_Instantiate_5, (Object* original, MethodInfo* method));
+DO_APP_FUNC(0x041B0BB0, GameObject*, Object_1_Instantiate_11, (GameObject* original, MethodInfo* method));
 
 
 // Music game event
