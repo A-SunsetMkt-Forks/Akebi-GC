@@ -26,6 +26,7 @@
 #include <cheat/world/MobVacuum.h>
 #include <cheat/world/AutoTreeFarm.h>
 #include <cheat/world/AutoDestroy.h>
+#include <cheat/world/FakeTime.h>
 
 #include <cheat/teleport/ChestTeleport.h>
 #include <cheat/teleport/MapTeleport.h>
@@ -86,6 +87,7 @@ namespace cheat
 			FEAT_INST(ElementalSight),
 			FEAT_INST(KillAura),
 			FEAT_INST(MobVacuum),
+			FEAT_INST(FakeTime),
 
 			FEAT_INST(ChestTeleport),
 			FEAT_INST(OculiTeleport),
