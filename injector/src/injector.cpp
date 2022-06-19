@@ -81,10 +81,14 @@ static bool LoadLibraryInject(HANDLE hProc, const std::string& dllpath)
 		VirtualFreeEx(hProc, pDLLPath, 0, MEM_RELEASE);
 		return false;
 	}
-	CloseHandle(hThread);
 
-	// TODO: Add waiting for thread end and release unneccessary data.
-	// VirtualFreeEx(hProc, pDLLPath, 0, MEM_RELEASE); 
+	// Waiting for thread end and release unnecessary data.
+	if (WaitForSingleObject(hThread, 2000) == WAIT_OBJECT_0) {
+		// ILog("[DLL Injection] Remote thread ended successfully.\n");
+		VirtualFreeEx(hProc, pDLLPath, 0, MEM_RELEASE);
+	}
+
+	CloseHandle(hThread);
 
 	ILog("[DLL Injection] Successfully LoadLibraryA injection.\n");
 	return true;
