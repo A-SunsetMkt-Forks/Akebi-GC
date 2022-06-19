@@ -17,6 +17,8 @@ DO_APP_FUNC(0x00F0DCE0, bool, MoleMole_MapModule_IsAreaUnlock, (MoleMole_MapModu
 // DBDMOONJALD => op_Implicit
 DO_APP_FUNC(0x01B0A910, uint16_t, MoleMole_SimpleSafeUInt16_get_Value, (SimpleSafeUInt16 v, MethodInfo* method));
 DO_APP_FUNC(0x0400F280, uint32_t, MoleMole_SimpleSafeUInt32_get_Value, (SimpleSafeUInt32 v, MethodInfo* method));
+DO_APP_FUNC(0x05DF4590, String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
+
 
 // Map utility
 DO_APP_FUNC(0x00E866B0, Rect, MonoInLevelMapPage_get_mapRect, (MonoInLevelMapPage* __this, MethodInfo* method));
@@ -40,7 +42,8 @@ DO_APP_FUNC(0x016189E0, void, MoleMole_DataItem_HandleNormalProp, (DataItem* __t
 // God mode
 DO_APP_FUNC(0x027DB100, void, VCHumanoidMove_NotifyLandVelocity, (VCHumanoidMove* __this, Vector3 velocity, float reachMaxDownVelocityTime, MethodInfo* method));
 DO_APP_FUNC(0x036889B0, bool, Miscs_CheckTargetAttackable, (BaseEntity* attackerEntity, BaseEntity* targetEntity, MethodInfo* method));
-// DO_APP_FUNC(0x00D0CA90, void, MoleMole_LCBaseCombat_FireBeingHitEvent, (LCBaseCombat* __this, uint32_t attackeeRuntimeID, AttackResult* attackResult, MethodInfo* method));
+DO_APP_FUNC(0x00D0CA90, void, MoleMole_LCBaseCombat_FireBeingHitEvent, (LCBaseCombat* __this, uint32_t attackeeRuntimeID, AttackResult* attackResult, MethodInfo* method));
+DO_APP_FUNC(0x02383880, bool, MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp, (ActorAbilityPlugin* __this, float delay, Object* arg, MethodInfo* method));
 
 
 // Cooldown cheats
@@ -73,6 +76,9 @@ DO_APP_FUNC(0x00F97D70, void, MoleMole_TalkDialogContext_OnDialogSelectItem, (Ta
 DO_APP_FUNC(0x02BF0040, void, MoleMole_InLevelCutScenePageContext_OnFreeClick, (InLevelCutScenePageContext* __this, MethodInfo* method));
 DO_APP_FUNC(0x02BF1AC0, void, MoleMole_InLevelCutScenePageContext_UpdateView, (InLevelCutScenePageContext* __this, MethodInfo* method));
 DO_APP_FUNC(0x02BEF110, void, MoleMole_InLevelCutScenePageContext_ClearView, (InLevelCutScenePageContext* __this, MethodInfo* method));
+// Skip Cutscene | RyujinZX#6666
+DO_APP_FUNC(0x0363A300, void, CriwareMediaPlayer_Update, (CriwareMediaPlayer* __this, MethodInfo* method));
+DO_APP_FUNC(0x0363A0D0, void, CriwareMediaPlayer_Skip, (CriwareMediaPlayer* __this, MethodInfo* method));
 
 
 // Protection bypass
@@ -133,6 +139,7 @@ DO_APP_FUNC(0x0292C7F0, void, MoleMole_FishingModule_onFishChosenNotify, (void* 
 
 // Visuals
 DO_APP_FUNC(0x013FC090, void, MoleMole_SCameraModuleInitialize_SetWarningLocateRatio, (SCameraModuleInitialize* __this, double deltaTime, CameraShareData* data, MethodInfo* method));
+DO_APP_FUNC(0x01B8DC20, void, MoleMole_VCBaseSetDitherValue_set_ManagerDitherAlphaValue, (MoleMole_VCBaseSetDitherValue* __this, float value, MethodInfo* method));
 
 // Chest Indicator | RyujinZX#6666
 DO_APP_FUNC(0x04C9B450, bool, MoleMole_LCIndicatorPlugin_DoCheck, (LCIndicatorPlugin* __this, MethodInfo* method));
@@ -143,10 +150,57 @@ DO_APP_FUNC(0x04C9A750, void, MoleMole_LCIndicatorPlugin_HideIcon, (LCIndicatorP
 DO_APP_FUNC(0x02854E30, void, MoleMole_PlayerModule_RequestPlayerCook, (MoleMole_PlayerModule* __this, uint32_t recipeId, uint32_t avatarId, uint32_t qteQuality, uint32_t count, MethodInfo* method));
 DO_APP_FUNC(0x02858180, void, MoleMole_PlayerModule_OnPlayerCookRsp, (MoleMole_PlayerModule* __this, PlayerCookRsp* rsp, MethodInfo* method));
 DO_APP_FUNC(0x033F5820, void, MoleMole_CookingQtePageContext_UpdateProficiency, (CookingQtePageContext* __this, MethodInfo* method));
-DO_APP_FUNC(0x0116AA10, uint32_t, CookRecipeExcelConfig_get_maxProficiency, (CookRecipeExcelConfig* __this, MethodInfo* method));
+DO_APP_FUNC(0x008ECD70, uint32_t, MoleMole_Config_CookRecipeExcelConfig_CheckCookFoodMaxNum, (uint32_t UpdateCookRecipeDic, MethodInfo* method));
+DO_APP_FUNC(0x032256C0, void, CookingQtePageContext_CloseItemGotPanel, (CookingQtePageContext* __this, MethodInfo* method));
+
+// Profile Changer | RyujinZX#6666
+DO_APP_FUNC(0x027A41A0, Button_1*, ProfilePage, (MonoInLevelPlayerProfilePage* __this, MethodInfo* method)); // MonoInLevelPlayerProfilePage_get_logoutButton
+DO_APP_FUNC(0x016A77B0, void, ProfileEditPage, (MonoFriendInformationDialog* __this, Sprite* value, MethodInfo* method)); // MonoFriendInformationDialog_set_icon 
+
+// Game Object, Component, Transform Utility
+DO_APP_FUNC(0x0662F130, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
+DO_APP_FUNC(0x0662F190, Component_1*, GameObject_GetComponentByName, (GameObject* __this, String* type, MethodInfo* method));
+DO_APP_FUNC(0x0662F660, bool, GameObject_get_active, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x0662F720, void, GameObject_set_active, (GameObject* __this, bool value, MethodInfo* method));
+DO_APP_FUNC(0x065546E0, Transform*, Transform_GetChild, (Transform* __this, int32_t index, MethodInfo* method));
+DO_APP_FUNC(0x0652EA10, Component_1*, Component_1_GetComponent_1, (Component_1* __this, String* type, MethodInfo* method));
+DO_APP_FUNC(0x0662F520, void, GameObject_SetActive, (GameObject* __this, bool value, MethodInfo* method));
+DO_APP_FUNC(0x0662F100, GameObject*, GameObject_CreatePrimitive, (PrimitiveType__Enum type, MethodInfo* method));
+DO_APP_FUNC(0x0662F700, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x06555EF0, void, Transform_set_localRotation, (Transform* __this, Quaternion value, MethodInfo* method));
+DO_APP_FUNC(0x065548E0, void, Transform_set_localScale, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x06555EE0, void, Transform_set_localPosition, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x0662F090, Component_1*, GameObject_AddComponentInternal, (GameObject* __this, String* className, MethodInfo* method));
+DO_APP_FUNC(0x0662F0A0, Component_1*, GameObject_AddComponent, (GameObject* __this, Type* componentType, MethodInfo* method));
+DO_APP_FUNC(0x065508C0, void, Object_1_DestroyImmediate_1, (Object_1* obj, MethodInfo* method));
+DO_APP_FUNC(0x06550C00, Object_1*, Object_1_Instantiate_2, (Object_1* original, MethodInfo* method));
+DO_APP_FUNC(0x041B0BB0, Object*, Object_1_Instantiate_5, (Object* original, MethodInfo* method));
+DO_APP_FUNC(0x041B0BB0, GameObject*, Object_1_Instantiate_11, (GameObject* original, MethodInfo* method));
+
+
+// Music game event
+DO_APP_FUNC(0x00FFE490, void, MusicGamePlayComponent_OnPlayerUpdate, (MusicGamePlayComponent* __this, MethodInfo* method));
+DO_APP_FUNC(0x00FFE600, void, MusicGamePlayComponent_OnStart, (MusicGamePlayComponent* __this, BeatMapData* beatMapData, MusicMetaInfo* musicMetaInfo, MethodInfo* method));
+DO_APP_FUNC(0x00FFE310, void, MusicGamePlayComponent_OnMiss, (MusicGamePlayComponent* __this, MethodInfo* method));
+DO_APP_FUNC(0x00FFEE40, void, MusicGamePlayComponent_set_combo, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x00FFF050, void, MusicGamePlayComponent_set_score, (MusicGamePlayComponent* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x01B5AEB0, void, MusicGamePlayComponent_set_maxCombo, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x02C749E0, void, MusicGamePlayComponent_set_perfectCnt, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x035C4E50, void, MusicGamePlayComponent_set_greatCnt, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x017A31C0, void, MusicGamePlayComponent_set_missCnt, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x00FFDE90, void, MusicGamePlayComponent_OnHit, (MusicGamePlayComponent* __this, float score, MethodInfo* method));
 
 
 // Utility
+DO_APP_FUNC(0x03551B60, String*, Text_get_text, (Text* __this, MethodInfo* method));
+DO_APP_FUNC(0x06568060, void, Text_set_text, (Text* __this, String* value, MethodInfo* method));
+DO_APP_FUNC(0x0658D6B0, void, Slider_1_set_value, (Slider_1* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x0658D560, void, Slider_1_set_maxValue, (Slider_1* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x0658D5E0, void, Slider_1_set_minValue, (Slider_1* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x065F6470, Rect, Sprite_get_rect, (Sprite* __this, MethodInfo* method));
+DO_APP_FUNC(0x0667D6A0, Texture2D*, NativeGallery_LoadImageAtPath, (String* imagePath, int32_t maxSize, bool markTextureNonReadable, bool generateMipmaps, bool linearColorSpace, MethodInfo* method));
+DO_APP_FUNC(0x065F6270, Sprite*, Sprite_Create, (Texture2D* texture, Rect rect, Vector2 pivot, float pixelsPerUnit, MethodInfo* method));
+
 DO_APP_FUNC(0x036865D0, float, Miscs_CalcCurrentGroundWaterHeight, (float x, float z, MethodInfo* method));
 DO_APP_FUNC(0x03685E00, float, Miscs_CalcCurrentGroundHeight, (float x, float z, MethodInfo* method));
 DO_APP_FUNC(0x03685F10, float, Miscs_CalcCurrentGroundHeight_1, (float x, float z, float rayStartHeight, float rayDetectLength, int32_t layer, MethodInfo* method));
@@ -169,8 +223,6 @@ DO_APP_FUNC(0x01AA5200, Notify, Notify_CreateNotify_1, (MoleMole_NotifyTypes__En
 DO_APP_FUNC(0x020C7AA0, float, MoleMole_SafeFloat_get_Value, (SafeFloat safeFloat, MethodInfo* method));
 // DO_APP_FUNC(0x020C7920, MoleMole_SafeFloat, MoleMole_SafeFloat_DBDMOONJALD, (float IGFNEICJINB, MethodInfo * method));
 DO_APP_FUNC(0x020C7920, SafeFloat, MoleMole_SafeFloat_set_Value, (float value, MethodInfo* method));
-
-//DO_APP_FUNC(0x039E2290, MoleMole_LCBaseCombat *, MoleMole_BaseEntity_GetLogicCombatComponent_1, (MoleMole_BaseEntity * __this, MethodInfo * method));
 DO_APP_FUNC(0x039E2290, LCBaseCombat*, MoleMole_BaseEntity_GetLogicCombatComponent_1, (BaseEntity* __this, MethodInfo* method));
 
 DO_APP_FUNC(0x035CC430, String*, MoleMole_BaseEntity_ToStringRelease, (BaseEntity* __this, MethodInfo* method));
@@ -184,21 +236,13 @@ DO_APP_FUNC(0x035C08A0, Vector3, MoleMole_BaseEntity_GetRight, (BaseEntity* __th
 DO_APP_FUNC(0x035CB210, Vector3, MoleMole_BaseEntity_GetUp, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x035D5B30, bool, MoleMole_BaseEntity_IsActive, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x035C7A50, Rigidbody*, MoleMole_BaseEntity_GetRigidbody, (BaseEntity* __this, MethodInfo* method));
-
-//DO_APP_FUNC(0x039E22C0, MoleMole_VCBaseMove_1 *, MoleMole_BaseEntity_GetMoveComponent_1, (MoleMole_BaseEntity * __this, MethodInfo * method));
 DO_APP_FUNC(0x039E22C0, VCBaseMove*, MoleMole_BaseEntity_GetMoveComponent_1, (BaseEntity* __this, MethodInfo* method)); // double check
 
 DO_APP_FUNC(0x035C3850, List_1_MoleMole_BaseComponent_*, MoleMole_BaseEntity_GetAllLogicComponents, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x0187FDC0, GameObject*, MoleMole_BaseEntity_get_gameObject, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC(0x035ACC70, GameObject*, MoleMole_BaseEntity_get_rootGameObject, (BaseEntity* __this, MethodInfo* method));
 DO_APP_FUNC_METHODINFO(0x096EAD20, MoleMole_BaseEntity_GetMoveComponent_1__MethodInfo);
-
-//DO_APP_FUNC_METHODINFO(0x096EF950, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo); // double check
 DO_APP_FUNC_METHODINFO(0x096EC0B8, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo);
-
-// check comparison from 2.2 & 2.6
-// function type & name is wrong
-// DO_APP_FUNC(0, MoleMole_AvatarEntity *, MoleMole_EntityManager_GetLocalAvatarEntity, (MoleMole_EntityManager * __this, MethodInfo * method));
 DO_APP_FUNC(0x01BF68A0, BaseEntity*, MoleMole_EntityManager_GetLocalAvatarEntity, (MoleMole_EntityManager* __this, MethodInfo* method));
 
 DO_APP_FUNC(0x01BF4E50, CameraEntity*, MoleMole_EntityManager_GetMainCameraEntity, (MoleMole_EntityManager* __this, MethodInfo* method));
@@ -206,10 +250,6 @@ DO_APP_FUNC(0x01BEB030, BaseEntity*, MoleMole_EntityManager_GetValidEntity, (Mol
 DO_APP_FUNC(0x01BF2D60, bool, MoleMole_EntityManager_RemoveEntity, (MoleMole_EntityManager* __this, BaseEntity* entity, uint32_t specifiedRuntimeID, MethodInfo* method));
 DO_APP_FUNC(0x01C02800, bool, MoleMole_EntityManager_IsCachedEntity, (MoleMole_EntityManager* __this, BaseEntity* entity, MethodInfo* method));
 DO_APP_FUNC(0x01BF01F0, List_1_MoleMole_BaseEntity_*, MoleMole_EntityManager_GetEntities, (MoleMole_EntityManager* __this, MethodInfo* method));
-
-// check comparison with 2.6
-// function name changed to:
-// DO_APP_FUNC(0, Bounds, Utils_4_GetBounds, (GameObject * go, MethodInfo * method));
 DO_APP_FUNC(0x044B8970, Bounds, Utils_4_GetBounds, (GameObject* go, MethodInfo* method));
 
 // Modify | RyujinZX#6666

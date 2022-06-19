@@ -47,11 +47,15 @@ namespace cheat::game::filters
 	namespace guide
 	{
 		SimpleFilter CampfireTorch = { app::EntityType__Enum_1::Gadget, "_FireBasin" };
+		SimpleFilter DayNightSwitchingMechanism = { app::EntityType__Enum_1::Field, "_CircleConsole" };
+		SimpleFilter EnkanomiyaPhaseGate = { app::EntityType__Enum_1::Gadget, "_Singularity" };
 		SimpleFilter MysteriousCarvings = { app::EntityType__Enum_1::Gadget, "_ReginStatue" };
 		SimpleFilter PhaseGate = { app::EntityType__Enum_1::Field, "_TeleportHighway" };
+		SimpleFilter PlacesofEssenceWorship = { app::EntityType__Enum_1::Field, "_EnergySource" };
 		SimpleFilter Pot = { app::EntityType__Enum_1::Gadget, "_Cooking_" };
 		SimpleFilter RuinBrazier = { app::EntityType__Enum_1::Gadget, "_AncientHeatSource" };
 		SimpleFilter Stormstone = { app::EntityType__Enum_1::Gadget, "_ReginLamp" };
+		SimpleFilter TriangularMechanism = { app::EntityType__Enum_1::Field, "_TuningFork" };
 	}
 
 	namespace living
@@ -60,12 +64,12 @@ namespace cheat::game::filters
 		SimpleFilter ButterflyWings = { app::EntityType__Enum_1::EnvAnimal, "Butterfly" };
 		SimpleFilter Crab = { app::EntityType__Enum_1::EnvAnimal, "Crab" };
 		SimpleFilter CrystalCore = { app::EntityType__Enum_1::EnvAnimal, "Wisp" };
-		SimpleFilter Fish = { app::EntityType__Enum_1::Monster, "Fish" };
+		SimpleFilter Fish = { app::EntityType__Enum_1::EnvAnimal, "Fish" };
 		SimpleFilter Frog = { app::EntityType__Enum_1::EnvAnimal, "Frog" };
 		SimpleFilter LizardTail = { app::EntityType__Enum_1::EnvAnimal, "Lizard" };
 		SimpleFilter LuminescentSpine = { app::EntityType__Enum_1::EnvAnimal, "FireFly" };
 		SimpleFilter Onikabuto = { app::EntityType__Enum_1::GatherObject, "Electrohercules" };
-		SimpleFilter Starconch = { app::EntityType__Enum_1::GatherObject, "Shell" };
+		SimpleFilter Starconch = { app::EntityType__Enum_1::GatherObject, "_Shell" };
 		SimpleFilter Eel = { app::EntityType__Enum_1::EnvAnimal, "Eel_" };
 		SimpleFilter Inu = { app::EntityType__Enum_1::EnvAnimal, "_Inu_Shihandai" };
 		SimpleFilter Boar = { app::EntityType__Enum_1::Monster, "Boar" };
@@ -103,6 +107,7 @@ namespace cheat::game::filters
 		SimpleFilter ScarletQuartz = { app::EntityType__Enum_1::GatherObject, "_OreDulinsBlood" };
 		SimpleFilter StarSilver = { app::EntityType__Enum_1::GatherObject, "_OreMoonMeteor" };
 		SimpleFilter WhiteIronChunk = { app::EntityType__Enum_1::GatherObject, "_OreMetal" };
+		SimpleFilter DunlinsTooth = { app::EntityType__Enum_1::GatherObject, "_DunlinsTooth" };
 	}
 
 	namespace monster
@@ -137,7 +142,7 @@ namespace cheat::game::filters
 		SimpleFilter Tartaglia = { app::EntityType__Enum_1::Monster, "_Tartaglia" };
 		SimpleFilter Azhdaha = { app::EntityType__Enum_1::Monster, "_Dahaka" };
 		SimpleFilter Signora = { app::EntityType__Enum_1::Monster, "_LaSignora" };
-		SimpleFilter Shogun = { app::EntityType__Enum_1::Monster, "_Shougan" };
+		SimpleFilter Shogun = { app::EntityType__Enum_1::Monster, "_Shougun" };
 		SimpleFilter EyeOfTheStorm = { app::EntityType__Enum_1::Monster, "_Elemental_Wind" };
 		SimpleFilter ElectroHypostasis = { app::EntityType__Enum_1::Monster, "_Effigy_Electric" };
 		SimpleFilter AnemoHypostasis = { app::EntityType__Enum_1::Monster, "_Effigy_Wind" };
@@ -227,6 +232,7 @@ namespace cheat::game::filters
 		WhitelistFilter CubeDevices = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::Gadget, app::EntityType__Enum_1::Platform }, std::vector<std::string> {"_ElecStone", "_ElecSwitch" }};
 		SimpleFilter EightStoneTablets = { app::EntityType__Enum_1::Gadget, "_HistoryBoard" };
 		SimpleFilter ElectricConduction = { app::EntityType__Enum_1::Gear, "_ElectricPowerSource" };
+		SimpleFilter RelayStone = { app::EntityType__Enum_1::Worktop, "_ElectricTransfer_" };
 		WhitelistFilter ElectroSeelie = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::Field, app::EntityType__Enum_1::Platform }, std::vector<std::string> {"_ElectricSeelie"} };
 		SimpleFilter ElementalMonument = { app::EntityType__Enum_1::Gear, "_ElemTablet" };
 		SimpleFilter FloatingAnemoSlime = { app::EntityType__Enum_1::Platform, "_WindSlime" };
@@ -241,6 +247,7 @@ namespace cheat::game::filters
 		SimpleFilter OozingConcretions = { app::EntityType__Enum_1::Gadget, "_AbyssCoreLv" };
 		SimpleFilter PirateHelm = { app::EntityType__Enum_1::Field, "_PirateHelm" };
 		WhitelistFilter PressurePlate = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::Field, app::EntityType__Enum_1::Gadget }, std::vector<std::string> {"Gear_Gravity", "_LitPathPlate" } };
+		SimpleFilter SealLocations = { app::EntityType__Enum_1::Gadget, "_RunesKey" };
 		SimpleFilter SeelieLamp = { app::EntityType__Enum_1::Field, "Gear_SeeliaLamp" };
 		SimpleFilter Seelie = { app::EntityType__Enum_1::Platform, "Gear_Seelie" };
 		SimpleFilter SmallRockPile = { app::EntityType__Enum_1::Gadget, "_StonePile_01" };
@@ -315,8 +322,7 @@ namespace cheat::game::filters
 			living::Fox +
 			living::Squirrel +
 			living::Boar +
-			living::Weasel +
-			living::Fish
+			living::Weasel
 		};
 		SimpleFilter AnimalPickUp = {
 			living::CrystalCore +
@@ -331,7 +337,8 @@ namespace cheat::game::filters
 			living::LuminescentSpine +
 			living::Starconch +
 			living::BirdEgg +
-			living::WeaselThief
+			living::WeaselThief +
+			living::Fish
 		};
 		SimpleFilter AnimalNPC = {
 			living::Dog +
@@ -342,6 +349,7 @@ namespace cheat::game::filters
 		SimpleFilter Monsters = { app::EntityType__Enum_1::Monster };
 		SimpleFilter MonsterCommon = {
 			monster::Slime +
+			monster::FloatingFungus +
 			monster::Specter +
 			monster::Whopperflower +
 			monster::Hilichurl +
@@ -350,7 +358,10 @@ namespace cheat::game::filters
 			monster::FatuiSkirmisher +
 			monster::TreasureHoarder +
 			monster::Nobushi +
-			monster::Kairagi
+			monster::Kairagi +
+			monster::Millelith +
+			monster::ShogunateInfantry +
+			monster::SangonomiyaCohort
 		};
 		SimpleFilter MonsterElites = {
 			monster::Mitachurl +
@@ -372,7 +383,8 @@ namespace cheat::game::filters
 			monster::GeovishapHatchling +
 			monster::Geovishap +
 			monster::HydroBathysmalVishap +
-			monster::EyeOfTheStorm
+			monster::EyeOfTheStorm +
+			monster::BlackSerpentKnight
 		};
 		SimpleFilter MonsterBosses = {
 			// Adding these comments for better tracking.
@@ -391,9 +403,18 @@ namespace cheat::game::filters
 			// Liyue
 			monster::PyroRegisvine +
 			monster::Oceanid +
+			monster::OceanidBoar +
+			monster::OceanidCrab +
+			monster::OceanidCrane +
+			monster::OceanidFalcon +
+			monster::OceanidFinch +
+			monster::OceanidFrog +
+			monster::OceanidSquirrel +
+			monster::OceanidWigeon +
 			monster::GeoHypostasis +
 			monster::RuinSerpent +
 			monster::PrimoGeovishap +
+			monster::Beisht +
 			// Inazuma
 			monster::PerpetualMechanicalArray +
 			monster::PyroHypostasis +
@@ -401,6 +422,7 @@ namespace cheat::game::filters
 			monster::ThunderManifestation +
 			monster::GoldenWolflord +
 			monster::HydroHypostasis +
+			monster::HydroHypostasisSummon +
 			monster::CryoBathysmalVishap +
 			monster::ElectroBathysmalVishap
 		};

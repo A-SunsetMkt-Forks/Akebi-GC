@@ -9,6 +9,7 @@ namespace cheat::feature
     {
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
+		config::Field<config::Toggle<Hotkey>> f_AltGodMode;
 
 		static GodMode& GetInstance();
 
