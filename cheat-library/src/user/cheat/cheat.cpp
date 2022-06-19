@@ -37,6 +37,7 @@
 
 #include <cheat/world/AutoFish.h>
 #include <cheat/world/AutoCook.h>
+#include <cheat/world/MusicEvent.h>
 
 #include <cheat/visuals/NoFog.h>
 #include <cheat/visuals/FPSUnlock.h>
@@ -46,6 +47,7 @@
 #include <cheat/visuals/PaimonFollow.h>
 #include <cheat/visuals/HideUI.h>
 #include <cheat/visuals/Browser.h>
+#include <cheat/visuals/EnablePeaking.h>
 
 #include "GenshinCM.h"
 
@@ -95,6 +97,7 @@ namespace cheat
 
 			FEAT_INST(AutoFish),
 			FEAT_INST(AutoCook),
+			FEAT_INST(MusicEvent),
 
 			FEAT_INST(NoFog),
 			FEAT_INST(FPSUnlock),
@@ -103,7 +106,8 @@ namespace cheat
 			FEAT_INST(ProfileChanger),
 			FEAT_INST(PaimonFollow),
 			FEAT_INST(HideUI),
-			FEAT_INST(Browser)
+			FEAT_INST(Browser),
+			FEAT_INST(EnablePeaking)
 			
 			});
 #undef FEAT_INST

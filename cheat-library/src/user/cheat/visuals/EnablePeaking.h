@@ -2,25 +2,24 @@
 #include <cheat-base/cheat/Feature.h>
 #include <cheat-base/config/config.h>
 
-namespace cheat::feature 
+namespace cheat::feature
 {
 
-	class GodMode : public Feature
-    {
+	class EnablePeaking : public Feature
+	{
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
-		config::Field<config::Toggle<Hotkey>> f_AltGodMode;
 
-		static GodMode& GetInstance();
+		static EnablePeaking& GetInstance();
 
 		const FeatureGUIInfo& GetGUIInfo() const override;
 		void DrawMain() override;
 
 		virtual bool NeedStatusDraw() const override;
 		void DrawStatus() override;
-	
+
 	private:
-		GodMode();
+		EnablePeaking();
 	};
 }
 
