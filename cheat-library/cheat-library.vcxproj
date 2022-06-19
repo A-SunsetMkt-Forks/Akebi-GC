@@ -122,6 +122,7 @@
     <ClInclude Include="src\user\cheat\world\DumbEnemies.h" />
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
+    <ClInclude Include="src\user\cheat\world\MusicEvent.h" />
     <ClInclude Include="src\user\main.h" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +234,7 @@
     <ClCompile Include="src\user\cheat\world\DumbEnemies.cpp" />
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
+    <ClCompile Include="src\user\cheat\world\MusicEvent.cpp" />
     <ClCompile Include="src\user\main.cpp" />
   </ItemGroup>
   <PropertyGroup>
@@ -925,8 +927,7 @@
       </Command>
     </PostBuildEvent>
     <CustomBuildStep>
-      <Command>"$(OutDir)injector.exe"
-powershell -nop -c "&amp; {sleep 15}"</Command>
+      <Command>"$(OutDir)injector.exe" powershell -nop -c "&amp;amp; {sleep 15}"</Command>
       <Outputs>$(OutDir)_noexist.nope;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>

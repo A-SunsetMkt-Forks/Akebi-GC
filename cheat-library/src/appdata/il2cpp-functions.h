@@ -164,6 +164,15 @@ DO_APP_FUNC(0x065546E0, Transform*, Transform_GetChild, (Transform* __this, int3
 DO_APP_FUNC(0x0652EA10, Component_1*, Component_1_GetComponent_1, (Component_1* __this, String* type, MethodInfo* method));
 DO_APP_FUNC(0x0662F520, void, GameObject_SetActive, (GameObject* __this, bool value, MethodInfo* method));
 
+DO_APP_FUNC(0x0418FEB0, Camera*, Component_1_GetComponent_17, (Component_1* __this, MethodInfo* method));
+DO_APP_FUNC(0x041A7D40, Camera*, GameObject_AddComponent_24, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x041A8080, CinemachineBrain*, GameObject_GetComponent_189, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x041A8080, CinemachineExternalCamera*, GameObject_GetComponent_741, (GameObject* __this, MethodInfo* method));
+
+DO_APP_FUNC(0x06550C00, Object_1*, Object_1_Instantiate_2, (Object_1* original, MethodInfo* method));
+DO_APP_FUNC(0x041B0BB0, Object*, Object_1_Instantiate_5, (Object* original, MethodInfo* method));
+DO_APP_FUNC(0x041B0BB0, GameObject*, Object_1_Instantiate_11, (GameObject* original, MethodInfo* method));
+
 // Browser
 DO_APP_FUNC(0x0662F100, GameObject*, GameObject_CreatePrimitive, (PrimitiveType__Enum type, MethodInfo* method));
 DO_APP_FUNC(0x0662F700, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method));
@@ -183,6 +192,20 @@ DO_APP_FUNC(0x06429770, void, Browser_Stop, (Browser* __this, MethodInfo* method
 DO_APP_FUNC(0x06550910, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
 DO_APP_FUNC(0x0662F0A0, Component_1*, GameObject_AddComponent, (GameObject* __this, Type* componentType, MethodInfo* method));
 DO_APP_FUNC(0x065508C0, void, Object_1_DestroyImmediate_1, (Object_1* obj, MethodInfo* method));
+
+
+// Music game event
+DO_APP_FUNC(0x00FFE490, void, MusicGamePlayComponent_OnPlayerUpdate, (MusicGamePlayComponent* __this, MethodInfo* method));
+DO_APP_FUNC(0x00FFE600, void, MusicGamePlayComponent_OnStart, (MusicGamePlayComponent* __this, BeatMapData* beatMapData, MusicMetaInfo* musicMetaInfo, MethodInfo* method));
+DO_APP_FUNC(0x00FFE310, void, MusicGamePlayComponent_OnMiss, (MusicGamePlayComponent* __this, MethodInfo* method));
+DO_APP_FUNC(0x00FFEE40, void, MusicGamePlayComponent_set_combo, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x00FFF050, void, MusicGamePlayComponent_set_score, (MusicGamePlayComponent* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x01B5AEB0, void, MusicGamePlayComponent_set_maxCombo, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x02C749E0, void, MusicGamePlayComponent_set_perfectCnt, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x035C4E50, void, MusicGamePlayComponent_set_greatCnt, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x017A31C0, void, MusicGamePlayComponent_set_missCnt, (MusicGamePlayComponent* __this, uint32_t value, MethodInfo* method));
+DO_APP_FUNC(0x00FFDE90, void, MusicGamePlayComponent_OnHit, (MusicGamePlayComponent* __this, float score, MethodInfo* method));
+
 
 // Utility
 DO_APP_FUNC(0x03551B60, String*, Text_get_text, (Text* __this, MethodInfo* method));
