@@ -47,7 +47,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Auto Tree Farm  
 - Mob Vacuum
 - Auto Fish
-- Music Event
+- Music Event (temporary)
 
 #### Teleport
 - Chest/Oculi Teleport (Teleports to nearest)
@@ -58,7 +58,10 @@ As well as setting up **`cheat-library`** as startup project.
 - Interactive Map
 - Elemental Sight
 - Profile Changer
-- Ingame ZenFulcrum EmbeddedBrowser
+- Ingame Embedded Browser
+- Hide UI
+- Camera Zoom
+- No Fog
 
 #### Debugging
 - Entities Manager
