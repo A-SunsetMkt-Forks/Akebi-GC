@@ -200,8 +200,7 @@ namespace cheat::feature
 					bool checked = std::any_of(checkedIndices.begin(), checkedIndices.end(), [&index](const auto& i) { return i == index; });
 					bool selected = index == selectedIndex;
 
-					const char* hashId = ("##Index" + std::to_string(index)).c_str();
-					ImGui::Checkbox(hashId, &checked);
+					ImGui::Checkbox(("##Index" + std::to_string(index)).c_str(), &checked);
 					if (ImGui::IsItemClicked(0)) {
 						if (checked) {
 							if (selected) selectedIndex = -1;
@@ -213,7 +212,7 @@ namespace cheat::feature
 						}
 					}
 					ImGui::SameLine();
-					if (ImGui::Button("TP"))
+					if (ImGui::Button(("TP##Button" + std::to_string(index)).c_str()))
 					{
 						auto& mapTeleport = MapTeleport::GetInstance();
 						mapTeleport.TeleportTo(position);
