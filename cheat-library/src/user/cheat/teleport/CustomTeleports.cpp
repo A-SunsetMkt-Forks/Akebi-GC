@@ -172,17 +172,27 @@ namespace cheat::feature
 			std::sort(teleports.begin(), teleports.end(), [](const auto& a, const auto& b)
 				{return doj::alphanum_less<std::string>()(a.first, b.first); });
 
-			bool allChecked = checkedIndices.size() == teleports.size() && !teleports.empty();
-			ImGui::Checkbox("Check All", &allChecked);
+			bool allSearchChecked = std::includes(checkedIndices.begin(), checkedIndices.end() ,searchIndices.begin(), searchIndices.end()) && !searchIndices.empty();
+			bool allChecked = (checkedIndices.size() == teleports.size() && !teleports.empty()) || allSearchChecked;
+			ImGui::Checkbox("All", &allChecked);
 			if (ImGui::IsItemClicked()) {
 				if (!teleports.empty()) {
 					if (allChecked) {
 						selectedIndex = -1;
-						checkedIndices.clear();
+						if (!searchIndices.empty()) {
+							checkedIndices.erase(searchIndices.begin(), searchIndices.end());
+						}
+						else {
+							checkedIndices.clear();
+						}
 					}
 					else {
-						for (int i = 0; i < teleports.size(); i++) {
-							checkedIndices.insert(i);
+						if (!searchIndices.empty()) {
+							checkedIndices.insert(searchIndices.begin(), searchIndices.end());
+						}
+						else {
+							for (int i = 0; i < teleports.size(); i++)
+								checkedIndices.insert(i);
 						}
 					}
 					UpdateIndexName();
@@ -191,12 +201,19 @@ namespace cheat::feature
 			ImGui::SameLine();
 			ImGui::InputText("Search", &search);
 			unsigned int index = 0;
+			searchIndices.clear();
 			for (const auto& [teleportName, position] : teleports)
 			{
 				// find without case sensitivity
 				if (search.empty() || std::search(teleportName.begin(), teleportName.end(), search.begin(), search.end(), [](char a, char b)
 					{ return std::tolower(a) == std::tolower(b); }) != teleportName.end())
 				{
+					// sets are sorted by default and does not allow duplicates
+					// which works in favor here.
+					if (!search.empty()) {
+						searchIndices.insert(index);
+					}
+
 					bool checked = std::any_of(checkedIndices.begin(), checkedIndices.end(), [&index](const auto& i) { return i == index; });
 					bool selected = index == selectedIndex;
 
@@ -207,7 +224,6 @@ namespace cheat::feature
 							checkedIndices.erase(index);
 						}
 						else {
-							// sets are sorted by default
 							checkedIndices.insert(index);
 						}
 					}

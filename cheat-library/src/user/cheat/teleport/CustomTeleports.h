@@ -25,6 +25,7 @@ namespace cheat::feature
     private:
         std::vector<std::pair<std::string, app::Vector3>> teleports;
         std::set<unsigned int> checkedIndices;
+        std::set<unsigned int> searchIndices;
         bool selectedByClick = false;
         int selectedIndex = -1;
         std::string selectedIndexName;
