@@ -5,7 +5,7 @@ We opened a [Discord server](https://discord.gg/MmV8hNZB9S)
 <h1 align="center">Getting Started</h1>
 
 ## Building from source
-It is reccomended to use [Visual Studio 2022.](https://visualstudio.microsoft.com/)
+It is recommended to use [Visual Studio 2022.](https://visualstudio.microsoft.com/)
 As well as setting up **`cheat-library`** as startup project.
 **The following is a recommended procedure, but others may be used.**
 1. Clone repository with `git clone --recurse-submodules https://github.com/Akebi-Group/Akebi-GC.git`
@@ -15,6 +15,10 @@ As well as setting up **`cheat-library`** as startup project.
 ## Release
 1. Head over to the releases page
 1. Download the latest binaries
+
+### Requirements
+- [Visual C++ Redistributable packages for Visual Studio 2015, 2017, 2019, 2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
+- [Visual C++ Redistributable packages for Visual Studio 2015, 2017, 2019, 2022](https://aka.ms/vs/17/release/vc_redist.x86.exe) (x86)
 
 ### Usage
 (1-2 are optional if you didn't build from source)
@@ -58,7 +62,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Interactive Map
 - Elemental Sight
 - Profile Changer
-- Ingame Embedded Browser
+- In-game Embedded Browser
 - Hide UI
 - Camera Zoom
 - No Fog
@@ -130,5 +134,5 @@ Release Version: 0.7
 
 ## Suggestions
 
-Open an issue with the title of the suggesstion you want to make.
+Open an issue with the title of the suggestion you want to make.
 In the description, make sure it is descriptive enough so our devs can understand what you want and how you want it.  
