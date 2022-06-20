@@ -11,7 +11,7 @@
 #include <fstream>
 #include <regex>
 #include <imgui_internal.h>
-#include <cheat-base/events/helpers/alphanum.hpp>
+#include "shlwapi.h"
 
 namespace cheat::feature
 {
@@ -168,9 +168,10 @@ namespace cheat::feature
 
 		if (ImGui::TreeNode("Teleports"))
 		{
+
 			// using natural sort instead of ascii sort
 			std::sort(teleports.begin(), teleports.end(), [](const auto& a, const auto& b)
-				{return doj::alphanum_less<std::string>()(a.first, b.first); });
+				{ return StrCmpLogicalW(std::wstring(a.first.begin(), a.first.end()).c_str(), std::wstring(b.first.begin(), b.first.end()).c_str()) < 0; });
 
 			bool allSearchChecked = std::includes(checkedIndices.begin(), checkedIndices.end() ,searchIndices.begin(), searchIndices.end()) && !searchIndices.empty();
 			bool allChecked = (checkedIndices.size() == teleports.size() && !teleports.empty()) || allSearchChecked;
