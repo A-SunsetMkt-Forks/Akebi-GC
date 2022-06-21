@@ -98,9 +98,58 @@ namespace cheat::feature
     static bool MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook(app::ActorAbilityPlugin* __this, float delay, app::Object* arg, MethodInfo* method)
     {
         auto& gm = GodMode::GetInstance();
-        if (gm.f_AltGodMode/* || gm.f_Enabled*/)
-            return FALSE;
+        auto actorModifer = reinterpret_cast<app::MoleMole_ActorModifier*>(arg);
+        auto argStr = actorModifer->fields._config->fields._modifierName;
+        std::string name;
 
+        if ((uint64_t)actorModifer->klass == *(uint64_t*)app::MoleMole_ActorModifier__TypeInfo)
+        {
+            uintptr_t MoleMole_ActorModifier = (uintptr_t)arg;
+            uintptr_t ConfigAbilityModifier = *(uintptr_t*)(MoleMole_ActorModifier + 0x68);
+            if (ConfigAbilityModifier)
+            {
+                app::String* modifierName = *(app::String**)(ConfigAbilityModifier + 0x28);
+                if (modifierName)
+                {
+                    //printf("%p\n", MoleMole_ActorModifier);
+                    //std::cout << "name = " << il2cppi_to_string(name).c_str() << std::endl;
+                    name = il2cppi_to_string(modifierName).c_str();
+                }
+                // Environmental damage filter:
+                // SERVER_ClimateAbility_Cold_Area -- Sheer cold
+                // SERVER_ClimateAbility_Cold_Lv1  -- Sheer cold
+                // SERVER_ClimateAbility_Cold_Lv2  -- Sheer cold
+                // SERVER_ClimateAbility_TsurumiMist_Area -- Electric debuff
+                // SERVER_ClimateAbility_TatariRegion_Area
+                // SERVER_ClimateAbility_TatariRegion_Lv1 -- Electric debuff
+                // SERVER_ClimateAbility_TatariRegion_Lv2 -- Electric debuff
+                // SERVER_ClimateAbility_SeiraiStorm_Area -- Serai Island
+                // SERVER_ClimateAbility_SeiraiStorm_Lv1 -- Serai Island
+                // SERVER_ClimateAbility_SeiraiStorm_Lv2 -- Serai Island
+                // SERVER_ClimateAbility_TsurumiMist_Area -- Tsurumi Island
+                // ElectricWaterAreaModifier -- All electric water in inazuma
+                // WaterAreaModifier - 
+                // SeiraiThunder_Manager -- 
+                // UNIQUE_Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldPredicated
+                // Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldAtk
+                // BlackMudAreaBuff_Avatar
+                // BlackMudAreaBuff_Avatar02
+            }
+        }
+
+        if (gm.f_AltGodMode)
+        {
+            if (name.find("BlackMud") != std::string::npos ||
+                name.find("SERVER_ClimateAbility") != std::string::npos ||
+                name.find("WaterAreaModifier") != std::string::npos ||
+                name.find("SeiraiThunder") != std::string::npos ||
+                name.find("UNIQUE_Monster_") != std::string::npos ||
+                name.find("Monster_") != std::string::npos)
+            {
+                return FALSE;
+            }
+        }
+        std::cout << "" << name.c_str() << std::endl;
         return CALL_ORIGIN(MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook, __this, delay, arg, method);
     }
 }
