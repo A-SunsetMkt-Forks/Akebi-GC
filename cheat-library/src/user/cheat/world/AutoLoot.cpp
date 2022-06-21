@@ -17,6 +17,10 @@ namespace cheat::feature
         NF(f_AutoPickup,     "Auto-pickup drops",               "AutoLoot", false),
 		NF(f_AutoTreasure,   "Auto-open treasures",             "AutoLoot", false),
 		NF(f_UseCustomRange, "Use custom pickup range",         "AutoLoot", false),
+		NF(f_PickupFilter,	 "Pickup filter",					"AutoLoot", false),
+		NF(f_PickupFilter_Animals,	 "Animals filter",			"AutoLoot", true),
+		NF(f_PickupFilter_DropItems, "Drop items filter",		"AutoLoot", true),
+		NF(f_PickupFilter_Resources, "Resources filter",		"AutoLoot", true),
 		NF(f_Chest,			 "Chests",							"AutoLoot", false),
 		NF(f_Leyline,		 "Leylines",						"AutoLoot", false),
 		NF(f_Investigate,	 "Search points",					"AutoLoot", false),
@@ -57,7 +61,7 @@ namespace cheat::feature
 				ImGui::TextColored(ImColor(255, 165, 0, 255), "Read the note!");
 			}
 			ImGui::EndGroupPanel();
-
+			
 			ImGui::BeginGroupPanel("Custom Pickup Range");
 			{
 				ConfigWidget("Enabled", f_UseCustomRange, "Enable custom pickup range.\n" \
@@ -69,7 +73,7 @@ namespace cheat::feature
 				ConfigWidget("Range (m)", f_CustomRange, 0.1f, 0.5f, 40.0f, "Modifies pickup/open range to this value (in meters).");
 			}
 			ImGui::EndGroupPanel();
-
+			
 			ImGui::BeginGroupPanel("Looting Speed");
 			{
 				ImGui::SetNextItemWidth(100.0f);
@@ -77,7 +81,7 @@ namespace cheat::feature
 					"Values under 200ms are unsafe.\nNot used if no auto-functions are on.");
 			}
 			ImGui::EndGroupPanel();
-
+			
 			ImGui::TableSetColumnIndex(1);
 			ImGui::BeginGroupPanel("Auto-Treasure");
 			{
@@ -97,22 +101,30 @@ namespace cheat::feature
 			}
 			ImGui::EndGroupPanel();
 			ImGui::EndTable();
-		}		
+		}
+			
+    	ImGui::BeginGroupPanel("Pickup Filter");
+	    {
+			ConfigWidget("Enabled", f_PickupFilter, "Enable pickup filter.\n");
+			ConfigWidget("Animals", f_PickupFilter_Animals, "Fish, Lizard, Frog, Flying animals."); ImGui::SameLine();
+			ConfigWidget("Drop Items", f_PickupFilter_DropItems, "Material, Mineral, Artifact."); ImGui::SameLine();
+			ConfigWidget("Resources", f_PickupFilter_Resources, "Everything beside Animals and Drop Items (Plants, Books, etc).");
+	    }
+    	ImGui::EndGroupPanel();
     }
 
     bool AutoLoot::NeedStatusDraw() const
-{
-        return f_AutoPickup || f_AutoTreasure || f_UseCustomRange;
+	{
+        return f_AutoPickup || f_AutoTreasure || f_UseCustomRange || f_PickupFilter;
     }
 
     void AutoLoot::DrawStatus() 
     {
-		ImGui::Text("Auto Loot\n[%s%s%s%s%s%s]",
+		ImGui::Text("Auto Loot\n[%s%s%s%s%s]",
 			f_AutoPickup ? "AP" : "",
-			f_AutoPickup && (f_AutoTreasure || f_UseCustomRange) ? "|" : "",
-			f_AutoTreasure ? "AT" : "",
-			f_AutoTreasure && f_UseCustomRange ? "|" : "",
-			f_UseCustomRange ? fmt::format("CR{:.1f}m", f_CustomRange.value()).c_str() : "",
+			f_AutoTreasure ? fmt::format("{}AT", f_AutoPickup ? "|" : "").c_str() : "",
+			f_UseCustomRange ? fmt::format("{}CR{:.1f}m", f_AutoPickup || f_AutoTreasure ? "|" : "", f_CustomRange.value()).c_str() : "",
+			f_PickupFilter ? fmt::format("{}PF", f_AutoPickup || f_AutoTreasure || f_UseCustomRange ? "|" : "").c_str() : "",
 			f_AutoPickup || f_AutoTreasure ? fmt::format("|{}ms", f_DelayTime.value()).c_str() : ""
 		);
     }
@@ -132,6 +144,18 @@ namespace cheat::feature
 		if (itemModule == nullptr)
 			return false;
 
+    	if (f_PickupFilter)
+    	{
+    		if (!f_PickupFilter_Animals && entity->fields.entityType == app::EntityType__Enum_1::EnvAnimal)
+    			return false;
+    		
+    		if (!f_PickupFilter_DropItems && entity->fields.entityType == app::EntityType__Enum_1::DropItem)
+    			return false;
+    		
+    		if (!f_PickupFilter_Resources && entity->fields.entityType == app::EntityType__Enum_1::GatherObject)
+    			return false;
+    	}
+    	
 		auto entityId = entity->fields._runtimeID_k__BackingField;
 		if (f_DelayTime == 0)
 		{
