@@ -56,6 +56,7 @@ As well as setting up **`cheat-library`** as startup project.
 #### Teleport
 - Chest/Oculi Teleport (Teleports to nearest)
 - Map Teleport (Teleport to mark on map)
+- Custom Teleport (Teleport through list)
 
 #### Visuals 
 - ESP
