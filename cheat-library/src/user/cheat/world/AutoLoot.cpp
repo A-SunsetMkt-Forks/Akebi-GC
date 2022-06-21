@@ -143,18 +143,6 @@ namespace cheat::feature
 		auto itemModule = GET_SINGLETON(MoleMole_ItemModule);
 		if (itemModule == nullptr)
 			return false;
-
-    	if (f_PickupFilter)
-    	{
-    		if (!f_PickupFilter_Animals && entity->fields.entityType == app::EntityType__Enum_1::EnvAnimal)
-    			return false;
-    		
-    		if (!f_PickupFilter_DropItems && entity->fields.entityType == app::EntityType__Enum_1::DropItem)
-    			return false;
-    		
-    		if (!f_PickupFilter_Resources && entity->fields.entityType == app::EntityType__Enum_1::GatherObject)
-    			return false;
-    	}
     	
 		auto entityId = entity->fields._runtimeID_k__BackingField;
 		if (f_DelayTime == 0)
@@ -239,6 +227,17 @@ namespace cheat::feature
 	{
 		if (f_AutoPickup || f_UseCustomRange) {
 			float pickupRange = f_UseCustomRange ? f_CustomRange : 3.5f;
+			if (f_PickupFilter)
+			{
+				if (!f_PickupFilter_Animals && entity->fields.entityType == app::EntityType__Enum_1::EnvAnimal ||
+					!f_PickupFilter_DropItems && entity->fields.entityType == app::EntityType__Enum_1::DropItem ||
+					!f_PickupFilter_Resources && entity->fields.entityType == app::EntityType__Enum_1::GatherObject)
+				{
+					result = false;
+					return;
+				}
+			}
+			
 			auto& manager = game::EntityManager::instance();
 			result = manager.avatar()->distance(entity) < pickupRange;
 		}
