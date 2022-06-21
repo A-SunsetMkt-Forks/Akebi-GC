@@ -5,13 +5,12 @@
 namespace cheat::feature 
 {
 
-	class GodMode : public Feature
+	class MusicEvent : public Feature
     {
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
-		config::Field<config::Toggle<Hotkey>> f_AltGodMode;
 
-		static GodMode& GetInstance();
+		static MusicEvent& GetInstance();
 
 		const FeatureGUIInfo& GetGUIInfo() const override;
 		void DrawMain() override;
@@ -20,7 +19,7 @@ namespace cheat::feature
 		void DrawStatus() override;
 	
 	private:
-		GodMode();
+		MusicEvent();
 	};
 }
 

@@ -11651,6 +11651,83 @@ namespace app {
         struct Browser__Fields fields;
     };
 
+    struct __declspec(align(8)) BeatMapData__Fields {
+        struct List_1_MoleMole_MusicGame_TrackData_* trackDatas;
+        struct POLBDGNBFKM* config;
+    };
+
+    struct BeatMapData {
+        struct BeatMapData__Class* klass;
+        MonitorData* monitor;
+        struct BeatMapData__Fields fields;
+    };
+
+    struct __declspec(align(8)) MusicMetaInfo__Fields {
+        struct BpmInfo* bpmInfo;
+        struct List_1_System_Single_* simpleBeatHintTimeMsList;
+        struct List_1_System_Single_* complexBeatHintTimeMsList;
+        struct CGDACGGKKNJ* musicConfig;
+        struct PMIELLLMJKA* musicInfoConfig;
+        struct POLBDGNBFKM* beatMapConfig;
+        struct JNEKHDKOKGL* musicInstrumentConfig;
+    };
+
+    struct MusicMetaInfo {
+        struct MusicMetaInfo__Class* klass;
+        MonitorData* monitor;
+        struct MusicMetaInfo__Fields fields;
+    };
+
+    struct MusicGamePlayComponent__Fields {
+        void* _;
+        uint32_t _combo;
+        float _score_k__BackingField;
+        uint32_t _maxCombo_k__BackingField;
+        uint32_t _perfectCnt_k__BackingField;
+        uint32_t _greatCnt_k__BackingField;
+        uint32_t _missCnt_k__BackingField;
+    };
+
+    struct MusicGamePlayComponent {
+        struct MusicGamePlayComponent__Class* klass;
+        MonitorData* monitor;
+        struct MusicGamePlayComponent__Fields fields;
+    };
+
+    struct MoleMole_VCBaseSetDitherValue__Fields {
+        void* _;
+        bool _usingDitherAlpha;
+        float _ditherAlphaValue;
+        float _managerDitherAlphaValue;
+        float _localDitherAlphaValue;
+        bool IBKAJMBMGAE;
+        struct MoleMole_VCBaseModel* _modelComponent;
+        float _showStartDitherDuration;
+        bool _needStartDitherAction;
+        float _detectDitherRangeBetweenCameraAndAvatar;
+        float _detectDitherRangeNormalBetweenCamera;
+        float _detectDitherRangeNormalBetweenCameraInTimeLine;
+        bool GCEGGKLBFPG;
+        struct List_1_MoleMole_BaseDither_* _dithers;
+        bool _isDitherChangeStarted;
+        float _spd;
+        float _fromValue;
+        float _toValue;
+        struct Action* _changeFinishHandler;
+        bool _triggerUpdateDitherShow;
+        bool _prevUsingDitherAlpha;
+        float _prevDitherAlphaValue;
+        float _prevTextureBias;
+        bool _prevInMotionVectorMode;
+        bool _isVisible;
+    };
+
+    struct MoleMole_VCBaseSetDitherValue {
+        struct MoleMole_VCBaseSetDitherValue__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_VCBaseSetDitherValue__Fields fields;
+    };
+
 	struct Button_1 {
 		struct Button_1__Class* klass;
 		MonitorData* monitor;

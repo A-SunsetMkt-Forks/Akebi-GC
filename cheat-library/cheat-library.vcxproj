@@ -15,6 +15,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\user\cheat\world\FakeTime.h" />
     <ClInclude Include="src\user\cheat\debugger.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -44,6 +45,7 @@
     <ClInclude Include="src\user\cheat\teleport\CustomTeleports.h" />
     <ClInclude Include="src\user\cheat\visuals\Browser.h" />
     <ClInclude Include="src\user\cheat\visuals\CameraZoom.h" />
+    <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h" />
     <ClInclude Include="src\user\cheat\visuals\FPSUnlock.h" />
     <ClInclude Include="src\user\cheat\visuals\HideUI.h" />
     <ClInclude Include="src\user\cheat\visuals\NoFog.h" />
@@ -106,6 +108,7 @@
     <ClInclude Include="src\user\cheat\world\DumbEnemies.h" />
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
+    <ClInclude Include="src\user\cheat\world\MusicEvent.h" />
     <ClInclude Include="src\user\main.h" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +116,7 @@
     <Font Include="res\Ruda-ExtraBold.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\user\cheat\world\FakeTime.cpp" />
     <ClCompile Include="src\user\cheat\debugger.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">false</ExcludedFromBuild>
@@ -142,6 +146,7 @@
     <ClCompile Include="src\user\cheat\GenshinCM.cpp" />
     <ClCompile Include="src\user\cheat\visuals\Browser.cpp" />
     <ClCompile Include="src\user\cheat\visuals\CameraZoom.cpp" />
+    <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FPSUnlock.cpp" />
     <ClCompile Include="src\user\cheat\visuals\HideUI.cpp" />
     <ClCompile Include="src\user\cheat\visuals\NoFog.cpp" />
@@ -201,6 +206,7 @@
     <ClCompile Include="src\user\cheat\world\DumbEnemies.cpp" />
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
+    <ClCompile Include="src\user\cheat\world\MusicEvent.cpp" />
     <ClCompile Include="src\user\main.cpp" />
   </ItemGroup>
   <PropertyGroup>
@@ -894,8 +900,7 @@
       </Command>
     </PostBuildEvent>
     <CustomBuildStep>
-      <Command>"$(OutDir)injector.exe"
-powershell -nop -c "&amp; {sleep 15}"</Command>
+      <Command>"$(OutDir)injector.exe" powershell -nop -c "&amp;amp; {sleep 15}"</Command>
       <Outputs>$(OutDir)_noexist.nope;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
