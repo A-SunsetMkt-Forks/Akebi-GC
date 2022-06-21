@@ -12,6 +12,7 @@
 #include <regex>
 #include <imgui_internal.h>
 #include "shlwapi.h"
+#pragma comment(lib, "shlwapi.lib")
 
 namespace cheat::feature
 {
