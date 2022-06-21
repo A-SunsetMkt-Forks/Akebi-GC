@@ -11651,6 +11651,16 @@ namespace app {
         struct Browser__Fields fields;
     };
 
+	struct Button_1 {
+		struct Button_1__Class* klass;
+		MonitorData* monitor;
+	};
+
+	struct Slider_1 {
+		struct Slider_1__Class* klass;
+		MonitorData* monitor;
+	};
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif
