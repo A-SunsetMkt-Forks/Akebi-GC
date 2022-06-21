@@ -11,6 +11,14 @@ namespace cheat::feature
     static void LCBaseCombat_FireBeingHitEvent_Hook(app::LCBaseCombat* __this, uint32_t attackeeRuntimeID, app::AttackResult* attackResult, MethodInfo* method);
     static bool MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook(app::ActorAbilityPlugin* __this, float delay, app::Object* arg, MethodInfo* method);
 
+    std::vector<std::string> v{
+        "BlackMud",
+        "SERVER_ClimateAbility",
+        "WaterAreaModifier",
+        "SeiraiThunder",
+        "UNIQUE_Monster_",
+        "Monster_"};
+
     GodMode::GodMode() : Feature(),
         NFEX(f_Enabled, "God mode", "m_GodMode", "Player", false, false),
         NF(f_AltGodMode, "Alternative God Mode", "Player", false)
@@ -101,7 +109,7 @@ namespace cheat::feature
         auto actorModifer = reinterpret_cast<app::MoleMole_ActorModifier*>(arg);
         auto argStr = actorModifer->fields._config->fields._modifierName;
         std::string name;
-
+        
         if ((uint64_t)actorModifer->klass == *(uint64_t*)app::MoleMole_ActorModifier__TypeInfo)
         {
             uintptr_t MoleMole_ActorModifier = (uintptr_t)arg;
@@ -110,47 +118,39 @@ namespace cheat::feature
             {
                 app::String* modifierName = *(app::String**)(ConfigAbilityModifier + 0x28);
                 if (modifierName)
-                {
-                    //printf("%p\n", MoleMole_ActorModifier);
-                    //std::cout << "name = " << il2cppi_to_string(name).c_str() << std::endl;
                     name = il2cppi_to_string(modifierName).c_str();
-                }
-                // Environmental damage filter:
-                // SERVER_ClimateAbility_Cold_Area -- Sheer cold
-                // SERVER_ClimateAbility_Cold_Lv1  -- Sheer cold
-                // SERVER_ClimateAbility_Cold_Lv2  -- Sheer cold
-                // SERVER_ClimateAbility_TsurumiMist_Area -- Electric debuff
-                // SERVER_ClimateAbility_TatariRegion_Area
-                // SERVER_ClimateAbility_TatariRegion_Lv1 -- Electric debuff
-                // SERVER_ClimateAbility_TatariRegion_Lv2 -- Electric debuff
-                // SERVER_ClimateAbility_SeiraiStorm_Area -- Serai Island
-                // SERVER_ClimateAbility_SeiraiStorm_Lv1 -- Serai Island
-                // SERVER_ClimateAbility_SeiraiStorm_Lv2 -- Serai Island
-                // SERVER_ClimateAbility_TsurumiMist_Area -- Tsurumi Island
-                // ElectricWaterAreaModifier -- All electric water in inazuma
-                // WaterAreaModifier - 
-                // SeiraiThunder_Manager -- 
-                // UNIQUE_Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldPredicated
-                // Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldAtk
-                // BlackMudAreaBuff_Avatar
-                // BlackMudAreaBuff_Avatar02
             }
         }
 
         if (gm.f_AltGodMode)
-        {
-            if (name.find("BlackMud") != std::string::npos ||
-                name.find("SERVER_ClimateAbility") != std::string::npos ||
-                name.find("WaterAreaModifier") != std::string::npos ||
-                name.find("SeiraiThunder") != std::string::npos ||
-                name.find("UNIQUE_Monster_") != std::string::npos ||
-                name.find("Monster_") != std::string::npos)
-            {
-                return FALSE;
-            }
-        }
-        std::cout << "" << name.c_str() << std::endl;
+            for (auto& v : v)
+                if (name.find(v) != std::string::npos)
+                    return false;
+
+        LOG_DEBUG("%s", name.c_str());
         return CALL_ORIGIN(MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook, __this, delay, arg, method);
     }
 }
 
+//  ____________________________________________________________________________________________________________
+// | Name                                                                   | Description                       |
+// |------------------------------------------------------------------------|-----------------------------------|
+// | SERVER_ClimateAbility_Cold_Area                                        | Sheer cold                        |
+// | SERVER_ClimateAbility_Cold_Lv1                                         | Sheer cold                        |
+// | SERVER_ClimateAbility_Cold_Lv2                                         | Sheer cold                        |
+// | SERVER_ClimateAbility_TsurumiMist_Area                                 | Electric debuff                   |
+// | SERVER_ClimateAbility_TatariRegion_Area                                | Electric debuff                   |
+// | SERVER_ClimateAbility_TatariRegion_Lv1                                 | Electric debuff                   |
+// | SERVER_ClimateAbility_TatariRegion_Lv2                                 | Electric debuff                   |
+// | SERVER_ClimateAbility_SeiraiStorm_Area                                 | Serai Island                      |
+// | SERVER_ClimateAbility_SeiraiStorm_Lv1                                  | Serai Island                      |
+// | SERVER_ClimateAbility_SeiraiStorm_Lv2                                  | Serai Island                      |
+// | SERVER_ClimateAbility_TsurumiMist_Area                                 | Tsurumi Island                    |
+// | ElectricWaterAreaModifier                                              | All electric water in inazuma     |
+// | BlackMudAreaBuff_Avatar                                                |                                   |
+// | BlackMudAreaBuff_Avatar02                                              |                                   |
+// | WaterAreaModifier                                                      |                                   |
+// | SeiraiThunder_Manager                                                  |                                   |
+// | UNIQUE_Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldPredicated |                                   |
+// | Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldAtk               |                                   |
+// |------------------------------------------------------------------------|-----------------------------------|
