@@ -227,6 +227,7 @@ namespace cheat::feature
 						else {
 							checkedIndices.insert(index);
 						}
+						UpdateIndexName();
 					}
 					ImGui::SameLine();
 					if (ImGui::Button(("TP##Button" + std::to_string(index)).c_str()))
