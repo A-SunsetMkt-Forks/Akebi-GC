@@ -18,7 +18,7 @@ namespace cheat::feature
 	private:
 		SafeQueue<uint32_t> toBeUpdate;
 		SafeValue<int64_t> nextUpdate;
-		int f_DelayUpdate = 100.f;
+		int f_DelayUpdate = 100;
 
 		void OnGameUpdate();
 		PaimonFollow();
