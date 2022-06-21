@@ -14,10 +14,10 @@ namespace cheat::feature
     std::vector<std::string> v{
         "BlackMud",
         "SERVER_ClimateAbility",
-        "WaterAreaModifier",
+        "ElectricWater",
         "SeiraiThunder",
         "UNIQUE_Monster_",
-        "Monster_"};
+        "Monster_Shougun"};
 
     GodMode::GodMode() : Feature(),
         NFEX(f_Enabled, "God mode", "m_GodMode", "Player", false, false),
@@ -110,12 +110,13 @@ namespace cheat::feature
         auto argStr = actorModifer->fields._config->fields._modifierName;
         std::string name;
         
-        if ((uint64_t)actorModifer->klass == *(uint64_t*)app::MoleMole_ActorModifier__TypeInfo)
+        if ((uintptr_t)actorModifer->klass == *(uintptr_t*)app::MoleMole_ActorModifier__TypeInfo)
         {
             uintptr_t MoleMole_ActorModifier = (uintptr_t)arg;
             uintptr_t ConfigAbilityModifier = *(uintptr_t*)(MoleMole_ActorModifier + 0x68);
             if (ConfigAbilityModifier)
             {
+                //app::String* modifierName = actorModifer->fields._config->fields._modifierName;
                 app::String* modifierName = *(app::String**)(ConfigAbilityModifier + 0x28);
                 if (modifierName)
                     name = il2cppi_to_string(modifierName).c_str();
@@ -127,7 +128,7 @@ namespace cheat::feature
                 if (name.find(v) != std::string::npos)
                     return false;
 
-        LOG_DEBUG("%s", name.c_str());
+        //LOG_DEBUG("%s", name.c_str());
         return CALL_ORIGIN(MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook, __this, delay, arg, method);
     }
 }
