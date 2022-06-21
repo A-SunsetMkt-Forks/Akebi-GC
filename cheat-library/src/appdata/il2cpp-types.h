@@ -11858,8 +11858,17 @@ namespace app {
         struct MoleMole_Config_ConfigAbilityModifier__Fields fields;
     };
 
+	struct __declspec(align(8)) HKMHAGBLLMK__Fields {
+		struct MoleMole_BaseAbilityMixin__Array* JGLDNAPGGGC;
+		struct List_1_System_ValueTuple_2__1* JFLGBBBFBLF;
+		struct List_1_System_ValueTuple_2__2* EFOPNOEMFBI;
+		struct List_1_MoleMole_Config_ConfigAbilityAction__1* PGICFJEDMAE;
+		struct List_1_System_ValueTuple_3__1* CGBNAMBLDOE;
+		struct IList_1_MoleMole_BaseAbilityMixin_* LOGOJNMHLIF;
+	};
+
     struct MoleMole_ActorModifier__Fields {
-        void* _;
+        HKMHAGBLLMK__Fields _;
         struct MoleMole_ActorAbility* parentAbility;
         uint32_t parentAbilityInstanceID;
         struct MoleMole_Config_ConfigAbility* _parentAbilityConfig;

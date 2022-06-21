@@ -6,19 +6,6 @@
 
 namespace cheat::feature 
 {
-    static bool Miscs_CheckTargetAttackable_Hook(app::BaseEntity* attacker, app::BaseEntity* target, MethodInfo* method);
-    static void VCHumanoidMove_NotifyLandVelocity_Hook(app::VCHumanoidMove* __this, app::Vector3 velocity, float reachMaxDownVelocityTime, MethodInfo* method);
-    static void LCBaseCombat_FireBeingHitEvent_Hook(app::LCBaseCombat* __this, uint32_t attackeeRuntimeID, app::AttackResult* attackResult, MethodInfo* method);
-    static bool MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook(app::ActorAbilityPlugin* __this, float delay, app::Object* arg, MethodInfo* method);
-
-    std::vector<std::string> v{
-        "BlackMud",
-        "SERVER_ClimateAbility",
-        "ElectricWater",
-        "SeiraiThunder",
-        "UNIQUE_Monster_",
-        "Monster_Shougun"};
-
     GodMode::GodMode() : Feature(),
         NFEX(f_Enabled, "God mode", "m_GodMode", "Player", false, false),
         NF(f_AltGodMode, "Alternative God Mode", "Player", false)
@@ -64,7 +51,7 @@ namespace cheat::feature
     }
 
 	// Attack immunity (return false when target is avatar, that mean avatar entity isn't attackable)
-	static bool Miscs_CheckTargetAttackable_Hook(app::BaseEntity* attacker, app::BaseEntity* target, MethodInfo* method)
+	bool GodMode::Miscs_CheckTargetAttackable_Hook(app::BaseEntity* attacker, app::BaseEntity* target, MethodInfo* method)
 	{
         auto& gm = GodMode::GetInstance();
         auto& manager = game::EntityManager::instance();
@@ -78,7 +65,7 @@ namespace cheat::feature
 	// Raised when avatar fall on ground.
     // Sending fall speed, and how many time pass from gain max fall speed (~30m/s).
     // To disable fall damage reset reachMaxDownVelocityTime and decrease fall velocity.
-	static void VCHumanoidMove_NotifyLandVelocity_Hook(app::VCHumanoidMove* __this, app::Vector3 velocity, float reachMaxDownVelocityTime, MethodInfo* method)
+	void GodMode::VCHumanoidMove_NotifyLandVelocity_Hook(app::VCHumanoidMove* __this, app::Vector3 velocity, float reachMaxDownVelocityTime, MethodInfo* method)
 	{
         auto& gm = GodMode::GetInstance();
 		if ((gm.f_Enabled || gm.f_AltGodMode) && -velocity.y > 13)
@@ -92,7 +79,7 @@ namespace cheat::feature
 	}
 
     // Analog function for disable attack damage (Thanks to Taiga74164)
-    static void LCBaseCombat_FireBeingHitEvent_Hook(app::LCBaseCombat* __this, uint32_t attackeeRuntimeID, app::AttackResult* attackResult, MethodInfo* method) 
+    void GodMode::LCBaseCombat_FireBeingHitEvent_Hook(app::LCBaseCombat* __this, uint32_t attackeeRuntimeID, app::AttackResult* attackResult, MethodInfo* method)
     {        
         auto& gm = GodMode::GetInstance();
         auto& manager = game::EntityManager::instance();
@@ -103,55 +90,61 @@ namespace cheat::feature
     }
 
     // Environmental damage immunity (Thanks to RELOADED#7236 / GitHub: @34736384)
-    static bool MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook(app::ActorAbilityPlugin* __this, float delay, app::Object* arg, MethodInfo* method)
+    bool GodMode::MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook(app::ActorAbilityPlugin* __this, float delay, app::Object* arg, MethodInfo* method)
     {
-        auto& gm = GodMode::GetInstance();
-        auto actorModifer = reinterpret_cast<app::MoleMole_ActorModifier*>(arg);
-        auto argStr = actorModifer->fields._config->fields._modifierName;
-        std::string name;
-        
-        if ((uintptr_t)actorModifer->klass == *(uintptr_t*)app::MoleMole_ActorModifier__TypeInfo)
-        {
-            uintptr_t MoleMole_ActorModifier = (uintptr_t)arg;
-            uintptr_t ConfigAbilityModifier = *(uintptr_t*)(MoleMole_ActorModifier + 0x68);
-            if (ConfigAbilityModifier)
-            {
-                //app::String* modifierName = actorModifer->fields._config->fields._modifierName;
-                app::String* modifierName = *(app::String**)(ConfigAbilityModifier + 0x28);
-                if (modifierName)
-                    name = il2cppi_to_string(modifierName).c_str();
-            }
-        }
+        if (GetInstance().NeedBlockHanlerModifierThinkTimeUp(arg))
+            return false;
 
-        if (gm.f_AltGodMode)
-            for (auto& v : v)
-                if (name.find(v) != std::string::npos)
-                    return false;
-
-        //LOG_DEBUG("%s", name.c_str());
         return CALL_ORIGIN(MoleMole_ActorAbilityPlugin_HanlderModifierThinkTimerUp_Hook, __this, delay, arg, method);
     }
-}
 
-//  ____________________________________________________________________________________________________________
-// | Name                                                                   | Description                       |
-// |------------------------------------------------------------------------|-----------------------------------|
-// | SERVER_ClimateAbility_Cold_Area                                        | Sheer cold                        |
-// | SERVER_ClimateAbility_Cold_Lv1                                         | Sheer cold                        |
-// | SERVER_ClimateAbility_Cold_Lv2                                         | Sheer cold                        |
-// | SERVER_ClimateAbility_TsurumiMist_Area                                 | Electric debuff                   |
-// | SERVER_ClimateAbility_TatariRegion_Area                                | Electric debuff                   |
-// | SERVER_ClimateAbility_TatariRegion_Lv1                                 | Electric debuff                   |
-// | SERVER_ClimateAbility_TatariRegion_Lv2                                 | Electric debuff                   |
-// | SERVER_ClimateAbility_SeiraiStorm_Area                                 | Serai Island                      |
-// | SERVER_ClimateAbility_SeiraiStorm_Lv1                                  | Serai Island                      |
-// | SERVER_ClimateAbility_SeiraiStorm_Lv2                                  | Serai Island                      |
-// | SERVER_ClimateAbility_TsurumiMist_Area                                 | Tsurumi Island                    |
-// | ElectricWaterAreaModifier                                              | All electric water in inazuma     |
-// | BlackMudAreaBuff_Avatar                                                |                                   |
-// | BlackMudAreaBuff_Avatar02                                              |                                   |
-// | WaterAreaModifier                                                      |                                   |
-// | SeiraiThunder_Manager                                                  |                                   |
-// | UNIQUE_Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldPredicated |                                   |
-// | Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldAtk               |                                   |
-// |------------------------------------------------------------------------|-----------------------------------|
+	bool GodMode::NeedBlockHanlerModifierThinkTimeUp(app::Object* arg)
+	{
+        if (!f_AltGodMode)
+            return false;
+
+		auto actorModifier = CastTo<app::MoleMole_ActorModifier>(arg, *app::MoleMole_ActorModifier__TypeInfo);
+        if (actorModifier == nullptr)
+            return false;
+
+		static std::vector<std::string> modifierBlacklist
+		{
+			"BlackMud",
+			"SERVER_ClimateAbility",
+			"ElectricWater",
+			"SeiraiThunder",
+			"UNIQUE_Monster_",
+			"Monster_Shougun"
+		};
+        
+        std::string modifierName = il2cppi_to_string(actorModifier->fields._config->fields._modifierName);
+		for (auto& forbiddenModifierName : modifierBlacklist)
+			if (modifierName.find(forbiddenModifierName) != std::string::npos)
+				return true;
+
+        return false;
+	}
+
+	//  ____________________________________________________________________________________________________________
+    // | Name                                                                   | Description                       |
+    // |------------------------------------------------------------------------|-----------------------------------|
+    // | SERVER_ClimateAbility_Cold_Area                                        | Sheer cold                        |
+    // | SERVER_ClimateAbility_Cold_Lv1                                         | Sheer cold                        |
+    // | SERVER_ClimateAbility_Cold_Lv2                                         | Sheer cold                        |
+    // | SERVER_ClimateAbility_TsurumiMist_Area                                 | Electric debuff                   |
+    // | SERVER_ClimateAbility_TatariRegion_Area                                | Electric debuff                   |
+    // | SERVER_ClimateAbility_TatariRegion_Lv1                                 | Electric debuff                   |
+    // | SERVER_ClimateAbility_TatariRegion_Lv2                                 | Electric debuff                   |
+    // | SERVER_ClimateAbility_SeiraiStorm_Area                                 | Serai Island                      |
+    // | SERVER_ClimateAbility_SeiraiStorm_Lv1                                  | Serai Island                      |
+    // | SERVER_ClimateAbility_SeiraiStorm_Lv2                                  | Serai Island                      |
+    // | SERVER_ClimateAbility_TsurumiMist_Area                                 | Tsurumi Island                    |
+    // | ElectricWaterAreaModifier                                              | All electric water in inazuma     |
+    // | BlackMudAreaBuff_Avatar                                                |                                   |
+    // | BlackMudAreaBuff_Avatar02                                              |                                   |
+    // | WaterAreaModifier                                                      |                                   |
+    // | SeiraiThunder_Manager                                                  |                                   |
+    // | UNIQUE_Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldPredicated |                                   |
+    // | Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldAtk               |                                   |
+    // |------------------------------------------------------------------------|-----------------------------------|
+}
