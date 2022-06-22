@@ -668,9 +668,9 @@ ARCHAICSTONE            PNG                     "icons\\ArchaicStone.png"
 
 ARTIFACT                PNG                     "icons\\Artifact.png"
 
-AVATAR_OWN              PNG                     "icons\\Avatar.png"
+AVATAROWN              PNG                     "icons\\Avatar.png"
 
-AVATAR_TEAMMATE         PNG                     "icons\\Avatar.png"
+AVATARTEAMMATE         PNG                     "icons\\Avatar.png"
 
 BAKEDANUKI              PNG                     "icons\\BakeDanuki.png"
 

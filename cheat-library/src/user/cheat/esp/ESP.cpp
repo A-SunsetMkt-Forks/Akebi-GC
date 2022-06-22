@@ -472,8 +472,8 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(guide, Stormstone);
 		ADD_FILTER_FIELD(guide, TriangularMechanism);
 
-		ADD_FILTER_FIELD(living, Avatar_teammate);
-		ADD_FILTER_FIELD(living, Avatar_own);
+		ADD_FILTER_FIELD(living, AvatarTeammate);
+		ADD_FILTER_FIELD(living, AvatarOwn);
 		ADD_FILTER_FIELD(living, BakeDanuki);
 		ADD_FILTER_FIELD(living, BirdEgg);
 		ADD_FILTER_FIELD(living, Boar);

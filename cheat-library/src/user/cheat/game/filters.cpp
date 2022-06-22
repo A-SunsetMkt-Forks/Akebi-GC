@@ -60,8 +60,8 @@ namespace cheat::game::filters
 
 	namespace living
 	{
-		SimpleFilter Avatar_teammate = { app::EntityType__Enum_1::Avatar, "authority :False" };
-		SimpleFilter Avatar_own = { app::EntityType__Enum_1::Avatar, "authority :True" };
+		SimpleFilter AvatarTeammate = { app::EntityType__Enum_1::Avatar, "authority :False" };
+		SimpleFilter AvatarOwn = { app::EntityType__Enum_1::Avatar, "authority :True" };
 		SimpleFilter BirdEgg = { app::EntityType__Enum_1::GatherObject, "BirdEgg" };
 		SimpleFilter ButterflyWings = { app::EntityType__Enum_1::EnvAnimal, "Butterfly" };
 		SimpleFilter Crab = { app::EntityType__Enum_1::EnvAnimal, "Crab" };
