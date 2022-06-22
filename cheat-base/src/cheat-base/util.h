@@ -66,17 +66,39 @@ namespace util
 	}
 
 	template<class T>
-	static T ReadMapped(void* data, int offset, bool littleEndian = false)
+	static T ReadMapped(void* data, int offset, bool is_little_endian = false)
 	{
-		char* cData = (char*)data;
-		T result = {};
-		if (IsLittleEndian() != littleEndian)
+		T value; // No need to initialize, because we will fill it later
+		constexpr size_t value_size = sizeof(T);
+		auto ptr_src = reinterpret_cast<char*>(data) + offset;
+		auto ptr_value = reinterpret_cast<char*>(&value);
+
+		if (IsLittleEndian() == is_little_endian)
 		{
-			for (int i = 0; i < sizeof(T); i++)
-				((char*)&result)[i] = cData[offset + sizeof(T) - i - 1];
-			return result;
+			memcpy_s(ptr_value, value_size, ptr_src, value_size);
+			return value;
 		}
-		memcpy_s(&result, sizeof(result), cData + offset, sizeof(result));
-		return result;
+
+		for (size_t i = 0; i < value_size; i++)
+			ptr_value[i] = ptr_src[value_size - i - 1];
+		
+		return value;
+	}
+
+	template<class T>
+	static void WriteMapped(void* data, int offset, const T& value, bool is_little_endian = false)
+	{
+		constexpr size_t value_size = sizeof(T);
+		auto ptr_dest = reinterpret_cast<char*>(data) + offset;
+		auto ptr_value = reinterpret_cast<const char*>(&value);
+
+		if (IsLittleEndian() == is_little_endian)
+		{
+			memcpy_s(ptr_dest, value_size, ptr_value, value_size);
+			return;
+		}
+
+		for (size_t i = 0; i < value_size; i++)
+			ptr_dest[i] = ptr_value[value_size - i - 1];
 	}
 }

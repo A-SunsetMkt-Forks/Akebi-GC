@@ -86,6 +86,8 @@ DO_APP_FUNC(0x066218D0, Byte__Array*, Application_RecordUserData, (int32_t nType
 
 
 // Networking
+DO_APP_FUNC(0x01251620, void, Kcp_KcpNative_kcp_packet_destroy, (KcpPacket_1* packet, MethodInfo* method));
+DO_APP_FUNC(0x01251820, KcpPacket_1*, Kcp_KcpNative_kcp_packet_create, (uint8_t* data, int32_t len, MethodInfo* method));
 DO_APP_FUNC(0x012519C0, int32_t, Kcp_KcpNative_kcp_client_send_packet, (void* kcp_client, KcpPacket_1* packet, MethodInfo* method));
 DO_APP_FUNC(0x00BD08A0, bool, MoleMole_KcpClient_TryDequeueEvent, (void* __this, ClientKcpEvent* evt, MethodInfo* method));
 DO_APP_FUNC(0x029C3D60, void, MoleMole_Packet_XorEncrypt, (Byte__Array** bytes, int32_t length, MethodInfo* method));

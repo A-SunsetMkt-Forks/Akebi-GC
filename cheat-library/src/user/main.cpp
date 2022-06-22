@@ -35,15 +35,16 @@ void Run(HMODULE* phModule)
 
 	DebuggerBypassPre();
 
-#ifdef _DEBUG
-	LOG_DEBUG("Waiting 10sec for loading game library.");
-	Sleep(10000);
-#else
 	while (GetModuleHandle("UserAssembly.dll") == nullptr)
 	{
 		LOG_DEBUG("UserAssembly.dll isn't initialized, waiting for 2 sec.");
 		Sleep(2000);
 	}
+
+#ifdef _DEBUG
+	LOG_DEBUG("Waiting 10sec for loading game library.");
+	Sleep(10000);
+#else
 	LOG_DEBUG("Waiting 15sec for game initialize.");
     Sleep(15000);
 #endif

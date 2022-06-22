@@ -30,8 +30,9 @@ namespace cheat::feature
 	private:
 		PacketSniffer();
 
+		bool ProcessModifiedData(app::KcpPacket_1* packet);
 		PacketData ParseRawPacketData(char* encryptedData, uint32_t length);
-		static char* EncryptXor(void* content, uint32_t length);
+		static void EncryptXor(void* content, uint32_t length);
 		static bool KcpClient_TryDequeueEvent_Hook(void* __this, app::ClientKcpEvent* evt, MethodInfo* method);
 		static int32_t KcpNative_kcp_client_send_packet_Hook(void* kcp_client, app::KcpPacket_1* packet, MethodInfo* method);
 		

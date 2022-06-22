@@ -42,22 +42,48 @@ namespace cheat::feature
 		return instance;
 	}
 
-	bool ProcessModifiedData(app::KcpPacket_1* packet)
+	bool PacketSniffer::ProcessModifiedData(app::KcpPacket_1* packet)
 	{
-		auto modifyData = sniffer::MessageManager::WaitFor<ModifyData>();
-		if (!modifyData)
+		auto modify_data = sniffer::MessageManager::WaitFor<ModifyData>();
+		if (!modify_data)
 			return false;
 
-		switch (modifyData->modifyType)
+		switch (modify_data->modify_type)
 		{
 		case PacketModifyType::Blocked:
 			return true;
+
 		case PacketModifyType::Modified:
 		{
-			auto dataSize = modifyData->modifiedData.size();
-			packet->data = new byte[dataSize]();
-			memcpy_s(packet->data, dataSize, modifyData->modifiedData.data(), dataSize);
-			packet->dataLen = static_cast<uint32_t>(dataSize);
+			auto data_size = modify_data->modified_head.size() + modify_data->modified_message.size() + 12;
+			char* data = new char[data_size];
+
+			auto head_size = static_cast<uint16_t>(modify_data->modified_head.size());
+			auto message_size = static_cast<uint32_t>(modify_data->modified_message.size());
+
+			util::WriteMapped(data, 0, static_cast<uint16_t>(0x4567)); // Magic number
+			util::WriteMapped(data, 2, modify_data->message_id); // Message id
+			util::WriteMapped(data, 4, head_size); // Head size
+			util::WriteMapped(data, 6, message_size); // Message size
+
+			// Fill content
+			char* ptr_head_content = data + 10;
+			memcpy_s(ptr_head_content, head_size, modify_data->modified_head.data(), head_size);
+
+			char* ptr_message_content = ptr_head_content + modify_data->modified_head.size();
+			memcpy_s(ptr_message_content, message_size, modify_data->modified_message.data(), message_size);
+			
+			util::WriteMapped(ptr_message_content, message_size, static_cast<uint16_t>(0x89AB));
+
+			EncryptXor(data, data_size);
+
+			// Can be memory leak.
+			auto new_packet = app::Kcp_KcpNative_kcp_packet_create(reinterpret_cast<uint8_t*>(data), static_cast<int32_t>(data_size), nullptr);
+			delete[] data;
+
+			// Will be deleted by KcpNative_kcp_client_network_thread
+			// app::Kcp_KcpNative_kcp_packet_destroy(packet, nullptr);
+			packet = new_packet;
 		}
 		break;
 		case PacketModifyType::Unchanged:
@@ -88,26 +114,36 @@ namespace cheat::feature
 		return !canceled;
 	}
 
-	char* PacketSniffer::EncryptXor(void* content, uint32_t length)
+	void PacketSniffer::EncryptXor(void* content, uint32_t length)
 	{
-		app::Byte__Array* byteArray = (app::Byte__Array*)new char[length + 0x20];
+		auto byteArray = reinterpret_cast<app::Byte__Array*>(new char[length + 0x20]);
 		byteArray->max_length = length;
 		memcpy_s(byteArray->vector, length, content, length);
 
 		app::MoleMole_Packet_XorEncrypt(&byteArray, length, nullptr);
 
-		auto result = new char[length];
-		memcpy_s(result, length, byteArray->vector, length);
+		memcpy_s(content, length, byteArray->vector, length);
 		delete[] byteArray;
-
-		return (char*)result;
 	}
 
 	PacketData PacketSniffer::ParseRawPacketData(char* encryptedData, uint32_t length)
 	{
+		// Packet structure
+		// * Magic word (0x4567) [2 bytes]
+		// * message_id [2 bytes] 
+		// * head_size [2 bytes]
+		// * message_size [4 bytes]
+		// * head_content [<head_size> bytes]
+		// * message_content [<message_size> bytes]
+		// * Magic word (0x89AB) [2 bytes]
+
+		// Header size - 12 bytes
+		
 		PacketData packetData = sniffer::MessageManager::CreateMessage<PacketData>();
 		// Decrypting packetData
-		auto data = EncryptXor(encryptedData, length);
+		auto data = new char[length];
+		memcpy_s(data, length, encryptedData, length);
+		EncryptXor(data, length);
 
 		uint16_t magicHead = util::ReadMapped<uint16_t>(data, 0);
 

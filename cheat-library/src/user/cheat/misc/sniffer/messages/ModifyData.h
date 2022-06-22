@@ -12,14 +12,17 @@ enum class PacketModifyType
 class ModifyData : public MessageBase
 {
 public:
-	PacketModifyType modifyType;
-	std::string modifiedData;
+	PacketModifyType modify_type;
+
+	uint16_t message_id;
+	std::string modified_head;
+	std::string modified_message;
 
 	ModifyData(const MessageHeader& header);
 	~ModifyData() {}
 
 	// Inherited via PipeSerializedObject
-	virtual void Write(PipeTransfer* transfer) override;
-	virtual void Read(PipeTransfer* transfer) override;
+	void Write(PipeTransfer* transfer) override;
+	void Read(PipeTransfer* transfer) override;
 };
 
