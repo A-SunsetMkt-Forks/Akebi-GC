@@ -178,6 +178,11 @@ DO_APP_FUNC(0x065508C0, void, Object_1_DestroyImmediate_1, (Object_1* obj, Metho
 DO_APP_FUNC(0x06550C00, Object_1*, Object_1_Instantiate_2, (Object_1* original, MethodInfo* method));
 DO_APP_FUNC(0x041B0BB0, Object*, Object_1_Instantiate_5, (Object* original, MethodInfo* method));
 DO_APP_FUNC(0x041B0BB0, GameObject*, Object_1_Instantiate_11, (GameObject* original, MethodInfo* method));
+DO_APP_FUNC(0x06555870, int32_t, Transform_get_childCount, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x0652EBC0, GameObject*, Component_1_get_gameObject, (Component_1* __this, MethodInfo* method));
+DO_APP_FUNC(0x06551030, String*, Object_1_get_name, (Object_1* __this, MethodInfo* method));
+DO_APP_FUNC(0x0665DA90, Material__Array*, Renderer_GetMaterialArray, (Renderer* __this, MethodInfo* method));
+DO_APP_FUNC(0x0652FB40, void, Material_set_mainTexture, (Material* __this, Texture* value, MethodInfo* method));
 
 
 // Music game event

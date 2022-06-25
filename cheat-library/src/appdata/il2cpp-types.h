@@ -11414,6 +11414,12 @@ namespace app {
         struct Object_1__Fields _;
     };
 
+    struct Texture {
+        struct Texture__Class* klass;
+        MonitorData* monitor;
+        struct Texture__Fields fields;
+    };
+
     struct Texture2D__Fields {
         struct Texture__Fields _;
     };
@@ -11423,9 +11429,6 @@ namespace app {
         MonitorData* monitor;
         struct Texture2D__Fields fields;
     };
-
-     
-  
 
     struct Image_1__Fields {
         struct MaskableGraphic__Fields _;
@@ -11913,6 +11916,24 @@ namespace app {
 		struct Slider_1__Class* klass;
 		MonitorData* monitor;
 	};
+
+    struct Renderer__Fields {
+        struct Component_1__Fields _;
+    };
+
+    struct Renderer {
+        struct Renderer__Class* klass;
+        MonitorData* monitor;
+        struct Renderer__Fields fields;
+    };
+
+    struct Material__Array {
+        struct Material__Array__Class* klass;
+        MonitorData* monitor;
+        Il2CppArrayBounds* bounds;
+        il2cpp_array_size_t max_length;
+        struct Material* vector[32];
+    };
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
