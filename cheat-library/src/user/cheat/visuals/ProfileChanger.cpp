@@ -113,7 +113,7 @@ namespace cheat::feature
                 Components::WaterMark = app::GameObject_GetComponentByName(GameObject::WaterMark, string_to_il2cppi("Text"), nullptr);
 
             if (Components::WaterMark != nullptr)
-                app::Text_set_text(reinterpret_cast<app::Text*>(Components::WaterMark), string_to_il2cppi(f_UID), nullptr);
+                app::Text_set_text(reinterpret_cast<app::Text*>(Components::WaterMark), string_to_il2cppi(f_UID.value().value.empty() ? "" : std::string("UID: " + f_UID.value().value)), nullptr);
         }
            
         nextUpdate = currentTime + (int)f_DelayUpdate;
