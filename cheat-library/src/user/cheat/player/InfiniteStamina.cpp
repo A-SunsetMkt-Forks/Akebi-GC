@@ -27,8 +27,8 @@ namespace cheat::feature
 		ConfigWidget("Enabled", f_Enabled, "Enables infinite stamina option.");
 
 		ConfigWidget("Move Sync Packet Replacement", f_PacketReplacement,
-			"This mode prevents sending server packets with stamina cost actions,\n" \
-			"e.g. swim, climb, sprint, etc.\n" \
+			"This mode prevents sending server packets with stamina cost actions,\n"
+			"e.g. swim, climb, sprint, etc.\n"
 			"NOTE: This is may be more safe than the standard method. More testing is needed.");
     }
 
@@ -52,14 +52,22 @@ namespace cheat::feature
 	// Note. Changes received from the server (not sure about this for current time), 
 	//       that means that server know our stamina, and changes it in client can be detected.
 	// Not working for water because server sending drown action when your stamina down to zero. (Also guess for now)
-	bool InfiniteStamina::OnPropertySet(app::PropType__Enum propType) 
+	bool InfiniteStamina::OnPropertySet(app::PropType__Enum propType)
 	{
 		using PT = app::PropType__Enum;
+		static bool max_stamina = true;
 
-		return !f_Enabled || f_PacketReplacement ||
-					(propType != PT::PROP_MAX_STAMINA &&
-				     propType != PT::PROP_CUR_PERSIST_STAMINA &&
-					 propType != PT::PROP_CUR_TEMPORARY_STAMINA);
+		const bool result = !f_Enabled || f_PacketReplacement || max_stamina ||
+							(propType != PT::PROP_MAX_STAMINA &&
+							 propType != PT::PROP_CUR_PERSIST_STAMINA &&
+							 propType != PT::PROP_CUR_TEMPORARY_STAMINA);
+
+		if (propType == PT::PROP_PLAYER_LEVEL)
+			max_stamina = true;
+		if (propType == PT::PROP_MAX_STAMINA)
+			max_stamina = false;
+
+		return result;
 	}
 
 	// Infinite stamina packet mode.
