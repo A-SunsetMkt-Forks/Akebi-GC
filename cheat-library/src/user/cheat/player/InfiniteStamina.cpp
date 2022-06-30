@@ -55,17 +55,18 @@ namespace cheat::feature
 	bool InfiniteStamina::OnPropertySet(app::PropType__Enum propType)
 	{
 		using PT = app::PropType__Enum;
-		static bool max_stamina = true;
+		static bool override_cheat = true;
 
-		const bool result = !f_Enabled || f_PacketReplacement || max_stamina ||
-							(propType != PT::PROP_MAX_STAMINA &&
-							 propType != PT::PROP_CUR_PERSIST_STAMINA &&
-							 propType != PT::PROP_CUR_TEMPORARY_STAMINA);
+		if (propType == PT::PROP_CUR_TEMPORARY_STAMINA)
+			override_cheat = true;
 
-		if (propType == PT::PROP_PLAYER_WORLD_LEVEL_LIMIT)
-			max_stamina = true;
+		const bool result = !f_Enabled || f_PacketReplacement || override_cheat ||
+			(propType != PT::PROP_MAX_STAMINA &&
+				propType != PT::PROP_CUR_PERSIST_STAMINA &&
+				propType != PT::PROP_CUR_TEMPORARY_STAMINA);
+
 		if (propType == PT::PROP_MAX_STAMINA)
-			max_stamina = false;
+			override_cheat = false;
 
 		return result;
 	}
