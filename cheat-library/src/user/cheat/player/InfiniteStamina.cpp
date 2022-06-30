@@ -61,9 +61,9 @@ namespace cheat::feature
 			override_cheat = true;
 
 		const bool result = !f_Enabled || f_PacketReplacement || override_cheat ||
-			(propType != PT::PROP_MAX_STAMINA &&
-				propType != PT::PROP_CUR_PERSIST_STAMINA &&
-				propType != PT::PROP_CUR_TEMPORARY_STAMINA);
+							(propType != PT::PROP_MAX_STAMINA &&
+							 propType != PT::PROP_CUR_PERSIST_STAMINA &&
+							 propType != PT::PROP_CUR_TEMPORARY_STAMINA);
 
 		if (propType == PT::PROP_MAX_STAMINA)
 			override_cheat = false;
