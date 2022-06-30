@@ -62,7 +62,7 @@ namespace cheat::feature
 							 propType != PT::PROP_CUR_PERSIST_STAMINA &&
 							 propType != PT::PROP_CUR_TEMPORARY_STAMINA);
 
-		if (propType == PT::PROP_PLAYER_LEVEL)
+		if (propType == PT::PROP_PLAYER_WORLD_LEVEL_LIMIT)
 			max_stamina = true;
 		if (propType == PT::PROP_MAX_STAMINA)
 			max_stamina = false;
