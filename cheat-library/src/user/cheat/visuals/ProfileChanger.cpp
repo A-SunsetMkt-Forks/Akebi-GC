@@ -33,6 +33,7 @@ namespace cheat::feature
     ProfileChanger::ProfileChanger() : Feature(),
         NF(f_Enabled, "Custom Profile", "Visuals::ProfileChanger", false),
         NF(f_UID, "UID", "Visuals::ProfileChanger", false),
+        NF(f_UIDWaterMarkPrefix, "UIDWaterMarkPrefix", "Visuals::ProfileChanger", false),
         NF(f_NickName, "NickName", "Visuals::ProfileChanger", false),
         NF(f_Level, "Level", "Visuals::ProfileChanger", false),
         NF(f_Exp, "Exp", "Visuals::ProfileChanger", false),
@@ -60,6 +61,7 @@ namespace cheat::feature
     {
         ConfigWidget(f_Enabled, "Custom Profile.");
         ConfigWidget(f_UID, "Changes the uid visually.");
+        ConfigWidget("Append \"UID:\" prefix on the water-mark", f_UIDWaterMarkPrefix);
         ConfigWidget(f_NickName, "Changes the nickname visually.");
         ConfigWidget(f_Level, "Changes the level visually.");
         ConfigWidget(f_Exp, "Changes the exp visually.");
@@ -113,7 +115,7 @@ namespace cheat::feature
                 Components::WaterMark = app::GameObject_GetComponentByName(GameObject::WaterMark, string_to_il2cppi("Text"), nullptr);
 
             if (Components::WaterMark != nullptr)
-                app::Text_set_text(reinterpret_cast<app::Text*>(Components::WaterMark), string_to_il2cppi(f_UID), nullptr);
+                app::Text_set_text(reinterpret_cast<app::Text*>(Components::WaterMark), string_to_il2cppi(f_UID.value().value.empty() ? "" : std::string((f_UIDWaterMarkPrefix ? "UID: " : "") + f_UID.value().value)), nullptr);
         }
            
         nextUpdate = currentTime + (int)f_DelayUpdate;

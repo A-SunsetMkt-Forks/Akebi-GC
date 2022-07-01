@@ -28,6 +28,7 @@
 #include <cheat/world/AutoDestroy.h>
 #include <cheat/world/FakeTime.h>
 #include <cheat/world/AutoSeelie.h>
+#include <cheat/world/VacuumLoot.h>
 
 #include <cheat/teleport/ChestTeleport.h>
 #include <cheat/teleport/MapTeleport.h>
@@ -85,6 +86,7 @@ namespace cheat
 			FEAT_INST(AutoTreeFarm),
 			FEAT_INST(AutoDestroy),
 			FEAT_INST(AutoSeelie),
+			FEAT_INST(VacuumLoot),
 			FEAT_INST(DialogSkip),
 			FEAT_INST(DumbEnemies),
 			FEAT_INST(ElementalSight),
