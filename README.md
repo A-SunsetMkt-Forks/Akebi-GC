@@ -88,6 +88,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Enable Peaking
 - Profile Changer
 - Texture Changer
+- Paimon Follow
 
 #### Debugging
 - Entities Manager
