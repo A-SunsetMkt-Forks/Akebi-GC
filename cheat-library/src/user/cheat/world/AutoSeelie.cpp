@@ -10,7 +10,6 @@ namespace cheat::feature
 {
 	AutoSeelie::AutoSeelie() : Feature(),
 		NF(f_Enabled, "Auto follow seelie", "AutoSeelie", false)
-
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(AutoSeelie::OnGameUpdate);
     }
@@ -22,7 +21,7 @@ namespace cheat::feature
 
     void AutoSeelie::DrawMain()
     {
-        ConfigWidget("Auto seelie", f_Enabled, "Auto follow seelie to it home");
+        ConfigWidget("Auto seelie", f_Enabled, "Auto follow seelie to its home");
 		ImGui::SameLine();
 		ImGui::TextColored(ImColor(255, 165, 0, 255), "Don't work with Electro Seelies");
     }
@@ -57,7 +56,6 @@ namespace cheat::feature
 		
 		return false;
 	}
-
 
     void AutoSeelie::OnGameUpdate()
     {

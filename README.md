@@ -1,7 +1,17 @@
-<h1 align="center">Akebi GC</h1>
-The great software for some anime game which is for exploiting with girls (and boys).
+<p align="center">
+  <a href="#"><img width="500" height="500" src="https://user-images.githubusercontent.com/67109235/176832758-7089defd-0edd-4c7a-bd69-60eeef99dca7.png"></a>
+  <a href="#"><img width="690" height="133" src="https://user-images.githubusercontent.com/67109235/176832764-471a6bd5-405f-43dd-97ec-c11997880993.png"></a>
+</p>
 
-We opened a [Discord server](https://discord.gg/MmV8hNZB9S)
+<p align="center">
+	<a href="https://github.com/Akebi-Group/Akebi-GC/releases/latest"><img src="https://img.shields.io/github/v/release/Akebi-Group/Akebi-GC?style=for-the-badge"></a>
+	<a href="https://github.com/Akebi-Group/Akebi-GC/releases"><img src="https://img.shields.io/github/downloads/Akebi-Group/Akebi-GC/total.svg?style=for-the-badge"></a>
+	<a href="https://github.com/Akebi-Group/Akebi-GC/graphs/contributors"><img src="https://img.shields.io/github/contributors/Akebi-Group/Akebi-GC?style=for-the-badge&color=red"></a>
+	<a href="https://discord.gg/MmV8hNZB9S"><img src="https://img.shields.io/discord/440536354544156683?label=Discord&logo=discord&style=for-the-badge&color=blueviolet"></a>
+</p>
+
+---
+
 <h1 align="center">Getting Started</h1>
 
 ## Building from source
@@ -17,8 +27,8 @@ As well as setting up **`cheat-library`** as startup project.
 1. Download the latest binaries
 
 ### Requirements
-- [Visual C++ Redistributable packages for Visual Studio 2015, 2017, 2019, 2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
-- [Visual C++ Redistributable packages for Visual Studio 2015, 2017, 2019, 2022](https://aka.ms/vs/17/release/vc_redist.x86.exe) (x86)
+- [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
+- [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x86.exe) (x86)
 
 ### Usage
 (1-2 are optional if you didn't build from source)
@@ -26,7 +36,7 @@ As well as setting up **`cheat-library`** as startup project.
 1. Open Compiled version (debug, release)
 
 
-1. Insure that `CLibrary.dll` is in the same folder that `injector.exe`.
+1. Ensure that `CLibrary.dll` is in the same folder that `injector.exe`.
 1. Run `injector.exe`.
 
 <h1 align="center">Features</h1>
@@ -39,18 +49,25 @@ As well as setting up **`cheat-library`** as startup project.
 
 #### Player
 - Invincible
-- Unlimited Stamina  
-- Dumb Enemies
 - Attack Modifier
 - No Cooldown Skill/Ultimate/Sprint
+- Unlimited Stamina
+- No Clip
 
 #### World
-- Auto Loot  
-- Auto Talk  
-- Killaura  
-- Auto Tree Farm  
-- Mob Vacuum
+- Auto Seelie
+- Vacuum Loot
+- Dumb Enemies
+- Auto Destroy Objects
+- Auto Loot
+- Pickup Range
+- Auto Talk
+- Auto Tree Farm
+- Auto Cook
+- Fake Time
 - Auto Fish
+- Kill Aura
+- Mob Vacuum
 - Music Event (temporary)
 
 #### Teleport
@@ -62,11 +79,15 @@ As well as setting up **`cheat-library`** as startup project.
 - ESP
 - Interactive Map
 - Elemental Sight
-- Profile Changer
-- In-game Embedded Browser
-- Hide UI
-- Camera Zoom
 - No Fog
+- FPS Unlock
+- Camera Zoom
+- Chest Indicator
+- Hide UI
+- In-game Embedded Browser
+- Enable Peaking
+- Profile Changer
+- Texture Changer
 
 #### Debugging
 - Entities Manager
@@ -102,7 +123,7 @@ As well as setting up **`cheat-library`** as startup project.
   <img src="https://github.com/CallowBlack/gif-demos/blob/main/genshin-cheat/auto-talk-demo.gif"/>
 </details>
 
-# Bugs
+<h1 align="center">Bugs</h1>
 Welcome to the short explanation for bug reporting
 
 1. You Found a bug.
