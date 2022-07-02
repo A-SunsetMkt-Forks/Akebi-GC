@@ -51,6 +51,7 @@ namespace cheat::feature
 		{
 			"SceneObj_DropItem",
 			"SceneObj_Ore_Drop",
+			"_DropMagicCrystal",
 			"_Thundercrystaldrop",
 			"Meat",
 			"Fishmeat",
