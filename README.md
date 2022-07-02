@@ -40,7 +40,7 @@ As well as setting up **`cheat-library`** as startup project.
 1. Run `injector.exe`.
 
 <h1 align="center">Features</h1>
-<h2>Press F1 to open the cheat menu first</h2>
+<h2>Press F1 to open Akebi GUI</h2>
 
 #### General
 - Protection Bypass
