@@ -411,6 +411,14 @@ namespace cheat::feature
 				}
 				ImGui::CloseCurrentPopup();
 			}
+			if (ImGui::Button("Complete progress"))
+			{
+				for (auto& [pointID, point] : label.points)
+				{
+					CompletePoint(&point);
+				}
+				ImGui::CloseCurrentPopup();
+			}
 
 			ImGui::EndPopup();
 		}
