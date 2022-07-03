@@ -11935,6 +11935,29 @@ namespace app {
         struct Material* vector[32];
     };
 
+    enum class TextAnchor__Enum : int32_t {
+        UpperLeft = 0x00000000,
+        UpperCenter = 0x00000001,
+        UpperRight = 0x00000002,
+        MiddleLeft = 0x00000003,
+        MiddleCenter = 0x00000004,
+        MiddleRight = 0x00000005,
+        LowerLeft = 0x00000006,
+        LowerCenter = 0x00000007,
+        LowerRight = 0x00000008,
+    };
+
+    enum class HorizontalWrapMode__Enum : int32_t {
+        Wrap = 0x00000000,
+        Overflow = 0x00000001,
+    };
+
+    enum class VerticalWrapMode__Enum : int32_t {
+        Truncate = 0x00000000,
+        Overflow = 0x00000001,
+    };
+
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

@@ -169,8 +169,11 @@ DO_APP_FUNC(0x0652EA10, Component_1*, Component_1_GetComponent_1, (Component_1* 
 DO_APP_FUNC(0x0662F520, void, GameObject_SetActive, (GameObject* __this, bool value, MethodInfo* method));
 DO_APP_FUNC(0x0662F100, GameObject*, GameObject_CreatePrimitive, (PrimitiveType__Enum type, MethodInfo* method));
 DO_APP_FUNC(0x0662F700, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x06555A60, Quaternion, Transform_get_localRotation, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x06555EF0, void, Transform_set_localRotation, (Transform* __this, Quaternion value, MethodInfo* method));
+DO_APP_FUNC(0x06555AA0, Vector3, Transform_get_localScale, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x065548E0, void, Transform_set_localScale, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x06555A20, Vector3, Transform_get_localPosition, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x06555EE0, void, Transform_set_localPosition, (Transform* __this, Vector3 value, MethodInfo* method));
 DO_APP_FUNC(0x0662F090, Component_1*, GameObject_AddComponentInternal, (GameObject* __this, String* className, MethodInfo* method));
 DO_APP_FUNC(0x0662F0A0, Component_1*, GameObject_AddComponent, (GameObject* __this, Type* componentType, MethodInfo* method));
@@ -207,6 +210,13 @@ DO_APP_FUNC(0x0658D5E0, void, Slider_1_set_minValue, (Slider_1* __this, float va
 DO_APP_FUNC(0x065F6470, Rect, Sprite_get_rect, (Sprite* __this, MethodInfo* method));
 DO_APP_FUNC(0x0667D6A0, Texture2D*, NativeGallery_LoadImageAtPath, (String* imagePath, int32_t maxSize, bool markTextureNonReadable, bool generateMipmaps, bool linearColorSpace, MethodInfo* method));
 DO_APP_FUNC(0x065F6270, Sprite*, Sprite_Create, (Texture2D* texture, Rect rect, Vector2 pivot, float pixelsPerUnit, MethodInfo* method));
+DO_APP_FUNC(0x06567B70, void, Text_set_alignment, (Text* __this, TextAnchor__Enum value, MethodInfo* method));
+DO_APP_FUNC(0x06567E10, void, Text_set_horizontalOverflow, (Text* __this, HorizontalWrapMode__Enum value, MethodInfo* method));
+DO_APP_FUNC(0x06568110, void, Text_set_verticalOverflow, (Text* __this, VerticalWrapMode__Enum value, MethodInfo* method));
+DO_APP_FUNC(0x06567A80, bool, Text_get_resizeTextForBestFit, (Text* __this, MethodInfo* method));
+DO_APP_FUNC(0x06567EE0, void, Text_set_resizeTextForBestFit, (Text* __this, bool value, MethodInfo* method));
+DO_APP_FUNC(0x06567450, int32_t, Text_get_fontSize, (Text* __this, MethodInfo* method));
+DO_APP_FUNC(0x06567CC0, void, Text_set_fontSize, (Text* __this, int32_t value, MethodInfo* method));
 
 DO_APP_FUNC(0x036865D0, float, Miscs_CalcCurrentGroundWaterHeight, (float x, float z, MethodInfo* method));
 DO_APP_FUNC(0x03685E00, float, Miscs_CalcCurrentGroundHeight, (float x, float z, MethodInfo* method));
