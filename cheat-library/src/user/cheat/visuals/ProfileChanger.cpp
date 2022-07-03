@@ -34,7 +34,7 @@ namespace cheat::feature
         NF(f_Enabled, "Custom Profile", "Visuals::ProfileChanger", false),
         NF(f_UID, "UID", "Visuals::ProfileChanger", false),
         NF(f_UIDWaterMarkPrefix, "UIDWaterMarkPrefix", "Visuals::ProfileChanger", false),
-        NF(f_UIDsize, "UID Scale", "Visuals::ProfileChanger", 14),
+        NF(f_UIDsize, "UID Size", "Visuals::ProfileChanger", 14),
         NF(f_UIDpos_x, "UID Pos X", "Visuals::ProfileChanger", 1190),
         NF(f_UIDpos_y, "UID Pos Y", "Visuals::ProfileChanger", 0),
         NF(f_NickName, "NickName", "Visuals::ProfileChanger", false),
@@ -65,7 +65,7 @@ namespace cheat::feature
         ConfigWidget(f_Enabled, "Custom Profile.");
         ConfigWidget(f_UID, "Changes the uid visually.");
         ConfigWidget("Append \"UID:\" prefix on the water-mark", f_UIDWaterMarkPrefix);
-        ConfigWidget("UID size", f_UIDsize, 0.1, 14, 500.0, "Set UID size");
+        ConfigWidget("UID size", f_UIDsize, 1, 1, 500.0, "Set UID size");
         ConfigWidget("UID Pos X", f_UIDpos_x, 1.f, 1.f, 1920.f, "Set UID position X");
         ConfigWidget("UID Pos y", f_UIDpos_y, 1.f, 0, 1080.f, "Set UID position y");
         ConfigWidget(f_NickName, "Changes the nickname visually.");
