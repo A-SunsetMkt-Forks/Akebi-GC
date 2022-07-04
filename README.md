@@ -38,9 +38,10 @@ As well as setting up **`cheat-library`** as startup project.
 
 1. Ensure that `CLibrary.dll` is in the same folder that `injector.exe`.
 1. Run `injector.exe`.
+1. After the login page appeared, press F1 to open Akebi GUI.
 
 <h1 align="center">Features</h1>
-<h2>Press F1 to open Akebi GUI</h2>
+
 
 #### General
 - Protection Bypass
