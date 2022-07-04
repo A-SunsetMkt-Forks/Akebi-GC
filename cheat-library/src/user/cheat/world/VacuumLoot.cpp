@@ -26,14 +26,16 @@ namespace cheat::feature
 		if (ImGui::BeginGroupPanel("Vacuum Loot", false))
 		{
 			ConfigWidget("Enabled", f_Enabled, "Vacuum Loot drops");
-			ImGui::TreeNode(this, "Loot Types");
-			for (auto& [field, name] : m_Filters)
+			if (ImGui::TreeNode(this, "Loot Types"))
 			{
-				ImGui::PushID(name.c_str());
-				ConfigWidget(field);
-				ImGui::PopID();
+				for (auto& [field, name] : m_Filters)
+				{
+					ImGui::PushID(name.c_str());
+					ConfigWidget(field);
+					ImGui::PopID();
+				}
+				ImGui::TreePop();
 			}
-			ImGui::TreePop();
 		}
 		ImGui::EndGroupPanel();
     }
@@ -104,22 +106,26 @@ namespace cheat::feature
 		AddFilter("General loot",               "SceneObj_DropItem"   );
 		AddFilter("Ore Drops",                  "SceneObj_Ore_Drop"   );
 		AddFilter("Magic Crystal",              "_DropMagicCrystal"   );
-		AddFilter("???",                        "_Thundercrystaldrop" );
+		AddFilter("Amethyst Lump",              "_Thundercrystaldrop" );
 		AddFilter("Electro Crystal",            "_Ore_ElectricRock"   );
 		AddFilter("Starsilver Ore",             "_DropMoonMeteor_"    );
+		AddFilter("Noctilucous Jade",			"NightBerth"		  );
 		AddFilter("Potatoes",                   "_Potato"             );
 		AddFilter("Radish",                     "_Radish02_Clear"     );
 		AddFilter("Cabbage",                    "_Cabbage"            );
 		AddFilter("Carrot",                     "_Carrot02_Clear"     );
 		AddFilter("Wheat",                      "_Wheat"              );
-		AddFilter("Butterflies & Crystalflies", "Wisp"                );
-		AddFilter("Meat",                       "Meat"                );
+		AddFilter("Crystalflies",				"Wisp"                );
+		AddFilter("Meat & Fowl",                "Meat"                );
 		AddFilter("Fishmeat",                   "Fishmeat"            );
+		AddFilter("Crab",						"Crab"				  );
+		AddFilter("Eel",						"Eel_"				  );
+		AddFilter("Lizard",						"Lizard"			  );
 		AddFilter("Swords",                     "Equip_Sword"         );
 		AddFilter("Poles",                      "Equip_Pole"          );
 		AddFilter("Bows",                       "Equip_Bow"           );
 		AddFilter("Catalysts",                  "Equip_Catalyst"      );
 		AddFilter("Claymores",                  "Equip_Claymore"      );
-		AddFilter("???",                        "Eff_Animal"          );
+		AddFilter("Butterflies & Fireflies",    "Eff_Animal"          );
 	}
 }
