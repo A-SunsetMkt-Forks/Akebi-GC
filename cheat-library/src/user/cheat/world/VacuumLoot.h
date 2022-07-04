@@ -23,11 +23,14 @@ namespace cheat::feature
 		void DrawStatus() override;
 
 		void OnGameUpdate();
-	private:
 
-		std::vector<game::IEntityFilter*> m_Filters;
+	private:
+		std::vector<std::pair<config::Field<bool>, std::string>> m_Filters;
+		int nextTime = 0;
+
 		VacuumLoot();
-		int nextTime{};
+		void InstallFilters();
+		void AddFilter(const std::string& friendName, const std::string& name);
 		bool IsEntityForVac(cheat::game::Entity* entity);
 	};
 }

@@ -11,8 +11,10 @@ namespace cheat::feature
 	VacuumLoot::VacuumLoot() : Feature(),
 		NF(f_Enabled, "Vacuum Loot", "VacuumLoot", false)
     {
+		InstallFilters();
         events::GameUpdateEvent += MY_METHOD_HANDLER(VacuumLoot::OnGameUpdate);
     }
+
 	const FeatureGUIInfo& VacuumLoot::GetGUIInfo() const
 	{
 		static const FeatureGUIInfo info{ "", "World", true };
@@ -21,7 +23,19 @@ namespace cheat::feature
 
     void VacuumLoot::DrawMain()
     {
-        ConfigWidget("Vacuum Loot", f_Enabled, "Vacuum Loot drops");
+		if (ImGui::BeginGroupPanel("Vacuum Loot", false))
+		{
+			ConfigWidget("Enabled", f_Enabled, "Vacuum Loot drops");
+			ImGui::TreeNode(this, "Loot Types");
+			for (auto& [field, name] : m_Filters)
+			{
+				ImGui::PushID(name.c_str());
+				ConfigWidget(field);
+				ImGui::PopID();
+			}
+			ImGui::TreePop();
+		}
+		ImGui::EndGroupPanel();
     }
 
 	bool VacuumLoot::NeedStatusDraw() const
@@ -46,35 +60,10 @@ namespace cheat::feature
 		auto distance = manager.avatar()->distance(entity);
 		float radius = 100.0f;
 
-		// TODO: Add more on the filter list in the future
-		static std::vector<std::string> dropList
-		{
-			"SceneObj_DropItem",
-			"SceneObj_Ore_Drop",
-			"_DropMagicCrystal",
-			"_Thundercrystaldrop",
-			"_Ore_ElectricRock",
-			"_DropMoonMeteor_",
-			"_DropMagicCrystal",
-			"_Potato",
-			"_Radish02_Clear",
-			"_Cabbage",
-			"_Carrot02_Clear",
-			"_Wheat",
-			"Wisp",
-			"Meat",
-			"Fishmeat",
-			"Equip_Sword",
-			"Equip_Pole",
-			"Equip_Bow",
-			"Equip_Catalyst",
-			"Equip_Claymore",
-			"Eff_Animal"
-		};
-
-		for (auto& dropListNames : dropList)
-			if (entity->name().find(dropListNames) != std::string::npos)
-				return distance <= radius;
+		for (const auto& lootItem : m_Filters)
+			if (lootItem.first.value())
+				if (entity->name().find(lootItem.second) != std::string::npos)
+					return distance <= radius;
 		
 		return false;
 	}
@@ -100,4 +89,37 @@ namespace cheat::feature
 		nextTime = currentTime + 1000;
     }
 	
+	void VacuumLoot::AddFilter(const std::string& friendName, const std::string& name)
+	{
+		m_Filters.push_back({
+			config::CreateField<bool>(friendName, name,
+                                      fmt::format("VacuumLoot::Filters::{}", name),
+                                      false, true),
+			name
+			});
+	}
+
+	void VacuumLoot::InstallFilters()
+	{
+		AddFilter("General loot",               "SceneObj_DropItem"   );
+		AddFilter("Ore Drops",                  "SceneObj_Ore_Drop"   );
+		AddFilter("Magic Crystal",              "_DropMagicCrystal"   );
+		AddFilter("???",                        "_Thundercrystaldrop" );
+		AddFilter("Electro Crystal",            "_Ore_ElectricRock"   );
+		AddFilter("Starsilver Ore",             "_DropMoonMeteor_"    );
+		AddFilter("Potatoes",                   "_Potato"             );
+		AddFilter("Radish",                     "_Radish02_Clear"     );
+		AddFilter("Cabbage",                    "_Cabbage"            );
+		AddFilter("Carrot",                     "_Carrot02_Clear"     );
+		AddFilter("Wheat",                      "_Wheat"              );
+		AddFilter("Butterflies & Crystalflies", "Wisp"                );
+		AddFilter("Meat",                       "Meat"                );
+		AddFilter("Fishmeat",                   "Fishmeat"            );
+		AddFilter("Swords",                     "Equip_Sword"         );
+		AddFilter("Poles",                      "Equip_Pole"          );
+		AddFilter("Bows",                       "Equip_Bow"           );
+		AddFilter("Catalysts",                  "Equip_Catalyst"      );
+		AddFilter("Claymores",                  "Equip_Claymore"      );
+		AddFilter("???",                        "Eff_Animal"          );
+	}
 }
