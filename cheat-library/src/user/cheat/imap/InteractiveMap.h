@@ -33,6 +33,8 @@ namespace cheat::feature
 		
 		config::Field<bool> f_ShowCompleted;
 		config::Field<float> f_CompletePointTransparency;
+		config::Field<bool> f_ShowInCompleted;
+		config::Field<float> f_InCompletePointTransparency;
 
 		config::Field<bool> f_AutoDetectNewItems;
 		config::Field<bool> f_AutoFixItemPositions;

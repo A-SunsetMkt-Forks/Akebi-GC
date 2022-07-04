@@ -35,6 +35,8 @@ namespace cheat::feature
 
 		NF(f_ShowCompleted, "Show completed", "InteractiveMap", false),
 		NF(f_CompletePointTransparency, "Completed point transparency", "InteractiveMap", 0.5f),
+		NF(f_ShowInCompleted, "Show in-completed", "InteractiveMap", true),
+		NF(f_InCompletePointTransparency, "In-completed point transparency", "InteractiveMap", 1.0f),
 
 		NF(f_AutoDetectNewItems, "Detect new items", "InteractiveMap", true),
 		NF(f_AutoFixItemPositions, "Fix item positions", "InteractiveMap", true),
@@ -132,10 +134,12 @@ namespace cheat::feature
 		}
 		ImGui::EndGroupPanel();
 
-		ImGui::BeginGroupPanel("Completed icon view");
+		ImGui::BeginGroupPanel("In/Completed icon view");
 		{
 			ConfigWidget(f_ShowCompleted, "Show completed points.");
 			ConfigWidget(f_CompletePointTransparency, 0.01f, 0.0f, 1.0f, "Completed points transparency.");
+			ConfigWidget(f_ShowInCompleted, "Show in-completed points.");
+			ConfigWidget(f_InCompletePointTransparency, 0.01f, 0.0f, 1.0f, "In-completed points transparency.");
 		}
 		ImGui::EndGroupPanel();
 
@@ -1458,10 +1462,10 @@ namespace cheat::feature
 
 	void InteractiveMap::DrawPoint(const PointData& pointData, const ImVec2& screenPosition, float radius, float radiusSquared, ImTextureID texture, bool selectable)
 	{
-		if (pointData.completed && !f_ShowCompleted)
+		if (pointData.completed && !f_ShowCompleted || !f_ShowInCompleted && !pointData.completed)
 			return;
-
-		float transparency = pointData.completed ? f_CompletePointTransparency : 1.0f;
+		
+		float transparency = pointData.completed ? f_CompletePointTransparency : f_InCompletePointTransparency;
 
 		if (/* m_SelectedPoint == nullptr && */!selectable || m_HoveredPoint != nullptr)
 		{
