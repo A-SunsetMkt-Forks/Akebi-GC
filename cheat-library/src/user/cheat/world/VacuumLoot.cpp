@@ -6,6 +6,18 @@
 #include <cheat/game/EntityManager.h>
 #include <cheat/game/util.h>
 
+// Returns the unique categories (i.e. the third element of every tuple) in a filter object.
+static std::vector<std::string> uniqueCategories(const std::vector<std::tuple<config::Field<bool>, std::string, std::string>>& filter)
+{
+	std::vector<std::string> result;
+	std::transform(filter.begin(), filter.end(), std::back_inserter(result),
+		[](const auto& item) {return std::get<2>(item); });
+	std::sort(result.begin(), result.end());
+	auto it = std::unique(result.begin(), result.end());
+	result.erase(it, result.end());
+	return result;
+}
+
 namespace cheat::feature
 {
 	VacuumLoot::VacuumLoot() : Feature(),
@@ -23,21 +35,31 @@ namespace cheat::feature
 
     void VacuumLoot::DrawMain()
     {
-		if (ImGui::BeginGroupPanel("Vacuum Loot", false))
-		{
-			ConfigWidget("Enabled", f_Enabled, "Vacuum Loot drops");
-			if (ImGui::TreeNode(this, "Loot Types"))
-			{
-				for (auto& [field, name] : m_Filters)
-				{
-					ImGui::PushID(name.c_str());
-					ConfigWidget(field);
-					ImGui::PopID();
-				}
-				ImGui::TreePop();
-			}
-		}
-		ImGui::EndGroupPanel();
+        if (ImGui::BeginGroupPanel("Vacuum Loot", false))
+        {
+            ConfigWidget("Enabled", f_Enabled, "Vacuum Loot drops");
+            if (ImGui::TreeNode(this, "Loot Types"))
+            {
+                for (const auto& groupCategory : uniqueCategories(m_Filters))
+                {
+                    if (ImGui::BeginGroupPanel(groupCategory.c_str(), false))
+                    {
+                        for (auto& [field, name, category] : m_Filters)
+                        {
+                            if (category == groupCategory)
+                            {
+                                ImGui::PushID(name.c_str());
+                                ConfigWidget(field);
+                                ImGui::PopID();
+                            }
+                        }
+                    }
+                    ImGui::EndGroupPanel();
+                }
+                ImGui::TreePop();
+            }
+        }
+        ImGui::EndGroupPanel();
     }
 
 	bool VacuumLoot::NeedStatusDraw() const
@@ -62,11 +84,11 @@ namespace cheat::feature
 		auto distance = manager.avatar()->distance(entity);
 		float radius = 100.0f;
 
-		for (const auto& lootItem : m_Filters)
-			if (lootItem.first.value())
-				if (entity->name().find(lootItem.second) != std::string::npos)
+		for (const auto& [field, name, category] : m_Filters)
+			if (field.value())
+				if (entity->name().find(name) != std::string::npos)
 					return distance <= radius;
-		
+
 		return false;
 	}
 
@@ -91,41 +113,43 @@ namespace cheat::feature
 		nextTime = currentTime + 1000;
     }
 	
-	void VacuumLoot::AddFilter(const std::string& friendName, const std::string& name)
+    void VacuumLoot::AddFilter(const std::string& friendName,
+                               const std::string& name,
+                               const std::string& category)
 	{
 		m_Filters.push_back({
 			config::CreateField<bool>(friendName, name,
                                       fmt::format("VacuumLoot::Filters::{}", name),
                                       false, true),
-			name
+			name, category
 			});
 	}
 
 	void VacuumLoot::InstallFilters()
 	{
-		AddFilter("General loot",               "SceneObj_DropItem"   );
-		AddFilter("Ore Drops",                  "SceneObj_Ore_Drop"   );
-		AddFilter("Magic Crystal",              "_DropMagicCrystal"   );
-		AddFilter("Amethyst Lump",              "_Thundercrystaldrop" );
-		AddFilter("Electro Crystal",            "_Ore_ElectricRock"   );
-		AddFilter("Starsilver Ore",             "_DropMoonMeteor_"    );
-		AddFilter("Noctilucous Jade",			"NightBerth"		  );
-		AddFilter("Potatoes",                   "_Potato"             );
-		AddFilter("Radish",                     "_Radish02_Clear"     );
-		AddFilter("Cabbage",                    "_Cabbage"            );
-		AddFilter("Carrot",                     "_Carrot02_Clear"     );
-		AddFilter("Wheat",                      "_Wheat"              );
-		AddFilter("Crystalflies",				"Wisp"                );
-		AddFilter("Meat & Fowl",                "Meat"                );
-		AddFilter("Fishmeat",                   "Fishmeat"            );
-		AddFilter("Crab",						"Crab"				  );
-		AddFilter("Eel",						"Eel_"				  );
-		AddFilter("Lizard",						"Lizard"			  );
-		AddFilter("Swords",                     "Equip_Sword"         );
-		AddFilter("Poles",                      "Equip_Pole"          );
-		AddFilter("Bows",                       "Equip_Bow"           );
-		AddFilter("Catalysts",                  "Equip_Catalyst"      );
-		AddFilter("Claymores",                  "Equip_Claymore"      );
-		AddFilter("Butterflies & Fireflies",    "Eff_Animal"          );
+		AddFilter("General loot",               "SceneObj_DropItem"   ,"General");
+		AddFilter("Ore Drops",                  "SceneObj_Ore_Drop"   ,"Ore");
+		AddFilter("Magic Crystal",              "_DropMagicCrystal"   ,"Ore");
+		AddFilter("Amethyst Lump",              "_Thundercrystaldrop" ,"Ore");
+		AddFilter("Electro Crystal",            "_Ore_ElectricRock"   ,"Ore");
+		AddFilter("Starsilver Ore",             "_DropMoonMeteor_"    ,"Ore");
+		AddFilter("Noctilucous Jade",           "NightBerth"          ,"Ore");
+		AddFilter("Potatoes",                   "_Potato"             ,"Food");
+		AddFilter("Radish",                     "_Radish02_Clear"     ,"Food");
+		AddFilter("Cabbage",                    "_Cabbage"            ,"Food");
+		AddFilter("Carrot",                     "_Carrot02_Clear"     ,"Food");
+		AddFilter("Wheat",                      "_Wheat"              ,"Food");
+		AddFilter("Crystalflies",               "Wisp"                ,"General");
+		AddFilter("Meat & Fowl",                "Meat"                ,"Food");
+		AddFilter("Fishmeat",                   "Fishmeat"            ,"Food");
+		AddFilter("Crab",                       "Crab"                ,"Food");
+		AddFilter("Eel",                        "Eel_"                ,"Food");
+		AddFilter("Lizard",                     "Lizard"              ,"General");
+		AddFilter("Swords",                     "Equip_Sword"         ,"Equipment");
+		AddFilter("Poles",                      "Equip_Pole"          ,"Equipment");
+		AddFilter("Bows",                       "Equip_Bow"           ,"Equipment");
+		AddFilter("Catalysts",                  "Equip_Catalyst"      ,"Equipment");
+		AddFilter("Claymores",                  "Equip_Claymore"      ,"Equipment");
+		AddFilter("Butterflies & Fireflies",    "Eff_Animal"          ,"General");
 	}
 }

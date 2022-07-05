@@ -25,12 +25,14 @@ namespace cheat::feature
 		void OnGameUpdate();
 
 	private:
-		std::vector<std::pair<config::Field<bool>, std::string>> m_Filters;
+		// Tuple of: enabled flag, human-readable name, filter category
+		using LootFilter = std::tuple<config::Field<bool>, std::string, std::string>;
+		std::vector<LootFilter> m_Filters;
 		int nextTime = 0;
 
 		VacuumLoot();
 		void InstallFilters();
-		void AddFilter(const std::string& friendName, const std::string& name);
+		void AddFilter(const std::string& friendName, const std::string& name, const std::string& category);
 		bool IsEntityForVac(cheat::game::Entity* entity);
 	};
 }
