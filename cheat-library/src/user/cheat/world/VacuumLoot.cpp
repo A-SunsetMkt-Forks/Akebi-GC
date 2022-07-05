@@ -108,7 +108,7 @@ namespace cheat::feature
             if (!IsEntityForVac(entity))
                 continue;
 
-            entity->setRelativePosition(avatarEntity->relativePosition());
+            entity->setRelativePosition(avatarEntity->relativePosition() + avatarEntity->forward() * 0.8f);
         }
 		nextTime = currentTime + 1000;
     }
@@ -123,31 +123,31 @@ namespace cheat::feature
 		});
 	}
 
-	void VacuumLoot::InstallFilters()
+void VacuumLoot::InstallFilters()
 	{
-		AddFilter("General loot",               "SceneObj_DropItem"   ,"General");
-		AddFilter("Ore Drops",                  "SceneObj_Ore_Drop"   ,"Ore");
-		AddFilter("Magic Crystal",              "_DropMagicCrystal"   ,"Ore");
-		AddFilter("Amethyst Lump",              "_Thundercrystaldrop" ,"Ore");
-		AddFilter("Electro Crystal",            "_Ore_ElectricRock"   ,"Ore");
-		AddFilter("Starsilver Ore",             "_DropMoonMeteor_"    ,"Ore");
-		AddFilter("Noctilucous Jade",           "NightBerth"          ,"Ore");
-		AddFilter("Potatoes",                   "_Potato"             ,"Food");
-		AddFilter("Radish",                     "_Radish02_Clear"     ,"Food");
-		AddFilter("Cabbage",                    "_Cabbage"            ,"Food");
-		AddFilter("Carrot",                     "_Carrot02_Clear"     ,"Food");
-		AddFilter("Wheat",                      "_Wheat"              ,"Food");
-		AddFilter("Crystalflies",               "Wisp"                ,"General");
-		AddFilter("Meat & Fowl",                "Meat"                ,"Food");
-		AddFilter("Fishmeat",                   "Fishmeat"            ,"Food");
-		AddFilter("Crab",                       "Crab"                ,"Food");
-		AddFilter("Eel",                        "Eel_"                ,"Food");
-		AddFilter("Lizard",                     "Lizard"              ,"General");
-		AddFilter("Swords",                     "Equip_Sword"         ,"Equipment");
-		AddFilter("Poles",                      "Equip_Pole"          ,"Equipment");
-		AddFilter("Bows",                       "Equip_Bow"           ,"Equipment");
-		AddFilter("Catalysts",                  "Equip_Catalyst"      ,"Equipment");
-		AddFilter("Claymores",                  "Equip_Claymore"      ,"Equipment");
-		AddFilter("Butterflies & Fireflies",    "Eff_Animal"          ,"General");
+		AddFilter("General loot",            "SceneObj_DropItem"        ,"General");
+		AddFilter("Ore Drops",               "SceneObj_Ore_Drop"        ,"Ore");
+		AddFilter("Magic Crystal",           "_DropMagicCrystal"        ,"Ore");
+		AddFilter("Amethyst Lump",           "_Thundercrystaldrop"      ,"Ore");
+		AddFilter("Electro Crystal",         "_Ore_ElectricRock"        ,"Ore");
+		AddFilter("Starsilver Ore",          "_DropMoonMeteor_"         ,"Ore");
+		AddFilter("Noctilucous Jade",        "SceneObj_Item_NightBerth" ,"Ore");
+		AddFilter("Potatoes",                "_Potato"                  ,"Food");
+		AddFilter("Radish",                  "_Radish02_Clear"          ,"Food");
+		AddFilter("Cabbage",                 "_Cabbage"                 ,"Food");
+		AddFilter("Carrot",                  "_Carrot02_Clear"          ,"Food");
+		AddFilter("Wheat",                   "_Wheat"                   ,"Food");
+		AddFilter("Crystalflies",            "Wisp"                     ,"General");
+		AddFilter("Meat & Fowl",             "Meat"                     ,"Food");
+		AddFilter("Fishmeat",                "Fishmeat"                 ,"Food");
+		AddFilter("Crab",                    "Crab"                     ,"Food");
+		AddFilter("Eel",                     "Eel_"                     ,"Food");
+		AddFilter("Lizard",                  "Lizard"                   ,"General");
+		AddFilter("Swords",                  "Equip_Sword"              ,"Equipment");
+		AddFilter("Poles",                   "Equip_Pole"               ,"Equipment");
+		AddFilter("Bows",                    "Equip_Bow"                ,"Equipment");
+		AddFilter("Catalysts",               "Equip_Catalyst"           ,"Equipment");
+		AddFilter("Claymores",               "Equip_Claymore"           ,"Equipment");
+		AddFilter("Butterflies & Fireflies", "Eff_Animal"               ,"General");
 	}
 }
