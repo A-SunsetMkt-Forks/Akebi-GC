@@ -118,11 +118,9 @@ namespace cheat::feature
                                const std::string& category)
 	{
 		m_Filters.push_back({
-			config::CreateField<bool>(friendName, name,
-                                      fmt::format("VacuumLoot::Filters::{}", name),
-                                      false, true),
+			config::CreateField<bool>(friendName, name, "VacuumLoot::Filters", false, true),
 			name, category
-			});
+		});
 	}
 
 	void VacuumLoot::InstallFilters()
