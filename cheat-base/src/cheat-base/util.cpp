@@ -172,6 +172,30 @@ namespace util
 		return tokens;
 	}
 
+	std::string SplitWords(const std::string& value)
+	{
+		std::stringstream outStream;
+		std::stringstream inStream(value);
+
+		char ch;
+		inStream >> ch;
+		outStream << ch;
+		while (inStream >> ch)
+		{
+			if (isupper(ch))
+				outStream << " ";
+			outStream << ch;
+		}
+		return outStream.str();
+	}
+
+	std::string MakeCapital(std::string value)
+	{
+		if (islower(value[0]))
+			value[0] = toupper(value[0]);
+		return value;
+	}
+
 	static const std::string base64_chars =
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		"abcdefghijklmnopqrstuvwxyz"
