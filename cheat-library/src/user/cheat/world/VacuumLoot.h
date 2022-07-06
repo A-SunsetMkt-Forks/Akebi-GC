@@ -5,14 +5,17 @@
 #include <cheat/game/Entity.h>
 #include <cheat/game/filters.h>
 #include <il2cpp-appdata.h>
+#include <cheat-base/thread-safe.h>
 
 namespace cheat::feature
 {
-
 	class VacuumLoot : public Feature
 	{
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
+		config::Field<float> f_Distance;
+		config::Field<float> f_Radius;
+		config::Field<int> f_DelayTime;
 
 		static VacuumLoot& GetInstance();
 
@@ -25,14 +28,17 @@ namespace cheat::feature
 		void OnGameUpdate();
 
 	private:
-		// Tuple of: enabled flag, human-readable name, filter category
-		using LootFilter = std::tuple<config::Field<bool>, std::string, std::string>;
-		std::vector<LootFilter> m_Filters;
-		int nextTime = 0;
+		using FilterInfo = std::pair<config::Field<bool>, game::IEntityFilter*>;
+		using Filters = std::vector<FilterInfo>;
+		using Sections = std::map<std::string, Filters>;
+
+		Sections m_Sections;
+		SafeValue<int64_t> nextTime;
 
 		VacuumLoot();
+		void DrawSection(const std::string& section, const Filters& filters);
 		void InstallFilters();
-		void AddFilter(const std::string& friendName, const std::string& name, const std::string& category);
+		void AddFilter(const std::string& section, const std::string& name, game::IEntityFilter* filter);
 		bool IsEntityForVac(cheat::game::Entity* entity);
 	};
 }
