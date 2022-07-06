@@ -21,6 +21,7 @@
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeClient.h" />
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeIO.h" />
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h" />
+    <ClInclude Include="src\user\cheat\world\AutoSeelie.h" />
     <ClInclude Include="src\user\cheat\world\FakeTime.h" />
     <ClInclude Include="src\user\cheat\debugger.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">false</ExcludedFromBuild>
@@ -95,6 +96,7 @@
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
     <ClInclude Include="src\user\cheat\world\MusicEvent.h" />
+    <ClInclude Include="src\user\cheat\world\VacuumLoot.h" />
     <ClInclude Include="src\user\main.h" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +110,7 @@
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeClient.cpp" />
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeIO.cpp" />
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp" />
+    <ClCompile Include="src\user\cheat\world\AutoSeelie.cpp" />
     <ClCompile Include="src\user\cheat\world\FakeTime.cpp" />
     <ClCompile Include="src\user\cheat\debugger.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -179,6 +182,7 @@
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
     <ClCompile Include="src\user\cheat\world\MusicEvent.cpp" />
+    <ClCompile Include="src\user\cheat\world\VacuumLoot.cpp" />
     <ClCompile Include="src\user\main.cpp" />
   </ItemGroup>
   <PropertyGroup>

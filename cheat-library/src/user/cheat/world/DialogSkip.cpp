@@ -1,4 +1,4 @@
-#include "pch-il2cpp.h"
+    #include "pch-il2cpp.h"
 #include "DialogSkip.h"
 
 #include <helpers.h>
@@ -13,7 +13,7 @@ namespace cheat::feature
     DialogSkip::DialogSkip() : Feature(),
         NF(f_Enabled, "Auto talk", "AutoTalk", false),
         NF(f_AutoSelectDialog, "Auto select dialog", "AutoTalk", true),
-        NF(f_ExcludeImportant, "Exclude Katheryne/Tubby", "AutoTalk", true),
+        NF(f_ExcludeImportant, "Exclude Katheryne/Tubby/Wagner", "AutoTalk", true),
         NF(f_FastDialog, "Fast dialog", "AutoTalk", false),
         NF(f_CutsceneUSM, "Skip Cutscenes", "AutoTalk", false),
         NF(f_TimeSpeedup, "Time Speed", "AutoTalk", 5.0f)
@@ -36,7 +36,7 @@ namespace cheat::feature
         if (f_AutoSelectDialog)
         {
             ImGui::Indent();
-            ConfigWidget("Exclude Katheryne/Tubby", f_ExcludeImportant, "Exclude Kath/Tubby from auto-select.");
+            ConfigWidget("Exclude Katheryne/Tubby/Wagner", f_ExcludeImportant, "Exclude Kath/Tubby/Wagner from auto-select.");
             ImGui::Unindent();
         }
         ConfigWidget("Fast Dialog", f_FastDialog, "Speeds up Time");
@@ -94,7 +94,8 @@ namespace cheat::feature
             // speeding up dialog on.
             std::vector<std::string> impEntitiesNames = {
                 "Djinn",
-                "Katheryne"
+                "Katheryne",
+                "Wagner"
             };
             auto dialogPartnerID = context->fields._inteeID;
             auto& manager = game::EntityManager::instance();
@@ -114,7 +115,9 @@ namespace cheat::feature
         {
             int32_t value = 0;
             auto object = il2cpp_value_box((Il2CppClass*)*app::Int32__TypeInfo, &value);
-            auto notify = app::Notify_CreateNotify_1(app::MoleMole_NotifyTypes__Enum::DialogSelectItemNotify, (app::Object*)object, nullptr);
+            app::Notify notify{};
+            notify.type = app::MoleMole_NotifyTypes__Enum::DialogSelectNotify;
+            notify.body = (app::Object*)object;
             app::MoleMole_TalkDialogContext_OnDialogSelectItem(talkDialog, &notify, nullptr);
         }
         else if (!talkDialog->fields._inSelect)
