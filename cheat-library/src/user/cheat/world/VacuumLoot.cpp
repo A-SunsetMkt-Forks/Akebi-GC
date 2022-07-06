@@ -91,6 +91,7 @@ namespace cheat::feature
 
 		auto& manager = game::EntityManager::instance();
 		auto avatarEntity = manager.avatar();
+
 		for (const auto& entity : manager.entities())
 		{
 			if (!IsEntityForVac(entity))
