@@ -243,6 +243,15 @@
     <ClInclude Include="src\cheat-base\inject\load-library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\cheat-base\ISerializable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cheat-base\render\backend\dx12-hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\cheat-base\util.cpp">
@@ -333,6 +342,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\cheat-base\inject\load-library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cheat-base\render\backend\dx12-hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

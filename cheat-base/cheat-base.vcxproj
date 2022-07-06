@@ -125,7 +125,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)framework\;$(ProjectDir)src\;$(ProjectDir)vendor\detours\;$(ProjectDir)vendor\fmt\include\;$(ProjectDir)vendor\imgui\;$(ProjectDir)vendor\magic_enum\include\;$(ProjectDir)vendor\simpleIni\;$(ProjectDir)vendor\json\single_include\;$(ProjectDir)vendor\imgui-notify-v2\;$(ProjectDir)vendor\stb\</AdditionalIncludeDirectories>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -158,7 +158,7 @@
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <OmitFramePointers>false</OmitFramePointers>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -193,7 +193,7 @@
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <OmitFramePointers>false</OmitFramePointers>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -222,7 +222,7 @@
       <PreprocessorDefinitions>_DEBUG;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -242,7 +242,7 @@
       <PreprocessorDefinitions>_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Lib>
       <AdditionalDependencies>detours-$(PlatformShortName).lib</AdditionalDependencies>
@@ -259,7 +259,7 @@
       <PreprocessorDefinitions>_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Lib>
       <AdditionalDependencies>detours-$(PlatformShortName).lib</AdditionalDependencies>
@@ -298,6 +298,8 @@
     <ClInclude Include="src\cheat-base\events\joins\handlereventjoin.hpp" />
     <ClInclude Include="src\cheat-base\inject\load-library.h" />
     <ClInclude Include="src\cheat-base\inject\manual-map.h" />
+    <ClInclude Include="src\cheat-base\ISerializable.h" />
+    <ClInclude Include="src\cheat-base\render\backend\dx12-hook.h" />
     <ClInclude Include="src\cheat-base\ResourceLoader.h" />
     <ClInclude Include="src\cheat-base\Hotkey.h" />
     <ClInclude Include="src\cheat-base\render\ImageLoader.h" />
@@ -335,6 +337,7 @@
     <ClInclude Include="vendor\imgui-notify-v2\font_awesome_5.h" />
     <ClInclude Include="vendor\imgui-notify-v2\imgui_notify.h" />
     <ClInclude Include="vendor\imgui\backends\imgui_impl_dx11.h" />
+    <ClInclude Include="vendor\imgui\backends\imgui_impl_dx12.h" />
     <ClInclude Include="vendor\imgui\backends\imgui_impl_win32.h" />
     <ClInclude Include="vendor\imgui\imconfig.h" />
     <ClInclude Include="vendor\imgui\imgui.h" />
@@ -365,6 +368,7 @@
     </ClCompile>
     <ClCompile Include="src\cheat-base\inject\load-library.cpp" />
     <ClCompile Include="src\cheat-base\inject\manual-map.cpp" />
+    <ClCompile Include="src\cheat-base\render\backend\dx12-hook.cpp" />
     <ClCompile Include="src\cheat-base\ResourceLoader.cpp" />
     <ClCompile Include="src\cheat-base\Hotkey.cpp" />
     <ClCompile Include="src\cheat-base\render\ImageLoader.cpp" />
@@ -409,6 +413,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release_WS|Win32'">pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\backends\imgui_impl_dx12.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_WS|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="vendor\imgui\backends\imgui_impl_win32.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>

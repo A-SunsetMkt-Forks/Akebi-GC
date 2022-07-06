@@ -45,6 +45,7 @@ namespace util
 
 	int64_t GetTimezoneBias();
 
+	void OpenConsole();
 
 	template<typename ... Args>
 	std::string string_format(const std::string& format, Args ... args)

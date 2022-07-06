@@ -272,6 +272,18 @@ namespace util
 		return static_cast<int64_t>(timezoneInfo.Bias) * 60;
 	}
 
+	void OpenConsole()
+	{
+		AllocConsole();
+		freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+		freopen_s((FILE**)stderr, "CONOUT$", "w", stderr);
+
+		auto consoleWindow = GetConsoleWindow();
+		SetForegroundWindow(consoleWindow);
+		ShowWindow(consoleWindow, SW_RESTORE);
+		ShowWindow(consoleWindow, SW_SHOW);
+	}
+
 	void OpenURL(const char* url)
 	{
 		ShellExecute(nullptr, nullptr, url, nullptr, nullptr, SW_SHOW);

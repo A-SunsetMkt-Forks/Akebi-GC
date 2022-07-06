@@ -16,7 +16,7 @@ namespace cheat::feature
 		NF(f_PipeName, "Pipe name", "PacketSniffer", "genshin_packet_pipe")
 
 	{
-		sniffer::MessageManager::Connect(f_PipeName.value());
+		client.Connect(f_PipeName.value());
 
 		HookManager::install(app::Kcp_KcpNative_kcp_client_send_packet, KcpNative_kcp_client_send_packet_Hook);
 		HookManager::install(app::MoleMole_KcpClient_TryDequeueEvent, KcpClient_TryDequeueEvent_Hook);
@@ -42,36 +42,36 @@ namespace cheat::feature
 		return instance;
 	}
 
-	bool PacketSniffer::ProcessModifiedData(app::KcpPacket_1* packet)
+	bool PacketSniffer::ProcessModifiedData(app::KcpPacket_1*& packet)
 	{
-		auto modify_data = sniffer::MessageManager::WaitFor<ModifyData>();
+		auto modify_data = client.WaitFor<PipeModifyData>();
 		if (!modify_data)
 			return false;
 
-		switch (modify_data->modify_type)
+		switch (modify_data->modifyType)
 		{
-		case PacketModifyType::Blocked:
+		case ModifyType::Blocked:
 			return true;
 
-		case PacketModifyType::Modified:
+		case ModifyType::Modified:
 		{
-			auto data_size = modify_data->modified_head.size() + modify_data->modified_message.size() + 12;
+			auto data_size = modify_data->head.size() + modify_data->content.size() + 12;
 			char* data = new char[data_size];
 
-			auto head_size = static_cast<uint16_t>(modify_data->modified_head.size());
-			auto message_size = static_cast<uint32_t>(modify_data->modified_message.size());
+			auto head_size = static_cast<uint16_t>(modify_data->head.size());
+			auto message_size = static_cast<uint32_t>(modify_data->content.size());
 
 			util::WriteMapped(data, 0, static_cast<uint16_t>(0x4567)); // Magic number
-			util::WriteMapped(data, 2, modify_data->message_id); // Message id
+			util::WriteMapped(data, 2, modify_data->messageID); // Message id
 			util::WriteMapped(data, 4, head_size); // Head size
 			util::WriteMapped(data, 6, message_size); // Message size
 
 			// Fill content
 			char* ptr_head_content = data + 10;
-			memcpy_s(ptr_head_content, head_size, modify_data->modified_head.data(), head_size);
+			memcpy_s(ptr_head_content, head_size, modify_data->head.data(), head_size);
 
-			char* ptr_message_content = ptr_head_content + modify_data->modified_head.size();
-			memcpy_s(ptr_message_content, message_size, modify_data->modified_message.data(), message_size);
+			char* ptr_message_content = ptr_head_content + modify_data->head.size();
+			memcpy_s(ptr_message_content, message_size, modify_data->content.data(), message_size);
 			
 			util::WriteMapped(ptr_message_content, message_size, static_cast<uint16_t>(0x89AB));
 
@@ -86,28 +86,29 @@ namespace cheat::feature
 			packet = new_packet;
 		}
 		break;
-		case PacketModifyType::Unchanged:
+		case ModifyType::Unchanged:
 		default:
 			break;
 		}
 		return false;
 	}
 
-	bool PacketSniffer::OnPacketIO(app::KcpPacket_1* packet, PacketIOType type)
+	bool PacketSniffer::OnPacketIO(app::KcpPacket_1*& packet, NetIODirection direction)
 	{
-		if (!sniffer::MessageManager::IsConnected())
+		if (!client.IsConnected())
 			return true;
 
 		if (!f_CaptureEnabled)
 			return true;
 
-		PacketData packetData = ParseRawPacketData((char*)packet->data, packet->dataLen);
-		if (!packetData.valid)
+		auto pipeData = client.CreateMessage<PipePacketData>();
+		bool parsed = ParseRawPacketData((char*)packet->data, packet->dataLen, pipeData);
+		if (!parsed)
 			return true;
 
-		packetData.ioType = type;
-		packetData.blockModeEnabled = f_ManipulationEnabled;
-		sniffer::MessageManager::Send(packetData);
+		pipeData.direction = direction;
+		pipeData.manipulationEnabled = f_ManipulationEnabled;
+		client.Send(pipeData);
 
 		bool canceled = f_ManipulationEnabled && ProcessModifiedData(packet);
 
@@ -126,7 +127,7 @@ namespace cheat::feature
 		delete[] byteArray;
 	}
 
-	PacketData PacketSniffer::ParseRawPacketData(char* encryptedData, uint32_t length)
+	bool PacketSniffer::ParseRawPacketData(char* encryptedData, uint32_t length, PipePacketData& dataOut)
 	{
 		// Packet structure
 		// * Magic word (0x4567) [2 bytes]
@@ -139,7 +140,6 @@ namespace cheat::feature
 
 		// Header size - 12 bytes
 		
-		PacketData packetData = sniffer::MessageManager::CreateMessage<PacketData>();
 		// Decrypting packetData
 		auto data = new char[length];
 		memcpy_s(data, length, encryptedData, length);
@@ -150,14 +150,14 @@ namespace cheat::feature
 		if (magicHead != 0x4567)
 		{
 			LOG_ERROR("Head magic value for packet is not valid.");
-			return packetData;
+			return false;
 		}
 
 		uint16_t magicEnd = util::ReadMapped<uint16_t>(data, length - 2);
 		if (magicEnd != 0x89AB)
 		{
 			LOG_ERROR("End magic value for packet is not valid.");
-			return packetData;
+			return false;
 		}
 
 		uint16_t messageId = util::ReadMapped<uint16_t>(data, 2);
@@ -167,21 +167,20 @@ namespace cheat::feature
 		if (length < headSize + contenSize + 12)
 		{
 			LOG_ERROR("Packet size is not valid.");
-			return packetData;
+			return false;
 		}
 
-		packetData.valid = true;
-		packetData.messageID = messageId;
+		dataOut.messageID = messageId;
 
-		packetData.headRawData = std::vector<byte>((size_t)headSize, 0);
-		memcpy_s(packetData.headRawData.data(), headSize, data + 10, headSize);
+		dataOut.head = std::vector<byte>((size_t)headSize, 0);
+		memcpy_s(dataOut.head.data(), headSize, data + 10, headSize);
 
-		packetData.messageRawData = std::vector<byte>((size_t)contenSize, 0);
-		memcpy_s(packetData.messageRawData.data(), contenSize, data + 10 + headSize, contenSize);
+		dataOut.content = std::vector<byte>((size_t)contenSize, 0);
+		memcpy_s(dataOut.content.data(), contenSize, data + 10 + headSize, contenSize);
 
 		delete[] data;
 
-		return packetData;
+		return true;
 	}
 
 	bool PacketSniffer::KcpClient_TryDequeueEvent_Hook(void* __this, app::ClientKcpEvent* evt, MethodInfo* method)
@@ -193,13 +192,13 @@ namespace cheat::feature
 			return result;
 
 		auto& sniffer = GetInstance();
-		return sniffer.OnPacketIO(evt->_evt.packet, PacketIOType::Receive);
+		return sniffer.OnPacketIO(evt->_evt.packet, NetIODirection::Receive);
 	}
 
 	int32_t PacketSniffer::KcpNative_kcp_client_send_packet_Hook(void* kcp_client, app::KcpPacket_1* packet, MethodInfo* method)
 	{
 		auto& sniffer = GetInstance();
-		if (!sniffer.OnPacketIO(packet, PacketIOType::Send))
+		if (!sniffer.OnPacketIO(packet, NetIODirection::Send))
 			return 0;
 
 		return CALL_ORIGIN(KcpNative_kcp_client_send_packet_Hook, kcp_client, packet, method);

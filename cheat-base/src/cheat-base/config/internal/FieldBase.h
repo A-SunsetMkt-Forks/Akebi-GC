@@ -112,6 +112,13 @@ namespace config::internal
 			return *this;
 		}
 
+		FieldBase<T>& operator=(T&& other)
+		{
+			p_Container->m_Value = std::move(other);
+			p_Container->FireChanged();
+			return *this;
+		}
+
 		FieldBase<T>& operator=(std::shared_ptr<FieldSerialize<T>>& other)
 		{
 			p_Container->ChangedEvent -= MY_METHOD_HANDLER(FieldBase<T>::OnFieldChanged);

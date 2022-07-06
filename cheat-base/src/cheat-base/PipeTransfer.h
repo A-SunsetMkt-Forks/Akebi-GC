@@ -20,6 +20,7 @@ public:
 	~PipeTransfer();
 
 	bool Create();
+	void Close();
 	bool Connect();
 	bool WaitForConnection();
 	bool IsPipeOpened();

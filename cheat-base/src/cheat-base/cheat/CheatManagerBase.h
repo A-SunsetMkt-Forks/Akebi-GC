@@ -2,6 +2,7 @@
 #include <cheat-base/cheat/Feature.h>
 #include <cheat-base/config/Config.h>
 #include <cheat-base/events/event.hpp>
+#include <cheat-base/render/renderer.h>
 
 #include <vector>
 #include <map>
@@ -30,7 +31,7 @@ namespace cheat
 		void OnWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool& cancelled);
 		void OnRender();
 
-		void Init(LPBYTE pFontData, DWORD dFontDataSize);
+		void Init(LPBYTE pFontData, DWORD dFontDataSize, renderer::DXVersion dxVersion = renderer::DXVersion::D3D11);
 
 		virtual void CursorSetVisibility(bool visibility) = 0;
 		virtual bool CursorGetVisibility() = 0;

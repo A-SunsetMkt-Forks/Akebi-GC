@@ -6,7 +6,11 @@
 #include "fields/Toggle.h"
 #include "fields/Enum.h"
 
-#define NFEX(field, friendName, name, section, defaultValue, shared) field##(config::CreateField<decltype(##field##)::_ValueType>(friendName, name, section, shared, defaultValue))
+#define SNFEX(field, friendName, name, section, defaultValue, shared) config::CreateField<decltype(##field##)::_ValueType>(friendName, name, section, shared, defaultValue)
+#define SNFB(field, name, section, defaultValue, shared) SNFEX(field, name, config::internal::FixFieldName(#field), section, defaultValue, shared)
+#define SNF(field, name, section, defaultValue) SNFB(field, name, section, defaultValue, false)
+
+#define NFEX(field, friendName, name, section, defaultValue, shared) field##(SNFEX(field, friendName, name, section, defaultValue, shared))
 #define NFEXUP(field, friendName, name, section, shared, ...) field##(config::CreateField<decltype(##field##)::_ValueType>(friendName, name, section, shared, __VA_ARGS__))
 
 #define NFB(field, name, section, defaultValue, shared) NFEX(field, name, config::internal::FixFieldName(#field), section, defaultValue, shared)

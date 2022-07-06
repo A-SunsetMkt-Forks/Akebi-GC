@@ -5,7 +5,15 @@
 
 namespace renderer
 {
-	void Init(LPBYTE pFontData, DWORD dFontDataSize);
+	enum class DXVersion
+	{
+		D3D9,
+		D3D10,
+		D3D11,
+		D3D12
+	};
+
+	void Init(LPBYTE pFontData, DWORD dFontDataSize, DXVersion version = DXVersion::D3D11);
 
 	// Font sizing
 	ImFont* GetFontBySize(float fontSize);

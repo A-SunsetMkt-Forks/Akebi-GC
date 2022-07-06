@@ -16,16 +16,20 @@ PipeTransfer::PipeTransfer(const std::string& name)
 
 PipeTransfer::~PipeTransfer()
 {
-	if (m_Pipe)
-		CloseHandle(m_Pipe);
+	Close();
 }
 
 bool PipeTransfer::Create()
 {
-	if (m_Pipe)
-		CloseHandle(m_Pipe);
+	Close();
 	m_Pipe = CreateNamedPipe(m_Name.c_str(), PIPE_ACCESS_DUPLEX, PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT, 1, 256 * 1024, 16, INFINITE, NULL);
 	return IsPipeOpened();
+}
+
+void PipeTransfer::Close()
+{
+	if (m_Pipe)
+		CloseHandle(m_Pipe);
 }
 
 bool PipeTransfer::IsPipeOpened()

@@ -15,32 +15,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\messages\PipeMessage.h" />
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\messages\PipeModifyData.h" />
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\messages\PipePacketData.h" />
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeClient.h" />
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeIO.h" />
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h" />
     <ClInclude Include="src\user\cheat\world\FakeTime.h" />
     <ClInclude Include="src\user\cheat\debugger.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\MessageManager.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\MessageBase.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\MessageHeader.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\ModifyData.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\PacketData.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="src\user\cheat\GenshinCM.h" />
     <ClInclude Include="src\user\cheat\teleport\CustomTeleports.h" />
@@ -117,32 +102,17 @@
     <Font Include="res\Ruda-ExtraBold.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\messages\PipeMessage.cpp" />
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\messages\PipeModifyData.cpp" />
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\messages\PipePacketData.cpp" />
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeClient.cpp" />
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeIO.cpp" />
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp" />
     <ClCompile Include="src\user\cheat\world\FakeTime.cpp" />
     <ClCompile Include="src\user\cheat\debugger.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\MessageManager.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\MessageBase.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\MessageHeader.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\ModifyData.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\PacketData.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="src\user\cheat\teleport\CustomTeleports.cpp" />
     <ClCompile Include="src\user\cheat\GenshinCM.cpp" />
@@ -849,9 +819,11 @@
     <TargetName>CLibrary</TargetName>
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(PlatformShortName)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)-$(PlatformShortName)\obj\$(ProjectName)\</IntDir>
-    <CustomBuildBeforeTargets>Run</CustomBuildBeforeTargets>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CustomBuildAfterTargets>FinalizeBuildStatus</CustomBuildAfterTargets>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

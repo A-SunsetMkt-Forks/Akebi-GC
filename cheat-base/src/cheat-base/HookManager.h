@@ -17,7 +17,7 @@ public:
 	}
 
 	template <typename Fn>
-	[[nodiscard]] static Fn getOrigin(Fn handler, const char* callerName = nullptr) noexcept
+	static Fn getOrigin(Fn handler, const char* callerName = nullptr) noexcept
 	{
 		if (holderMap.count(reinterpret_cast<void*>(handler)) == 0) {
 			LOG_WARNING("Origin not found for handler: %s. Maybe racing bug.", callerName == nullptr ? "<Unknown>" : callerName);
@@ -27,14 +27,17 @@ public:
 	}
 
 	template <typename Fn>
-	[[nodiscard]] static void detach(Fn handler) noexcept 
+	static void detach(Fn handler) noexcept 
 	{
 		disable(handler);
 		holderMap.erase(reinterpret_cast<void*>(handler));
 	}
 
+	// I don't know why
+#ifdef _WIN64
+
 	template <typename RType, typename... Params>
-	[[nodiscard]] static RType call(RType(*handler)(Params...), const char* callerName = nullptr, Params... params)
+	static RType call(RType(*handler)(Params...), const char* callerName = nullptr, Params... params)
 	{
 		auto origin = getOrigin(handler, callerName);
 		if (origin != nullptr)
@@ -42,6 +45,30 @@ public:
 
 		return RType();
 	}
+
+#else
+
+	template <typename RType, typename... Params>
+	static RType call(RType(__cdecl *handler)(Params...), const char* callerName = nullptr, Params... params)
+	{
+		auto origin = getOrigin(handler, callerName);
+		if (origin != nullptr)
+			return origin(params...);
+
+		return RType();
+	}
+
+	template <typename RType, typename... Params>
+	static RType call(RType(__stdcall *handler)(Params...), const char* callerName = nullptr, Params... params)
+	{
+		auto origin = getOrigin(handler, callerName);
+		if (origin != nullptr)
+			return origin(params...);
+
+		return RType();
+	}
+
+#endif
 
 	static void detachAll() noexcept
 	{

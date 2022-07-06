@@ -4,7 +4,6 @@
 #include <cstdio>
 
 #include <cheat-base/HookManager.h>
-
 #pragma comment(lib, "D3dcompiler.lib")
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "winmm.lib")
@@ -18,37 +17,55 @@ extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam
 static IDXGISwapChainPresent fnIDXGISwapChainPresent;
 static ID3D11Device* pDevice = nullptr;
 
-static HRESULT __stdcall Present(IDXGISwapChain* pChain, const UINT SyncInterval, const UINT Flags)
+static HRESULT __stdcall Present_Hook(IDXGISwapChain* pChain, const UINT SyncInterval, const UINT Flags)
 {
 	static BOOL g_bInitialised = false;
 
 	// Main D3D11 Objects
 	static ID3D11DeviceContext* pContext = nullptr;
 	
-	if (!g_bInitialised) {
-		pChain->GetDevice(__uuidof(pDevice), reinterpret_cast<void**>(&pDevice));
-		pDevice->GetImmediateContext(&pContext);
+	
+	if (!g_bInitialised)
+	{
+		auto result = (HRESULT)pChain->GetDevice(__uuidof(pDevice), reinterpret_cast<void**>(&pDevice));
 
-		DXGI_SWAP_CHAIN_DESC sd;
-		pChain->GetDesc(&sd);
+		if (SUCCEEDED(result))
+		{
+			pDevice->GetImmediateContext(&pContext);
 
-		backend::DX11Events::InitializeEvent(sd.OutputWindow, pDevice, pContext, pChain);
+			DXGI_SWAP_CHAIN_DESC sd;
+			pChain->GetDesc(&sd);
 
-		g_bInitialised = true;
+			backend::DX11Events::InitializeEvent(sd.OutputWindow, pDevice, pContext, pChain);
+
+			g_bInitialised = true;
+		}
 	}
 
 	// render function
-	backend::DX11Events::RenderEvent(pContext);
+	if (g_bInitialised)
+		backend::DX11Events::RenderEvent(pContext);
 
-	return CALL_ORIGIN(Present, pChain, SyncInterval, Flags);
+	return CALL_ORIGIN(Present_Hook, pChain, SyncInterval, Flags);
 }
 
 static IDXGISwapChainPresent findDirect11Present()
 {
-	const HWND hWnd = GetForegroundWindow();
+	WNDCLASSEX wc{ 0 };
+	wc.cbSize = sizeof(wc);
+	wc.lpfnWndProc = DefWindowProc;
+	wc.lpszClassName = TEXT("Class");
+
+	if (!RegisterClassEx(&wc))
+	{
+		return nullptr;
+	}
+
+	HWND hWnd = CreateWindow(wc.lpszClassName, TEXT(""), WS_DISABLED, 0, 0, 0, 0, NULL, NULL, NULL, nullptr);
+
 	IDXGISwapChain* pSwapChain;
 
-	constexpr D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_11_0;
+	D3D_FEATURE_LEVEL featureLevel;
 	DXGI_SWAP_CHAIN_DESC swapChainDesc;
 	ZeroMemory(&swapChainDesc, sizeof(swapChainDesc));
 	swapChainDesc.BufferCount = 1;
@@ -64,11 +81,15 @@ static IDXGISwapChainPresent findDirect11Present()
 	// Main D3D11 Objects
 	ID3D11DeviceContext* pContext = nullptr;
 	ID3D11Device* pDevice = nullptr;
-	if (FAILED(D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_WARP, NULL, NULL, &featureLevel, 1,
-		D3D11_SDK_VERSION, &swapChainDesc, &pSwapChain, &pDevice, NULL, &pContext)) && 
-		FAILED(D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, NULL, &featureLevel, 1,
-			D3D11_SDK_VERSION, &swapChainDesc, &pSwapChain, &pDevice, NULL, &pContext)))
+
+	if (/*FAILED(D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_WARP, NULL, NULL, &featureLevel, 1,
+		D3D11_SDK_VERSION, &swapChainDesc, &pSwapChain, &pDevice, NULL, &pContext)) &&*/
+		FAILED(D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, nullptr, 0, D3D11_SDK_VERSION, 
+			&swapChainDesc, &pSwapChain, &pDevice, &featureLevel, nullptr)))
 	{
+		DestroyWindow(swapChainDesc.OutputWindow);
+		UnregisterClass(wc.lpszClassName, GetModuleHandle(nullptr));
+
 		return nullptr;
 	}
 
@@ -78,8 +99,11 @@ static IDXGISwapChainPresent findDirect11Present()
 	auto swapChainPresent = reinterpret_cast<IDXGISwapChainPresent>(pSwapChainVtable[8]);
 
 	pDevice->Release();
-	pContext->Release();
+	//pContext->Release();
 	pSwapChain->Release();
+
+	DestroyWindow(swapChainDesc.OutputWindow);
+	UnregisterClass(wc.lpszClassName, GetModuleHandle(nullptr));
 
 	return swapChainPresent;
 }
@@ -95,7 +119,7 @@ void backend::InitializeDX11Hooks()
 	}
 	LOG_DEBUG("SwapChain Present: %p", fnIDXGISwapChainPresent);
 
-	HookManager::install(fnIDXGISwapChainPresent, Present);
+	HookManager::install(fnIDXGISwapChainPresent, Present_Hook);
 	LOG_DEBUG("Initializing D3D11 hook: done.");
 }
 

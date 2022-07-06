@@ -111,7 +111,7 @@ namespace cheat
 			FEAT_INST(HideUI),
 			FEAT_INST(Browser),
 			FEAT_INST(EnablePeaking),
-			FEAT_INST(TextureChanger),
+			FEAT_INST(TextureChanger)
 			
 			});
 #undef FEAT_INST

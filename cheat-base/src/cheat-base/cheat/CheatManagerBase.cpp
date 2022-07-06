@@ -10,9 +10,9 @@
 namespace cheat
 {
 
-	void CheatManagerBase::Init(LPBYTE pFontData, DWORD dFontDataSize)
+	void CheatManagerBase::Init(LPBYTE pFontData, DWORD dFontDataSize, renderer::DXVersion dxVersion)
 	{
-		renderer::Init(pFontData, dFontDataSize);
+		renderer::Init(pFontData, dFontDataSize, dxVersion);
 
 		events::RenderEvent += MY_METHOD_HANDLER(CheatManagerBase::OnRender);
 		events::KeyUpEvent += MY_METHOD_HANDLER(CheatManagerBase::OnKeyUp);

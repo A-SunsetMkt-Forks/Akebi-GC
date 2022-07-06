@@ -189,21 +189,6 @@
     <ClInclude Include="src\user\cheat\visuals\CameraZoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\MessageBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\MessageHeader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\ModifyData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\messages\PacketData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\user\cheat\misc\sniffer\MessageManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\user\cheat\debugger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -235,6 +220,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\messages\PipeMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\messages\PipeModifyData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\messages\PipePacketData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -384,21 +384,6 @@
     <ClCompile Include="src\user\cheat\visuals\CameraZoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\MessageBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\MessageHeader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\ModifyData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\messages\PacketData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\misc\sniffer\MessageManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\user\cheat\visuals\ShowChestIndicator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -430,6 +415,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\messages\PipeMessage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\messages\PipeModifyData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\messages\PipePacketData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

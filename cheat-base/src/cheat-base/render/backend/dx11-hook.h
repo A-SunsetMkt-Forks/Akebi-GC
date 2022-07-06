@@ -2,6 +2,8 @@
 #include <Windows.h>
 
 #include <d3d11.h>
+#include <d3d12.h>
+
 #include <d3dcompiler.h>
 
 #include <cheat-base/events/event.hpp>
@@ -18,5 +20,6 @@ namespace backend
 	public:
 		inline static TEvent<ID3D11DeviceContext*> RenderEvent{};
 		inline static TEvent<HWND, ID3D11Device*, ID3D11DeviceContext*, IDXGISwapChain*> InitializeEvent{};
+		inline static TEvent<> FailedEvent{};
 	};
 }

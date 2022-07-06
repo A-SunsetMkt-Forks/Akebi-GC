@@ -2,10 +2,15 @@
 #include "renderer.h"
 
 #include <backends/imgui_impl_dx11.h>
+#pragma comment(lib, "dxgi")
+#include <backends/imgui_impl_dx12.h>
+
 #include <backends/imgui_impl_win32.h>
 
 #include <cheat-base/util.h>
 #include <cheat-base/render/backend/dx11-hook.h>
+#include <cheat-base/render/backend/dx12-hook.h>
+
 #include <cheat-base/ResourceLoader.h>
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -33,19 +38,39 @@ namespace renderer
 	static WNDPROC OriginalWndProcHandler;
 	static ID3D11RenderTargetView* mainRenderTargetView;
 
-	static void OnRender(ID3D11DeviceContext* pContext);
-	static void OnDX11Initialize(HWND window, ID3D11Device* pDevice, ID3D11DeviceContext* pContext, IDXGISwapChain* pChain);
+	static void OnRenderDX11(ID3D11DeviceContext* pContext);
+	static void OnInitializeDX11(HWND window, ID3D11Device* pDevice, ID3D11DeviceContext* pContext, IDXGISwapChain* pChain);
+	
+	static void OnPreRenderDX12();
+	static void OnPostRenderDX12(ID3D12GraphicsCommandList* commandList);
+	static void OnInitializeDX12(HWND window, ID3D12Device* pDevice, UINT buffersCounts, ID3D12DescriptorHeap* pDescriptorHeapImGuiRender);
 
-	void Init(LPBYTE fontData, DWORD fontDataSize)
+
+
+	void Init(LPBYTE fontData, DWORD fontDataSize, DXVersion version)
 	{
 		_customFontData = { fontData, fontDataSize };
 
 		LOG_DEBUG("Initialize IMGui...");
 
-		backend::DX11Events::RenderEvent += FUNCTION_HANDLER(OnRender);
-		backend::DX11Events::InitializeEvent += FUNCTION_HANDLER(OnDX11Initialize);
-
-		backend::InitializeDX11Hooks();
+		switch (version)
+		{
+		case renderer::DXVersion::D3D11:
+			backend::DX11Events::RenderEvent += FUNCTION_HANDLER(OnRenderDX11);
+			backend::DX11Events::InitializeEvent += FUNCTION_HANDLER(OnInitializeDX11);
+			backend::InitializeDX11Hooks();
+			break;
+		case renderer::DXVersion::D3D12:
+			backend::DX12Events::InitializeEvent += FUNCTION_HANDLER(OnInitializeDX12);
+			backend::DX12Events::PreRenderEvent += FUNCTION_HANDLER(OnPreRenderDX12);
+			backend::DX12Events::PostRenderEvent += FUNCTION_HANDLER(OnPostRenderDX12);
+			backend::InitializeDX12Hooks();
+			break;
+		case renderer::DXVersion::D3D9:
+		case renderer::DXVersion::D3D10:
+		default:
+			LOG_ERROR("Used unsupported version of DX.");
+		}
 	}
 
 	void SetInputLock(void* id, bool value)
@@ -134,7 +159,53 @@ namespace renderer
 	static void SetupImGuiStyle();
 	static LRESULT CALLBACK hWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-	static void OnDX11Initialize(HWND window, ID3D11Device* pDevice, ID3D11DeviceContext* pContext, IDXGISwapChain* pChain)
+	void OnPreRenderDX12()
+	{
+		ImGui_ImplDX12_NewFrame();
+		ImGui_ImplWin32_NewFrame();
+
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+		io.FontDefault = GetFontBySize(_globalFontSize);
+		ImGui::NewFrame();
+
+		events::RenderEvent();
+
+		ImGui::EndFrame();
+	}
+
+	void OnPostRenderDX12(ID3D12GraphicsCommandList* commandList)
+	{
+		ImGui::Render();
+		ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList);
+	}
+
+	void OnInitializeDX12(HWND window, ID3D12Device* pDevice, UINT buffersCounts, ID3D12DescriptorHeap* pDescriptorHeapImGuiRender)
+	{
+		LOG_DEBUG("ImGUI: DirectX12 backend initialized successfully.");
+
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+
+		LoadCustomFont();
+		SetupImGuiStyle();
+
+		//Set OriginalWndProcHandler to the Address of the Original WndProc function
+		OriginalWndProcHandler = reinterpret_cast<WNDPROC>(SetWindowLongPtr(window, GWLP_WNDPROC,
+			reinterpret_cast<LONG_PTR>(hWndProc)));
+
+		ImGui_ImplWin32_Init(window);
+		ImGui_ImplDX12_Init(pDevice, buffersCounts, DXGI_FORMAT_R8G8B8A8_UNORM, 
+			pDescriptorHeapImGuiRender,
+			pDescriptorHeapImGuiRender->GetCPUDescriptorHandleForHeapStart(),
+			pDescriptorHeapImGuiRender->GetGPUDescriptorHandleForHeapStart());
+
+		ImGui_ImplDX12_CreateDeviceObjects();
+		ImGui::GetIO().ImeWindowHandle = window;
+		io.SetPlatformImeDataFn = nullptr; // F**king bug take 4 hours of my life
+	}
+
+	static void OnInitializeDX11(HWND window, ID3D11Device* pDevice, ID3D11DeviceContext* pContext, IDXGISwapChain* pChain)
 	{
 
 		LOG_DEBUG("ImGUI: DirectX11 backend initialized successfully.");
@@ -161,7 +232,7 @@ namespace renderer
 		io.SetPlatformImeDataFn = nullptr; // F**king bug take 4 hours of my life
 	}
 
-	static void OnRender(ID3D11DeviceContext* pContext)
+	static void OnRenderDX11(ID3D11DeviceContext* pContext)
 	{
 		ImGui_ImplDX11_NewFrame();
 		ImGui_ImplWin32_NewFrame();
