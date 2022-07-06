@@ -11,6 +11,9 @@ namespace cheat::feature
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
 		config::Field<config::Toggle<std::string>> f_UID;
 		config::Field<bool> f_UIDWaterMarkPrefix;
+		config::Field<int> f_UIDsize;
+		config::Field<float> f_UIDpos_x;
+		config::Field<float> f_UIDpos_y;
 		config::Field<config::Toggle<std::string>> f_NickName;
 		config::Field<config::Toggle<std::string>> f_Level;
 		config::Field<config::Toggle<Hotkey>> f_Exp;
