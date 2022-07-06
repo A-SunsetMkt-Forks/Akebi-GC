@@ -66,6 +66,8 @@ namespace cheat::feature
 
 	bool VacuumLoot::IsEntityForVac(game::Entity* entity)
 	{
+		// Go through all sections. For each section, go through all filters.
+		// If a filter matches the given entity and that filter is enabled, return true.
 		bool entityValid = std::any_of(m_Sections.begin(), m_Sections.end(),
 			[entity](std::pair<std::string, Filters> const& section) {
 				return std::any_of(section.second.begin(), section.second.end(), [entity](const FilterInfo& filterInfo) {
@@ -100,16 +102,6 @@ namespace cheat::feature
 			entity->setRelativePosition(avatarEntity->relativePosition() + avatarEntity->forward() * f_Distance);
 		}
 		nextTime = currentTime + f_DelayTime.value();
-	}
-
-	void VacuumLoot::AddFilter(const std::string& section, const std::string& name, game::IEntityFilter* filter)
-	{
-		if (m_Sections.count(section) == 0)
-			m_Sections[section] = {};
-
-		auto& filters = m_Sections[section];
-		bool newItem(filter);
-		filters.push_back({ config::CreateField<bool>(name,name,fmt::format("VacuumLoot::Filters::{}", section),false, newItem) , filter });
 	}
 
 	void VacuumLoot::DrawSection(const std::string& section, const Filters& filters)
@@ -157,6 +149,16 @@ namespace cheat::feature
 		}
 	}
 
+	void VacuumLoot::AddFilter(const std::string& section, const std::string& name, game::IEntityFilter* filter)
+	{
+		if (m_Sections.count(section) == 0)
+			m_Sections[section] = {};
+
+		auto& filters = m_Sections[section];
+		bool newItem(filter);
+		filters.push_back({ config::CreateField<bool>(name,name,fmt::format("VacuumLoot::Filters::{}", section),false, newItem) , filter });
+	}
+
 #define ADD_FILTER_FIELD(section, name) AddFilter(util::MakeCapital(#section), util::SplitWords(#name), &game::filters::##section##::##name##)
 	void VacuumLoot::InstallFilters()
 	{
@@ -164,19 +166,19 @@ namespace cheat::feature
 
 		ADD_FILTER_FIELD(featured, ItemDrops);
 
-		ADD_FILTER_FIELD(mineral, AmethystLump);
-		ADD_FILTER_FIELD(mineral, ArchaicStone);
-		ADD_FILTER_FIELD(mineral, CorLapis);
-		ADD_FILTER_FIELD(mineral, CrystalChunk);
-		ADD_FILTER_FIELD(mineral, CrystalMarrow);
-		ADD_FILTER_FIELD(mineral, ElectroCrystal);
-		ADD_FILTER_FIELD(mineral, IronChunk);
-		ADD_FILTER_FIELD(mineral, NoctilucousJade);
-		ADD_FILTER_FIELD(mineral, MagicalCrystalChunk);
-		ADD_FILTER_FIELD(mineral, ScarletQuartz);
-		ADD_FILTER_FIELD(mineral, Starsilver);
-		ADD_FILTER_FIELD(mineral, WhiteIronChunk);
-		ADD_FILTER_FIELD(mineral, DunlinsTooth);
+		// ADD_FILTER_FIELD(mineral, AmethystLump);
+		// ADD_FILTER_FIELD(mineral, ArchaicStone);
+		// ADD_FILTER_FIELD(mineral, CorLapis);
+		// ADD_FILTER_FIELD(mineral, CrystalChunk);
+		// ADD_FILTER_FIELD(mineral, CrystalMarrow);
+		// ADD_FILTER_FIELD(mineral, ElectroCrystal);
+		// ADD_FILTER_FIELD(mineral, IronChunk);
+		// ADD_FILTER_FIELD(mineral, NoctilucousJade);
+		// ADD_FILTER_FIELD(mineral, MagicalCrystalChunk);
+		// ADD_FILTER_FIELD(mineral, ScarletQuartz);
+		// ADD_FILTER_FIELD(mineral, Starsilver);
+		// ADD_FILTER_FIELD(mineral, WhiteIronChunk);
+		// ADD_FILTER_FIELD(mineral, DunlinsTooth);
 
 		// Ores that drops as a loot when destroyed
 		ADD_FILTER_FIELD(mineral, AmethystLumpDrop);
