@@ -32,6 +32,16 @@ namespace cheat::game::filters
 		extern ChestFilter STrap;
 	}
 
+	namespace equipment
+	{
+		extern SimpleFilter Artifacts;
+		extern SimpleFilter Bow;
+		extern SimpleFilter Claymore;
+		extern SimpleFilter Catalyst;
+		extern SimpleFilter Pole;
+		extern SimpleFilter Sword;
+	}
+
 	namespace featured
 	{
 		extern SimpleFilter Anemoculus;
@@ -94,6 +104,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Weasel;
 		extern SimpleFilter Kitsune;
 		extern SimpleFilter BakeDanuki;
+		extern SimpleFilter Meat;
 	}
 
 	namespace mineral
@@ -111,6 +122,16 @@ namespace cheat::game::filters
 		extern SimpleFilter Starsilver;
 		extern SimpleFilter WhiteIronChunk;
 		extern SimpleFilter DunlinsTooth;
+
+		extern SimpleFilter AmethystLumpDrop;
+		extern SimpleFilter CrystalChunkDrop;
+		extern SimpleFilter ElectroCrystalDrop;
+		extern SimpleFilter IronChunkDrop;
+		extern SimpleFilter NoctilucousJadeDrop;
+		extern SimpleFilter MagicalCrystalChunkDrop;
+		extern SimpleFilter ScarletQuartzDrop;
+		extern SimpleFilter StarsilverDrop;
+		extern SimpleFilter WhiteIronChunkDrop;
 	}
 
 	namespace monster
@@ -189,6 +210,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Apple;
 		extern SimpleFilter BambooShoot;
 		extern SimpleFilter Berry;
+		extern SimpleFilter Cabbage;
 		extern SimpleFilter CallaLily;
 		extern SimpleFilter Carrot;
 		extern SimpleFilter Cecilia;
@@ -208,6 +230,7 @@ namespace cheat::game::filters
 		extern SimpleFilter NakuWeed;
 		extern SimpleFilter PhilanemoMushroom;
 		extern SimpleFilter Pinecone;
+		extern SimpleFilter Potato;
 		extern SimpleFilter Qingxin;
 		extern SimpleFilter Radish;
 		extern SimpleFilter SakuraBloom;
@@ -221,6 +244,7 @@ namespace cheat::game::filters
 		extern SimpleFilter SweetFlower;
 		extern SimpleFilter Valberry;
 		extern SimpleFilter Violetgrass;
+		extern SimpleFilter Wheat;
 		extern SimpleFilter WindwheelAster;
 		extern SimpleFilter Wolfhook;
 	}
