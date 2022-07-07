@@ -37,6 +37,8 @@ namespace util
 	int64_t GetCurrentTimeMillisec();
 
 	std::vector<std::string> StringSplit(const std::string& delimiter, const std::string& content);
+	std::string SplitWords(const std::string& value);
+	std::string MakeCapital(std::string value);
 	std::string to_hex_string(uint8_t* barray, int length);
 	bool IsLittleEndian();
 

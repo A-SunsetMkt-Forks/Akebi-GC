@@ -29,6 +29,16 @@ namespace cheat::game::filters
 		ChestFilter STrap = ChestFilter(game::Chest::ChestState::Trap);
 	}
 
+	namespace equipment
+	{
+		SimpleFilter Artifacts = { app::EntityType__Enum_1::DropItem, "_Relic" };
+		SimpleFilter Bow = { app::EntityType__Enum_1::DropItem, "_Bow" };
+		SimpleFilter Claymore = { app::EntityType__Enum_1::DropItem, "_Claymore" };
+		SimpleFilter Catalyst = { app::EntityType__Enum_1::DropItem, "_Catalyst" };
+		SimpleFilter Pole = { app::EntityType__Enum_1::DropItem, "_Pole" };
+		SimpleFilter Sword = { app::EntityType__Enum_1::DropItem, "_Sword" };
+	}
+
 	namespace featured
 	{
 		SimpleFilter Anemoculus = { app::EntityType__Enum_1::GatherObject, "WindCrystalShell" };
@@ -93,12 +103,13 @@ namespace cheat::game::filters
 		SimpleFilter WeaselThief = { app::EntityType__Enum_1::Monster, "Thoarder_Weasel" };
 		SimpleFilter Kitsune = { app::EntityType__Enum_1::EnvAnimal, "Vulpes" };
 		SimpleFilter BakeDanuki = { app::EntityType__Enum_1::Monster, "Inu_Tanuki" };
+		SimpleFilter Meat = { app::EntityType__Enum_1::GatherObject , std::vector<std::string> { "_Food_BirdMeat", "_Food_Meat", "_Fishmeat" }};
 	}
 
 	namespace mineral
 	{
 		SimpleFilter AmethystLump = { app::EntityType__Enum_1::GatherObject, "_Thundercrystal" };
-		SimpleFilter ArchaicStone = { app::EntityType__Enum_1::GatherObject, "AncientOre" };
+		SimpleFilter ArchaicStone = { app::EntityType__Enum_1::GatherObject, "_AncientOre" };
 		SimpleFilter CorLapis = { app::EntityType__Enum_1::GatherObject, "_ElementRock" };
 		SimpleFilter CrystalChunk = { app::EntityType__Enum_1::GatherObject,
 			std::vector<std::string> { "_OreCrystal", "_ShiningCrystalOre" } };
@@ -112,6 +123,16 @@ namespace cheat::game::filters
 		SimpleFilter Starsilver = { app::EntityType__Enum_1::GatherObject, "_OreMoonMeteor" };
 		SimpleFilter WhiteIronChunk = { app::EntityType__Enum_1::GatherObject, "_OreMetal" };
 		SimpleFilter DunlinsTooth = { app::EntityType__Enum_1::GatherObject, "_DunlinsTooth" };
+
+		SimpleFilter AmethystLumpDrop = { app::EntityType__Enum_1::GatherObject, "_Thundercrystaldrop" };
+		SimpleFilter CrystalChunkDrop = { app::EntityType__Enum_1::GatherObject,"_Drop_Crystal"};
+		SimpleFilter ElectroCrystalDrop = { app::EntityType__Enum_1::GatherObject, "_Drop_Ore_ElectricRock" };
+		SimpleFilter IronChunkDrop = { app::EntityType__Enum_1::GatherObject, "_Drop_Stone" };
+		SimpleFilter NoctilucousJadeDrop = { app::EntityType__Enum_1::GatherObject,"_NightBerth" };
+		SimpleFilter MagicalCrystalChunkDrop = { app::EntityType__Enum_1::GatherObject, "_DropMagicCrystal" };
+		SimpleFilter ScarletQuartzDrop = { app::EntityType__Enum_1::GatherObject, "_DropDulinsBlood" };
+		SimpleFilter StarsilverDrop = { app::EntityType__Enum_1::GatherObject, "_DropMoonMeteor" };
+		SimpleFilter WhiteIronChunkDrop = { app::EntityType__Enum_1::GatherObject, "_Drop_Metal" };
 	}
 
 	namespace monster
@@ -193,6 +214,7 @@ namespace cheat::game::filters
 		SimpleFilter BambooShoot = { app::EntityType__Enum_1::GatherObject, "_Bambooshoot" };
 		SimpleFilter Berry = { app::EntityType__Enum_1::GatherObject, "_Raspberry" };
 		SimpleFilter CallaLily = { app::EntityType__Enum_1::GatherObject, "_Plant_Callas" };
+		SimpleFilter Cabbage = { app::EntityType__Enum_1::GatherObject, "_Plant_Cabbage" };
 		SimpleFilter Carrot = { app::EntityType__Enum_1::GatherObject, "_Plant_Carrot" };
 		SimpleFilter Cecilia = { app::EntityType__Enum_1::GatherObject, "_Cecilia" };
 		SimpleFilter DandelionSeed = { app::EntityType__Enum_1::GatherObject, "_Plant_Dandelion" };
@@ -211,6 +233,7 @@ namespace cheat::game::filters
 		SimpleFilter NakuWeed = { app::EntityType__Enum_1::GatherObject, "_Howlgrass" };
 		SimpleFilter PhilanemoMushroom = { app::EntityType__Enum_1::GatherObject, "_WindmilHunter" };
 		SimpleFilter Pinecone = { app::EntityType__Enum_1::GatherObject, "_Drop_Plant_Pine" };
+		SimpleFilter Potato = { app::EntityType__Enum_1::GatherObject, "_Plant_Potato" };
 		SimpleFilter Qingxin = { app::EntityType__Enum_1::GatherObject, "_QingXin" };
 		SimpleFilter Radish = { app::EntityType__Enum_1::GatherObject, "_Plant_Radish" };
 		SimpleFilter SakuraBloom = { app::EntityType__Enum_1::GatherObject, "_Cherrypetals" };
@@ -224,6 +247,7 @@ namespace cheat::game::filters
 		SimpleFilter SweetFlower = { app::EntityType__Enum_1::GatherObject, "_Plant_Whiteballet" };
 		SimpleFilter Valberry = { app::EntityType__Enum_1::GatherObject, "_DropingBerry_Gather" };
 		SimpleFilter Violetgrass = { app::EntityType__Enum_1::GatherObject, "_GlazedGrass" };
+		SimpleFilter Wheat = { app::EntityType__Enum_1::GatherObject, "_Plant_Wheat" };
 		SimpleFilter WindwheelAster = { app::EntityType__Enum_1::GatherObject, "_WindmilDaisy" };
 		SimpleFilter Wolfhook = { app::EntityType__Enum_1::GatherObject, "_GogoFruit" };
 	}

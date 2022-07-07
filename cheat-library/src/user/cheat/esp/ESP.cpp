@@ -409,31 +409,7 @@ namespace cheat::feature
 		return;
 	}
 
-	std::string SplitWords(const std::string& value)
-	{
-		std::stringstream outStream;
-		std::stringstream inStream(value);
-
-		char ch;
-		inStream >> ch;
-		outStream << ch;
-		while (inStream >> ch)
-		{
-			if (isupper(ch))
-				outStream << " ";
-			outStream << ch;
-		}
-		return outStream.str();
-	}
-
-	std::string MakeCapital(std::string value)
-	{
-		if (islower(value[0]))
-			value[0] = toupper(value[0]);
-		return value;
-	}
-
-#define ADD_FILTER_FIELD(section, name) AddFilter(MakeCapital(#section), SplitWords(#name), &game::filters::##section##::##name##)
+#define ADD_FILTER_FIELD(section, name) AddFilter(util::MakeCapital(#section), util::SplitWords(#name), &game::filters::##section##::##name##)
 	void ESP::InstallFilters()
 	{
 		ADD_FILTER_FIELD(collection, Book);
