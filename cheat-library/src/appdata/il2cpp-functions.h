@@ -159,6 +159,11 @@ DO_APP_FUNC(0x032256C0, void, CookingQtePageContext_CloseItemGotPanel, (CookingQ
 DO_APP_FUNC(0x027A41A0, Button_1*, ProfilePage, (MonoInLevelPlayerProfilePage* __this, MethodInfo* method)); // MonoInLevelPlayerProfilePage_get_logoutButton
 DO_APP_FUNC(0x016A77B0, void, ProfileEditPage, (MonoFriendInformationDialog* __this, Sprite* value, MethodInfo* method)); // MonoFriendInformationDialog_set_icon 
 
+// Free Camera
+DO_APP_FUNC(0x06595250, float, Camera_get_fieldOfView, (Camera* __this, MethodInfo* method));
+DO_APP_FUNC(0x065956C0, void, Camera_set_fieldOfView, (Camera* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x065949D0, void, Camera_CopyFrom, (Camera* __this, Camera* other, MethodInfo* method));
+
 // Game Object, Component, Transform Utility
 DO_APP_FUNC(0x0662F130, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
 DO_APP_FUNC(0x0662F190, Component_1*, GameObject_GetComponentByName, (GameObject* __this, String* type, MethodInfo* method));
@@ -186,6 +191,19 @@ DO_APP_FUNC(0x0652EBC0, GameObject*, Component_1_get_gameObject, (Component_1* _
 DO_APP_FUNC(0x06551030, String*, Object_1_get_name, (Object_1* __this, MethodInfo* method));
 DO_APP_FUNC(0x0665DA90, Material__Array*, Renderer_GetMaterialArray, (Renderer* __this, MethodInfo* method));
 DO_APP_FUNC(0x0652FB40, void, Material_set_mainTexture, (Material* __this, Texture* value, MethodInfo* method));
+DO_APP_FUNC(0x0664E800, Vector3, Vector3_Lerp, (Vector3 a, Vector3 b, float t, MethodInfo* method));
+DO_APP_FUNC(0x06555890, Vector3, Transform_get_eulerAngles, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x06555DD0, void, Transform_set_eulerAngles, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x06555BE0, Vector3, Transform_get_right, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x06555F70, void, Transform_set_right, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x06555CC0, Vector3, Transform_get_up, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x06555FF0, void, Transform_set_up, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x06555900, Vector3, Transform_get_forward, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x06555E20, void, Transform_set_forward, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x06555FE0, void, Transform_set_rotation, (Transform* __this, Quaternion value, MethodInfo* method));
+DO_APP_FUNC(0x065E1EC0, float, Mathf_Lerp, (float a, float b, float t, MethodInfo* method));
+DO_APP_FUNC(0x065F56F0, float, Input_GetAxis, (String* axisName, MethodInfo* method));
+DO_APP_FUNC(0x06550910, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
 
 
 // Music game event

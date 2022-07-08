@@ -243,6 +243,9 @@
     <ClInclude Include="src\user\cheat\world\VacuumLoot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\user\cheat\visuals\FreeCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\Ruda-Bold.ttf" />
@@ -442,6 +445,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\visuals\FreeCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
