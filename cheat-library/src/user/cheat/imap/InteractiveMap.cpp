@@ -190,6 +190,13 @@ namespace cheat::feature
 		if (m_ScenesData.count(sceneID) == 0)
 			ImGui::Text("Sorry. Current scene is not supported.");
 
+		// If any InputText is focused, the game will not respond any keyboard input.
+		auto ctx = ImGui::GetCurrentContext();
+		if (ctx->IO.WantCaptureKeyboard)
+			renderer::SetInputLock(this, true);
+		else
+			renderer::SetInputLock(this, false);
+		
 		ImGui::InputText("Search", &m_SearchText); ImGui::SameLine();
 		HelpMarker(
 			"This page following with filters for items.\n"
