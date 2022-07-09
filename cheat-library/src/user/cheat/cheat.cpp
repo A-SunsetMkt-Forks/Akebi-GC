@@ -52,6 +52,7 @@
 #include <cheat/visuals/Browser.h>
 #include <cheat/visuals/EnablePeaking.h>
 #include <cheat/visuals/TextureChanger.h>
+#include <cheat/visuals/FreeCamera.h>
 
 #include "GenshinCM.h"
 
@@ -116,7 +117,8 @@ namespace cheat
 			FEAT_INST(HideUI),
 			FEAT_INST(Browser),
 			FEAT_INST(EnablePeaking),
-			FEAT_INST(TextureChanger)
+			FEAT_INST(TextureChanger),
+			FEAT_INST(FreeCamera)
 			
 			});
 #undef FEAT_INST
