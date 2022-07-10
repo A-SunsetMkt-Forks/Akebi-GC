@@ -247,6 +247,8 @@ namespace cheat::game::filters
 		extern SimpleFilter Wheat;
 		extern SimpleFilter WindwheelAster;
 		extern SimpleFilter Wolfhook;
+		extern SimpleFilter RadishDrop;
+		extern SimpleFilter CarrotDrop;
 	}
 
 	namespace puzzle
@@ -255,7 +257,7 @@ namespace cheat::game::filters
 		extern SimpleFilter BakeDanuki;
 		extern SimpleFilter BloattyFloatty;
 		extern WhitelistFilter CubeDevices;
-		
+
 		extern SimpleFilter EightStoneTablets;
 		extern SimpleFilter ElectricConduction;
 		extern SimpleFilter RelayStone;
@@ -302,7 +304,7 @@ namespace cheat::game::filters
 		extern SimpleFilter MonsterBosses;
 		extern SimpleFilter MonsterShielded;
 		extern SimpleFilter MonsterEquips;
-        extern BlacklistFilter Living;
+		extern BlacklistFilter Living;
 		extern SimpleFilter OrganicTargets;
 	}
 }

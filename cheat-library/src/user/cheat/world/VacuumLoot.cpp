@@ -9,32 +9,34 @@
 namespace cheat::feature
 {
 	VacuumLoot::VacuumLoot() : Feature(),
-		NF(f_Enabled,   "Vacuum Loot",        "VacuumLoot", false),
+		NF(f_Enabled, "Vacuum Loot", "VacuumLoot", false),
 		NF(f_DelayTime, "Delay time (in ms)", "VacuumLoot", 1000),
-		NF(f_Distance,  "Distance",           "VacuumLoot", 1.5f),
-		NF(f_Radius,    "Radius",             "VacuumLoot", 20.0f),
+		NF(f_Distance, "Distance", "VacuumLoot", 1.5f),
+		NF(f_MobDropRadius, "Mob Drop Radius", "VacuumLoot", 1.5f),
+		NF(f_Radius, "Radius", "VacuumLoot", 20.0f),
 		nextTime(0)
 	{
 		InstallFilters();
+		InstallFiltersMobDrop();
 		events::GameUpdateEvent += MY_METHOD_HANDLER(VacuumLoot::OnGameUpdate);
 	}
 
 	const FeatureGUIInfo& VacuumLoot::GetGUIInfo() const
 	{
-		static const FeatureGUIInfo info{ "", "World", true };
+		static const FeatureGUIInfo info{ "Vacuum Loot", "World", true };
 		return info;
 	}
 
 	void VacuumLoot::DrawMain()
 	{
-		if (ImGui::BeginGroupPanel("Vacuum Loot", false))
-		{
+
 			ConfigWidget("Enabled", f_Enabled, "Vacuum Loot drops"); ImGui::SameLine(); ImGui::SetNextItemWidth(100.0f);
 			ConfigWidget("Delay Time (ms)", f_DelayTime, 1, 0, 1000, "Delay (in ms) between loot vacuum.");
 			ConfigWidget("Radius (m)", f_Radius, 0.1f, 5.0f, 100.0f, "Radius of loot vacuum.");
+			ConfigWidget("Mob Drop Radius (m)", f_MobDropRadius, 0.1f, 5.0f, 100.0f, "Radius of Mob Drop vacuum.");
 			ConfigWidget("Distance (m)", f_Distance, 0.1f, 1.0f, 10.0f, "Distance between the player and the loot.\n"
 				"Values under 1.5 may be too intruding.");
-			if (ImGui::TreeNode(this, "Loot Types"))
+			if (ImGui::TreeNode("Loot Types"))
 			{
 				for (auto& [section, filters] : m_Sections)
 				{
@@ -44,8 +46,17 @@ namespace cheat::feature
 				}
 				ImGui::TreePop();
 			}
-		}
-		ImGui::EndGroupPanel();
+
+			if (ImGui::TreeNode("Mob Drop Types"))
+			{
+				for (auto& [sectionMobDrop, filtersMobDrop] : m_SectionsMobDrop)
+				{
+					ImGui::PushID(sectionMobDrop.c_str());
+					DrawSectionMobDrop(sectionMobDrop, filtersMobDrop);
+					ImGui::PopID();
+				}
+				ImGui::TreePop();
+			}
 	}
 
 	bool VacuumLoot::NeedStatusDraw() const
@@ -81,6 +92,23 @@ namespace cheat::feature
 
 		return distance <= f_Radius;
 	}
+	bool VacuumLoot::IsEntityForMobDropVac(game::Entity* entity)
+	{
+		// Go through all sections. For each section, go through all filters.
+		// If a filter matches the given entity and that filter is enabled, return true.
+		bool entityValid = std::any_of(m_SectionsMobDrop.begin(), m_SectionsMobDrop.end(),
+			[entity](std::pair<std::string, filtersMobDrop> const& sectionMobDrop) {
+				return std::any_of(sectionMobDrop.second.begin(), sectionMobDrop.second.end(), [entity](const FilterInfoMobDrop& FilterInfoMobDrop) {
+					return FilterInfoMobDrop.second->IsValid(entity) && FilterInfoMobDrop.first; });
+			});
+
+		if (!entityValid)return false;
+
+		auto& manager = game::EntityManager::instance();
+		auto distance = manager.avatar()->distance(entity);
+
+		return distance <= f_MobDropRadius;
+	}
 
 	void VacuumLoot::OnGameUpdate()
 	{
@@ -93,10 +121,17 @@ namespace cheat::feature
 
 		auto& manager = game::EntityManager::instance();
 		auto avatarEntity = manager.avatar();
-
 		for (const auto& entity : manager.entities())
 		{
 			if (!IsEntityForVac(entity))
+				continue;
+
+			entity->setRelativePosition(avatarEntity->relativePosition() + avatarEntity->forward() * f_Distance);
+		}
+		nextTime = currentTime + f_DelayTime.value();
+		for (const auto& entity : manager.entities())
+		{
+			if (!IsEntityForMobDropVac(entity))
 				continue;
 
 			entity->setRelativePosition(avatarEntity->relativePosition() + avatarEntity->forward() * f_Distance);
@@ -120,13 +155,13 @@ namespace cheat::feature
 			if (ImGui::BeginTable(section.c_str(), columns == 0 ? 1 : columns )) {
 				int i = 0;
 				for (std::pair<config::Field<bool>, game::IEntityFilter*> filter : filters) {
-					
+
 					if (i % (columns == 0 ? 1 : columns) == 0)
 					{
 						ImGui::TableNextRow();
 						ImGui::TableSetColumnIndex(0);
 					}
-					else 
+					else
 						ImGui::TableNextColumn();
 
 					ImGui::PushID(&filter);
@@ -147,6 +182,52 @@ namespace cheat::feature
 				info.first.FireChanged();
 			}
 		}
+
+	}
+	void VacuumLoot::DrawSectionMobDrop(const std::string& sectionMobDrop, const filtersMobDrop& filtersMobDrop)
+	{
+		bool checked = std::all_of(filtersMobDrop.begin(), filtersMobDrop.end(), [](const FilterInfoMobDrop& filterMobDrop) {  return filterMobDrop.first; });
+		bool changed = false;
+
+		if (ImGui::BeginSelectableGroupPanel(sectionMobDrop.c_str(), checked, changed, true))
+		{
+			// TODO : Get Max Container Width and Calculate Max Item Width of Checkbox + Text / or specify same width for all columns
+			// then divide MaxWidth by ItemWidth/ColumnWidth and asign a floor result >= 1 to columns.
+			// Though this is also just fine IMO.
+
+			int columns = 2;
+
+			if (ImGui::BeginTable(sectionMobDrop.c_str(), columns == 0 ? 1 : columns)) {
+				int i = 0;
+				for (std::pair<config::Field<bool>, game::IEntityFilter*> filterMobDrop : filtersMobDrop) {
+
+					if (i % (columns == 0 ? 1 : columns) == 0)
+					{
+						ImGui::TableNextRow();
+						ImGui::TableSetColumnIndex(0);
+					}
+					else
+						ImGui::TableNextColumn();
+
+					ImGui::PushID(&filterMobDrop);
+					ConfigWidget(filterMobDrop.first);
+					ImGui::PopID();
+					i++;
+				}
+				ImGui::EndTable();
+			}
+		}
+		ImGui::EndSelectableGroupPanel();
+
+		if (changed)
+		{
+			for (const auto& info : filtersMobDrop)
+			{
+				info.first.value() = checked;
+				info.first.FireChanged();
+			}
+		}
+
 	}
 
 	void VacuumLoot::AddFilter(const std::string& section, const std::string& name, game::IEntityFilter* filter)
@@ -158,14 +239,20 @@ namespace cheat::feature
 		bool newItem(filter);
 		filters.push_back({ config::CreateField<bool>(name,name,fmt::format("VacuumLoot::Filters::{}", section),false, newItem) , filter });
 	}
+	void VacuumLoot::AddFilterMobDrop(const std::string& sectionMobDrop, const std::string& nameMobDrop, game::IEntityFilter* filterMobDrop)
+	{
+		if (m_SectionsMobDrop.count(sectionMobDrop) == 0)
+			m_SectionsMobDrop[sectionMobDrop] = {};
+
+		auto& filtersMobDrop = m_SectionsMobDrop[sectionMobDrop];
+		bool newItem(filterMobDrop);
+		filtersMobDrop.push_back({ config::CreateField<bool>(nameMobDrop,nameMobDrop,fmt::format("VacuumLoot::filtersMobDrop::{}", sectionMobDrop),false, newItem) , filterMobDrop });
+	}
 
 #define ADD_FILTER_FIELD(section, name) AddFilter(util::MakeCapital(#section), util::SplitWords(#name), &game::filters::##section##::##name##)
 	void VacuumLoot::InstallFilters()
 	{
 		// Add more in the future
-
-		ADD_FILTER_FIELD(featured, ItemDrops);
-
 		// ADD_FILTER_FIELD(mineral, AmethystLump);
 		// ADD_FILTER_FIELD(mineral, ArchaicStone);
 		// ADD_FILTER_FIELD(mineral, CorLapis);
@@ -193,9 +280,9 @@ namespace cheat::feature
 
 		ADD_FILTER_FIELD(plant, Apple);
 		ADD_FILTER_FIELD(plant, Cabbage);
-		ADD_FILTER_FIELD(plant, Carrot);
+		ADD_FILTER_FIELD(plant, CarrotDrop);
 		ADD_FILTER_FIELD(plant, Potato);
-		ADD_FILTER_FIELD(plant, Radish);
+		ADD_FILTER_FIELD(plant, RadishDrop);
 		ADD_FILTER_FIELD(plant, Sunsettia);
 		ADD_FILTER_FIELD(plant, Wheat);
 
@@ -204,6 +291,16 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Crab);
 		ADD_FILTER_FIELD(living, Eel);
 		ADD_FILTER_FIELD(living, LizardTail);
+		ADD_FILTER_FIELD(living, Fish);
+	}
+#undef ADD_FILTER_FIELD
+
+#define ADD_FILTER_FIELD(sectionMobDrop, nameMobDrop) AddFilterMobDrop(util::MakeCapital(#sectionMobDrop), util::SplitWords(#nameMobDrop), &game::filters::##sectionMobDrop##::##nameMobDrop##)
+	void VacuumLoot::InstallFiltersMobDrop()
+	{
+		// Add more in the future
+
+		ADD_FILTER_FIELD(featured, ItemDrops);
 
 		ADD_FILTER_FIELD(equipment, Artifacts);
 		ADD_FILTER_FIELD(equipment, Bow);

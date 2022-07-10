@@ -47,7 +47,7 @@ namespace cheat::game::filters
 		SimpleFilter Electrogranum = { app::EntityType__Enum_1::Gadget, "ThunderSeedCreate" };
 		SimpleFilter FishingPoint = { app::EntityType__Enum_1::FishPool, "_FishingShoal" };
 		SimpleFilter Geoculus = { app::EntityType__Enum_1::GatherObject, "RockCrystalShell" };
-		WhitelistFilter ItemDrops = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::GatherObject, app::EntityType__Enum_1::DropItem }, std::vector<std::string> {"_Food_BirdMeat", "_Food_Meat", "_DropItem" } };
+		WhitelistFilter ItemDrops = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::GatherObject, app::EntityType__Enum_1::DropItem }, std::vector<std::string> {"_Food_BirdMeat", "_Food_Meat", "_DropItem","_Fishmeat" } };
 		SimpleFilter Lumenspar = { app::EntityType__Enum_1::GatherObject, "CelestiaSplinter" };
 		SimpleFilter KeySigil = { app::EntityType__Enum_1::GatherObject, "RuneContent" };
 		SimpleFilter ShrineOfDepth = { app::EntityType__Enum_1::Gadget, "Temple" };
@@ -103,7 +103,7 @@ namespace cheat::game::filters
 		SimpleFilter WeaselThief = { app::EntityType__Enum_1::Monster, "Thoarder_Weasel" };
 		SimpleFilter Kitsune = { app::EntityType__Enum_1::EnvAnimal, "Vulpes" };
 		SimpleFilter BakeDanuki = { app::EntityType__Enum_1::Monster, "Inu_Tanuki" };
-		SimpleFilter Meat = { app::EntityType__Enum_1::GatherObject , std::vector<std::string> { "_Food_BirdMeat", "_Food_Meat", "_Fishmeat" }};
+		SimpleFilter Meat = { app::EntityType__Enum_1::GatherObject , std::vector<std::string> { "_Food_BirdMeat", "_Food_Meat", "_Fishmeat" } };
 	}
 
 	namespace mineral
@@ -125,7 +125,7 @@ namespace cheat::game::filters
 		SimpleFilter DunlinsTooth = { app::EntityType__Enum_1::GatherObject, "_DunlinsTooth" };
 
 		SimpleFilter AmethystLumpDrop = { app::EntityType__Enum_1::GatherObject, "_Thundercrystaldrop" };
-		SimpleFilter CrystalChunkDrop = { app::EntityType__Enum_1::GatherObject,"_Drop_Crystal"};
+		SimpleFilter CrystalChunkDrop = { app::EntityType__Enum_1::GatherObject,"_Drop_Crystal" };
 		SimpleFilter ElectroCrystalDrop = { app::EntityType__Enum_1::GatherObject, "_Drop_Ore_ElectricRock" };
 		SimpleFilter IronChunkDrop = { app::EntityType__Enum_1::GatherObject, "_Drop_Stone" };
 		SimpleFilter NoctilucousJadeDrop = { app::EntityType__Enum_1::GatherObject,"_NightBerth" };
@@ -153,7 +153,7 @@ namespace cheat::game::filters
 		SimpleFilter RuinGrader = { app::EntityType__Enum_1::Monster, "_Konungmathr" };
 		SimpleFilter RuinSentinel = { app::EntityType__Enum_1::Monster, "_Apparatus_Enigma" };
 		SimpleFilter Samachurl = { app::EntityType__Enum_1::Monster, "_Shaman" };
-	    SimpleFilter ShadowyHusk = { app::EntityType__Enum_1::Monster, "ForlornVessel_Strong" };
+		SimpleFilter ShadowyHusk = { app::EntityType__Enum_1::Monster, "ForlornVessel_Strong" };
 		SimpleFilter Slime = { app::EntityType__Enum_1::Monster, "_Slime" };
 		SimpleFilter FloatingFungus = { app::EntityType__Enum_1::Monster, "_Fungus" };
 		SimpleFilter Specter = { app::EntityType__Enum_1::Monster, "_Sylph" };
@@ -250,6 +250,8 @@ namespace cheat::game::filters
 		SimpleFilter Wheat = { app::EntityType__Enum_1::GatherObject, "_Plant_Wheat" };
 		SimpleFilter WindwheelAster = { app::EntityType__Enum_1::GatherObject, "_WindmilDaisy" };
 		SimpleFilter Wolfhook = { app::EntityType__Enum_1::GatherObject, "_GogoFruit" };
+		SimpleFilter RadishDrop = { app::EntityType__Enum_1::GatherObject, "_Plant_Carrot02_Clear" };
+		SimpleFilter CarrotDrop = { app::EntityType__Enum_1::GatherObject, "_Plant_Radish02_Clear" };
 	}
 
 	namespace puzzle
@@ -257,7 +259,7 @@ namespace cheat::game::filters
 		SimpleFilter AncientRime = { app::EntityType__Enum_1::Gadget, "_IceSolidBulk" };
 		SimpleFilter BakeDanuki = { app::EntityType__Enum_1::Monster, "Animal_Inu_Tanuki_" };
 		SimpleFilter BloattyFloatty = { app::EntityType__Enum_1::Field, "_Flower_PongPongTree_" };
-		WhitelistFilter CubeDevices = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::Gadget, app::EntityType__Enum_1::Platform }, std::vector<std::string> {"_ElecStone", "_ElecSwitch" }};
+		WhitelistFilter CubeDevices = { std::vector<app::EntityType__Enum_1> {app::EntityType__Enum_1::Gadget, app::EntityType__Enum_1::Platform }, std::vector<std::string> {"_ElecStone", "_ElecSwitch" } };
 		SimpleFilter EightStoneTablets = { app::EntityType__Enum_1::Gadget, "_HistoryBoard" };
 		SimpleFilter ElectricConduction = { app::EntityType__Enum_1::Gear, "_ElectricPowerSource" };
 		SimpleFilter RelayStone = { app::EntityType__Enum_1::Worktop, "_ElectricTransfer_" };
@@ -475,11 +477,11 @@ namespace cheat::game::filters
 				app::EntityType__Enum_1::Monster
 			},
 			std::vector<std::string> {
-				// Environmental mobs
-				"Cat", "DogPrick", "Vulpues", "Inu_Tanuki",
-				// Overworld bosses
-				"Ningyo", "Regisvine", "Hypostasis", "Planelurker", "Nithhoggr"
-			}
+					// Environmental mobs
+					"Cat", "DogPrick", "Vulpues", "Inu_Tanuki",
+						// Overworld bosses
+						"Ningyo", "Regisvine", "Hypostasis", "Planelurker", "Nithhoggr"
+					}
 		};
 		SimpleFilter OrganicTargets = Monsters + Animals; // Solael: Please don't mess around with this filter.
 		//m0nkrel: We can choose the entities we need ourselves so as not to magnetize cats, dogs, etc.
