@@ -11,6 +11,8 @@ namespace cheat::game::filters
 		ChestFilter RadiantSpincrystal = ChestFilter(game::Chest::ItemType::BGM);
 		ChestFilter BookPage = ChestFilter(game::Chest::ItemType::BookPage);
 		ChestFilter QuestInteract = ChestFilter(game::Chest::ItemType::QuestInteract);
+		SimpleFilter WoodenCrate = { app::EntityType__Enum_1::Chest, "Searchpoint_OnWater" };
+		SimpleFilter GeoSigil = { app::EntityType__Enum_1::Chest, "Prop_Search_Point" };
 	}
 
 	namespace chest
