@@ -213,9 +213,6 @@
     <ClInclude Include="src\user\cheat\visuals\Browser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\user\cheat\world\MusicEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -415,9 +412,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\visuals\Browser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\user\cheat\world\MusicEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp">

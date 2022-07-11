@@ -70,7 +70,6 @@ As well as setting up **`cheat-library`** as startup project.
 - Auto Fish
 - Kill Aura
 - Mob Vacuum
-- Music Event (temporary)
 
 #### Teleport
 - Chest/Oculi Teleport (Teleports to nearest)
@@ -89,6 +88,7 @@ As well as setting up **`cheat-library`** as startup project.
 - In-game Embedded Browser
 - Enable Peaking
 - Profile Changer
+- Free Camera
 - Texture Changer
 - Paimon Follow
 

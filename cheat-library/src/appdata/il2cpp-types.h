@@ -4160,8 +4160,8 @@ namespace app {
     // Entity fields
     struct __declspec(align(8)) BaseEntity__Fields {
         struct Dictionary_2_System_UInt32_AIPerceptionInfo_* _aiPerceptionDic;
-        struct ConfigEntity* jsonConfig;
-        struct EntityExcelConfig* excelConfig;
+        struct Config_ConfigEntity* jsonConfig;
+        struct Config_EntityExcelConfig* excelConfig;
         uint32_t _runtimeID_k__BackingField;
         uint32_t _preRuntimeID_k__BackingField;
         uint32_t _configID_k__BackingField;
@@ -4175,6 +4175,8 @@ namespace app {
         struct String* alias;
         int32_t order;
         bool isForceClientSynced;
+        int32_t LBLOKJMMJJP;
+        bool MAHNGBKEEAD;
         struct ComponentManager* _logicComponentManager;
         struct ComponentManager* _visualComponentManager;
         bool _isInited;
@@ -4184,12 +4186,12 @@ namespace app {
         struct EntityQueryIndex* _queryIndex;
         struct AbilityComponentProxy* _abilityProxy;
         struct TokenManager* _tokenMgr;
-        VisionType__Enum _MCNHBKKJDCL_k__BackingField;
+        VisionType__Enum _NLFDIGCIFIA_k__BackingField;
         bool _createDuringReconnectingSceneInitFinish_k__BackingField;
         bool _isCleared;
         bool _checkRemoveifCached_k__BackingField;
         bool _hasAddedInitialComponents;
-        float BNPPLOPNGLD;
+        float HLJJGAOMCGC;
         bool _isEntityReady;
         struct Action_1_BaseEntity_* onComponentInitPostCallback;
         struct Action_1_BaseEntity_* onEntityReadyPreCallback;
@@ -4228,8 +4230,8 @@ namespace app {
         EntityType__Enum_1 entityType;
         bool _isAuthority;
         uint32_t authorityPeerId;
-        bool FEFIECBENHD;
-        bool MGNKEDPIJKG;
+        bool LODAGLOBAMF;
+        bool DEMKIIJDAAC;
         struct HashList_1_BaseComponent_* _componentsForEntityTickManager;
         float _lastTickTime_k__BackingField;
         struct List_1_BaseEntity_BaseEntity_ComponentInitNotifyData_* _notifyListOnComponentInit;
@@ -4243,13 +4245,13 @@ namespace app {
         struct Action_3_UnityEngine_TickState_Boolean_Boolean_* onAnimatorTickStateChange;
         struct HashList_1_IRenderable_* _extraRenderers;
         struct HashSet_1_IRequestOwnerEntityNoPauseTask_* _noPauseTaskRequests;
-        bool PNBKIOPIIKA;
-        bool IMKKHNIODFJ;
+        bool AHKEFAMPGBJ;
+        bool KPEBDCGGBGE;
         TickState__Enum _currentAnimatorTickState;
         struct EntityTickBalanceProxy* _tickBalanceProxy;
         bool isKinematicRigidbody;
-        bool _PNECEMJLAHN_k__BackingField;
-        bool _IFOBCICMOJM_k__BackingField;
+        bool _bIgnoreIntervalTick_k__BackingField;
+        bool _AFKDABPOMLB_k__BackingField;
         float __fullTickSqrMag_k__BackingField;
         int32_t _greaterToDisableInterval_k__BackingField;
         struct Func_1_Single_* _getBalanceTickDeltaTimeHandler;
@@ -4311,18 +4313,18 @@ namespace app {
         struct FixedFloatStack* _massRatio;
         bool _enableSetPostiion;
         struct Vector3 _lastPosInParent;
-        struct Collider__Array* LIFJOPNILOC;
-        int32_t LPNNDJDEGMI;
-        int32_t GFMAMAGCBNE;
-        int32_t IPKBDFGENOE;
-        bool _isForceDisableEffect;
-        bool _isActorHided;
-        bool _isRoomHided;
-        struct Vector3 LMBBHMDGPGE;
-        struct Quaternion BFHGMCMIANA;
-        float LMACHNHENOB;
-        bool FJBBJDDFOIA;
-        struct Vector3 PDCOCJPHGAK;
+        struct Collider__Array* JFCGANLNHPN;
+        int32_t JJJMCJIFFBM;
+        int32_t LNECJMABKIH;
+        int32_t EICAFOKBIPN;
+        bool KJFPMNMJPJA;
+        bool CLFLKBNIMOK;
+        bool OECPMFJFHDB;
+        struct Vector3 IHBCGPKALHL;
+        struct Quaternion JOCEPMPLAAG;
+        float JDCJJGPMLEN;
+        bool ONMFCCDOJHO;
+        struct Vector3 PPAFPACBENC;
         struct RuntimeAnimatorController* _authorityRuntimeAnimatorController;
         struct RuntimeAnimatorController* _remoteRuntimeAnimatorController;
         uint32_t _authorityRuntimeAnimatorHandler;
@@ -4909,12 +4911,12 @@ namespace app {
         struct GameObject* playerIndicator;
         struct RectTransform* playerIndicatorParent;
         struct MonoMapCursor* _monoMapCursor;
-        struct InputField* _customMarkTipsInputField;
+        struct MonoInputFieldExtention* _customMarkTipsInputField;
         struct MonoMaterialItemRow* _resin;
         struct RectTransform* _cycleDungeonLookupGrp;
         struct MonoUIContainer* _cycleDungeonLookupToggle;
         struct Text* _cycleDungeonLookupText;
-        struct List_1_Queue_1_MoleMole_MonoMapMark_* KEIOHDAFIOC;
+        struct List_1_Queue_1_MoleMole_MonoMapMark_* LMNPEFNMFIJ;
         struct GameObject* _exploreDegreeGrp;
         struct Text* _exploreArea;
         struct Text* _exploreDegree;
@@ -4933,7 +4935,7 @@ namespace app {
         struct Button_1* homeworldVisitorBtn;
         struct Text* _homeworldVisitorLabel;
         struct MonoUIContainer* _homeworldVisitorPS4Container;
-        struct Animator* NFGDFFBFOCF;
+        struct Animator* _cursorAnimator;
     };
 
     struct MonoInLevelMapPage {
@@ -5011,9 +5013,10 @@ namespace app {
         uint32_t _dungeonIconTipsHandle;
         struct GameObject* _dungeonIconTips;
         struct GeneralMarkData* generalMapData;
-        bool NLCJDMBMKPC;
+        bool ADIBPKEGJOK;
         int32_t floor;
         bool _up;
+        struct UnityAction_1_UnityEngine_RectTransform_* OODIIHNIPFN;
         struct String* _currEffectName;
         struct ParticleSystem* _currEffect;
         float markAreaRadius;
@@ -5094,7 +5097,7 @@ namespace app {
         EnterGotoByPortal = 0x00000008,
         EnterSelfHome = 0x00000009,
         EnterOtherHome = 0x0000000a,
-        FCBBIIAOAGG = 0x0000000b,
+        EnterGotoRecreate = 0x0000000b,
     };
 
     struct UInt32__Array {
@@ -5257,6 +5260,7 @@ namespace app {
         Quick = 0x00000002,
         DirectlySetPos = 0x00000003,
         QuickWithoutPaimonReminder = 0x00000004,
+        QuickV2 = 0x00000005,
     };
 
     enum class MoleMole_NotifyTypes__Enum : int32_t {
@@ -6259,27 +6263,28 @@ namespace app {
         struct String* _activityLimitRegion;
         struct String* _homeworldLimitRegion;
         uint32_t _checkScenePointTimer;
-        uint32_t _HENAPPPHGFA_k__BackingField;
-        uint32_t _IDKLCPBKKMC_k__BackingField;
-        uint32_t _HAIMNNOMKFE_k__BackingField;
-        uint32_t _BEGGBAFACOG_k__BackingField;
-        uint32_t _LJCHGOJHIBN_k__BackingField;
-        uint32_t _CEJAIKKNKEF_k__BackingField;
+        uint32_t _OOBPJNGLEFD_k__BackingField;
+        uint32_t _MKEGCMJMGPN_k__BackingField;
+        uint32_t _POPAMGIKPFK_k__BackingField;
+        uint32_t _NADDOMFDIMH_k__BackingField;
+        uint32_t _JEKJBGCPAPP_k__BackingField;
+        uint32_t _BILGKHAIEPL_k__BackingField;
         bool _isTowerUnlocked_k__BackingField;
         struct List_1_System_UInt32_* dungeonDataLevelConfigIdList;
         struct Nullable_1_UnityEngine_Vector3_ curClientAvatarRebornPoint;
         struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_System_UInt32_* toBeExploredDungeonEntryDic;
         struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_System_UInt32_* canNotBeExploredDungeonEntryDic;
-        struct HashSet_1_System_UInt32_* PGNGEOMEDEI;
+        struct HashSet_1_System_UInt32_* HPNBAKBANGB;
         struct Dictionary_2_System_UInt32_MoleMole_Config_ConfigScene_* _cfgSceneDic;
         struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_Config_ConfigScenePoint_* _cfgPointDic;
         struct List_1_System_UInt32_* _currTransPointList;
         struct List_1_System_UInt32_* _currFunctionalPointList;
-        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_LJADJIPKKIK_* CJJCAAMGCOM;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_LPANCMBHIPC_* DKHELEOJLPD;
         uint32_t _activityPlayId_k__BackingField;
         float MAX_IN_LIMIT_REGION_TIME;
         float _startInLimitRegionTime;
         uint32_t _homeworldRegionSceneId_k__BackingField;
+        uint32_t _FNGKDENFBGH_k__BackingField;
         struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_MoleMole_MapModule_CityData_* _cityDataDic;
         struct Dictionary_2_System_UInt32_Dictionary_2_System_UInt32_MoleMole_MapModule_MoleMole_MapModule_WorldAreaData_* _worldAreaDataDic;
         struct Dictionary_2_System_UInt32_System_UInt32_* _areaId2ExplorePointDic;
@@ -6294,7 +6299,7 @@ namespace app {
         struct HashSet_1_System_UInt32_* _activatedDungeonWayPoint;
         bool _dungeonEntryOpen;
         struct Dictionary_2_System_UInt32_System_Boolean_* _sceneUnlockDic;
-        struct Dictionary_2_System_UInt32_List_1_System_UInt32_* _sceneTagList;
+        struct Dictionary_2_System_UInt32_List_1_System_UInt32_* FOAIHHEHFHF;
         struct List_1_MoleMole_MapModule_MoleMole_MapModule_ScannerInfo_* _scannerInfoList;
         struct List_1_MoleMole_MapAreaMistData_* _mistDataList;
         struct List_1_MoleMole_MapAreaMistData_* _openMistDataList;
@@ -7225,9 +7230,9 @@ namespace app {
         bool muteElementHurt;
         struct String* onHitEffectName;
         uint32_t attackTimeStamp;
-        struct Nullable_1_MoleMole_Config_TargetType_  targetType;
+        struct Nullable_1_MoleMole_Config_TargetType_ targetType;
         AttackResult_AttackSpecific__Enum attackType;
-        struct AttackResult_HitCollsion  hitCollision;
+        struct AttackResult_HitCollsion hitCollision;
         HitBoxType__Enum hitPosType;
         struct String* animEventId;
         struct String* attackTag;
@@ -7246,7 +7251,7 @@ namespace app {
         ElementReactionType__Enum elementReactionType;
         struct ConfigAttackProperty* _attackerAttackProperty;
         void* modifiedAttackProperty;
-        float AMJDLLOENNI;
+        float BNKPGFGKGBF;
         ElementType__Enum _origElementType;
         float _origElementDurability;
         float endureDelta;
@@ -7259,11 +7264,11 @@ namespace app {
         float bulletFlyTime;
         struct ConfigBulletWane* bulletWane;
         int32_t rejectState;
-        struct SafeUInt32 AADHIMJJCHK;
-        struct SafeUInt32 CMNNNKEGKFI;
-        struct SafeUInt32 KBDMDNEKOLK;
-        struct SafeUInt32 HLIIHHNHHNP;
-        struct SafeUInt32 EMBFNJJJPNG;
+        struct SafeUInt32 MFFILNNNLDL;
+        struct SafeUInt32 EAGOJOOBMJO;
+        struct SafeUInt32 AMJNKBHPBDE;
+        struct SafeUInt32 OCFODICMFFH;
+        struct SafeUInt32 EDOGNDNPJDB;
         struct Vector3 hitRetreatDir;
     };
 
@@ -8997,7 +9002,6 @@ namespace app {
         struct MJNGIMLAOFN* _spriteLoadProxy;
     };
 
-    //BLDKFDKIPLL__Fields
     struct BasePageContext__Fields {
         struct BaseContext__Fields _;
         struct List_1_BaseDialogContext_* dialogContextList;
@@ -9035,31 +9039,31 @@ namespace app {
         struct Vector3 _customMarkWorldPos;
         struct String* _customMarkTitle;
         MoleMole_Config_MarkIconType__Enum _customMarktype;
-        bool KHDDHMIGLMH;
-        bool AGABBDCCGPJ;
-        bool GBCMNPNHCBH;
+        bool IFJIPEEPJJI;
+        bool OKNKCOJCKLN;
+        bool OGKHNHIHOFP;
         uint32_t _customMarkTrackMonsterID;
         uint32_t _customMarkTrackQuestID;
-        MoleMole_CustomMarkTrackReasonType__Enum NHIIHLLCJAI;
+        MoleMole_CustomMarkTrackReasonType__Enum _customMarkTrackReasonType;
         bool _isAdventureHandbookOpened;
         float _slideValue;
         struct MoleMole_ResinViewComponent* _resinComp;
         struct MoleMole_ZoomAudioComponent* _zoomAudioComp;
         struct Dictionary_2_MoleMole_MonoMapMark_UnityEngine_GameObject_* trackingIndictor;
-        struct Coroutine* ELELLFBCPFM;
-        bool _NJHAEHLFGNP_k__BackingField;
-        bool JNBIIIHNPOL;
-        float FMNNMKICFCN;
-        struct Vector2 JIEJCHOKMCH;
-        float EGDCGHPCIGD;
-        float NNGIPKNIHHL;
-        struct Vector2 MABOFOAAIDK;
-        float OOOKLDFFEOK;
-        bool DAMOBDBBBPD;
+        struct Coroutine* JFIOMECANNL;
+        bool _LFIJLCKEKMP_k__BackingField;
+        bool DJMGCGDBLHD;
+        float PKBLMNBGCLL;
+        struct Vector2 ENLNCLPCFHE;
+        float CPFIIODOHKA;
+        float MOJEDIFFFIJ;
+        struct Vector2 ADLDFCKPLGI;
+        float EMOHKNNFADF;
+        bool FHBMGCDNMBE;
         struct Vector2 _currRectPos;
         struct Vector2 _currRectSize;
         struct Dictionary_2_System_UInt32_UnityEngine_GameObject_* _companionIndicators;
-        struct List_1_System_UInt32_* EDDEMHGPOBD;
+        struct List_1_System_UInt32_* GPLMGCNDKOP;
         struct GameObject* _playerIndicator;
         struct Vector2 _newPos;
         struct Dictionary_2_System_UInt32_UnityEngine_GameObject_* _questAreaMarkDic;
@@ -9085,14 +9089,16 @@ namespace app {
         MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_MarkTipsContentType__Enum _markTipsContentType;
         struct List_1_MoleMole_BagItem_* _reward;
         struct List_1_MoleMole_Config_IdCountStrConfig_* _rewardPreviewList;
-        float BCHEAHAGENA;
-        uint32_t _dungeonEntryPointID;
+        float IOHJENGJBFM;
+        uint32_t HHIHNGGOIFP;
         struct MoleMole_Config_DungeonEntry* _selectedDungeonEntry;
         MoleMole_InLevelMapPageContext_MoleMole_InLevelMapPageContext_DungeonEntryState__Enum _selectDungeonEntryState;
         struct Coroutine* _updateDungeonCooldownTipsCoroutine;
         struct MoleMole_ItemTipsDialogHelper _itemTipsHelper;
         struct Coroutine* _updateFarmFieldCoroutine;
         struct GameObject* _newMaxLevelGO;
+        bool IICOGPJKJKL;
+        bool LIGALMCPKNI;
         struct MoleMole_RewardPreviewComponent* _moonfinTrialRewardPreviewComponent;
         struct Coroutine* _updateReviveCooldownCoroutine;
         int32_t _selectedMapTagIndex;
@@ -9101,8 +9107,8 @@ namespace app {
         int32_t _customMarkCount;
         struct MoleMole_Config_MarkIconType__Enum__Array* _customMarkIcons;
         struct Vector2 _currMapPos;
-        struct Dictionary_2_System_UInt32_List_1_MoleMole_InLevelMapPageContext_BKKFEMNNBMG_* LOLNIIFFJON;
-        int32_t MAPJENKCNNE;
+        struct Dictionary_2_System_UInt32_List_1_MoleMole_InLevelMapPageContext_EACHJPIDJND_* IOLJGOCGPHB;
+        int32_t GBKLEGIFLAI;
     };
 
     struct InLevelMapPageContext {
@@ -9138,8 +9144,8 @@ namespace app {
         struct List_1_SelectItemParam_* _selectParamList;
         struct Action* _updateGrpSelectBottom;
         struct List_1_System_UInt32_* _selectDialogIdList;
-        bool EHOPIEOHBIJ;
-        bool IEFCCCNLHFG;
+        bool OBDPLKKDFBN;
+        bool GGFOHLGGCHI;
         struct Action* _onFreeClick;
         float _interactableTime;
         float _autoTalkInteractableTime;
@@ -9456,26 +9462,26 @@ namespace app {
 
     struct BaseMoveSyncPlugin__Fields {
         struct BaseComponentPlugin__Fields _;
-        struct JEACJCEKBMO__Array* JFHIPAJNCEH;
-        struct MoveSyncTask moveSyncTask;
-        int32_t EBAFCLPDNOA;
-        struct PAGLNCJFJAB* EGOGHHCEKBI;
-        uint32_t BMEKGDMGLDM;
-        float BPNLDBMLCPG;
-        int32_t IMGAJKMBICM;
-        int32_t JFNJPLBNEAH;
-        uint64_t LDHCFEHMENK;
-        struct MoveSyncTask PKJLBFAGDPG;
-        float KHDFGOBLNOH;
-        bool BAHIDGDKDPG;
-        bool MPNMLBJNIJK;
-        float BPNMMCBBPDO;
-        uint32_t DANEEGOIAOE;
-        struct HBGKJGFOBDG* HHAPKOKPBPN;
-        bool KCODNABDGKC;
-        uint64_t PHBBAMKNKEH;
-        uint32_t JEKLOEMBBJB;
-        struct MoveSyncTask GPOABHBBEGL;
+        struct Proto_MotionInfo__Array* _motion;
+        struct MoveSyncTask _syncTask;
+        MotionState__Enum _prevMotionState;
+        struct MoleMole_VCBaseMove* _ownerMove;
+        uint32_t _lod;
+        float _lastSendSyncTaskTime;
+        int32_t _fixedTickCount;
+        int32_t _intervalVelocityCheckCount;
+        uint64_t _intervalVelocityCheckBits;
+        struct MoveSyncTask _lastSendMoveSyncTask;
+        float _intervalTime;
+        bool _canIgnoreTickSync;
+        bool _reliableSendWhenSameComparablePart;
+        float _reliableSendWhenSameComparablePartTime;
+        uint32_t _lastSendReliabledPacketSeq;
+        struct MoleMole_LCSyncMotion* _lcSyncMotion;
+        bool _hasInitializedSyncMove;
+        uint64_t _lastHandledTaskTimeStamp;
+        uint32_t _lastHandledReliableTaskSeq;
+        struct MoveSyncTask tempPeekGetMoveSyncTask;
     };
 
     struct BaseMoveSyncPlugin {
@@ -9485,17 +9491,17 @@ namespace app {
     };
 
     struct __declspec(align(8)) ADOCDLJKPGF__Fields {
-        struct Dictionary_2_UniRx_Tuple_2_Dictionary_2_System_UInt32_MoleMole_IndexHandleObjectList_1_* PKPGAJELFJP;
-        struct Dictionary_2_System_UInt32_MoleMole_IndexHandleObjectList_1__2* EPNNKHDPMKN;
-        struct Dictionary_2_System_UInt32_Dictionary_2_System_Type_ADOCDLJKPGF_NCKPKBOOPAE_* NHLMDJCPBOI;
-        struct List_1_NLHGPLIGNNJ_* OCCMKONNAFF;
-        struct List_1_NLHGPLIGNNJ_* ODMMGNLPPKO;
-        struct List_1_NLHGPLIGNNJ_* FMJOCJEEDNA;
-        struct Dictionary_2_System_Type_MoleMole_IndexHandleObjectList_1_* BGCNGICCMNG;
-        bool IKIHCFFFACC;
-        struct List_1_UniRx_Tuple_5__1* AOENJPJCHCP;
-        int32_t AANDAKJMONI;
-        bool GEPOJPNFMKO;
+        struct Dictionary_2_System_ValueTuple_2_Dictionary_2_System_UInt32_MoleMole_IndexHandleObjectList_1_* JJHMKFJMIFN;
+        struct Dictionary_2_System_UInt32_MoleMole_IndexHandleObjectList_1__2* EABFBNIMFPP;
+        struct Dictionary_2_System_UInt32_Dictionary_2_System_Type_MoleMole_EventManager_ListenerRegistry_* _runtimeId2ListenerDic;
+        struct List_1_MoleMole_BaseEvent_* _queuedFrameEvents;
+        struct List_1_MoleMole_BaseEvent_* _queuedNextEvents;
+        struct List_1_MoleMole_BaseEvent_* _queuedNextEventsToAdd;
+        struct Dictionary_2_System_Type_MoleMole_IndexHandleObjectList_1_* _evtListeners;
+        bool _isStopped;
+        struct List_1_System_ValueTuple_5__1* IEJKHEKFBII;
+        int32_t BGHBKPIABOK;
+        bool _dispatchPaused;
     };
 
     struct MoleMole_EventManager {
@@ -9509,14 +9515,15 @@ namespace app {
         struct Action_3_BaseEntity_Config_AddGlobalValue_ActorAbility_* _addGlobalValueHandlerClosureDelegate;
         struct Action_3_BaseEntity_Config_SetGlobalValue_ActorAbility_* _setGlobalValueHandlerClosureDelegate;
         struct Action_3_BaseEntity_Config_MultiplyGlobalValue_ActorAbility_* _multiplyGlobalValueHandlerClosureDelegate;
-        struct Action_4_BaseEntity_Config_SetTargetNumToGlobalValue_ActorAbility_Single_* BFCGFMBGIHB;
-        struct Action_4_BaseEntity_String_Single_GJKAGOLAHKK_* OJKOMJEBCLM;
+        struct Action_4_BaseEntity_Config_MultiplyGlobalValue_ActorAbility_Single_* MEEAPCINNBE;
+        struct Action_4_BaseEntity_String_Single_CPKJHKOJDIF_* LLAIOCNHNPM;
         struct List_1_MonoEffectProxyHandle_* _effectProxyListCache;
         struct List_1_MonoEffectProxyHandle_* _effectProxyListCacheForChangFollowDampTime;
         struct List_1_UnityEngine_Vector3_* _pushedPosList;
         struct LCAbility* _owner;
         struct List_1_ActorAbility_* _appliedAbilities;
         struct Dictionary_2_System_UInt32_System_Int32_* _appliedAbilitiesIndex;
+        struct Dictionary_2_System_String_ActorAbility_* CKDBIBGCPOB;
         uint32_t nextValidAbilityID;
         struct List_1_ActorModifier_* _appliedModifiers;
         struct List_1_ActorModifier_* _deadModifiers;
@@ -9556,7 +9563,7 @@ namespace app {
         struct Dictionary_2_System_Int32_List_1_BaseAbilityMixin_* _listenEventMixins;
         struct List_1_BaseAbilityMixin_* _addListenEventMixins;
         struct List_1_BaseAbilityMixin_* _removeListenEventMixins;
-        int32_t ECLCGLCLPPD;
+        int32_t CGNCPHPNGDB;
         bool IsImmuneDebuff;
         bool _isDuringInitAbility_k__BackingField;
         bool _isDuringChangeAbility_k__BackingField;
@@ -9592,7 +9599,7 @@ namespace app {
         FAIL_COOLDOWN = 0x0000000c,
     };
 
-    struct __declspec(align(8)) GMNHONOINDB__Fields {
+    struct __declspec(align(8)) MoleMole_CharacterModule__Fields {
         struct Dictionary_2_System_UInt32_Dictionary_2_System_Int32_List_1_CFKBGDNLDGP_* MFEPPBMCAGP;
     };
 
@@ -9680,64 +9687,68 @@ namespace app {
         struct BEKFICFOHKL__Fields fields;
     };
 
-    struct NEOGDEDNDHF__Fields {
-        struct GMNHONOINDB__Fields _;
+    struct MoleMole_PlayerModule__Fields {
+        struct MoleMole_CharacterModule__Fields  _;
         struct AccountDataItem* _accountData_k__BackingField;
-        struct HBFICKPEILE* openState;
+        struct PlayerOpenStateData* openState;
         uint32_t curWorldType;
         uint32_t curSceneID;
-        struct OGNHDKJOONG* _curSceneConfig;
-        bool isSereverLevelPaused;
+        struct Config_SceneExcelConfig* _curSceneConfig;
+        bool isServerLevelPaused;
         uint32_t extraAbilityId;
         bool extraAbilityEnable;
         uint64_t extraAbilityUseTime;
-        float AJMFBGNGPIB;
-        float KJKAPGLEELE;
-        struct List_1_UniRx_Tuple_3_* INANHBPCBLC;
-        bool MAOHENNPOMB;
-        bool HEJLGFNHKND;
-        bool NABCGFBLKDJ;
-        bool PNGMLKJFKND;
-        bool MNMODNDPIDD;
-        uint32_t OODBAMHAGPO;
-        uint32_t JPKIAEFDHMD;
-        bool NFMOCKLFAOF;
-        float JJLIHANGKEO;
-        struct Dictionary_2_System_UInt64_System_UInt32_* ICPIOBFBPGA;
-        struct LGPKIADMOBE_System_UInt64_CJFLLIKJGLF_* BDBFEGIMOFI;
-        struct DPHDLLFCIBC* HDOGLGNGMAP;
-        struct PHHEDBDLADE* ANDABFFFNHE;
-        struct Action_1_Single_* KGABFCPEBDG;
-        struct Dictionary_2_System_UInt32_System_UInt32_* EPNCJKKPNIN;
-        struct List_1_System_UInt64_* IDPDPDAENDP;
-        bool HJOJBIBHGEC;
-        struct List_1_JBONEPGMKAD_* ODDFKLCINLC;
-        struct Coroutine* FCJOEAPBMHB;
-        Miscs_ChangeAvatarFailType__Enum FDFCHGCAIPL;
-        uint32_t MFKCKBGCADE;
-        struct String* DMMKLMDFDLE;
-        struct String* JKFKIOAJPKF;
-        struct Dictionary_2_System_UInt32_System_UInt32_* FMMDIGIIBJB;
-        float NDFMECJGCKK;
-        float BHAMGAPDFEH;
-        uint32_t AFIIDKIKKMB;
-        struct List_1_System_UInt32_* DNKMPLJPOHG;
-        uint32_t MAPMNIDOJCG;
-        bool MIMGJGCADKB;
-        uint32_t LCMMMGHFEGG;
-        uint32_t DCGJMGBIDLD;
-        uint32_t GGJMEBPNECC;
-        uint32_t PIJHFCGJBJM;
-        struct CAIMHKHHLHK_LJBGLAADLNC_* FFMOHPPEKLN;
-        struct CAIMHKHHLHK_LJBGLAADLNC_* BLPNAPNOPFN;
-        uint64_t ONAPAACFOBM;
-        struct JIBKJBJNFED* LGADGGJMODA;
+        float lastSendChangeAvatarTime;
+        float lastPressSkillButtonTime;
+        float PMAMAHGBLBJ;
+        struct List_1_System_ValueTuple_3_* teamEntityAbilitiesFromServer;
+        bool IMCBNAMPBPG;
+        bool PNCFBAOIKHB;
+        bool IBNOIPGDGAG;
+        bool MILPALJGOLD;
+        bool PNBHCGNHOFB;
+        uint32_t ALCHAOANODE;
+        uint32_t FPBJOLBEJGO;
+        bool enterSceneFromLogin;
+        float _nextLoginReqTime;
+        struct Dictionary_2_System_UInt64_System_UInt32_* _backgroundAvatarRecoverTime;
+        struct Google_Protobuf_Collections_MessageMapField_2_System_UInt64_Proto_AvatarExpeditionInfo_* _currExpeditionInfo;
+        struct Proto_AvatarExpeditionAllDataRsp* _currAllDataRsp;
+        struct Proto_ExclusiveRuleNotify* _exclusiveRuleNotify;
+        struct Action_1_Single_* LENAIDKELJE;
+        void* DDFMMKJJENE;
+        void* CHNAOGEHNGB;
+        struct Dictionary_2_System_UInt32_System_UInt32_* HENIBLEKILJ;
+        struct List_1_System_UInt64_* _teamToLoad;
+        bool needRecoverAbilities;
+        struct List_1_Proto_SceneEntityInfo_* _needAppearAvatars;
+        struct Coroutine* _changeAvatarCoroutine;
+        Miscs_ChangeAvatarFailType__Enum _failType;
+        uint32_t _sceneOwnerUid;
+        struct String* CBTEST_TOOL_PATH;
+        struct String* WATER_MASK_PATH;
+        struct Dictionary_2_System_UInt32_System_UInt32_* _openstateDic;
+        float _satiationCriticalValue;
+        float _satiationRecoverySpeed;
+        uint32_t _nextRecoveryTimestampOfResin;
+        struct List_1_System_UInt32_* _buyResinCost;
+        uint32_t _dailyBoughtCountOfResin;
+        bool _resinParamsParsed;
+        uint32_t _resinTotalLimit;
+        uint32_t _autoRecoveryResinLimit;
+        uint32_t _resinAutoRecoverySpeed;
+        uint32_t _resinCountPerPurchase;
+        struct Google_Protobuf_Collections_RepeatedMessageField_1_Proto_FriendBrief_* _tempFriendBriefListInGame;
+        struct Google_Protobuf_Collections_RepeatedMessageField_1_Proto_FriendBrief_* _tempFriendBriefListPSN;
+        uint64_t _lastGetPlayerFriendListTime;
+        struct Proto_AntiAddictNotify* _antiAddictNotify;
+        struct GeneralDialogContext* KIEGHJDFLFD;
     };
 
     struct MoleMole_PlayerModule {
         struct PlayerModule__Class* klass;
         MonitorData* monitor;
-        struct NEOGDEDNDHF__Fields fields;
+        struct MoleMole_PlayerModule__Fields fields;
     };
 
     enum class MapManager_FEDPCJIHAJJ__Enum : int32_t {
@@ -9801,7 +9812,7 @@ namespace app {
         struct MHCEDJLGNMG__Fields fields;
     };
 
-    struct ANPOFFEGJHG__Fields {
+    struct GadgetEntity__Fields {
         struct BaseEntity__Fields _;
         uint32_t groupId;
         uint32_t markFlag;
@@ -9826,7 +9837,7 @@ namespace app {
     struct GadgetEntity {
         struct GadgetEntity__Class* klass;
         MonitorData* monitor;
-        struct ANPOFFEGJHG__Fields fields;
+        struct GadgetEntity__Fields fields;
     };
 
     struct BaseComponent__Array {
@@ -10056,8 +10067,7 @@ namespace app {
         struct LCChestPlugin__Fields fields;
     };
 
-    struct __declspec(align(8)) FKHDAEKGMKC__Fields
-    {
+    struct __declspec(align(8)) MoleMole_ScenePropManager__Fields {
         struct ScenePropEffectConfigs* _scenePropEffectConfigs;
         uint32_t _scenePropEffectConfigsHandle;
         struct SceneChairConfigs* _sceneChairConfigs;
@@ -10066,35 +10076,35 @@ namespace app {
         uint32_t _sceneBushConfigsHandle;
         struct SceneTreeConfigs* _sceneTreeConfigs;
         uint32_t _sceneTreeConfigsHandle;
-        struct SceneStoneTintConfigs* IJAJFDDPIBF;
-        uint32_t MPGIOKCAEDG;
-        struct Dictionary_2_System_Int32_IIJMGCIOIAP_* _treeBushCollection;
-        struct List_1_NAKCOANCOHK_* _treeBushList;
+        struct SceneStoneTintConfigs* AIOHDMBGHEI;
+        uint32_t LCLFKLDHKIM;
+        struct Dictionary_2_System_Int32_MoleMole_ZOrderCollection_3_* _treeBushCollection;
+        struct List_1_MoleMole_ICombatSceneProp_* _treeBushList;
         struct Dictionary_2_System_Int32_UnityEngine_Vector3_* _treeBushId2Pos;
         struct Vector3 _rangeQueryLen;
-        struct Dictionary_2_System_Int32_NAKCOANCOHK_* _scenePropDict;
-        struct Dictionary_2_System_Int32_ECGLPBEEEAA_* _treeTypeDict;
+        struct Dictionary_2_System_Int32_MoleMole_ICombatSceneProp_* _scenePropDict;
+        struct Dictionary_2_System_Int32_MoleMole_Config_TreeType_* _treeTypeDict;
         struct List_1_MoleMole_MonoEnviroLight_* _pointLights;
         struct List_1_MoleMole_MonoEnviroCityLight_* _cityLights;
+        struct List_1_NPOOODHAHMF_* BAKKEOKNFOI;
         struct Vector3 _lastSectorPos;
-        struct FKHDAEKGMKC_DEGEMNHILIP__Array* _treeLeafInfos;
+        struct MoleMole_ScenePropManager_MoleMole_ScenePropManager_TreeLeafInfo__Array* _treeLeafInfos;
         int32_t _treeLeafNum;
         struct MaterialPropertyBlock* _mpb;
         struct Camera* _mainCam;
         struct List_1_UnityEngine_Material_* _leafDitherMaterials;
         struct Dictionary_2_System_Int32_UnityEngine_Vector3__1* _shakeAnims;
-        struct List_1_NAKCOANCOHK_* _playingScenePropShakes;
-        struct List_1_JNFKAAAPLGE_* _chairs;
+        struct List_1_MoleMole_ICombatSceneProp_* _playingScenePropShakes;
+        struct List_1_MoleMole_IChair_* _chairs;
         struct GameObject* iceBlockRoot;
         struct GameObject* _surfaceMeshObjectRoot;
         struct GameObject* _tileMeshObjectRoot;
     };
 
-    struct MoleMole_ScenePropManager
-    {
-        struct FKHDAEKGMKC__Class* klass;
+    struct MoleMole_ScenePropManager {
+        struct MoleMole_ScenePropManager__Class* klass;
         MonitorData* monitor;
-        struct FKHDAEKGMKC__Fields fields;
+        struct MoleMole_ScenePropManager__Fields fields;
     };
 
 
@@ -10212,30 +10222,29 @@ namespace app {
         bool has_value;
     };
 
-    struct IDPLOHKAJML__Fields {
+    struct LCAbilityElement__Fields {
         struct LCBase__Fields _;
-        struct Dictionary_2_System_Int32_List_1_MLAAELGDIJH_* _elementModifierMap;
-        struct Action* _act;
-        struct List_1_System_Nullable_1_* _modifierDurabilities;
-        struct List_1_UniRx_Tuple_3__1* _elemAccuDurabilities;
-        struct OJGKFFDAGON* _levelAbilityCom;
-        struct OJGKFFDAGON* _selfLCAbility;
-        struct KMALPDEBPFP* _lcAbilityState;
-        struct DGLICFPOFBE* _vcBillboard;
+        struct Dictionary_2_System_Int32_List_1_MoleMole_ActorModifier_* _elementModifierMap;
+        struct Action* onElementModifierChanged;
+        struct List_1_System_Nullable_1__2* _modifierDurabilities;
+        struct List_1_System_ValueTuple_3__3* _elemOverloadDurabilities;
+        struct MoleMole_LCAbility* _levelAbilityCom;
+        struct MoleMole_LCAbility* _selfLCAbility;
+        struct MoleMole_LCAbilityState* _lcAbilityState;
+        struct MoleMole_VCBillboard* _vcBillboard;
         float _purgeRate;
         float _purgeIncement;
         bool _ignorePurgeRate;
-        struct EDDKNGCGJFI* _grassScenePlugin;
-        struct EADDBDCPBMJ* _waterScenePlugin;
-        struct EBLDCCEGAOF* _bushScenePlugin;
-        struct BDFMIJCPDIC* _shakeInterval;
+        struct MoleMole_LevelSceneGrassPlugin* _grassScenePlugin;
+        struct MoleMole_LevelSceneWaterPlugin* _waterScenePlugin;
+        struct MoleMole_LevelSceneBushPlugin* _bushScenePlugin;
+        struct MoleMole_EntityTimerReceiver* _shakeInterval;
         bool _showReactionText;
         struct String* elementDecrateGroup;
-        bool BHDLGGOBAME;
-        bool AKLPKDONCJH;
-        struct Func_2_MLAAELGDIJH_Boolean_* NEMHEFJLFEA;
-        struct Action_3_GLPNBMKEPPD_CCAMDLAOBAA_Nullable_1_UnityEngine_Vector3_* FDHMHGFNCFD;
-        struct Action_3_GLPNBMKEPPD_CCAMDLAOBAA_Nullable_1_UnityEngine_Vector3_* NIHADNAGOND;
+        bool LDAPBJPCDHC;
+        struct Func_2_MoleMole_ActorModifier_Boolean_* HGAAHMCALBE;
+        struct Action_3_MoleMole_Config_ElementReactionType_MoleMole_BaseEntity_Nullable_1_UnityEngine_Vector3_* GGOGFKDBFHJ;
+        struct Action_3_MoleMole_Config_ElementReactionType_MoleMole_BaseEntity_Nullable_1_UnityEngine_Vector3_* MIIBJEAOIJI;
         struct Vector3 elementReactionPos;
         bool triggerFrozenBroken;
         float _lastCrystallizeTime;
@@ -10244,7 +10253,7 @@ namespace app {
     struct LCAbilityElement {
         struct LCAbilityElement__Class* klass;
         MonitorData* monitor;
-        struct IDPLOHKAJML__Fields fields;
+        struct LCAbilityElement__Fields fields;
     };
 
     struct Camera__Fields {
@@ -10761,35 +10770,42 @@ namespace app {
         struct LCCharacterCombat__Fields fields;
     };
 
-    struct __declspec(align(8)) LCAvatarCombat_OMIIMOJOHIP__Fields {
+    enum class Config_MonitorType__Enum : int32_t {
+        MONITOR_NEVER = 0x00000000,
+        MONITOR_OFF_STAGE = 0x00000001,
+        MONITOR_ON_STAGE = 0x00000002,
+        MONITOR_ALWAYS = 0x00000003,
+    };
+
+    struct __declspec(align(8)) MoleMole_LCAvatarCombat_MoleMole_LCAvatarCombat_SkillInfo__Fields {
         uint32_t skillID;
-        struct AvatarSkillExcelConfig* config;
+        struct Config_AvatarSkillExcelConfig* config;
         struct SafeFloat cdTimer;
-        struct SafeFloat currChargeCount;
+        struct SafeInt32 currChargeCount;
         struct SafeFloat costStamina;
         bool canHold;
         bool canTrigger;
         bool useInAir;
         struct HashSet_1_System_Int32_* canUseSkillStateWhiteList;
-        int32_t needMonitor;
+        Config_MonitorType__Enum needMonitor;
         bool isLocked;
         bool ignoreCDMinusRatio;
         bool forceCanDoSkill;
-        struct SafeFloat NFNMNLKPNHD;
-        struct SafeFloat EBIABBHAFFD;
-        struct SafeFloat HPDKMHFJFMI;
-        struct SafeFloat IBKPGNDMDBJ;
-        struct SafeFloat GBGBNALDDFM;
+        struct SafeFloat KMKHNLHFIOL;
+        struct SafeFloat KBLGNPCEMON;
+        struct SafeFloat BKNLEDABNBI;
+        struct SafeFloat HADJBEOJAAI;
+        struct SafeFloat DJHJCNGKFMC;
         int32_t skillIndex;
         int32_t prority;
         float _costElem_k__BackingField;
         int32_t _maxChargeCount_k__BackingField;
     };
 
-    struct LCAvatarCombat_OMIIMOJOHIP {
-        struct LCAvatarCombat_OMIIMOJOHIP__Class* klass;
+    struct LCAvatarCombat_LCAvatarCombat_SkillInfo {
+        struct MoleMole_LCAvatarCombat_MoleMole_LCAvatarCombat_SkillInfo__Class* klass;
         MonitorData* monitor;
-        struct LCAvatarCombat_OMIIMOJOHIP__Fields fields;
+        struct MoleMole_LCAvatarCombat_MoleMole_LCAvatarCombat_SkillInfo__Fields fields;
     };
 
     struct LCAvatarCombat__Fields {
@@ -10845,17 +10861,17 @@ namespace app {
 
     struct HumanoidMoveFSM__Fields {
         struct BaseComponentPlugin__Fields _;
-        struct HumanoidMoveFSMBaseMoveState* _curState;
+        struct MoleMole_HumanoidMoveFSMBaseMoveState* _curState;
         int32_t fallOnGroundFirstFrame;
-        struct Dictionary_2_MoleMole_HumanoidMoveFSM_JJLCCKKCHPD_MoleMole_HumanoidMoveFSMBaseMoveState_* stateMapInfo;
+        struct Dictionary_2_MoleMole_HumanoidMoveFSM_MoleMole_HumanoidMoveFSM_FSMStateID_MoleMole_HumanoidMoveFSMBaseMoveState_* stateMapInfo;
         struct VCHumanoidMoveData* _moveData;
-        struct VCHumanoidMoveConfig* _moveConfig;
+        struct MoleMole_VCHumanoidMoveConfig* _moveConfig;
         struct VCHumanoidMove* _ownerMove;
         struct Animator* _animator;
         struct Rigidbody* _rigidbody;
         struct AnimatorController* _animatorController;
-        void* OnMoveUpdateCallback;
-        void* OnAirUpdateCallback;
+        struct Action_1_MoleMole_HumanoidMoveFSMCallBackInfo_* OnMoveUpdateCallback;
+        struct Action_1_MoleMole_HumanoidMoveFSMCallBackInfo_* OnAirUpdateCallback;
         bool _initSyncWithCurrentTask;
         bool _behaviourSet;
         float _sendCombatNotifyTime;
@@ -10870,6 +10886,7 @@ namespace app {
         bool ignoreOverallMoveWallProtectionCurrentFrame;
         bool stopMoveWhenGoupstairs;
         bool lastStopMoveWhenGoupstairs;
+        bool IMLLBMBBEJI;
         float climbGlobalRecovery;
         bool autoGoUpstair;
         bool forceDoNotSyncWhenReset;
@@ -10879,20 +10896,23 @@ namespace app {
         bool _firstLatetick;
         bool _lastInForbiddenToggleMoveState;
         bool _disableMotion4hiUpdateCurrentFrame;
+        bool NGPIBEPBPKA;
         int32_t _flyStateHash;
-        struct VCMoveIKController* _ikComp;
+        struct MoleMole_VCMoveIKController* _ikComp;
         struct Transform* _lCalf;
         struct Transform* _rCalf;
         void* _weaponStandbyIKParams;
         void* _normalStandbyIKParams;
         void* _params;
-        float _lastSkirtBlendParam;
-        float _idealSkirtBlendParam;
-        float _lastIdealSkirtBlendParam;
-        float _lastSkirtWeight;
-        float _idealSkirtWeight;
-        float _lastSkirtPos;
-        float _idealSkirtPos;
+        float BLLOGGMCMIA;
+        float HNOACEPONMF;
+        float HDBOJNOFKFN;
+        float EGHOEFBGDKA;
+        float MCJGBJLKODK;
+        float LACOILFNJGC;
+        float EKNIHOJIDKN;
+        float COEEDFNDFEH;
+        float CDCJMAELEKE;
         void* _lastFrameAnimSpeedInfo;
         void* _currentFrameAnimSpeedInfo;
         bool _isInSprintCheckInterval;
@@ -10993,22 +11013,14 @@ namespace app {
         struct Vector3d_1 _smoothingTransformLookAtPoint;
         struct SimpleKalmanFilter* _dirKfilter;
         bool _isDirectionFilterInitialized;
-        struct Vector3d__Array* _faceDirectionTrace;
+        struct Vector3d_1__Array* _faceDirectionTrace;
         bool _isFaceDirectionTraceInitialized;
         struct Vector3d_1 _lastFrameSmoothFaceDirection;
         bool _hasEnteredAvatarClimb;
         bool _hasBeenConsistent;
         double _timerForWaitingFacingToWallNoraml;
-#if defined(_CPLUSPLUS_)
         HumanoidMoveFSM_HumanoidMoveFSM_FSMStateID__Enum _curFSMState;
-#else
-        int32_t _curFSMState;
-#endif
-#if defined(_CPLUSPLUS_)
         HumanoidMoveFSM_HumanoidMoveFSM_FSMStateID__Enum _lastFSMState;
-#else
-        int32_t _lastFSMState;
-#endif
         struct Vector3d_1 _climbWallNormal;
         bool _climbWallNormalGetted;
         int32_t _LayerIndex;
@@ -11029,11 +11041,11 @@ namespace app {
         double _inputMoveAngle;
         double _inputMoveMold;
         double _defaultCameraDistanceAdjust;
-        float HOBOHFMFPPG;
-        float POIEBBJDKKF;
-        bool DJDBLKBDMAH;
+        float KNJMIPJHINJ;
+        float DFGOMAELPBC;
+        bool KNHDJFKJJDC;
         struct Dictionary_2_UnityEngine_Vector2_System_Double_* _animStateChangePair;
-        struct Dictionary_2_UnityEngine_Vector2_SCameraModuleInitialize_SCameraModuleInitialize_FilterKeepType_* _animStateChangeType;
+        struct Dictionary_2_UnityEngine_Vector2_MoleMole_SCameraModuleInitialize_MoleMole_SCameraModuleInitialize_FilterKeepType_* _animStateChangeType;
         struct Dictionary_2_UnityEngine_Vector2_System_Double_* _animStateChangeTime;
         double _preNormalRadiusTarget;
         double _preNormalRadiusStart;
@@ -11307,7 +11319,8 @@ namespace app {
         float _perfectRangeStart;
         float _perfectRangeEnd;
         bool _qteStart;
-        float _qteTime;
+        float OGOGOAJEFFI;
+        bool _qteTime;
         float _qteBonusRange;
         bool _isAuto;
         int32_t _foodKind;
@@ -11702,19 +11715,19 @@ namespace app {
     };
 
     struct MoleMole_VCBaseSetDitherValue__Fields {
-        void* _;
+        struct VCBase__Fields _;
         bool _usingDitherAlpha;
         float _ditherAlphaValue;
         float _managerDitherAlphaValue;
         float _localDitherAlphaValue;
-        bool IBKAJMBMGAE;
+        bool HCPHLKHJEBI;
         struct MoleMole_VCBaseModel* _modelComponent;
         float _showStartDitherDuration;
         bool _needStartDitherAction;
         float _detectDitherRangeBetweenCameraAndAvatar;
         float _detectDitherRangeNormalBetweenCamera;
         float _detectDitherRangeNormalBetweenCameraInTimeLine;
-        bool GCEGGKLBFPG;
+        bool LGEKBIFMMLF;
         struct List_1_MoleMole_BaseDither_* _dithers;
         bool _isDitherChangeStarted;
         float _spd;
@@ -11957,6 +11970,15 @@ namespace app {
         Overflow = 0x00000001,
     };
 
+    struct Avatar__Fields {
+        struct Object_1__Fields _;
+    };
+
+    struct Avatar {
+        struct Avatar__Class* klass;
+        MonitorData* monitor;
+        struct Avatar__Fields fields;
+    };
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }

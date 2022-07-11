@@ -40,7 +40,6 @@
 
 #include <cheat/world/AutoFish.h>
 #include <cheat/world/AutoCook.h>
-#include <cheat/world/MusicEvent.h>
 
 #include <cheat/visuals/NoFog.h>
 #include <cheat/visuals/FPSUnlock.h>
@@ -106,7 +105,6 @@ namespace cheat
 
 			FEAT_INST(AutoFish),
 			FEAT_INST(AutoCook),
-			FEAT_INST(MusicEvent),
 
 			FEAT_INST(NoFog),
 			FEAT_INST(FPSUnlock),
