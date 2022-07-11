@@ -10,8 +10,7 @@ namespace cheat::feature
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
 		config::Field<float> f_Speed;
-		config::Field<bool> f_CameraRelative;
-		
+
 		static AutoRun& GetInstance();
 
 		const FeatureGUIInfo& GetGUIInfo() const override;
@@ -23,6 +22,6 @@ namespace cheat::feature
 		void OnGameUpdate();
 
 	private:
-			AutoRun();
+		AutoRun();
 	};
 }

@@ -9,12 +9,10 @@
 
 namespace cheat::feature
 {
-	//bool isAutoRunEnabled = false;
 
 	AutoRun::AutoRun() : Feature(),
 		NF(f_Enabled, "Auto Run", "Player::AutoRun", false),
-		NF(f_Speed,	"Speed", "Player::AutoRun",1.0f),
-		NF(f_CameraRelative, "Relative to camera", "Player::AutoRun" , false)
+		NF(f_Speed,	"Speed", "Player::AutoRun",1.0f)
 	{
 		events::GameUpdateEvent += MY_METHOD_HANDLER(AutoRun::OnGameUpdate);
 	}
@@ -29,7 +27,6 @@ namespace cheat::feature
 	{
 		ConfigWidget("Enable", f_Enabled);
 		ConfigWidget("Auto Run speed", f_Speed, 0.01f, 0.01f, 1000.0f, "Speed of character \n Not recommended going above 5");
-		ConfigWidget("Movement relative to camera", f_CameraRelative);
 	}
 
 	bool AutoRun::NeedStatusDraw() const
@@ -47,18 +44,13 @@ namespace cheat::feature
 		return instance;
 	}
 
-	void enableAutoRun(float speed, bool cameraRelative) {
+	void enableAutoRun(float speed) {
 		
 		auto& manager = game::EntityManager::instance();
 		auto avatarEntity = manager.avatar();
 
 		auto baseMove = avatarEntity->moveComponent();
 		auto rigidBody = avatarEntity->rigidbody();
-
-		app::Rigidbody_set_detectCollisions(rigidBody, true, nullptr);
-
-		auto cameraEntity = game::Entity(reinterpret_cast<app::BaseEntity*>(manager.mainCamera()));
-		auto relativeEntity = cameraRelative ? &cameraEntity : avatarEntity;
 
 		if (baseMove == nullptr)
 			return;
@@ -69,15 +61,13 @@ namespace cheat::feature
 		if (renderer::IsInputLocked())
 			return;
 
-		app::Vector3 dir = {};
-		dir = dir + relativeEntity->forward();
+		auto cameraEntity = game::Entity(reinterpret_cast<app::BaseEntity*>(manager.mainCamera()));
+		auto relativeEntity = &cameraEntity;
 
+		app::Vector3 dir = relativeEntity->forward();
 		app::Vector3 prevPos = avatarEntity->relativePosition();
-		if (IsVectorZero(prevPos))
-			return;
 
 		float deltaTime = app::Time_get_deltaTime(nullptr);
-
 		app::Vector3 newPos = prevPos + dir * speed * deltaTime;
 
 		avatarEntity->setRelativePosition(newPos);
@@ -86,8 +76,7 @@ namespace cheat::feature
 	void AutoRun::OnGameUpdate() {
 		if (f_Enabled) {
 			float speed = f_Speed.value();
-			bool cameraRelative = f_CameraRelative.value();
-			enableAutoRun(speed, cameraRelative);
+			enableAutoRun(speed);
 		}
 	}
 }
