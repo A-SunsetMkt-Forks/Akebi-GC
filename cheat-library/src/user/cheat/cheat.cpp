@@ -93,7 +93,6 @@ namespace cheat
 			FEAT_INST(KillAura),
 			FEAT_INST(MobVacuum),
 			FEAT_INST(FakeTime),
-			
 
 			FEAT_INST(ChestTeleport),
 			FEAT_INST(OculiTeleport),

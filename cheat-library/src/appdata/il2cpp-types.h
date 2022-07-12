@@ -11874,23 +11874,24 @@ namespace app {
         struct MoleMole_Config_ConfigAbilityModifier__Fields fields;
     };
 
-	struct __declspec(align(8)) HKMHAGBLLMK__Fields {
-		struct MoleMole_BaseAbilityMixin__Array* JGLDNAPGGGC;
-		struct List_1_System_ValueTuple_2__1* JFLGBBBFBLF;
-		struct List_1_System_ValueTuple_2__2* EFOPNOEMFBI;
-		struct List_1_MoleMole_Config_ConfigAbilityAction__1* PGICFJEDMAE;
-		struct List_1_System_ValueTuple_3__1* CGBNAMBLDOE;
-		struct IList_1_MoleMole_BaseAbilityMixin_* LOGOJNMHLIF;
-	};
+    struct __declspec(align(8)) MoleMole_BaseActorActionContext__Fields {
+        struct MoleMole_BaseAbilityMixin__Array* instancedMixins;
+        struct List_1_UniRx_Tuple_2__1* _attachedPatternIndices;
+        struct List_1_UniRx_Tuple_2__2* _attachedResistanceBuffDebuffs;
+        struct List_1_MoleMole_Config_ConfigAbilityAction__1* _attachedAbilityActions;
+        struct List_1_UniRx_Tuple_3__1* _attachedElementTypeResistance;
+        struct IList_1_MoleMole_BaseAbilityMixin_* _tickMixins;
+    };
 
     struct MoleMole_ActorModifier__Fields {
-        HKMHAGBLLMK__Fields _;
+        struct MoleMole_BaseActorActionContext__Fields _;
         struct MoleMole_ActorAbility* parentAbility;
         uint32_t parentAbilityInstanceID;
         struct MoleMole_Config_ConfigAbility* _parentAbilityConfig;
         uint32_t parentAbilityEntityID;
         uint32_t _applyEntityId_k__BackingField;
         struct MoleMole_LCAbility* owner;
+        struct Action* ADBOKMOBNAN;
         struct MoleMole_Config_ConfigAbilityModifier* _config;
         struct Dictionary_2_MoleMole_EncryptedString_System_Int32_* stackIndices;
         int32_t _parentOwnedIx;
@@ -11901,17 +11902,17 @@ namespace app {
         bool attachedModifierIsServerBuff;
         int32_t attachedModifierNameHash;
         bool isAttachedParentAbility;
-        bool PBDIKHPKHLF;
+        bool GDKHIMOECNI;
         struct Action_1_MoleMole_ActorModifier_* onDetached;
         uint32_t serverBuffUid;
-        struct Action_1_Nullable_1_Single_* onDurabilityEmpty;
+        struct Action_2_Nullable_1_Single_Single_* onDurabilityEmpty;
         bool _isValid_k__BackingField;
         uint64_t _modifierStartTime_k__BackingField;
         bool isModifierInvalidByServer;
         bool hasAddedAbilityState;
         float thinkInterval;
         float reduceElementRatio;
-        float PHKNIPMALFB;
+        float JCCKKCLDNLF;
     };
 
     struct MoleMole_ActorModifier {
