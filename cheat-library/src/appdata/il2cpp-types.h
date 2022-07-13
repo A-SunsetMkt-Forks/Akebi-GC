@@ -10555,7 +10555,6 @@ namespace app {
 
     struct GadgetInteractRsp__Fields {
         struct MessageBase_1__Fields _;
-        int32_t retcode_;
         uint32_t gadgetEntityId_;
         InteractType__Enum interactType_;
         InterOpType__Enum opType_;
