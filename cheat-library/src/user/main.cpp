@@ -43,7 +43,7 @@ void Run(HMODULE* phModule)
 
 #ifdef _DEBUG
 	LOG_DEBUG("Waiting 10sec for loading game library.");
-	Sleep(10000);
+	Sleep(15000);
 #else
 	LOG_DEBUG("Waiting 15sec for game initialize.");
     Sleep(15000);

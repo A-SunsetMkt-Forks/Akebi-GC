@@ -1379,12 +1379,6 @@ namespace cheat::feature
 
 	void InteractiveMap::DrawExternal()
 	{
-		// If any InputText is focused, the game will not respond any keyboard input.
-		auto ctx = ImGui::GetCurrentContext();
-		if (ctx->IO.WantCaptureKeyboard && !renderer::IsInputLocked())
-			renderer::SetInputLock(this, true);
-		else if (!ctx->IO.WantCaptureKeyboard && renderer::IsInputLocked())
-			renderer::SetInputLock(this, false);
 
 		if (IsMiniMapActive() && f_Enabled)
 			DrawMinimapPoints();
@@ -1393,12 +1387,24 @@ namespace cheat::feature
 		bool mapActive = IsMapActive();
 
 		if (mapActive != _lastMapActive)
+		{
 			MapToggled(mapActive);
+			
+			if (!mapActive)
+				renderer::SetInputLock(this, false);
+		}
 
 		_lastMapActive = mapActive;
 
 		if (!mapActive)
             return;
+
+		// If any InputText is focused, the game will not respond any keyboard input.
+		auto ctx = ImGui::GetCurrentContext();
+		if (ctx->IO.WantCaptureKeyboard && !renderer::IsInputLocked())
+			renderer::SetInputLock(this, true);
+		else if (!ctx->IO.WantCaptureKeyboard && renderer::IsInputLocked())
+			renderer::SetInputLock(this, false);
 
 		auto mapManager = GET_SINGLETON(MoleMole_MapManager);
 		if (mapManager == nullptr)
