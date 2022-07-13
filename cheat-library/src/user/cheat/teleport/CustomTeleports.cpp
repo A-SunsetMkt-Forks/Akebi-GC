@@ -394,6 +394,7 @@ namespace cheat::feature
 				index++;
 			}
 			ImGui::EndTable();
+			ImGui::TreePop();
 		}
 
 		if (selectedIndex != -1)
