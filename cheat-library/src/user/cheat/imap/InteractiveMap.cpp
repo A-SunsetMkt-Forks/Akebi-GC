@@ -189,13 +189,6 @@ namespace cheat::feature
 		const auto sceneID = game::GetCurrentMapSceneID();
 		if (m_ScenesData.count(sceneID) == 0)
 			ImGui::Text("Sorry. Current scene is not supported.");
-
-		// If any InputText is focused, the game will not respond any keyboard input.
-		auto ctx = ImGui::GetCurrentContext();
-		if (ctx->IO.WantCaptureKeyboard)
-			renderer::SetInputLock(this, true);
-		else
-			renderer::SetInputLock(this, false);
 		
 		ImGui::InputText("Search", &m_SearchText); ImGui::SameLine();
 		HelpMarker(
@@ -1386,6 +1379,12 @@ namespace cheat::feature
 
 	void InteractiveMap::DrawExternal()
 	{
+		// If any InputText is focused, the game will not respond any keyboard input.
+		auto ctx = ImGui::GetCurrentContext();
+		if (ctx->IO.WantCaptureKeyboard && !renderer::IsInputLocked())
+			renderer::SetInputLock(this, true);
+		else if (!ctx->IO.WantCaptureKeyboard && renderer::IsInputLocked())
+			renderer::SetInputLock(this, false);
 
 		if (IsMiniMapActive() && f_Enabled)
 			DrawMinimapPoints();
