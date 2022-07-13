@@ -6,6 +6,7 @@
 #include <vector>
 #include <cheat-base/Logger.h>
 
+#include <filesystem>
 #include <SimpleIni.h>
 
 
@@ -37,6 +38,9 @@ namespace util
 	int64_t GetCurrentTimeMillisec();
 
 	std::string GetModulePath(HMODULE hModule = nullptr);
+
+	void SetCurrentPath(const std::filesystem::path& curren_path);
+	std::filesystem::path GetCurrentPath();
 
 	std::vector<std::string> StringSplit(const std::string& delimiter, const std::string& content);
 	std::string SplitWords(const std::string& value);

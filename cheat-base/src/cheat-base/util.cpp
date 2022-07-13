@@ -70,6 +70,17 @@ namespace util
 		return std::filesystem::path(pathOut).parent_path().string();
 	}
 
+	static std::filesystem::path _currentPath;
+	void SetCurrentPath(const std::filesystem::path& current_path)
+	{
+		_currentPath = current_path;
+	}
+
+	std::filesystem::path GetCurrentPath()
+	{
+		return _currentPath;
+	}
+
 	std::optional<std::string> SelectDirectory(const char* title)
     {
         auto currPath = std::filesystem::current_path();

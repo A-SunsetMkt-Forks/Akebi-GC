@@ -20,11 +20,13 @@ namespace cheat::feature
 		NF(f_DebugMode, "Debug Mode", "CustomTeleports", false), // Soon to be added
 		NF(f_Enabled, "Custom Teleport", "CustomTeleports", false),
 		NF(f_Next, "Teleport Next", "CustomTeleports", Hotkey(VK_OEM_6)),
-		NF(f_Previous, "Teleport Previous", "CustomTeleports", Hotkey(VK_OEM_4))
+		NF(f_Previous, "Teleport Previous", "CustomTeleports", Hotkey(VK_OEM_4)),
+		dir(util::GetCurrentPath() / "teleports")
 	{
 		f_Next.value().PressedEvent += MY_METHOD_HANDLER(CustomTeleports::OnNext);
 		f_Previous.value().PressedEvent += MY_METHOD_HANDLER(CustomTeleports::OnPrevious);
 	}
+
 	const FeatureGUIInfo& CustomTeleports::GetGUIInfo() const
 	{
 		static const FeatureGUIInfo info{ "Custom Teleports", "Teleport", true };

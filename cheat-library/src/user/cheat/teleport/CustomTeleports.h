@@ -45,7 +45,7 @@ namespace cheat::feature
         void DrawStatus() override;
         
         std::vector<Teleport> Teleports;
-        std::filesystem::path dir = std::filesystem::current_path() / "teleports";
+        std::filesystem::path dir;
 
     private:
         std::set<unsigned int> checkedIndices;
