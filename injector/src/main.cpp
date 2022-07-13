@@ -72,56 +72,67 @@ bool OpenGenshinProcess(HANDLE* phProcess, HANDLE* phThread)
 
 	HANDLE hToken;
 	BOOL TokenRet = OpenProcessToken(GetCurrentProcess(), TOKEN_ALL_ACCESS, &hToken);
-	if (!TokenRet) {
+	if (!TokenRet) 
+	{
 		LOG_LAST_ERROR("Privilege escalation failed!");
 		return false;
 	}
-	bool OpenRet = false;
+
 	auto filePath = util::GetOrSelectPath(ini, "Inject", "GenshinPath", "genshin path", "Executable\0GenshinImpact.exe;YuanShen.exe\0");
 	auto commandline = ini.GetValue("Inject", "GenshinCommandLine");
+
 	LPSTR lpstr = commandline == nullptr ? nullptr : const_cast<LPSTR>(commandline);
 	if (!filePath)
 		return false;
-	DWORD  pid = FindProcessId("explorer.exe");
+
+	DWORD pid = FindProcessId("explorer.exe");
 	if (pid == 0)
 	{
 		LOG_ERROR("Can't find 'explorer' pid!");
 		return false;
 	}
+
 	std::string CurrentDirectory = filePath.value();
 	int pos = CurrentDirectory.rfind("\\", CurrentDirectory.length());
 	CurrentDirectory = CurrentDirectory.substr(0, pos);
-	LOG_INFO("%s", CurrentDirectory.data());
+
 	HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
-	STARTUPINFOEXA si;
-	ZeroMemory(&si, sizeof(si));
-	si.StartupInfo.cb = sizeof(si);
+		
 	SIZE_T lpsize = 0;
 	InitializeProcThreadAttributeList(NULL, 1, 0, &lpsize);
+	
 	char* temp = new char[lpsize];
 	LPPROC_THREAD_ATTRIBUTE_LIST AttributeList = (LPPROC_THREAD_ATTRIBUTE_LIST)temp;
 	InitializeProcThreadAttributeList(AttributeList, 1, 0, &lpsize);
-	if (!UpdateProcThreadAttribute(AttributeList, 0, PROC_THREAD_ATTRIBUTE_PARENT_PROCESS, &handle, sizeof(HANDLE), NULL, NULL))
+	if (!UpdateProcThreadAttribute(AttributeList, 0, PROC_THREAD_ATTRIBUTE_PARENT_PROCESS, 
+		&handle, sizeof(HANDLE), NULL, NULL))
 	{
 		LOG_WARNING("UpdateProcThreadAttribute failed ! (%d).\n", GetLastError());
 	}
+	
+	STARTUPINFOEXA si{};
+	si.StartupInfo.cb = sizeof(si);
 	si.lpAttributeList = AttributeList;
-	PROCESS_INFORMATION pi;
-	ZeroMemory(&pi, sizeof(pi));
+	
+	PROCESS_INFORMATION pi{};
 	BOOL result = CreateProcessAsUserA(hToken, const_cast<LPSTR>(filePath->data()), lpstr,
-		0, 0, 0, EXTENDED_STARTUPINFO_PRESENT | CREATE_SUSPENDED, 0, (LPSTR)CurrentDirectory.data(), (LPSTARTUPINFOA)&si, &pi);
-	if (result == FALSE)
+		0, 0, 0, EXTENDED_STARTUPINFO_PRESENT | CREATE_SUSPENDED, 0,
+		(LPSTR)CurrentDirectory.data(), (LPSTARTUPINFOA)&si, &pi);
+
+	bool isOpened = result;
+	if (isOpened)
+	{
+		ini.SaveFile("cfg.ini");
+		*phThread = pi.hThread;
+		*phProcess = pi.hProcess;
+	}
+	else
 	{
 		LOG_LAST_ERROR("Failed to create game process.");
 		LOG_ERROR("If you have problem with GenshinImpact.exe path. You can change it manually in cfg.ini.");
-		goto End;
 	}
-	ini.SaveFile("cfg.ini");
-	*phThread = pi.hThread;
-	*phProcess = pi.hProcess;
-	OpenRet = true;
-End:
+
 	DeleteProcThreadAttributeList(AttributeList);
-	delete temp;
-	return OpenRet;
+	delete[] temp;
+	return isOpened;
 }
