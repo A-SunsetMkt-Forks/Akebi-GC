@@ -17,6 +17,7 @@
 #include <cheat/player/NoCD.h>
 #include <cheat/player/NoClip.h>
 #include <cheat/player/RapidFire.h>
+#include <cheat/player/AutoRun.h>
 
 #include <cheat/world/AutoLoot.h>
 #include <cheat/world/DialogSkip.h>
@@ -81,6 +82,7 @@ namespace cheat
 			FEAT_INST(NoCD),
 			FEAT_INST(NoClip),
 			FEAT_INST(RapidFire),
+			FEAT_INST(AutoRun),
 
 			FEAT_INST(AutoLoot),
 			FEAT_INST(AutoTreeFarm),
