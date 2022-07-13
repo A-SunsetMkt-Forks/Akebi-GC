@@ -62,6 +62,14 @@ namespace util
 		return (*c);
 	}
 
+	std::string GetModulePath(HMODULE hModule /*= nullptr*/)
+	{
+		char pathOut[MAX_PATH] = {};
+		GetModuleFileNameA(hModule, pathOut, MAX_PATH);
+
+		return std::filesystem::path(pathOut).parent_path().string();
+	}
+
 	std::optional<std::string> SelectDirectory(const char* title)
     {
         auto currPath = std::filesystem::current_path();

@@ -14,16 +14,17 @@
 void Run(HMODULE* phModule)
 {
 	ResourceLoader::SetModuleHandle(*phModule);
+	
+	auto cheatDir = std::filesystem::path(util::GetModulePath(*phModule)).parent_path();
 
 	// Init config
-	std::string configPath = (std::filesystem::current_path() / "cfg.json").string();
-	config::Initialize(configPath);
+	config::Initialize((cheatDir / "cfg.json").string());
 
 	// Init logger
 	auto& settings = cheat::feature::Settings::GetInstance();
 	if (settings.f_FileLogging)
 	{
-		Logger::PrepareFileLogging((std::filesystem::current_path() / "logs").string());
+		Logger::PrepareFileLogging((cheatDir / "logs").string());
 		Logger::SetLevel(Logger::Level::Trace, Logger::LoggerType::FileLogger);
 	}
 
@@ -55,5 +56,5 @@ void Run(HMODULE* phModule)
 
 	cheat::Init();
 
-    LOG_DEBUG("Config path is at %s", configPath.c_str());
+    LOG_DEBUG("Config path is at %s", (cheatDir / "cfg.json").string().c_str());
 }

@@ -36,6 +36,8 @@ namespace util
 	std::string GetLastErrorAsString(DWORD errorId = 0);
 	int64_t GetCurrentTimeMillisec();
 
+	std::string GetModulePath(HMODULE hModule = nullptr);
+
 	std::vector<std::string> StringSplit(const std::string& delimiter, const std::string& content);
 	std::string SplitWords(const std::string& value);
 	std::string MakeCapital(std::string value);
