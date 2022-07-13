@@ -82,10 +82,10 @@ static IDXGISwapChainPresent findDirect11Present()
 	ID3D11DeviceContext* pContext = nullptr;
 	ID3D11Device* pDevice = nullptr;
 
-	if (/*FAILED(D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_WARP, NULL, NULL, &featureLevel, 1,
-		D3D11_SDK_VERSION, &swapChainDesc, &pSwapChain, &pDevice, NULL, &pContext)) &&*/
+	if (FAILED(D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_WARP,     nullptr, 0, nullptr, 1, D3D11_SDK_VERSION, 
+			&swapChainDesc, &pSwapChain, &pDevice, &featureLevel, &pContext)) &&
 		FAILED(D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, nullptr, 0, D3D11_SDK_VERSION, 
-			&swapChainDesc, &pSwapChain, &pDevice, &featureLevel, nullptr)))
+			&swapChainDesc, &pSwapChain, &pDevice, &featureLevel, &pContext)))
 	{
 		DestroyWindow(swapChainDesc.OutputWindow);
 		UnregisterClass(wc.lpszClassName, GetModuleHandle(nullptr));
