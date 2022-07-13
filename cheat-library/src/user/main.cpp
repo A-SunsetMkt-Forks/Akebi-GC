@@ -15,7 +15,7 @@ void Run(HMODULE* phModule)
 {
 	ResourceLoader::SetModuleHandle(*phModule);
 	
-	auto cheatDir = std::filesystem::path(util::GetModulePath(*phModule)).parent_path();
+	auto cheatDir = std::filesystem::path(util::GetModulePath(*phModule));
 
 	// Init config
 	config::Initialize((cheatDir / "cfg.json").string());
