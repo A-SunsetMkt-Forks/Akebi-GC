@@ -33,6 +33,7 @@ namespace cheat::feature
 	{
 		return f_Enabled;
 	}
+
 	void AutoRun::DrawStatus()
 	{
 		ImGui::Text("Auto Run[%.01f]",f_Speed.value());
@@ -44,7 +45,7 @@ namespace cheat::feature
 		return instance;
 	}
 
-	void enableAutoRun(float speed) {
+	void EnableAutoRun(float speed) {
 		
 		auto& manager = game::EntityManager::instance();
 		auto avatarEntity = manager.avatar();
@@ -52,13 +53,7 @@ namespace cheat::feature
 		auto baseMove = avatarEntity->moveComponent();
 		auto rigidBody = avatarEntity->rigidbody();
 
-		if (baseMove == nullptr)
-			return;
-
-		if (rigidBody == nullptr)
-			return;
-
-		if (renderer::IsInputLocked())
+		if (baseMove == nullptr || rigidBody == nullptr || renderer::IsInputLocked())
 			return;
 
 		auto cameraEntity = game::Entity(reinterpret_cast<app::BaseEntity*>(manager.mainCamera()));
@@ -76,7 +71,7 @@ namespace cheat::feature
 	void AutoRun::OnGameUpdate() {
 		if (f_Enabled) {
 			float speed = f_Speed.value();
-			enableAutoRun(speed);
+			EnableAutoRun(speed);
 		}
 	}
 }
