@@ -12,10 +12,6 @@
 
 ---
 
-<h1 align="center">Warning</h1>
-Currently the support for 2.8 is under testing. So you can have bug with it. Also known issue with crashes for CN version.
-If you want to help us to do update faster - create PR for problem what you have after updating to 2.8, but of course, check if nobody created it already. 
-
 <h1 align="center">Getting Started</h1>
 
 ## Building from source
