@@ -26,8 +26,10 @@ namespace cheat::game
         public IEntityFilter
     {
     public:
-        AdvancedFilter(const std::vector<app::EntityType__Enum_1>& types = {}, const std::vector<std::string>& names = {}) : m_Names(names), m_Types(types) {}
-        AdvancedFilter(const app::EntityType__Enum_1 type, const std::string name) : AdvancedFilter(std::vector<app::EntityType__Enum_1>{type}, std::vector<std::string>{name}) {}
+        AdvancedFilter(std::initializer_list<app::EntityType__Enum_1> types = {}, std::initializer_list<std::string> names = {}) : m_Names(names), m_Types(types) {}
+        AdvancedFilter(std::initializer_list<app::EntityType__Enum_1> types, const std::string& name) : AdvancedFilter(types, { name }) {}
+        AdvancedFilter(const app::EntityType__Enum_1 type, std::initializer_list<std::string> name) : AdvancedFilter({ type }, name) {}
+        AdvancedFilter(const app::EntityType__Enum_1 type, const std::string& name) : AdvancedFilter({ type }, { name }) {}
         friend AdvancedFilter operator+(AdvancedFilter lFilter, const AdvancedFilter& rFilter);
         
         bool IsValid(Entity* entity) const override {
