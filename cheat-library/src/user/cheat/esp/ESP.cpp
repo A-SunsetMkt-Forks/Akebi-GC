@@ -417,6 +417,8 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(collection, RadiantSpincrystal);
 		ADD_FILTER_FIELD(collection, BookPage);
 		ADD_FILTER_FIELD(collection, QuestInteract);
+		ADD_FILTER_FIELD(collection, WoodenCrate);
+		ADD_FILTER_FIELD(collection, GeoSigil);
 
 		ADD_FILTER_FIELD(chest, CommonChest);
 		ADD_FILTER_FIELD(chest, ExquisiteChest);

@@ -10,6 +10,8 @@ namespace cheat::game::filters
 	{
 		extern SimpleFilter Book;
 		extern SimpleFilter Viewpoint;
+		extern SimpleFilter WoodenCrate;
+		extern SimpleFilter GeoSigil;
 
 		extern ChestFilter RadiantSpincrystal;
 		extern ChestFilter BookPage;

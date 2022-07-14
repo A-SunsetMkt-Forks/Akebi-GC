@@ -20,6 +20,7 @@
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\messages\PipePacketData.h" />
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeClient.h" />
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeIO.h" />
+    <ClInclude Include="src\user\cheat\player\AutoRun.h" />
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h" />
     <ClInclude Include="src\user\cheat\visuals\FreeCamera.h" />
     <ClInclude Include="src\user\cheat\world\AutoSeelie.h" />
@@ -96,7 +97,6 @@
     <ClInclude Include="src\user\cheat\world\DumbEnemies.h" />
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
-    <ClInclude Include="src\user\cheat\world\MusicEvent.h" />
     <ClInclude Include="src\user\cheat\world\VacuumLoot.h" />
     <ClInclude Include="src\user\main.h" />
   </ItemGroup>
@@ -110,6 +110,7 @@
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\messages\PipePacketData.cpp" />
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeClient.cpp" />
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeIO.cpp" />
+    <ClCompile Include="src\user\cheat\player\AutoRun.cpp" />
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FreeCamera.cpp" />
     <ClCompile Include="src\user\cheat\world\AutoSeelie.cpp" />
@@ -183,7 +184,6 @@
     <ClCompile Include="src\user\cheat\world\DumbEnemies.cpp" />
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
-    <ClCompile Include="src\user\cheat\world\MusicEvent.cpp" />
     <ClCompile Include="src\user\cheat\world\VacuumLoot.cpp" />
     <ClCompile Include="src\user\main.cpp" />
   </ItemGroup>
@@ -880,8 +880,7 @@
       </Command>
     </PostBuildEvent>
     <CustomBuildStep>
-      <Command>"$(OutDir)injector.exe"
-powershell -nop -c "&amp; {sleep 20}"</Command>
+      <Command>"$(OutDir)injector.exe" powershell -nop -c "&amp;amp; {sleep 20}"</Command>
       <Outputs>$(OutDir)_noexist.nope;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>

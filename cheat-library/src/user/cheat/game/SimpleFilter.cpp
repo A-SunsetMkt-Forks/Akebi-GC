@@ -3,6 +3,13 @@
 
 namespace cheat::game
 {
+	SimpleFilter::SimpleFilter(std::initializer_list<SimpleFilter> names)
+		: m_Type(names.begin()->m_Type)
+	{
+		std::for_each(names.begin(), names.end(), [this](const SimpleFilter& other) {
+			m_Names.insert(m_Names.begin(), other.m_Names.begin(), other.m_Names.end());
+		});
+	}
 
 	bool SimpleFilter::IsValid(Entity* entity) const
 	{
@@ -23,16 +30,5 @@ namespace cheat::game
 		}
 
 		return false;
-	}
-
-	SimpleFilter::SimpleFilter(app::EntityType__Enum_1 type, const std::vector<std::string>& names) : m_Names(names), m_Type(type)
-	{
-
-	}
-
-	SimpleFilter operator+(SimpleFilter lFilter, const SimpleFilter& rFilter)
-	{
-		lFilter.m_Names.insert(lFilter.m_Names.end(), rFilter.m_Names.begin(), rFilter.m_Names.end());
-		return lFilter;
 	}
 }

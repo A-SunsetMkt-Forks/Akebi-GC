@@ -4,7 +4,9 @@
 
 #include <cheat/game/Entity.h>
 #include <cheat/game/filters.h>
+#include <cheat-base/thread-safe.h>
 #include <il2cpp-appdata.h>
+
 
 namespace cheat::feature
 {
@@ -13,6 +15,7 @@ namespace cheat::feature
 	{
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
+		config::Field<bool> f_ElectroSeelie;
 
 		static AutoSeelie& GetInstance();
 
@@ -24,10 +27,8 @@ namespace cheat::feature
 
 		void OnGameUpdate();
 	private:
-
-		std::vector<game::IEntityFilter*> m_Filters;
 		AutoSeelie();
-		int nextTime{};
+		SafeValue<int64_t> nextTime;
 		bool IsEntityForVac(cheat::game::Entity* entity);
 	};
 }

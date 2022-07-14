@@ -189,7 +189,7 @@ namespace cheat::feature
 		const auto sceneID = game::GetCurrentMapSceneID();
 		if (m_ScenesData.count(sceneID) == 0)
 			ImGui::Text("Sorry. Current scene is not supported.");
-
+		
 		ImGui::InputText("Search", &m_SearchText); ImGui::SameLine();
 		HelpMarker(
 			"This page following with filters for items.\n"
@@ -1387,12 +1387,24 @@ namespace cheat::feature
 		bool mapActive = IsMapActive();
 
 		if (mapActive != _lastMapActive)
+		{
 			MapToggled(mapActive);
+			
+			if (!mapActive)
+				renderer::SetInputLock(this, false);
+		}
 
 		_lastMapActive = mapActive;
 
 		if (!mapActive)
             return;
+
+		// If any InputText is focused, the game will not respond any keyboard input.
+		auto ctx = ImGui::GetCurrentContext();
+		if (ctx->IO.WantCaptureKeyboard && !renderer::IsInputLocked())
+			renderer::SetInputLock(this, true);
+		else if (!ctx->IO.WantCaptureKeyboard && renderer::IsInputLocked())
+			renderer::SetInputLock(this, false);
 
 		auto mapManager = GET_SINGLETON(MoleMole_MapManager);
 		if (mapManager == nullptr)

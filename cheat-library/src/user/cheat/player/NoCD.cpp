@@ -9,7 +9,7 @@ namespace cheat::feature
 	static bool HumanoidMoveFSM_CheckSprintCooldown_Hook(void* __this, MethodInfo* method);
 	static bool LCAvatarCombat_IsEnergyMax_Hook(void* __this, MethodInfo* method);
 	static bool LCAvatarCombat_OnSkillStart(app::LCAvatarCombat* __this, uint32_t skillID, float cdMultipler, MethodInfo* method);
-	static bool LCAvatarCombat_IsSkillInCD_1(app::LCAvatarCombat* __this, app::LCAvatarCombat_OMIIMOJOHIP* skillInfo, MethodInfo* method);
+	static bool LCAvatarCombat_IsSkillInCD_1(app::LCAvatarCombat* __this, app::LCAvatarCombat_LCAvatarCombat_SkillInfo* skillInfo, MethodInfo* method);
 
 	static void ActorAbilityPlugin_AddDynamicFloatWithRange_Hook(void* __this, app::String* key, float value, float minValue, float maxValue,
 		bool forceDoAtRemote, MethodInfo* method);
@@ -124,7 +124,7 @@ namespace cheat::feature
 	}
 
 	// Timer Speed Up / CoolDown Reduce New | RyujinZX#6666
-	static bool LCAvatarCombat_IsSkillInCD_1(app::LCAvatarCombat* __this, app::LCAvatarCombat_OMIIMOJOHIP* skillInfo, MethodInfo* method) {
+	static bool LCAvatarCombat_IsSkillInCD_1(app::LCAvatarCombat* __this, app::LCAvatarCombat_LCAvatarCombat_SkillInfo* skillInfo, MethodInfo* method) {
 		NoCD& noCD = NoCD::GetInstance();
 		if (noCD.f_AbilityReduce)
 		{

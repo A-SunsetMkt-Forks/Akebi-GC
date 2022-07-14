@@ -8,6 +8,20 @@
 
 namespace cheat::feature
 {
+    class Teleport
+    {
+        public:
+            Teleport(std::string name, app::Vector3 position, std::string description)
+            {
+                this->name = name;
+                this->position = position;
+                this->description = description;
+            }
+            std::string name;
+            app::Vector3 position;
+            std::string description;
+    };
+    
     class CustomTeleports : public Feature
     {
     public:
@@ -17,21 +31,34 @@ namespace cheat::feature
         config::Field<Hotkey> f_Previous;
         static CustomTeleports& GetInstance();
         const FeatureGUIInfo& GetGUIInfo() const override;
-		void DrawMain() override;
 
+        void CheckFolder();
+        bool ValidateTeleport(std::string name);
+        Teleport Teleport_(std::string name, app::Vector3 position, std::string description);
+        void SerializeTeleport(Teleport t);
+        void ReloadTeleports();
+        Teleport SerializeFromJson(std::string json, bool fromfile);
+
+
+		void DrawMain() override;
         virtual bool NeedStatusDraw() const override;
         void DrawStatus() override;
+        
+        std::vector<Teleport> Teleports;
+        std::filesystem::path dir;
 
     private:
-        std::vector<std::pair<std::string, app::Vector3>> teleports;
         std::set<unsigned int> checkedIndices;
         std::set<unsigned int> searchIndices;
         bool selectedByClick = false;
         int selectedIndex = -1;
+        std::string selectedName;
         std::string selectedIndexName;
         CustomTeleports();
-        void OnNextKeyPressed();
-        void OnPreviousKeyPressed();
+        void OnTeleportKeyPressed(bool next);
+        void OnPrevious();
+        void OnNext();
         void UpdateIndexName();
     };
+
 }
