@@ -17,7 +17,6 @@ namespace cheat::feature
 		nextTime(0)
 	{
 		InstallFilters();
-		InstallFiltersMobDrop();
 		events::GameUpdateEvent += MY_METHOD_HANDLER(VacuumLoot::OnGameUpdate);
 	}
 
@@ -32,8 +31,9 @@ namespace cheat::feature
 
 			ConfigWidget("Enabled", f_Enabled, "Vacuum Loot drops"); ImGui::SameLine(); ImGui::SetNextItemWidth(100.0f);
 			ConfigWidget("Delay Time (ms)", f_DelayTime, 1, 0, 1000, "Delay (in ms) between loot vacuum.");
-			ConfigWidget("Radius (m)", f_Radius, 0.1f, 5.0f, 100.0f, "Radius of loot vacuum.");
-			ConfigWidget("Mob Drop Radius (m)", f_MobDropRadius, 0.1f, 5.0f, 100.0f, "Radius of Mob Drop vacuum.");
+			ConfigWidget("Radius (m)", f_Radius, 0.1f, 5.0f, 100.0f, "Radius of common loot vacuum.");
+			ConfigWidget("Mob Drop Radius (m)", f_MobDropRadius, 0.1f, 5.0f, 150.0f, "Radius of mob drop vacuum.\n"
+			"(Item Drops and Equipments)");
 			ConfigWidget("Distance (m)", f_Distance, 0.1f, 1.0f, 10.0f, "Distance between the player and the loot.\n"
 				"Values under 1.5 may be too intruding.");
 			if (ImGui::TreeNode("Loot Types"))
@@ -42,17 +42,6 @@ namespace cheat::feature
 				{
 					ImGui::PushID(section.c_str());
 					DrawSection(section, filters);
-					ImGui::PopID();
-				}
-				ImGui::TreePop();
-			}
-
-			if (ImGui::TreeNode("Mob Drop Types"))
-			{
-				for (auto& [sectionMobDrop, filtersMobDrop] : m_SectionsMobDrop)
-				{
-					ImGui::PushID(sectionMobDrop.c_str());
-					DrawSectionMobDrop(sectionMobDrop, filtersMobDrop);
 					ImGui::PopID();
 				}
 				ImGui::TreePop();
@@ -79,35 +68,22 @@ namespace cheat::feature
 	{
 		// Go through all sections. For each section, go through all filters.
 		// If a filter matches the given entity and that filter is enabled, return true.
+
 		bool entityValid = std::any_of(m_Sections.begin(), m_Sections.end(),
 			[entity](std::pair<std::string, Filters> const& section) {
 				return std::any_of(section.second.begin(), section.second.end(), [entity](const FilterInfo& filterInfo) {
 					return filterInfo.second->IsValid(entity) && filterInfo.first; });
 			});
 
-		if (!entityValid)return false;
+		if (!entityValid) return false;
+
+		bool isMobDrop = std::any_of(m_MobDropFilter.begin(), m_MobDropFilter.end(),
+			[entity](const game::IEntityFilter* filter) { return filter->IsValid(entity); });
 
 		auto& manager = game::EntityManager::instance();
 		auto distance = manager.avatar()->distance(entity);
 
-		return distance <= f_Radius;
-	}
-	bool VacuumLoot::IsEntityForMobDropVac(game::Entity* entity)
-	{
-		// Go through all sections. For each section, go through all filters.
-		// If a filter matches the given entity and that filter is enabled, return true.
-		bool entityValid = std::any_of(m_SectionsMobDrop.begin(), m_SectionsMobDrop.end(),
-			[entity](std::pair<std::string, filtersMobDrop> const& sectionMobDrop) {
-				return std::any_of(sectionMobDrop.second.begin(), sectionMobDrop.second.end(), [entity](const FilterInfoMobDrop& FilterInfoMobDrop) {
-					return FilterInfoMobDrop.second->IsValid(entity) && FilterInfoMobDrop.first; });
-			});
-
-		if (!entityValid)return false;
-
-		auto& manager = game::EntityManager::instance();
-		auto distance = manager.avatar()->distance(entity);
-
-		return distance <= f_MobDropRadius;
+		return distance <= isMobDrop ? f_MobDropRadius : f_Radius;
 	}
 
 	void VacuumLoot::OnGameUpdate()
@@ -124,14 +100,6 @@ namespace cheat::feature
 		for (const auto& entity : manager.entities())
 		{
 			if (!IsEntityForVac(entity))
-				continue;
-
-			entity->setRelativePosition(avatarEntity->relativePosition() + avatarEntity->forward() * f_Distance);
-		}
-		nextTime = currentTime + f_DelayTime.value();
-		for (const auto& entity : manager.entities())
-		{
-			if (!IsEntityForMobDropVac(entity))
 				continue;
 
 			entity->setRelativePosition(avatarEntity->relativePosition() + avatarEntity->forward() * f_Distance);
@@ -184,51 +152,6 @@ namespace cheat::feature
 		}
 
 	}
-	void VacuumLoot::DrawSectionMobDrop(const std::string& sectionMobDrop, const filtersMobDrop& filtersMobDrop)
-	{
-		bool checked = std::all_of(filtersMobDrop.begin(), filtersMobDrop.end(), [](const FilterInfoMobDrop& filterMobDrop) {  return filterMobDrop.first; });
-		bool changed = false;
-
-		if (ImGui::BeginSelectableGroupPanel(sectionMobDrop.c_str(), checked, changed, true))
-		{
-			// TODO : Get Max Container Width and Calculate Max Item Width of Checkbox + Text / or specify same width for all columns
-			// then divide MaxWidth by ItemWidth/ColumnWidth and asign a floor result >= 1 to columns.
-			// Though this is also just fine IMO.
-
-			int columns = 2;
-
-			if (ImGui::BeginTable(sectionMobDrop.c_str(), columns == 0 ? 1 : columns)) {
-				int i = 0;
-				for (std::pair<config::Field<bool>, game::IEntityFilter*> filterMobDrop : filtersMobDrop) {
-
-					if (i % (columns == 0 ? 1 : columns) == 0)
-					{
-						ImGui::TableNextRow();
-						ImGui::TableSetColumnIndex(0);
-					}
-					else
-						ImGui::TableNextColumn();
-
-					ImGui::PushID(&filterMobDrop);
-					ConfigWidget(filterMobDrop.first);
-					ImGui::PopID();
-					i++;
-				}
-				ImGui::EndTable();
-			}
-		}
-		ImGui::EndSelectableGroupPanel();
-
-		if (changed)
-		{
-			for (const auto& info : filtersMobDrop)
-			{
-				info.first.value() = checked;
-				info.first.FireChanged();
-			}
-		}
-
-	}
 
 	void VacuumLoot::AddFilter(const std::string& section, const std::string& name, game::IEntityFilter* filter)
 	{
@@ -239,35 +162,19 @@ namespace cheat::feature
 		bool newItem(filter);
 		filters.push_back({ config::CreateField<bool>(name,name,fmt::format("VacuumLoot::Filters::{}", section),false, newItem) , filter });
 	}
-	void VacuumLoot::AddFilterMobDrop(const std::string& sectionMobDrop, const std::string& nameMobDrop, game::IEntityFilter* filterMobDrop)
-	{
-		if (m_SectionsMobDrop.count(sectionMobDrop) == 0)
-			m_SectionsMobDrop[sectionMobDrop] = {};
-
-		auto& filtersMobDrop = m_SectionsMobDrop[sectionMobDrop];
-		bool newItem(filterMobDrop);
-		filtersMobDrop.push_back({ config::CreateField<bool>(nameMobDrop,nameMobDrop,fmt::format("VacuumLoot::filtersMobDrop::{}", sectionMobDrop),false, newItem) , filterMobDrop });
-	}
 
 #define ADD_FILTER_FIELD(section, name) AddFilter(util::MakeCapital(#section), util::SplitWords(#name), &game::filters::##section##::##name##)
 	void VacuumLoot::InstallFilters()
 	{
-		// Add more in the future
-		// ADD_FILTER_FIELD(mineral, AmethystLump);
-		// ADD_FILTER_FIELD(mineral, ArchaicStone);
-		// ADD_FILTER_FIELD(mineral, CorLapis);
-		// ADD_FILTER_FIELD(mineral, CrystalChunk);
-		// ADD_FILTER_FIELD(mineral, CrystalMarrow);
-		// ADD_FILTER_FIELD(mineral, ElectroCrystal);
-		// ADD_FILTER_FIELD(mineral, IronChunk);
-		// ADD_FILTER_FIELD(mineral, NoctilucousJade);
-		// ADD_FILTER_FIELD(mineral, MagicalCrystalChunk);
-		// ADD_FILTER_FIELD(mineral, ScarletQuartz);
-		// ADD_FILTER_FIELD(mineral, Starsilver);
-		// ADD_FILTER_FIELD(mineral, WhiteIronChunk);
-		// ADD_FILTER_FIELD(mineral, DunlinsTooth);
+		ADD_FILTER_FIELD(featured, ItemDrops);
 
-		// Ores that drops as a loot when destroyed
+		ADD_FILTER_FIELD(equipment, Artifacts);
+		ADD_FILTER_FIELD(equipment, Bow);
+		ADD_FILTER_FIELD(equipment, Catalyst);
+		ADD_FILTER_FIELD(equipment, Claymore);
+		ADD_FILTER_FIELD(equipment, Sword);
+		ADD_FILTER_FIELD(equipment, Pole);
+
 		ADD_FILTER_FIELD(mineral, AmethystLumpDrop);
 		ADD_FILTER_FIELD(mineral, CrystalChunkDrop);
 		ADD_FILTER_FIELD(mineral, ElectroCrystalDrop);
@@ -292,22 +199,6 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Eel);
 		ADD_FILTER_FIELD(living, LizardTail);
 		ADD_FILTER_FIELD(living, Fish);
-	}
-#undef ADD_FILTER_FIELD
-
-#define ADD_FILTER_FIELD(sectionMobDrop, nameMobDrop) AddFilterMobDrop(util::MakeCapital(#sectionMobDrop), util::SplitWords(#nameMobDrop), &game::filters::##sectionMobDrop##::##nameMobDrop##)
-	void VacuumLoot::InstallFiltersMobDrop()
-	{
-		// Add more in the future
-
-		ADD_FILTER_FIELD(featured, ItemDrops);
-
-		ADD_FILTER_FIELD(equipment, Artifacts);
-		ADD_FILTER_FIELD(equipment, Bow);
-		ADD_FILTER_FIELD(equipment, Catalyst);
-		ADD_FILTER_FIELD(equipment, Claymore);
-		ADD_FILTER_FIELD(equipment, Sword);
-		ADD_FILTER_FIELD(equipment, Pole);
 	}
 #undef ADD_FILTER_FIELD
 }
