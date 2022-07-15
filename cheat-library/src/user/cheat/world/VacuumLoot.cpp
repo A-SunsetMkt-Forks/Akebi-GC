@@ -12,7 +12,7 @@ namespace cheat::feature
 		NF(f_Enabled, "Vacuum Loot", "VacuumLoot", false),
 		NF(f_DelayTime, "Delay time (in ms)", "VacuumLoot", 1000),
 		NF(f_Distance, "Distance", "VacuumLoot", 1.5f),
-		NF(f_MobDropRadius, "Mob Drop Radius", "VacuumLoot", 1.5f),
+		NF(f_MobDropRadius, "Mob Drop Radius", "VacuumLoot", 20.0f),
 		NF(f_Radius, "Radius", "VacuumLoot", 20.0f),
 		nextTime(0)
 	{
@@ -32,7 +32,7 @@ namespace cheat::feature
 			ConfigWidget("Enabled", f_Enabled, "Vacuum Loot drops"); ImGui::SameLine(); ImGui::SetNextItemWidth(100.0f);
 			ConfigWidget("Delay Time (ms)", f_DelayTime, 1, 0, 1000, "Delay (in ms) between loot vacuum.");
 			ConfigWidget("Radius (m)", f_Radius, 0.1f, 5.0f, 100.0f, "Radius of common loot vacuum.");
-			ConfigWidget("Mob Drop Radius (m)", f_MobDropRadius, 0.1f, 5.0f, 150.0f, "Radius of mob drop vacuum.\n"
+			ConfigWidget("Mob Drop Radius (m)", f_MobDropRadius, 0.1f, 5.0f, 100.0f, "Radius of mob drop vacuum.\n"
 			"(Item Drops and Equipments)");
 			ConfigWidget("Distance (m)", f_Distance, 0.1f, 1.0f, 10.0f, "Distance between the player and the loot.\n"
 				"Values under 1.5 may be too intruding.");
@@ -83,7 +83,7 @@ namespace cheat::feature
 		auto& manager = game::EntityManager::instance();
 		auto distance = manager.avatar()->distance(entity);
 
-		return distance <= isMobDrop ? f_MobDropRadius : f_Radius;
+		return distance <= (isMobDrop ? f_MobDropRadius : f_Radius);
 	}
 
 	void VacuumLoot::OnGameUpdate()
