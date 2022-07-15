@@ -55,7 +55,12 @@ namespace cheat::feature
 
 	void VacuumLoot::DrawStatus()
 	{
-		ImGui::Text("VacuumLoot");
+		ImGui::Text("VacuumLoot\n[%dms|%.01fm|%.01fm|%.01fm]",
+			f_DelayTime.value(),
+			f_Radius.value(),
+			f_MobDropRadius.value(),
+			f_Distance.value()
+		);
 	}
 
 	VacuumLoot& VacuumLoot::GetInstance()
