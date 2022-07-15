@@ -48,10 +48,12 @@ namespace cheat::game::filters
 	{
 		SimpleFilter Anemoculus = { EntityType__Enum_1::GatherObject, "WindCrystalShell" };
 		SimpleFilter CrimsonAgate = { EntityType__Enum_1::GatherObject, "Prop_Essence" };
+		SimpleFilter EchoingConch = { EntityType__Enum_1::EchoShell, "_Echoconch" };
 		SimpleFilter Electroculus = { EntityType__Enum_1::GatherObject, "Prop_ElectricCrystal" };
 		SimpleFilter Electrogranum = { EntityType__Enum_1::Gadget, "ThunderSeedCreate" };
 		SimpleFilter FishingPoint = { EntityType__Enum_1::FishPool, "_FishingShoal" };
 		SimpleFilter Geoculus = { EntityType__Enum_1::GatherObject, "RockCrystalShell" };
+		SimpleFilter ImagingConch = { EntityType__Enum_1::EchoShell, "_Dreamconch" };
 		WhitelistFilter ItemDrops = { {EntityType__Enum_1::GatherObject, EntityType__Enum_1::DropItem }, {"_Food_BirdMeat", "_Food_Meat", "_DropItem" } };
 		SimpleFilter Lumenspar = { EntityType__Enum_1::GatherObject, "CelestiaSplinter" };
 		SimpleFilter KeySigil = { EntityType__Enum_1::GatherObject, "RuneContent" };
