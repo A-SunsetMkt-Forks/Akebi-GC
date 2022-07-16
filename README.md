@@ -22,9 +22,15 @@ As well as setting up **`cheat-library`** as startup project.
 1. Open `Akebi-GC/akebi-gc.sln`
 1. Build solution `akebi-gc.sln`.
 
-## Release
+## Stable Release
 1. Head over to the releases page
 1. Download the latest binaries
+
+## Latest Release
+1. Head over to the [action](https://github.com/Akebi-Group/Akebi-GC/actions) page
+1. Click Publish workflow
+1. Select most recent workflow with green checkmark ✔
+1. Download Akebi-GC-release in Artifacts section
 
 ### Requirements
 - [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
