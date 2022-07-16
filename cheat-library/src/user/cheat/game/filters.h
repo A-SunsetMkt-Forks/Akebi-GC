@@ -48,10 +48,12 @@ namespace cheat::game::filters
 	{
 		extern SimpleFilter Anemoculus;
 		extern SimpleFilter CrimsonAgate;
+		extern SimpleFilter EchoingConch;
 		extern SimpleFilter Electroculus;
 		extern SimpleFilter Electrogranum;
 		extern SimpleFilter FishingPoint;
 		extern SimpleFilter Geoculus;
+		extern SimpleFilter ImagingConch;
 		extern WhitelistFilter ItemDrops;
 		extern SimpleFilter Lumenspar;
 		extern SimpleFilter KeySigil;
