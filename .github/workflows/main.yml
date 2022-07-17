@@ -3,8 +3,6 @@ name: Publish
 on:
    push:
     branches: [ master ]
-   pull_request:
-    branches: [ master ]
 
 env:
   SOLUTION_FILE_PATH: ./akebi-gc.sln
