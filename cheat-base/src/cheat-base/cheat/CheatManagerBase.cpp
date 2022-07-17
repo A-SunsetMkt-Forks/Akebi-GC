@@ -174,6 +174,8 @@ namespace cheat
 		if (ImGui::IsItemHovered())
 			ImGui::SetTooltip("Delete");
 
+		ImGui::SameLine();
+
 		if (ImGui::SmallButton("Dupe"))
 			config::DuplicateProfile(profileName);
 		if (ImGui::IsItemHovered())
