@@ -3,8 +3,6 @@ name: Publish
 on:
    push:
     branches: [ master ]
-   pull_request:
-    branches: [ master ]
 
 env:
   SOLUTION_FILE_PATH: ./akebi-gc.sln
@@ -19,6 +17,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
 
     - name: Install MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
