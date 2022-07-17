@@ -48,8 +48,9 @@ namespace cheat::game::filters
 	{
 		extern SimpleFilter Anemoculus;
 		extern SimpleFilter CrimsonAgate;
-		extern SimpleFilter EchoingConch;
 		extern SimpleFilter Electroculus;
+		extern SimpleFilter Dendroculus;
+		extern SimpleFilter EchoingConch;
 		extern SimpleFilter Electrogranum;
 		extern SimpleFilter FishingPoint;
 		extern SimpleFilter Geoculus;
@@ -203,6 +204,7 @@ namespace cheat::game::filters
 		extern SimpleFilter SangonomiyaCohort;
 		extern SimpleFilter CryoRegisvine;
 		extern SimpleFilter PyroRegisvine;
+		extern SimpleFilter ElectroRegisvine;
 		extern SimpleFilter MaguuKenki;
 		extern SimpleFilter Cicin;
 		extern SimpleFilter Beisht;

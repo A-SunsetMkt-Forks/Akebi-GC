@@ -48,8 +48,9 @@ namespace cheat::game::filters
 	{
 		SimpleFilter Anemoculus = { EntityType__Enum_1::GatherObject, "WindCrystalShell" };
 		SimpleFilter CrimsonAgate = { EntityType__Enum_1::GatherObject, "Prop_Essence" };
-		SimpleFilter EchoingConch = { EntityType__Enum_1::EchoShell, "_Echoconch" };
 		SimpleFilter Electroculus = { EntityType__Enum_1::GatherObject, "Prop_ElectricCrystal" };
+		SimpleFilter Dendroculus = { EntityType__Enum_1::GatherObject, "_XuMiCrystal" };
+		SimpleFilter EchoingConch = { EntityType__Enum_1::EchoShell, "_Echoconch" };
 		SimpleFilter Electrogranum = { EntityType__Enum_1::Gadget, "ThunderSeedCreate" };
 		SimpleFilter FishingPoint = { EntityType__Enum_1::FishPool, "_FishingShoal" };
 		SimpleFilter Geoculus = { EntityType__Enum_1::GatherObject, "RockCrystalShell" };
@@ -90,7 +91,7 @@ namespace cheat::game::filters
 		SimpleFilter Onikabuto = { EntityType__Enum_1::GatherObject, "Electrohercules" };
 		SimpleFilter Starconch = { EntityType__Enum_1::GatherObject, "_Shell" };
 		SimpleFilter Eel = { EntityType__Enum_1::EnvAnimal, "Eel_" };
-		SimpleFilter Inu = { EntityType__Enum_1::EnvAnimal, "_Inu_Shihandai" };
+		SimpleFilter Inu = { EntityType__Enum_1::Monster, "_Inu_Shihandai" };
 		SimpleFilter Boar = { EntityType__Enum_1::Monster, "Boar" };
 		SimpleFilter Fox = { EntityType__Enum_1::Monster, "Fox" };
 		SimpleFilter Squirrel = { EntityType__Enum_1::Monster, "Squirrel" };
@@ -159,7 +160,7 @@ namespace cheat::game::filters
 		SimpleFilter Samachurl = { EntityType__Enum_1::Monster, "_Shaman" };
 	    SimpleFilter ShadowyHusk = { EntityType__Enum_1::Monster, "ForlornVessel_Strong" };
 		SimpleFilter Slime = { EntityType__Enum_1::Monster, "_Slime" };
-		SimpleFilter FloatingFungus = { EntityType__Enum_1::Monster, "_Fungus" };
+		SimpleFilter FloatingFungus = { EntityType__Enum_1::Monster, { "Fungus_Un_", "Fungus_Deux_", "Fungus_Trois_", "Fungus_Amanita_"} };
 		SimpleFilter Specter = { EntityType__Enum_1::Monster, "_Sylph" };
 		SimpleFilter TreasureHoarder = { EntityType__Enum_1::Monster, "_Thoarder" };
 		SimpleFilter UnusualHilichurl = { EntityType__Enum_1::Monster, "_Hili_Wei" };
@@ -206,6 +207,7 @@ namespace cheat::game::filters
 		SimpleFilter SangonomiyaCohort = { EntityType__Enum_1::Monster, "_AahigaruTaisho_" };
 		SimpleFilter CryoRegisvine = { EntityType__Enum_1::Monster, "_Regisvine_Ice" };
 		SimpleFilter PyroRegisvine = { EntityType__Enum_1::Monster, "_Regisvine_Fire" };
+		SimpleFilter ElectroRegisvine = { EntityType__Enum_1::Monster, "_Regisvine_Electric" };
 		SimpleFilter MaguuKenki = { EntityType__Enum_1::Monster, "_Ningyo" };
 		SimpleFilter Cicin = { EntityType__Enum_1::Monster, "_Cicin" };
 		SimpleFilter Beisht = { EntityType__Enum_1::Monster, "_Eldritch" };
@@ -458,6 +460,8 @@ namespace cheat::game::filters
 			monster::HydroHypostasisSummon,
 			monster::CryoBathysmalVishap,
 			monster::ElectroBathysmalVishap
+			// Sumeru
+
 		};
 		SimpleFilter MonsterShielded = {
 			// Taken from https://genshin-impact.fandom.com/wiki/Shields/Enemy.
