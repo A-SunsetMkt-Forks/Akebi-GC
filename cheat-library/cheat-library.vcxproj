@@ -450,6 +450,7 @@
     <Image Include="res\iconsHD\Salamander.png" />
     <Image Include="res\iconsHD\Samachurl.png" />
     <Image Include="res\iconsHD\SandbearerWood.png" />
+    <Image Include="res\iconsHD\SangonomiyaCohort.png" />
     <Image Include="res\iconsHD\SangoPearl.png" />
     <Image Include="res\iconsHD\Sapphire.png" />
     <Image Include="res\iconsHD\ScarletQuartz.png" />
@@ -768,6 +769,7 @@
     <Image Include="res\icons\Salamander.png" />
     <Image Include="res\icons\Samachurl.png" />
     <Image Include="res\icons\SandbearerWood.png" />
+    <Image Include="res\icons\SangonomiyaCohort.png" />
     <Image Include="res\icons\SangoPearl.png" />
     <Image Include="res\icons\Sapphire.png" />
     <Image Include="res\icons\ScarletQuartz.png" />

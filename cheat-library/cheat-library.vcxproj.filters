@@ -2376,5 +2376,11 @@
     <Image Include="res\icons\Kairagi.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\iconsHD\SangonomiyaCohort.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SangonomiyaCohort.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

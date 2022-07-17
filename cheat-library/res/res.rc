@@ -550,6 +550,8 @@ HDSAMACHURL             PNG                     "iconsHD\\Samachurl.png"
 
 HDSANDBEARERWOOD        PNG                     "iconsHD\\SandbearerWood.png"
 
+HDSANGONOMIYACOHORT     PNG                     "iconsHD\\SangonomiyaCohort.png"
+
 HDSANGOPEARL            PNG                     "iconsHD\\SangoPearl.png"
 
 HDSAPPHIRE              PNG                     "iconsHD\\Sapphire.png"
@@ -1191,6 +1193,8 @@ SALAMANDER 				PNG                     "icons\\Salamander.png"
 SAMACHURL               PNG                     "icons\\Samachurl.png"
 
 SANDBEARERWOOD          PNG                     "icons\\SandbearerWood.png"
+
+SANGONOMIYACOHORT       PNG                     "icons\\SangonomiyaCohort.png"
 
 SANGOPEARL              PNG                     "icons\\SangoPearl.png"
 
