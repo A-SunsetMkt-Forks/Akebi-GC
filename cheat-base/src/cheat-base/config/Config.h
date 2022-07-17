@@ -63,6 +63,7 @@ namespace config
 	void RemoveProfile(const std::string& profileName);
 	void RenameProfile(const std::string& oldProfileName, const std::string& newProfileName);
 	void ChangeProfile(const std::string& profileName);
+	void DuplicateProfile(const std::string& profileName);
 	std::vector<std::string> const& GetProfiles();
 	std::string const& CurrentProfileName();
 
