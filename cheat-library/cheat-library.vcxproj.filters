@@ -462,6 +462,7 @@
     <None Include="res\map_teyvat.json" />
     <None Include="res\map_undeground_mines.json" />
     <None Include="res\assembly_checksum.json" />
+    <None Include="res\map_golden_apple_archipelago.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="icons\Anemoculus.png">
@@ -473,7 +474,7 @@
     <Image Include="res\iconsHD\AbidingAngelfish.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\iconsHD\AbyssHerald.png">
+    <Image Include="res\iconsHD\HydroAbyssHerald.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\iconsHD\AbyssMage.png">
@@ -527,7 +528,7 @@
     <Image Include="res\iconsHD\BambooShoot.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\iconsHD\BathysmalVishap.png">
+    <Image Include="res\iconsHD\ElectroBathysmalVishap.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\iconsHD\BathysmalVishapHerd.png">
@@ -743,7 +744,7 @@
     <Image Include="res\iconsHD\FloatingAnemoSlime.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\iconsHD\FloatingHydroFungus.png">
+    <Image Include="res\iconsHD\FloatingFungus.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\iconsHD\FluorescentFungus.png">
@@ -1322,7 +1323,7 @@
     <Image Include="res\icons\AbidingAngelfish.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\icons\AbyssHerald.png">
+    <Image Include="res\icons\HydroAbyssHerald.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\AbyssMage.png">
@@ -1373,7 +1374,7 @@
     <Image Include="res\icons\BambooShoot.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\icons\BathysmalVishap.png">
+    <Image Include="res\icons\ElectroBathysmalVishap.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\BathysmalVishapHerd.png">
@@ -1589,7 +1590,7 @@
     <Image Include="res\icons\FloatingAnemoSlime.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\icons\FloatingHydroFungus.png">
+    <Image Include="res\icons\FloatingFungus.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\FluorescentFungus.png">
@@ -2163,6 +2164,222 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\YumemiruWood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\EchoingConch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ImagingConch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\EchoingConch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ImagingConch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Wigeon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Andrius.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Azhdaha.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Boar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Cat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Cicin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Crane.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CryoBathysmalVishap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Dendroculus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Dog.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DunlinsTooth.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Dvalin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Eel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ElectroAbyssLector.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ElectroRegisvine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Falcon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Finch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Fox.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Inu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KeySigil.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Millelith.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Pigeon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PyroAbyssLector.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Rifthound.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RifthoundWhelp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Salamander.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Shogun.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ShogunateInfantry.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ShrineOfDepth.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Signora.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Tartaglia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Weasel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Cat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Cicin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Crane.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\CryoBathysmalVishap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Dendroculus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Dog.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DunlinsTooth.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Dvalin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Eel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ElectroAbyssLector.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ElectroRegisvine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Falcon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Finch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Fox.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Inu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\KeySigil.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Millelith.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Pigeon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\PyroAbyssLector.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Rifthound.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\RifthoundWhelp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Salamander.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Shogun.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ShogunateInfantry.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ShrineOfDepth.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Signora.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Tartaglia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Weasel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Wigeon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Andrius.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Azhdaha.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Boar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Kairagi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Kairagi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SangonomiyaCohort.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SangonomiyaCohort.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
