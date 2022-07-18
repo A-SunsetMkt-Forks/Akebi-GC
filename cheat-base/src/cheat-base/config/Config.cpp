@@ -371,6 +371,27 @@ namespace config
 		ProfileChanged();
 	}
 
+	void DuplicateProfile(const std::string& profileName)
+	{
+		// Find a unique name for the new profile
+		uint32_t counter = 0;
+		std::ostringstream buffer;
+		std::string newProfileName;
+		do
+		{
+			buffer.str(std::string());
+			buffer.clear();
+			counter++;
+			buffer << profileName << " (" << counter << ")";
+			newProfileName = buffer.str();
+		} while (s_Profiles->contains(newProfileName));
+
+		// nlohmann::json copy constructor will take care of duplicating
+		(*s_Profiles)[newProfileName] = (*s_Profiles)[profileName];
+		UpdateProfilesNames();
+		Save();
+	}
+
 	std::vector<std::string> const& GetProfiles()
 	{
 		return s_ProfilesNames;
