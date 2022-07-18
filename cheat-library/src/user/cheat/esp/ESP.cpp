@@ -429,8 +429,9 @@ namespace cheat::feature
 
 		ADD_FILTER_FIELD(featured, Anemoculus);
 		ADD_FILTER_FIELD(featured, CrimsonAgate);
-		ADD_FILTER_FIELD(featured, EchoingConch);
 		ADD_FILTER_FIELD(featured, Electroculus);
+		ADD_FILTER_FIELD(featured, Dendroculus);
+		ADD_FILTER_FIELD(featured, EchoingConch);
 		ADD_FILTER_FIELD(featured, Electrogranum);
 		ADD_FILTER_FIELD(featured, FishingPoint);
 		ADD_FILTER_FIELD(featured, Geoculus);
@@ -489,6 +490,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(mineral, CorLapis);
 		ADD_FILTER_FIELD(mineral, CrystalChunk);
 		ADD_FILTER_FIELD(mineral, CrystalMarrow);
+		ADD_FILTER_FIELD(mineral, DunlinsTooth);
 		ADD_FILTER_FIELD(mineral, ElectroCrystal);
 		ADD_FILTER_FIELD(mineral, IronChunk);
 		ADD_FILTER_FIELD(mineral, NoctilucousJade);
@@ -496,7 +498,6 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(mineral, ScarletQuartz);
 		ADD_FILTER_FIELD(mineral, Starsilver);
 		ADD_FILTER_FIELD(mineral, WhiteIronChunk);
-		ADD_FILTER_FIELD(mineral, DunlinsTooth);
 
 		// Trounce. Arranged by appearance in-game.
 		ADD_FILTER_FIELD(monster, Dvalin);
@@ -508,6 +509,7 @@ namespace cheat::feature
 		// Bosses. Arranged by "type" then alphabetical.
 		// Regisvines.
 		ADD_FILTER_FIELD(monster, CryoRegisvine);
+		ADD_FILTER_FIELD(monster, ElectroRegisvine);
 		ADD_FILTER_FIELD(monster, PyroRegisvine);
 		// Hypostases.
 		ADD_FILTER_FIELD(monster, AnemoHypostasis);
