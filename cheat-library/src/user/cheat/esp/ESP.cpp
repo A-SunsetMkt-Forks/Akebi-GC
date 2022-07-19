@@ -146,6 +146,59 @@ namespace cheat::feature
 		return instance;
 	}
 
+	void ESP::GetNpcName(std::string& name)
+	{
+		if (name.find("Avatar") != std::string::npos)
+		{
+			//cause name is like "Avatar_Catalyst_Boy_Heizo(Clone)" - We'll get name between 3rd underscore and 1st bracket
+			int  j = 0;		// j is the number of spaces before the name starts
+			int pos1 = 0;
+			int pos2 = 0;
+			for (int i = 0; i < name.length(); i++)
+			{
+				if (name[i] == '_')
+				{
+					j++;
+					if (j == 3)
+					{
+						pos1 = i;
+					}
+
+				}
+				if (name[i] == '(')
+				{
+					pos2 = i;
+					break;
+				}
+			}
+			name = name.substr(pos1 + 1, pos2 - pos1 - 1);
+		}
+		else
+		{
+			int  j = 0;     //number of underscores in the name
+			int pos1 = 0;	//position of the first underscore in the name
+			int pos2 = 0;   //position of the second underscore in the name
+			for (int i = 0; i < name.length(); i++)
+			{
+				if (name[i] == '_')
+				{
+					j++;
+					if (j == 4)
+					{
+						pos1 = i;
+					}
+					if (j == 5)
+					{
+						pos2 = i;
+						break;
+					}
+				}
+			}
+			name = name.substr(pos1 + 1, pos2 - pos1 - 1);
+		}
+		return;
+	}
+
 	void ESP::AddFilter(const std::string& section, const std::string& name, game::IEntityFilter* filter)
 	{
 		if (m_Sections.count(section) == 0)
@@ -260,6 +313,14 @@ namespace cheat::feature
 					auto& entry = field.value();
 					if (!entry.m_Enabled || !m_FilterExecutor.ApplyFilter(entity, filter))
 						continue;
+
+					if (entry.m_Name == "Npc" || "AvatarOwn" || "AvatarTeammate")
+					{
+						auto name = entity->name();
+						GetNpcName(name);
+						esp::render::DrawEntity(name, entity, entry.m_Color, entry.m_ContrastColor);
+						break;
+					}
 
 					esp::render::DrawEntity(entry.m_Name, entity, entry.m_Color, entry.m_ContrastColor);
 					break;
