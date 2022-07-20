@@ -13,32 +13,23 @@ namespace cheat::feature
 	app::Vector3 zero;
 
     NoClip::NoClip() : Feature(),
-<<<<<<< Updated upstream
-        NF(f_Enabled,            "No clip",              "NoClip", false),
-		NF(f_NoAnimation,		 "No Animation",		 "NoClip", true),
-        NF(f_Speed,              "Speed",                "NoClip", 5.5f),
-        NF(f_CameraRelative,     "Relative to camera",   "NoClip", true),
-		NF(f_VelocityMode,       "Velocity mode",        "NoClip", false),
-		NF(f_FreeflightMode,     "Freeflight mode",      "NoClip", false),
-		NF(f_AltSpeedEnabled,	 "Alt speed enabled",    "NoClip", false),
-		NF(f_AltSpeed,			 "Alt speed",            "NoClip", 1.0f)
-=======
-        NF(f_Enabled,            "No clip",             "NoClip", false),
-		NF(f_NoAnimation,		 "No Animation",		"NoClip", true),
+        NF(f_Enabled,           "No clip",				"NoClip", false),
+		NF(f_NoAnimation,		"No Animation",			"NoClip", true),
+		NF(f_UseCustomKeys,		"Use Custom Hotkeys",	"NoClip", false),
 		NF(f_ForwardKey,		"Forward HotKey",		"NoClip", Hotkey(ImGuiKey_W)),
 		NF(f_LeftKey,			"Left HotKey",			"NoClip", Hotkey(ImGuiKey_A)),
 		NF(f_BackKey,			"Back HotKey",			"NoClip", Hotkey(ImGuiKey_S)),
 		NF(f_RightKey,			"Right HotKey",			"NoClip", Hotkey(ImGuiKey_D)),
 		NF(f_AscendKey,			"Ascend HotKey",		"NoClip", Hotkey(ImGuiKey_Space)),
 		NF(f_DescendKey,		"Descend HotKey",		"NoClip", Hotkey(ImGuiKey_ModShift)),
+		NF(f_AltSpeedKey,		"Alt Speed Hotkey",		"NoClip", Hotkey(ImGuiKey_ModCtrl)),
         NF(f_Speed,             "Speed",                "NoClip", 5.5f),
         NF(f_CameraRelative,    "Relative to camera",   "NoClip", true),
 		NF(f_VelocityMode,      "Velocity mode",        "NoClip", false),
 		NF(f_FreeflightMode,    "Freeflight mode",      "NoClip", false),
 		NF(f_AltSpeedEnabled,	"Alt speed enabled",    "NoClip", false),
-		NF(f_AltSpeed,			"Alt speed",            "NoClip", 1.0f),
-		NF(f_AltSpeedKey,		"Alt Speed Hotkey",		"NoClip", Hotkey(ImGuiKey_ModCtrl))
->>>>>>> Stashed changes
+		NF(f_AltSpeed,			"Alt speed",            "NoClip", 1.0f)
+
     {
 		HookManager::install(app::MoleMole_HumanoidMoveFSM_LateTick, HumanoidMoveFSM_LateTick_Hook);
 
@@ -59,16 +50,18 @@ namespace cheat::feature
 
 		ConfigWidget("No Animation", f_NoAnimation, "Disables player animations.");
 
-<<<<<<< Updated upstream
-=======
-		ConfigWidget("Forward HotKey", f_ForwardKey, "Set Forward Key");
-		ConfigWidget("Left HotKey", f_LeftKey, "Set Left Key");
-		ConfigWidget("Back HotKey", f_BackKey, "Set Back Key");
-		ConfigWidget("Right HotKey", f_RightKey, "Set Right Key");
-		ConfigWidget("Ascend HotKey", f_AscendKey, "Set Ascend Key");
-		ConfigWidget("Descend HotKey", f_DescendKey, "Set Descend Key");
+		ConfigWidget("Use Custom Keys", f_UseCustomKeys, "Enable the Use of Custom HotKeys");
 
->>>>>>> Stashed changes
+		if (f_UseCustomKeys) {
+			ConfigWidget("Forward HotKey", f_ForwardKey, "Set Forward Key");
+			ConfigWidget("Left HotKey", f_LeftKey, "Set Left Key");
+			ConfigWidget("Back HotKey", f_BackKey, "Set Back Key");
+			ConfigWidget("Right HotKey", f_RightKey, "Set Right Key");
+			ConfigWidget("Ascend HotKey", f_AscendKey, "Set Ascend Key");
+			ConfigWidget("Descend HotKey", f_DescendKey, "Set Descend Key");
+			ConfigWidget("Alt Speed Key", f_AltSpeedKey, "Set AltSpeed HotKey");
+		}
+
 		ConfigWidget("Speed", f_Speed, 0.1f, 2.0f, 100.0f,
 			"No-clip move speed.\n" \
 			"Not recommended setting above 5.0.");
@@ -84,8 +77,7 @@ namespace cheat::feature
 			ConfigWidget("Alt Speed", f_AltSpeed, 0.1f, 2.0f, 100.0f,
 				"Alternate no-clip move speed.\n" \
 				"Not recommended setting above 5.0.");
-			
-		ConfigWidget("Alt Speed Key", f_AltSpeedKey, "Set AltSpeed HotKey");
+
 		ConfigWidget("Velocity mode", f_VelocityMode,"Use velocity instead of position to move.");
 		ConfigWidget("Freeflight mode", f_FreeflightMode,"Don't remove collisions");
 		}
@@ -157,28 +149,57 @@ namespace cheat::feature
 		auto relativeEntity = f_CameraRelative ? &cameraEntity : avatarEntity;
 
 		float speed = f_Speed.value();
-		if (f_AltSpeedEnabled && f_AltSpeedKey.value().IsPressed())
-			speed = f_AltSpeed.value(); 
+		if (f_AltSpeedEnabled) {
+			if (!f_UseCustomKeys && Hotkey(ImGuiKey_ModCtrl).IsPressed()) {
+				speed = f_AltSpeed.value();
+			}
+			if (f_UseCustomKeys && f_AltSpeedKey.value().IsPressed()) {
+				speed = f_AltSpeed.value();
+			}
+		}
 
 		app::Vector3 dir = {};
-		if (f_ForwardKey.value().IsPressed())
-			dir = dir + relativeEntity->forward();
 
-		if (f_BackKey.value().IsPressed())
-			dir = dir + relativeEntity->back();
+		if (f_UseCustomKeys) {
+			if (f_ForwardKey.value().IsPressed())
+				dir = dir + relativeEntity->forward();
 
-		if (f_RightKey.value().IsPressed())
-			dir = dir + relativeEntity->right();
+			if (f_BackKey.value().IsPressed())
+				dir = dir + relativeEntity->back();
 
-		if (f_LeftKey.value().IsPressed())
-			dir = dir + relativeEntity->left();
+			if (f_RightKey.value().IsPressed())
+				dir = dir + relativeEntity->right();
 
-		if (f_AscendKey.value().IsPressed())
-			dir = dir + avatarEntity->up();
+			if (f_LeftKey.value().IsPressed())
+				dir = dir + relativeEntity->left();
+
+			if (f_AscendKey.value().IsPressed())
+				dir = dir + avatarEntity->up();
+
+			if (f_DescendKey.value().IsPressed())
+				dir = dir + avatarEntity->down();
+		}
+
+		if (!f_UseCustomKeys) {
+			if (Hotkey(ImGuiKey_W).IsPressed())
+				dir = dir + relativeEntity->forward();
+
+			if (Hotkey(ImGuiKey_S).IsPressed())
+				dir = dir + relativeEntity->back();
+
+			if (Hotkey(ImGuiKey_D).IsPressed())
+				dir = dir + relativeEntity->right();
+
+			if (Hotkey(ImGuiKey_A).IsPressed())
+				dir = dir + relativeEntity->left();
+
+			if (Hotkey(ImGuiKey_Space).IsPressed())
+				dir = dir + avatarEntity->up();
+
+			if (Hotkey(ImGuiKey_ModShift).IsPressed())
+				dir = dir + avatarEntity->down();
+		}
 		
-		if (Hotkey(ImGuiKey_ModShift).IsPressed())
-			dir = dir + avatarEntity->down();
-
 		app::Vector3 prevPos = avatarEntity->relativePosition();
 		if (IsVectorZero(prevPos))
 			return;
