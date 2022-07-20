@@ -12,6 +12,16 @@ namespace cheat::feature
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
 		config::Field<config::Toggle<Hotkey>> f_NoAnimation;
+<<<<<<< Updated upstream
+=======
+
+		config::Field<Hotkey> f_ForwardKey;
+		config::Field<Hotkey> f_LeftKey;
+		config::Field<Hotkey> f_RightKey;
+		config::Field<Hotkey> f_BackKey;
+		config::Field<Hotkey> f_AscendKey;
+		config::Field<Hotkey> f_DescendKey;
+>>>>>>> Stashed changes
 
 		config::Field<float> f_Speed;
 		config::Field<bool> f_CameraRelative;
@@ -20,6 +30,7 @@ namespace cheat::feature
 
 		config::Field<bool> f_AltSpeedEnabled;
 		config::Field<float> f_AltSpeed;
+		config::Field<Hotkey> f_AltSpeedKey;
 
 
 		static NoClip& GetInstance();
