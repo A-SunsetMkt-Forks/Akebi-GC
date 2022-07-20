@@ -256,6 +256,8 @@ namespace cheat::game::filters
 		SimpleFilter Wheat = { EntityType__Enum_1::GatherObject, "_Plant_Wheat" };
 		SimpleFilter WindwheelAster = { EntityType__Enum_1::GatherObject, "_WindmilDaisy" };
 		SimpleFilter Wolfhook = { EntityType__Enum_1::GatherObject, "_GogoFruit" };
+		SimpleFilter RadishDrop = { EntityType__Enum_1::GatherObject, "_Plant_Carrot02_Clear" };
+		SimpleFilter CarrotDrop = { EntityType__Enum_1::GatherObject, "_Plant_Radish02_Clear" };
 	}
 
 	namespace puzzle
