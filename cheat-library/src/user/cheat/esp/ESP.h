@@ -79,6 +79,8 @@ namespace cheat::feature
 		void DrawSection(const std::string& section, const Filters& filters);
 		void DrawFilterField(const config::Field<esp::ESPItem>& field);
 
+		void GetNpcName(std::string& name);
+		
 		void OnKeyUp(short key, bool& cancelled);
 
 		ESP();
