@@ -316,10 +316,13 @@ namespace cheat::feature
 
 					if (entry.m_Name == "Npc" || "AvatarOwn" || "AvatarTeammate")
 					{
-						auto name = entity->name();
-						GetNpcName(name);
-						esp::render::DrawEntity(name, entity, entry.m_Color, entry.m_ContrastColor);
-						break;
+						if (entity->type() == app::EntityType__Enum_1::Avatar || entity->type() == app::EntityType__Enum_1::NPC)
+						{
+							std::string name = entity->name();
+							GetNpcName(name);
+							esp::render::DrawEntity(name, entity, entry.m_Color, entry.m_ContrastColor);
+							break;
+						}
 					}
 
 					esp::render::DrawEntity(entry.m_Name, entity, entry.m_Color, entry.m_ContrastColor);
