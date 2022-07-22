@@ -173,6 +173,97 @@ namespace cheat::feature
 			}
 			name = name.substr(pos1 + 1, pos2 - pos1 - 1);
 		}
+		else if (name.find("Animal") != std::string::npos)
+		{
+			int count = 0;
+			int  j = 0;		
+			int pos1 = 0;
+			int pos2 = 0;
+			for (int i = 0; i < name.length(); i++)
+			{
+				if (name[i] == '_')
+				{
+					count++;
+				}
+			}
+			//switch statement to determine how we will get name
+			switch (count)
+			{
+				case 3:
+				{
+					j = 0;		// j is the number of spaces before the name starts
+					pos1 = 0;
+					pos2 = 0;
+					for (int i = 0; i < name.length(); i++)
+					{
+						if (name[i] == '_')
+						{
+							j++;
+							if (j == 3)
+							{
+								pos1 = i;
+							}
+
+						}
+						if (name[i] == '(')
+						{
+							pos2 = i;
+							break;
+						}
+					}
+					name = name.substr(pos1, pos2 - pos1);
+				}
+				case 4:
+				{
+					j = 0;		// j is the number of spaces before the name starts
+					pos1 = 0;
+					pos2 = 0;
+					for (int i = 0; i < name.length(); i++)
+					{
+						if (name[i] == '_')
+						{
+							j++;
+							if (j == 3)
+							{
+								pos1 = i;
+							}
+							if (j == 4)
+							{
+								pos2 = i;
+								break;
+							}
+						}
+					}
+					name = name.substr(pos1 + 1, pos2 - pos1 - 1);
+				}
+				default:
+					break;
+			}
+			return;
+		}
+		else if (name.find("Monster") != std::string::npos)
+		{
+			int  j = 0;     //number of underscores in the name
+			int pos1 = 0;	//position of the first underscore in the name
+			int pos2 = 0;   //position of the second underscore in the name
+			for (int i = 0; i < name.length(); i++)
+			{
+				if (name[i] == '_')
+				{
+					j++;
+					if (j == 3)
+					{
+						pos1 = i;
+					}
+					if (j == 4)
+					{
+						pos2 = i;
+						break;
+					}
+				}
+			}
+			name = name.substr(pos1 + 1, pos2 - pos1 - 1);
+		}
 		else
 		{
 			int  j = 0;     //number of underscores in the name
@@ -316,12 +407,14 @@ namespace cheat::feature
 
 					if (entry.m_Name == "Npc" || "AvatarOwn" || "AvatarTeammate")
 					{
-						auto name = entity->name();
-						GetNpcName(name);
-						esp::render::DrawEntity(name, entity, entry.m_Color, entry.m_ContrastColor);
-						break;
+						if (entity->type() == app::EntityType__Enum_1::Avatar || entity->type() == app::EntityType__Enum_1::NPC)
+						{
+							std::string name = entity->name();
+							GetNpcName(name);
+							esp::render::DrawEntity(name, entity, entry.m_Color, entry.m_ContrastColor);
+							break;
+						}
 					}
-
 					esp::render::DrawEntity(entry.m_Name, entity, entry.m_Color, entry.m_ContrastColor);
 					break;
 				}
