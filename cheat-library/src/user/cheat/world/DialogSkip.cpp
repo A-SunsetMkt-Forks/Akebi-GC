@@ -85,6 +85,8 @@ namespace cheat::feature
 
         if (f_FastDialog)
             app::Time_set_timeScale(f_TimeSpeedup, nullptr);
+        else
+            app::Time_set_timeScale(1.0f, nullptr);
 
         bool isImportant = false;
         if (f_ExcludeImportant)
