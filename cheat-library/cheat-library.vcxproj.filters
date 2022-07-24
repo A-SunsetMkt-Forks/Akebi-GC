@@ -2382,5 +2382,119 @@
     <Image Include="res\icons\SangonomiyaCohort.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\iconsHD\SumeruRose.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Tukan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Viparyas.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ZaytunPeach.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Eremite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HarraFruit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\JadeplumeTerrorshroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KalpalataLotus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\NilotpalaLotus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Padisarah.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RukkhashavaMushrooms.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Tukan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Viparyas.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ZaytunPeach.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Eremite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\HarraFruit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\JadeplumeTerrorshroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\KalpalataLotus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\NilotpalaLotus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Padisarah.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\RukkhashavaMushrooms.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SumeruRose.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WhirlingFungus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WingedShroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\GroundedShroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\StretchyFungus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\WhirlingFungus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\WingedShroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\GroundedShroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\StretchyFungus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\OceanidSummons.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RishbolandTiger.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ShaggySumpterBeast.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Spincrocodile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\OceanidSummons.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\RishbolandTiger.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ShaggySumpterBeast.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Spincrocodile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
