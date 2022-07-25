@@ -319,6 +319,8 @@ DO_APP_FUNC(0x057E4470, void, Cursor_set_visible, (bool value, MethodInfo* metho
 DO_APP_FUNC(0x057E4460, void, Cursor_set_lockState, (CursorLockMode__Enum value, MethodInfo* method));
 DO_APP_FUNC(0x057E4450, bool, Cursor_get_visible, (MethodInfo* method));
 
+DO_APP_FUNC(0x0571E7C0, RigidbodyConstraints__Enum, Rigidbody_get_constraints, (Rigidbody* __this, MethodInfo* method));
+DO_APP_FUNC(0x0571E990, void, Rigidbody_set_constraints, (Rigidbody* __this, RigidbodyConstraints__Enum value, MethodInfo* method));
 DO_APP_FUNC(0x0571E980, void, Rigidbody_set_collisionDetectionMode, (Rigidbody* __this, CollisionDetectionMode__Enum value, MethodInfo* method));
 DO_APP_FUNC(0x0571E9A0, void, Rigidbody_set_detectCollisions, (Rigidbody* __this, bool value, MethodInfo* method));
 DO_APP_FUNC(0x0571E9E0, void, Rigidbody_set_isKinematic, (Rigidbody* __this, bool value, MethodInfo* method));

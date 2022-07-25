@@ -7,7 +7,7 @@
 #include <cheat/game/EntityManager.h>
 #include <cheat/game/filters.h>
 
-namespace cheat::feature 
+namespace cheat::feature
 {
 
     FreezeEnemies::FreezeEnemies() : Feature(),
@@ -28,12 +28,12 @@ namespace cheat::feature
     }
 
     bool FreezeEnemies::NeedStatusDraw() const
-{
+    {
         return f_Enabled;
     }
 
-    void FreezeEnemies::DrawStatus() 
-    { 
+    void FreezeEnemies::DrawStatus()
+    {
         ImGui::Text("Freeze Enemies");
     }
 
@@ -43,18 +43,31 @@ namespace cheat::feature
         return instance;
     }
 
-	void FreezeEnemies::OnGameUpdate()
-	{
+    // Taiga#5555: There's probably be a better way of implementing this. But for now, this is just what I came up with.
+    void FreezeEnemies::OnGameUpdate()
+    {
         auto& manager = game::EntityManager::instance();
 
         for (const auto& monster : manager.entities(game::filters::combined::Monsters))
         {
             auto animator = monster->animator();
-            if (animator == nullptr)
+            auto rigidBody = monster->rigidbody();
+            if (animator == nullptr && rigidBody == nullptr)
                 return;
 
-            f_Enabled ? app::Animator_set_speed(animator, 0.f, nullptr) : app::Animator_set_speed(animator, 1.f, nullptr);
+            if (f_Enabled)
+            {
+                //auto constraints = app::Rigidbody_get_constraints(rigidBody, nullptr);
+                //LOG_DEBUG("%s", magic_enum::enum_name(constraints).data());
+                app::Rigidbody_set_constraints(rigidBody, app::RigidbodyConstraints__Enum::FreezeAll, nullptr);
+                app::Animator_set_speed(animator, 0.f, nullptr);
+            }
+            else
+            {
+                app::Rigidbody_set_constraints(rigidBody, app::RigidbodyConstraints__Enum::FreezeRotation, nullptr);
+                app::Animator_set_speed(animator, 1.f, nullptr);
+            }
         }
-	}
+    }
 }
 

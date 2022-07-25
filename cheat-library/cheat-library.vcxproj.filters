@@ -213,7 +213,7 @@
     <ClInclude Include="src\user\cheat\visuals\Browser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h">
+    <ClInclude Include="src\user\cheat\visuals\EnablePeeking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h">
@@ -420,7 +420,7 @@
     <ClCompile Include="src\user\cheat\visuals\Browser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp">
+    <ClCompile Include="src\user\cheat\visuals\EnablePeeking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp">

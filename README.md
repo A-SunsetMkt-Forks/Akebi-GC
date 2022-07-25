@@ -58,7 +58,7 @@ As well as setting up **`cheat-library`** as startup project.
 #### Player
 - Invincible
 - Attack Modifier
-- No Cooldown Skill/Ultimate/Sprint
+- No Cooldown Skill/Ultimate/Sprint/Bow
 - Unlimited Stamina
 - No Clip
 
@@ -66,6 +66,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Auto Seelie
 - Vacuum Loot
 - Dumb Enemies
+- Freeze Enemies
 - Auto Destroy Objects
 - Auto Loot
 - Pickup Range
@@ -92,7 +93,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Chest Indicator
 - Hide UI
 - In-game Embedded Browser
-- Enable Peaking
+- Enable Peeking
 - Profile Changer
 - Free Camera
 - Texture Changer
@@ -135,9 +136,9 @@ As well as setting up **`cheat-library`** as startup project.
 <h1 align="center">Bugs</h1>
 Welcome to the short explanation for bug reporting
 
-1. You Found a bug.
-1. write down what happened, as well as your first thoughts on what you think caused it.
-1. can it be reproduced? Yes or no. If yes: Explain in as much clear as possible. i.e what happens when the bug occurs and why it occurs. 
+1. You found a bug.
+1. Write down what happened, as well as your first thoughts on what you think caused it.
+1. Can it be reproduced? Yes or no. If yes: Explain in as much clear as possible. i.e what happens when the bug occurs and why it occurs. 
 1. Tell us which version you are using. copy the `SHA`/ Version Number of the latest commit when you built the mod. For example: `bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
 
 ## Bug reporting template

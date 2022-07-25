@@ -51,7 +51,7 @@
 #include <cheat/visuals/PaimonFollow.h>
 #include <cheat/visuals/HideUI.h>
 #include <cheat/visuals/Browser.h>
-#include <cheat/visuals/EnablePeaking.h>
+#include <cheat/visuals/EnablePeeking.h>
 #include <cheat/visuals/TextureChanger.h>
 #include <cheat/visuals/FreeCamera.h>
 
@@ -117,7 +117,7 @@ namespace cheat
 			FEAT_INST(PaimonFollow),
 			FEAT_INST(HideUI),
 			FEAT_INST(Browser),
-			FEAT_INST(EnablePeaking),
+			FEAT_INST(EnablePeeking),
 			FEAT_INST(TextureChanger),
 			FEAT_INST(FreeCamera)
 			

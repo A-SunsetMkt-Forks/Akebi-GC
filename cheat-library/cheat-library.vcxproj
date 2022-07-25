@@ -34,7 +34,7 @@
     <ClInclude Include="src\user\cheat\teleport\CustomTeleports.h" />
     <ClInclude Include="src\user\cheat\visuals\Browser.h" />
     <ClInclude Include="src\user\cheat\visuals\CameraZoom.h" />
-    <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h" />
+    <ClInclude Include="src\user\cheat\visuals\EnablePeeking.h" />
     <ClInclude Include="src\user\cheat\visuals\FPSUnlock.h" />
     <ClInclude Include="src\user\cheat\visuals\HideUI.h" />
     <ClInclude Include="src\user\cheat\visuals\NoFog.h" />
@@ -125,7 +125,7 @@
     <ClCompile Include="src\user\cheat\GenshinCM.cpp" />
     <ClCompile Include="src\user\cheat\visuals\Browser.cpp" />
     <ClCompile Include="src\user\cheat\visuals\CameraZoom.cpp" />
-    <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp" />
+    <ClCompile Include="src\user\cheat\visuals\EnablePeeking.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FPSUnlock.cpp" />
     <ClCompile Include="src\user\cheat\visuals\HideUI.cpp" />
     <ClCompile Include="src\user\cheat\visuals\NoFog.cpp" />
