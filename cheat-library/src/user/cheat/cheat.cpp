@@ -22,6 +22,7 @@
 #include <cheat/world/AutoLoot.h>
 #include <cheat/world/DialogSkip.h>
 #include <cheat/world/DumbEnemies.h>
+#include <cheat/world/FreezeEnemies.h>
 #include <cheat/world/ElementalSight.h>
 #include <cheat/world/KillAura.h>
 #include <cheat/world/MobVacuum.h>
@@ -50,7 +51,7 @@
 #include <cheat/visuals/PaimonFollow.h>
 #include <cheat/visuals/HideUI.h>
 #include <cheat/visuals/Browser.h>
-#include <cheat/visuals/EnablePeaking.h>
+#include <cheat/visuals/EnablePeeking.h>
 #include <cheat/visuals/TextureChanger.h>
 #include <cheat/visuals/FreeCamera.h>
 
@@ -91,6 +92,7 @@ namespace cheat
 			FEAT_INST(VacuumLoot),
 			FEAT_INST(DialogSkip),
 			FEAT_INST(DumbEnemies),
+			FEAT_INST(FreezeEnemies),
 			FEAT_INST(ElementalSight),
 			FEAT_INST(KillAura),
 			FEAT_INST(MobVacuum),
@@ -115,7 +117,7 @@ namespace cheat
 			FEAT_INST(PaimonFollow),
 			FEAT_INST(HideUI),
 			FEAT_INST(Browser),
-			FEAT_INST(EnablePeaking),
+			FEAT_INST(EnablePeeking),
 			FEAT_INST(TextureChanger),
 			FEAT_INST(FreeCamera)
 			

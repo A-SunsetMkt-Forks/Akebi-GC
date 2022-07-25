@@ -205,6 +205,18 @@ namespace cheat::game
 		SAFE_END();
 	}
 
+	app::Animator* Entity::animator()
+	{
+		if (!isLoaded())
+			return nullptr;
+
+		SAFE_BEGIN();
+		return app::MoleMole_BaseEntity_get_animator(m_RawEntity, nullptr);
+		SAFE_ERROR();
+		return nullptr;
+		SAFE_END();
+	}
+
 	app::GameObject* Entity::gameObject()
 	{
 		if (!isLoaded())

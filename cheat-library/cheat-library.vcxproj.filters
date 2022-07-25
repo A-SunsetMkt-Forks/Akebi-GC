@@ -213,7 +213,7 @@
     <ClInclude Include="src\user\cheat\visuals\Browser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h">
+    <ClInclude Include="src\user\cheat\visuals\EnablePeeking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h">
@@ -244,6 +244,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\user\cheat\player\AutoRun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\user\cheat\world\FreezeEnemies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -417,7 +420,7 @@
     <ClCompile Include="src\user\cheat\visuals\Browser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp">
+    <ClCompile Include="src\user\cheat\visuals\EnablePeeking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp">
@@ -448,6 +451,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\user\cheat\player\AutoRun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user\cheat\world\FreezeEnemies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

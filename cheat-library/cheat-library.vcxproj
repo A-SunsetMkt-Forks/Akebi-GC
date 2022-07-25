@@ -34,7 +34,7 @@
     <ClInclude Include="src\user\cheat\teleport\CustomTeleports.h" />
     <ClInclude Include="src\user\cheat\visuals\Browser.h" />
     <ClInclude Include="src\user\cheat\visuals\CameraZoom.h" />
-    <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h" />
+    <ClInclude Include="src\user\cheat\visuals\EnablePeeking.h" />
     <ClInclude Include="src\user\cheat\visuals\FPSUnlock.h" />
     <ClInclude Include="src\user\cheat\visuals\HideUI.h" />
     <ClInclude Include="src\user\cheat\visuals\NoFog.h" />
@@ -95,6 +95,7 @@
     <ClInclude Include="src\user\cheat\world\AutoTreeFarm.h" />
     <ClInclude Include="src\user\cheat\world\DialogSkip.h" />
     <ClInclude Include="src\user\cheat\world\DumbEnemies.h" />
+    <ClInclude Include="src\user\cheat\world\FreezeEnemies.h" />
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
     <ClInclude Include="src\user\cheat\world\VacuumLoot.h" />
@@ -124,7 +125,7 @@
     <ClCompile Include="src\user\cheat\GenshinCM.cpp" />
     <ClCompile Include="src\user\cheat\visuals\Browser.cpp" />
     <ClCompile Include="src\user\cheat\visuals\CameraZoom.cpp" />
-    <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp" />
+    <ClCompile Include="src\user\cheat\visuals\EnablePeeking.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FPSUnlock.cpp" />
     <ClCompile Include="src\user\cheat\visuals\HideUI.cpp" />
     <ClCompile Include="src\user\cheat\visuals\NoFog.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="src\user\cheat\world\AutoTreeFarm.cpp" />
     <ClCompile Include="src\user\cheat\world\DialogSkip.cpp" />
     <ClCompile Include="src\user\cheat\world\DumbEnemies.cpp" />
+    <ClCompile Include="src\user\cheat\world\FreezeEnemies.cpp" />
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
     <ClCompile Include="src\user\cheat\world\VacuumLoot.cpp" />
