@@ -139,8 +139,12 @@ namespace cheat::feature
 		auto rigidBody = avatarEntity->rigidbody();
 		if (rigidBody == nullptr)
 			return;
+
 		if (!f_FreeflightMode)
+		{
+			app::Rigidbody_set_collisionDetectionMode(rigidBody, app::CollisionDetectionMode__Enum::Continuous, nullptr);
 			app::Rigidbody_set_detectCollisions(rigidBody, false, nullptr);
+		}
 
 		if (!f_VelocityMode)
 			app::Rigidbody_set_velocity(rigidBody, zero, nullptr);
