@@ -284,7 +284,6 @@ namespace cheat::game::filters
 		extern SimpleFilter BakeDanuki;
 		extern SimpleFilter BloattyFloatty;
 		extern WhitelistFilter CubeDevices;
-
 		extern SimpleFilter EightStoneTablets;
 		extern SimpleFilter ElectricConduction;
 		extern SimpleFilter RelayStone;
@@ -313,6 +312,11 @@ namespace cheat::game::filters
 		extern SimpleFilter UniqueRocks;
 		extern SimpleFilter WarmingSeelie;
 		extern SimpleFilter WindmillMechanism;
+		extern WhitelistFilter MelodicBloom;
+		extern SimpleFilter CloudleisureSteps;
+		extern WhitelistFilter DreamForm;
+		extern SimpleFilter StarlightCoalescence;
+		extern SimpleFilter TheRavenForum;
 	}
 
 	namespace combined

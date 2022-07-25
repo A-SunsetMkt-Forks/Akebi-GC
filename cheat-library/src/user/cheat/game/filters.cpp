@@ -313,6 +313,12 @@ namespace cheat::game::filters
 		SimpleFilter UniqueRocks = { EntityType__Enum_1::Gadget, "_Chalcedony" };
 		SimpleFilter WarmingSeelie = { EntityType__Enum_1::Platform, "_FireSeelie" };
 		SimpleFilter WindmillMechanism = { EntityType__Enum_1::Gear, "Gear_Windmill" };
+		WhitelistFilter MelodicBloom = { {EntityType__Enum_1::Worktop, EntityType__Enum_1::Gadget }, {"_TransferFlowerSmall", "_NotePlant" } };
+		SimpleFilter CloudleisureSteps = { EntityType__Enum_1::Gadget, "_CloudPlatforml" };
+		WhitelistFilter DreamForm = { {EntityType__Enum_1::Field, EntityType__Enum_1::Platform }, "_AnimalSeelie" };
+		SimpleFilter StarlightCoalescence = { EntityType__Enum_1::Field, "_PaperStar" };
+		SimpleFilter TheRavenForum = { EntityType__Enum_1::Gadget, "_NightCrowStatue" };
+
 	}
 
 	namespace combined
