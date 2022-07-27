@@ -51,9 +51,8 @@ DO_APP_FUNC(0x026F0820, bool, MoleMole_LCAvatarCombat_IsEnergyMax, (void* __this
 DO_APP_FUNC(0x026F0500, void, MoleMole_LCAvatarCombat_ChangeEnergy_1, (LCAvatarCombat* __this, ElementType__Enum type, float value, DataPropOp__Enum state, MethodInfo* method));
 DO_APP_FUNC(0x026F13C0, bool, MoleMole_LCAvatarCombat_OnSkillStart, (LCAvatarCombat* __this, uint32_t skillID, float cdMultipler, MethodInfo* method));
 DO_APP_FUNC(0x026F54A0, bool, MoleMole_LCAvatarCombat_IsSkillInCD_1, (LCAvatarCombat* __this, LCAvatarCombat_LCAvatarCombat_SkillInfo* skillInfo, MethodInfo* method));
-
-DO_APP_FUNC(0x02DB4680, void, MoleMole_ActorAbilityPlugin_AddDynamicFloatWithRange, (void* __this, String* key, float value, float min, float max, bool forceDoAtRemote, MethodInfo* method));
-
+DO_APP_FUNC(0x02DB4680, void, MoleMole_ActorAbilityPlugin_AddDynamicFloatWithRange, (MoleMole_ActorAbilityPlugin* __this, String* key, float value, float min, float max, bool forceDoAtRemote, MethodInfo* method));
+  
 // Rapid fire
 DO_APP_FUNC(0x017B1D50, void, MoleMole_LCBaseCombat_DoHitEntity, (LCBaseCombat* __this, uint32_t targetID, AttackResult* attackResult, bool ignoreCheckCanBeHitInMP, MethodInfo* method));
 DO_APP_FUNC(0x019DDF40, void, MoleMole_Formula_CalcAttackResult, (CombatProperty* attackCombatProperty, CombatProperty* defenseCombatProperty, AttackResult* attackResult, BaseEntity* attackerEntity, BaseEntity* attackeeEntity, MethodInfo* method));
@@ -250,6 +249,7 @@ DO_APP_FUNC(0x0596AFF0, LCBaseCombat*, MoleMole_BaseEntity_GetLogicCombatCompone
 DO_APP_FUNC_METHODINFO(0x099D4410, MoleMole_BaseEntity_GetLogicCombatComponent_1__MethodInfo);
 
 DO_APP_FUNC(0x031ACE30, String*, MoleMole_BaseEntity_ToStringRelease, (BaseEntity* __this, MethodInfo* method));
+
 DO_APP_FUNC(0x03180C10, void, MoleMole_BaseEntity_SetRelativePosition, (BaseEntity* __this, Vector3 position, bool forceSyncToRigidbody, MethodInfo* method));
 DO_APP_FUNC(0x0319D8B0, void, MoleMole_BaseEntity_SetAbsolutePosition, (BaseEntity* __this, Vector3 abpos, bool forceSyncToRigidbody, MethodInfo* method));
 DO_APP_FUNC(0x031AA160, Vector3, MoleMole_BaseEntity_GetAbsolutePosition, (BaseEntity* __this, MethodInfo* method));
