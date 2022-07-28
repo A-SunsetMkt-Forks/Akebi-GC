@@ -221,7 +221,8 @@ namespace cheat::game::filters
 		SimpleFilter JadeplumeTerrorshroom = { EntityType__Enum_1::Monster, "Fungus_Raptor" };
 		SimpleFilter RishbolandTiger = { EntityType__Enum_1::Monster, "_Megamoth_" };
 		SimpleFilter ShaggySumpterBeast = { EntityType__Enum_1::Monster, "_Panther" };
-		SimpleFilter Spincrocodile = { EntityType__Enum_1::Monster, "_Gator" };
+		SimpleFilter Spincrocodile = { EntityType__Enum_1::Monster, "_Gator" };	
+		SimpleFilter SentryTurrets = { EntityType__Enum_1::Field, "SentryTurrets_" };
 	}
 
 	namespace plant
