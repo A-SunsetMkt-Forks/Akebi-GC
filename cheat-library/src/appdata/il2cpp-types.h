@@ -11975,6 +11975,29 @@ namespace app {
         struct Avatar__Fields fields;
     };
 
+    struct MoleMole_ActorAbilityPlugin__Fields {
+        struct BaseComponentPlugin__Fields _;
+        struct Action_3_MoleMole_BaseEntity_MoleMole_Config_AddGlobalValue_MoleMole_ActorAbility_* _addGlobalValueHandlerClosureDelegate;
+        struct Action_3_MoleMole_BaseEntity_MoleMole_Config_SetGlobalValue_MoleMole_ActorAbility_* _setGlobalValueHandlerClosureDelegate;
+        struct Action_3_MoleMole_BaseEntity_MoleMole_Config_MultiplyGlobalValue_MoleMole_ActorAbility_* _multiplyGlobalValueHandlerClosureDelegate;
+        struct Action_4_MoleMole_BaseEntity_MoleMole_Config_MultiplyGlobalValue_MoleMole_ActorAbility_Single_* MEEAPCINNBE;
+        struct Action_4_MoleMole_BaseEntity_String_Single_CPKJHKOJDIF_* LLAIOCNHNPM;
+        struct List_1_MoleMole_MonoEffectProxyHandle_* _effectProxyListCache;
+        struct List_1_MoleMole_MonoEffectProxyHandle_* _effectProxyListCacheForChangFollowDampTime;
+        struct List_1_UnityEngine_Vector3_* _pushedPosList;
+        struct MoleMole_LCAbility* _owner;
+        struct List_1_MoleMole_ActorAbility_* _appliedAbilities;
+        struct Dictionary_2_System_UInt32_System_Int32_* _appliedAbilitiesIndex;
+        struct Dictionary_2_System_String_MoleMole_ActorAbility_* CKDBIBGCPOB;
+        uint32_t nextValidAbilityID;
+    };
+
+    struct MoleMole_ActorAbilityPlugin {
+        struct MoleMole_ActorAbilityPlugin__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_ActorAbilityPlugin__Fields fields;
+    };
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif

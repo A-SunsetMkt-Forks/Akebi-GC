@@ -220,7 +220,8 @@ namespace cheat::game::filters
 		extern SimpleFilter Beisht;
 		extern SimpleFilter RishbolandTiger;
 		extern SimpleFilter ShaggySumpterBeast;
-		extern SimpleFilter Spincrocodile;
+		extern SimpleFilter Spincrocodile; 
+		extern SimpleFilter SentryTurrets;
 	}
 
 	namespace plant
@@ -337,5 +338,6 @@ namespace cheat::game::filters
 		extern SimpleFilter MonsterEquips;
 		extern BlacklistFilter Living;
 		extern SimpleFilter OrganicTargets;
+		extern SimpleFilter Lightning;
 	}
 }
