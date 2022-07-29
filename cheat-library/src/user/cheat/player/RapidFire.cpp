@@ -186,12 +186,13 @@ namespace cheat::feature
 	bool IsValidByFilter(game::Entity* entity)
 	{
 		if (game::filters::combined::OrganicTargets.IsValid(entity) ||
+			game::filters::monster::SentryTurrets.IsValid(entity) ||
 			game::filters::combined::Ores.IsValid(entity) ||
 			game::filters::puzzle::Geogranum.IsValid(entity) ||
 			game::filters::puzzle::LargeRockPile.IsValid(entity) ||
 			game::filters::puzzle::SmallRockPile.IsValid(entity))
 			return true;
-		return false;
+		return false;		 
 	}
 
 	// Raises when any entity do hit event.
@@ -207,6 +208,7 @@ namespace cheat::feature
 
 		auto& manager = game::EntityManager::instance();
 		auto originalTarget = manager.entity(targetID);
+
 		if (!IsValidByFilter(originalTarget))
 			return CALL_ORIGIN(LCBaseCombat_DoHitEntity_Hook, __this, targetID, attackResult, ignoreCheckCanBeHitInMP, method);
 
@@ -236,6 +238,7 @@ namespace cheat::feature
 		}
 
 		for (const auto& entity : validEntities) {
+
 			if (rapidFire.f_MultiHit) {
 				int attackCount = rapidFire.GetAttackCount(__this, entity->runtimeID(), attackResult);
 				for (int i = 0; i < attackCount; i++)

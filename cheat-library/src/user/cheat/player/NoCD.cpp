@@ -11,14 +11,14 @@ namespace cheat::feature
 	static bool LCAvatarCombat_OnSkillStart(app::LCAvatarCombat* __this, uint32_t skillID, float cdMultipler, MethodInfo* method);
 	static bool LCAvatarCombat_IsSkillInCD_1(app::LCAvatarCombat* __this, app::LCAvatarCombat_LCAvatarCombat_SkillInfo* skillInfo, MethodInfo* method);
 
-	static void ActorAbilityPlugin_AddDynamicFloatWithRange_Hook(void* __this, app::String* key, float value, float minValue, float maxValue,
+	static void ActorAbilityPlugin_AddDynamicFloatWithRange_Hook(app::MoleMole_ActorAbilityPlugin* __this, app::String* key, float value, float minValue, float maxValue,
 		bool forceDoAtRemote, MethodInfo* method);
 	 
 	static std::list<std::string> abilityLog;
 
     NoCD::NoCD() : Feature(),
         NF(f_AbilityReduce,      "Reduce Skill/Burst Cooldown",  "NoCD", false),
-		NF(f_TimerReduce, "Reduce Timer",        "NoCD", 1.f),
+		NF(f_TimerReduce,		 "Reduce Timer",                 "NoCD", 1.f),
 		NF(f_UtimateMaxEnergy,   "Burst max energy",             "NoCD", false),
         NF(f_Sprint,             "No Sprint Cooldown",           "NoCD", false),
 		NF(f_InstantBow,         "Instant bow",                  "NoCD", false)
@@ -28,6 +28,7 @@ namespace cheat::feature
 
 		HookManager::install(app::MoleMole_HumanoidMoveFSM_CheckSprintCooldown, HumanoidMoveFSM_CheckSprintCooldown_Hook);
 		HookManager::install(app::MoleMole_ActorAbilityPlugin_AddDynamicFloatWithRange, ActorAbilityPlugin_AddDynamicFloatWithRange_Hook);
+		 
     }
 
     const FeatureGUIInfo& NoCD::GetGUIInfo() const
@@ -153,21 +154,26 @@ namespace cheat::feature
 	// value - increase value
 	// min and max - bounds of charge.
 	// So, to charge make full charge m_Instantly, just replace value to maxValue.
-	static void ActorAbilityPlugin_AddDynamicFloatWithRange_Hook(void* __this, app::String* key, float value, float minValue, float maxValue,
+	static void ActorAbilityPlugin_AddDynamicFloatWithRange_Hook(app::MoleMole_ActorAbilityPlugin* __this, app::String* key, float value, float minValue, float maxValue,
 		bool forceDoAtRemote, MethodInfo* method)
 	{
 		std::time_t t = std::time(nullptr);
-		auto logEntry = fmt::format("{:%H:%M:%S} | Key: {} value {}.", fmt::localtime(t), il2cppi_to_string(key), value);
+		auto logEntry = fmt::format("{:%H:%M:%S} | Key: {} value: {} | min: {} | max: {}.", fmt::localtime(t), il2cppi_to_string(key), value, minValue, maxValue);
 		abilityLog.push_front(logEntry);
 		if (abilityLog.size() > 50)
 			abilityLog.pop_back();
-
+		 
 		NoCD& noCD = NoCD::GetInstance();
 		// This function is calling not only for bows, so if don't put key filter it cause various game mechanic bugs.
 		// For now only "_Enchanted_Time" found for bow charging, maybe there are more. Need to continue research.
 		if (noCD.f_InstantBow && il2cppi_to_string(key) == "_Enchanted_Time")
+		{
 			value = maxValue;
+			__this->fields.nextValidAbilityID = 36; // HotFix Yelan, Fishl | It's essentially a game bug. | RyujinZX#7832
+		}
+			
 		CALL_ORIGIN(ActorAbilityPlugin_AddDynamicFloatWithRange_Hook, __this, key, value, minValue, maxValue, forceDoAtRemote, method);
 	}
+ 
 }
 

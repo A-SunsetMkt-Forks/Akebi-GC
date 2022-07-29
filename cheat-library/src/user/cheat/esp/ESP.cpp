@@ -822,6 +822,11 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, UniqueRocks);
 		ADD_FILTER_FIELD(puzzle, WarmingSeelie);
 		ADD_FILTER_FIELD(puzzle, WindmillMechanism);
+		ADD_FILTER_FIELD(puzzle, MelodicBloom);
+		ADD_FILTER_FIELD(puzzle, CloudleisureSteps);
+		ADD_FILTER_FIELD(puzzle, DreamForm);
+		ADD_FILTER_FIELD(puzzle, StarlightCoalescence);
+		ADD_FILTER_FIELD(puzzle, TheRavenForum);
 	}
 #undef ADD_FILTER_FIELD
 }

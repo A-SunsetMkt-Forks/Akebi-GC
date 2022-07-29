@@ -768,6 +768,16 @@ HDYUMEMIRUWOOD          PNG                     "iconsHD\\YumemiruWood.png"
 
 HDZAYTUNPEACH           PNG                     "iconsHD\\ZaytunPeach.png"
 
+HDMELODICBLOOM          PNG                     "iconsHD\\MelodicBloom.png"
+
+HDCLOUDLEISURESTEPS     PNG                     "iconsHD\\CloudleisureSteps.png"
+
+HDDREAMFORM             PNG                     "iconsHD\\DreamForm.png"
+
+HDSTARLIGHTCOALESCENCE  PNG                     "iconsHD\\StarlightCoalescence.png"
+
+HDTHERAVENFORUM         PNG                     "iconsHD\\TheRavenForum.png"
+
 ABIDINGANGELFISH        PNG                     "icons\\AbidingAngelfish.png"
 
 ABYSSMAGE               PNG                     "icons\\AbyssMage.png"
@@ -1470,6 +1480,15 @@ YUMEMIRUWOOD            PNG                     "icons\\YumemiruWood.png"
 
 ZAYTUNPEACH             PNG                     "icons\\ZaytunPeach.png"
 
+MELODICBLOOM            PNG                     "icons\\MelodicBloom.png"
+
+CLOUDLEISURESTEPS       PNG                     "icons\\CloudleisureSteps.png"
+
+DREAMFORM               PNG                     "icons\\DreamForm.png"
+
+STARLIGHTCOALESCENCE    PNG                     "icons\\StarlightCoalescence.png"
+
+THERAVENFORUM           PNG                     "icons\\TheRavenForum.png"
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////

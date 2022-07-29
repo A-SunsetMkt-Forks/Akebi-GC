@@ -220,7 +220,8 @@ namespace cheat::game::filters
 		extern SimpleFilter Beisht;
 		extern SimpleFilter RishbolandTiger;
 		extern SimpleFilter ShaggySumpterBeast;
-		extern SimpleFilter Spincrocodile;
+		extern SimpleFilter Spincrocodile; 
+		extern SimpleFilter SentryTurrets;
 	}
 
 	namespace plant
@@ -284,7 +285,6 @@ namespace cheat::game::filters
 		extern SimpleFilter BakeDanuki;
 		extern SimpleFilter BloattyFloatty;
 		extern WhitelistFilter CubeDevices;
-
 		extern SimpleFilter EightStoneTablets;
 		extern SimpleFilter ElectricConduction;
 		extern SimpleFilter RelayStone;
@@ -313,6 +313,11 @@ namespace cheat::game::filters
 		extern SimpleFilter UniqueRocks;
 		extern SimpleFilter WarmingSeelie;
 		extern SimpleFilter WindmillMechanism;
+		extern WhitelistFilter MelodicBloom;
+		extern SimpleFilter CloudleisureSteps;
+		extern WhitelistFilter DreamForm;
+		extern SimpleFilter StarlightCoalescence;
+		extern SimpleFilter TheRavenForum;
 	}
 
 	namespace combined
@@ -333,5 +338,6 @@ namespace cheat::game::filters
 		extern SimpleFilter MonsterEquips;
 		extern BlacklistFilter Living;
 		extern SimpleFilter OrganicTargets;
+		extern SimpleFilter Lightning;
 	}
 }

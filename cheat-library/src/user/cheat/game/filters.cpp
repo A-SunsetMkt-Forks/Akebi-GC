@@ -221,7 +221,8 @@ namespace cheat::game::filters
 		SimpleFilter JadeplumeTerrorshroom = { EntityType__Enum_1::Monster, "Fungus_Raptor" };
 		SimpleFilter RishbolandTiger = { EntityType__Enum_1::Monster, "_Megamoth_" };
 		SimpleFilter ShaggySumpterBeast = { EntityType__Enum_1::Monster, "_Panther" };
-		SimpleFilter Spincrocodile = { EntityType__Enum_1::Monster, "_Gator" };
+		SimpleFilter Spincrocodile = { EntityType__Enum_1::Monster, "_Gator" };	
+		SimpleFilter SentryTurrets = { EntityType__Enum_1::Field, "SentryTurrets_" };
 	}
 
 	namespace plant
@@ -313,6 +314,12 @@ namespace cheat::game::filters
 		SimpleFilter UniqueRocks = { EntityType__Enum_1::Gadget, "_Chalcedony" };
 		SimpleFilter WarmingSeelie = { EntityType__Enum_1::Platform, "_FireSeelie" };
 		SimpleFilter WindmillMechanism = { EntityType__Enum_1::Gear, "Gear_Windmill" };
+		WhitelistFilter MelodicBloom = { {EntityType__Enum_1::Worktop, EntityType__Enum_1::Gadget }, {"_TransferFlowerSmall", "_NotePlant" } };
+		SimpleFilter CloudleisureSteps = { EntityType__Enum_1::Field, "_CloudPlatform" };
+		WhitelistFilter DreamForm = { {EntityType__Enum_1::Field, EntityType__Enum_1::Platform }, "_AnimalSeelie" };
+		SimpleFilter StarlightCoalescence = { EntityType__Enum_1::Field, "_PaperStar" };
+		SimpleFilter TheRavenForum = { EntityType__Enum_1::Gadget, "_NightCrowStatue" };
+
 	}
 
 	namespace combined
@@ -523,5 +530,7 @@ namespace cheat::game::filters
 		SimpleFilter OrganicTargets = { Monsters, Animals }; // Solael: Please don't mess around with this filter.
 		//m0nkrel: We can choose the entities we need ourselves so as not to magnetize cats, dogs, etc.
 		//AdvancedFilter Animals = { {EntityType__Enum_1::EnvAnimal, EntityType__Enum_1::Monster }, {"Crane", "Tit", "Boar", "Squirrel", "Fox", "Pigeon", "Wigeon", "Falcon" ,"Marten" } };
+
+		SimpleFilter Lightning = { EntityType__Enum_1::Lightning };
 	}
 }
