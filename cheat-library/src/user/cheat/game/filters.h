@@ -32,6 +32,8 @@ namespace cheat::game::filters
 		extern ChestFilter SFrozen;
 		extern ChestFilter SBramble;
 		extern ChestFilter STrap;
+
+		extern SimpleFilter BuriedChest;
 	}
 
 	namespace equipment
@@ -220,7 +222,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Beisht;
 		extern SimpleFilter RishbolandTiger;
 		extern SimpleFilter ShaggySumpterBeast;
-		extern SimpleFilter Spincrocodile; 
+		extern SimpleFilter Spincrocodile;
 		extern SimpleFilter SentryTurrets;
 	}
 
