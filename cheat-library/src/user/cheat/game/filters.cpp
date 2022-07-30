@@ -347,6 +347,13 @@ namespace cheat::game::filters
 			mineral::Starsilver,
 			mineral::WhiteIronChunk
 		};
+		SimpleFilter PlantDestroy = {
+			//plant::SakuraBloom,
+			plant::DandelionSeed,
+			plant::MistFlowerCorolla,
+			plant::FlamingFlowerStamen
+		};
+
 		WhitelistFilter Doodads = {
 			EntityType__Enum_1::Gadget,
 			{
