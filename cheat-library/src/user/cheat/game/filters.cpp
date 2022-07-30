@@ -221,7 +221,8 @@ namespace cheat::game::filters
 		SimpleFilter JadeplumeTerrorshroom = { EntityType__Enum_1::Monster, "Fungus_Raptor" };
 		SimpleFilter RishbolandTiger = { EntityType__Enum_1::Monster, "_Megamoth_" };
 		SimpleFilter ShaggySumpterBeast = { EntityType__Enum_1::Monster, "_Panther" };
-		SimpleFilter Spincrocodile = { EntityType__Enum_1::Monster, "_Gator" };
+		SimpleFilter Spincrocodile = { EntityType__Enum_1::Monster, "_Gator" };	
+		SimpleFilter SentryTurrets = { EntityType__Enum_1::Field, "SentryTurrets_" };
 	}
 
 	namespace plant
@@ -529,5 +530,7 @@ namespace cheat::game::filters
 		SimpleFilter OrganicTargets = { Monsters, Animals }; // Solael: Please don't mess around with this filter.
 		//m0nkrel: We can choose the entities we need ourselves so as not to magnetize cats, dogs, etc.
 		//AdvancedFilter Animals = { {EntityType__Enum_1::EnvAnimal, EntityType__Enum_1::Monster }, {"Crane", "Tit", "Boar", "Squirrel", "Fox", "Pigeon", "Wigeon", "Falcon" ,"Marten" } };
+
+		SimpleFilter Lightning = { EntityType__Enum_1::Lightning };
 	}
 }
