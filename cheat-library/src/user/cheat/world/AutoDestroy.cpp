@@ -85,8 +85,8 @@ namespace cheat::feature
 		if (autoDestroy.f_Enabled && 
 			autoDestroy.f_Range > manager.avatar()->distance(entity) &&
 			(
-				(autoDestroy.f_DestroyOres && game::filters::combined::Ores.IsValid(manager.entity(entity))) || 
-				(autoDestroy.f_DestroyDoodads && game::filters::combined::Doodads.IsValid(manager.entity(entity))) ||
+				(autoDestroy.f_DestroyOres && game::filters::combined::Ores.IsValid(manager.entity(entity))) ||
+				(autoDestroy.f_DestroyDoodads && (game::filters::combined::Doodads.IsValid(manager.entity(entity)) || game::filters::chest::SBramble.IsValid(manager.entity(entity)))) ||
 				(autoDestroy.f_DestroyShields && !game::filters::combined::MonsterBosses.IsValid(manager.entity(entity)) && (
 												   game::filters::combined::MonsterShielded.IsValid(manager.entity(entity)) ||      // For shields attached to monsters, e.g. abyss mage shields.
 												   game::filters::combined::MonsterEquips.IsValid(manager.entity(entity)) ||		// For shields/weapons equipped by monsters, e.g. rock shield.

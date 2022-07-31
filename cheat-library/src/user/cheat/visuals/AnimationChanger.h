@@ -9,6 +9,8 @@ namespace cheat::feature
 	{
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
+		config::Field<config::Toggle<Hotkey>> f_ApplyAnimation;
+		config::Field<config::Toggle<Hotkey>> f_ResetAnimation;
 
 		static AnimationChanger& GetInstance();
 
