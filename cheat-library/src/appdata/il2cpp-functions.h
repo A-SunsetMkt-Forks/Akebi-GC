@@ -346,6 +346,7 @@ DO_APP_FUNC(0x0579EB00, int32_t, Screen_get_height, (MethodInfo* method));
 
 DO_APP_FUNC(0x05822EE0, void, Animator_Play, (Animator* __this, String* stateName, int32_t layer, float normalizedTime, MethodInfo* method));
 DO_APP_FUNC(0x05823060, void, Animator_Rebind, (Animator* __this, MethodInfo* method));
+DO_APP_FUNC(0x058235C0, float, Animator_get_speed, (Animator* __this, MethodInfo* method));
 DO_APP_FUNC(0x058236F0, void, Animator_set_speed, (Animator* __this, float value, MethodInfo* method));
 
 DO_APP_FUNC(0x058AE2D0, bool, Behaviour_get_isActiveAndEnabled, (Behaviour* __this, MethodInfo* method));
