@@ -219,11 +219,13 @@ namespace cheat::feature
     "Blocking_Hit",
     "Blocking_AS"
     };
-    static std::string currentAnimation{};
+
     AnimationChanger::AnimationChanger() : Feature(),
         NF(f_Enabled, "Animation Changer", "Visuals::AnimationChanger", false),
-        NF(f_ApplyAnimation, "Apply Animation", "Visuals::AnimationChanger", false),
-        NF(f_ResetAnimation, "Reset Animation", "Visuals::AnimationChanger", false)
+        NF(f_Animation, "Animation", "Visuals::AnimationChanger", "ExtraAttack"),
+        NF(f_ApplyKey, "Apply Animation", "Visuals::AnimationChanger", Hotkey('Y')),
+        NF(f_ResetKey, "Reset Animation", "Visuals::AnimationChanger", Hotkey('R')),
+        toBeUpdate(), nextUpdate(0)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(AnimationChanger::OnGameUpdate);
     }
@@ -236,30 +238,30 @@ namespace cheat::feature
 
     void AnimationChanger::DrawMain()
     {
-        ConfigWidget(f_Enabled, "Changes active character's animation.\nNot all animations work for every character except Main Character.");
-        if (f_Enabled)
+        ImGui::BeginGroupPanel("Animation Changer");
         {
-            if (ImGui::BeginCombo("Animations", currentAnimation.c_str()))
+            ConfigWidget(f_Enabled, "Changes active character's animation.\nNot all animations work for every character except Main Character.");
+            if (f_Enabled)
             {
-                for (int n = 0; n < IM_ARRAYSIZE(animations); n++)
+                if (ImGui::BeginCombo("Animations", f_Animation.value().c_str()))
                 {
-                    bool is_selected = (currentAnimation.c_str() == animations[n]);
-                    if (ImGui::Selectable(animations[n].c_str(), is_selected))
-                        currentAnimation = animations[n];
+                    for (int n = 0; n < IM_ARRAYSIZE(animations); n++)
+                    {
+                        bool is_selected = (f_Animation.value().c_str() == animations[n]);
+                        if (ImGui::Selectable(animations[n].c_str(), is_selected))
+                            f_Animation.value() = animations[n];
 
-                    if (is_selected)
-                        ImGui::SetItemDefaultFocus();
+                        if (is_selected)
+                            ImGui::SetItemDefaultFocus();
+                    }
+                    ImGui::EndCombo();
                 }
-                ImGui::EndCombo();
+
+                ConfigWidget("Apply Key", f_ApplyKey, true);
+                ConfigWidget("Reset Key", f_ResetKey, true);
             }
-
-            if (ImGui::Button("Apply"))
-                f_ApplyAnimation = true;
-            ImGui::SameLine();
-            if (ImGui::Button("Reset"))
-                f_ResetAnimation = true;
         }
-
+        ImGui::EndGroupPanel();
     }
 
     bool AnimationChanger::NeedStatusDraw() const
@@ -283,21 +285,21 @@ namespace cheat::feature
         if (!f_Enabled)
             return;
 
+        auto currentTime = util::GetCurrentTimeMillisec();
+        if (currentTime < nextUpdate)
+            return;
+
         auto& manager = game::EntityManager::instance();
         auto avatar = manager.avatar();
         if (avatar->animator() == nullptr)
             return;
 
-        if (f_Enabled && f_ApplyAnimation)
-        {
-            app::Animator_Play(avatar->animator(), string_to_il2cppi(currentAnimation.c_str()), 0, 0, nullptr);
-            f_ApplyAnimation = false;
-        }
+        if (f_ApplyKey.value().IsPressed())
+            app::Animator_Play(avatar->animator(), string_to_il2cppi(f_Animation.value().c_str()), 0, 0, nullptr);
 
-        if (f_Enabled && f_ResetAnimation)
-        {
+        if (f_ResetKey.value().IsPressed())
             app::Animator_Rebind(avatar->animator(), nullptr);
-            f_ResetAnimation = false;
-        }
+
+        nextUpdate = currentTime + (int)f_DelayUpdate;
     }
 }
