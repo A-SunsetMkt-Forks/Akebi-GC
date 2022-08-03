@@ -193,8 +193,6 @@ namespace cheat::feature
 		selectedIndexName = name;
 	}
 
-	app::Vector3 Lerp(const app::Vector3 &a, const app::Vector3 &b, float t) { return a + (b - a) * t; }
-
 	void CustomTeleports::DrawMain()
 	{
 		// Buffers
@@ -381,7 +379,7 @@ namespace cheat::feature
 							app::Vector3 zero = {0,0,0};
 							auto newPos = zero, speed = zero;
                             while (t <= 1.0f) {
-                                newPos = Lerp(avatarPos, endPos, t);
+                                newPos = app::Vector3_Lerp(avatarPos, endPos, t, nullptr);
                                 manager.avatar()->setAbsolutePosition(newPos);
                                 t += 0.01f;
                                 LOG_DEBUG("newpos: %s, completion rate: %.02f%%", il2cppi_to_string(newPos).c_str(), t * 100.0f);
