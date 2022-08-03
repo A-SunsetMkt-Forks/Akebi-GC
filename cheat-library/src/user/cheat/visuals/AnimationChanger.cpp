@@ -245,12 +245,11 @@ namespace cheat::feature
             {
                 if (ImGui::BeginCombo("Animations", f_Animation.value().c_str()))
                 {
-                    for (int n = 0; n < IM_ARRAYSIZE(animations); n++)
+                    for (auto &animation : animations)
                     {
-                        bool is_selected = (f_Animation.value().c_str() == animations[n]);
-                        if (ImGui::Selectable(animations[n].c_str(), is_selected))
-                            f_Animation.value() = animations[n];
-
+                        bool is_selected = (f_Animation.value().c_str() == animation);
+                        if (ImGui::Selectable(animation.c_str(), is_selected))
+                            f_Animation.value() = animation;
                         if (is_selected)
                             ImGui::SetItemDefaultFocus();
                     }
