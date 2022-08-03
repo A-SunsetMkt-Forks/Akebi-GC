@@ -25,7 +25,6 @@ namespace cheat::feature
     class CustomTeleports : public Feature
     {
     public:
-        config::Field<config::Toggle<Hotkey>> f_DebugMode;
         config::Field<config::Toggle<Hotkey>> f_Enabled;
         config::Field<Hotkey> f_Next;
         config::Field<Hotkey> f_Previous;

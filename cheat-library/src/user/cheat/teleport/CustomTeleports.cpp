@@ -17,7 +17,6 @@
 namespace cheat::feature
 {
 	CustomTeleports::CustomTeleports() : Feature(),
-		NF(f_DebugMode, "Debug Mode", "CustomTeleports", false), // Soon to be added
 		NF(f_Enabled, "Custom Teleport", "CustomTeleports", false),
 		NF(f_Next, "Teleport Next", "CustomTeleports", Hotkey(VK_OEM_6)),
 		NF(f_Previous, "Teleport Previous", "CustomTeleports", Hotkey(VK_OEM_4)),
@@ -194,6 +193,8 @@ namespace cheat::feature
 		selectedIndexName = name;
 	}
 
+	app::Vector3 Lerp(const app::Vector3 &a, const app::Vector3 &b, float t) { return a + (b - a) * t; }
+
 	void CustomTeleports::DrawMain()
 	{
 		// Buffers
@@ -368,6 +369,29 @@ namespace cheat::feature
 					}
 
 					ImGui::SameLine();
+					if (ImGui::Button("Interpolate to"))
+					{
+						auto &manager = game::EntityManager::instance();
+						auto avatarPos = manager.avatar()->absolutePosition();
+						LOG_DEBUG("Defined avatar pos: %s", il2cppi_to_string(avatarPos).c_str());
+						auto endPos = position;
+						LOG_DEBUG("Defined end pos: %s", il2cppi_to_string(endPos).c_str());
+						std::thread interpolate([avatarPos, endPos, &manager](){
+                            float t = 0.0f;
+							app::Vector3 zero = {0,0,0};
+							auto newPos = zero, speed = zero;
+                            while (t <= 1.0f) {
+                                newPos = Lerp(avatarPos, endPos, t);
+                                manager.avatar()->setAbsolutePosition(newPos);
+                                t += 0.01f;
+                                LOG_DEBUG("newpos: %s, completion rate: %.02f%%", il2cppi_to_string(newPos).c_str(), t * 100.0f);
+                                Sleep(10); 
+                                if (t >= 1.0f) break;  // this *might* be redundant, but i'm paranoid
+                            } });
+						interpolate.detach();
+					}
+					ImGui::SameLine();
+
 					if (ImGui::Button(("Select##Button" + std::to_string(index)).c_str()))
 					{
 						selectedIndex = index;
