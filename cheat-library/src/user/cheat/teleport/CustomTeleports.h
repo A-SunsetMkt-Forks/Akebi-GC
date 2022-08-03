@@ -26,6 +26,7 @@ namespace cheat::feature
     {
     public:
         config::Field<config::Toggle<Hotkey>> f_Enabled;
+        config::Field<float> f_Speed;
         config::Field<Hotkey> f_Next;
         config::Field<Hotkey> f_Previous;
         static CustomTeleports& GetInstance();

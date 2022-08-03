@@ -20,6 +20,7 @@ namespace cheat::feature
 		NF(f_Enabled, "Custom Teleport", "CustomTeleports", false),
 		NF(f_Next, "Teleport Next", "CustomTeleports", Hotkey(VK_OEM_6)),
 		NF(f_Previous, "Teleport Previous", "CustomTeleports", Hotkey(VK_OEM_4)),
+		NF(f_Speed, "Interpolation Speed", "CustomTeleports", 10.0f),
 		dir(util::GetCurrentPath() / "teleports")
 	{
 		f_Next.value().PressedEvent += MY_METHOD_HANDLER(CustomTeleports::OnNext);
@@ -172,9 +173,7 @@ namespace cheat::feature
 			while (wordItr != std::sregex_iterator())
 			{
 				for (unsigned i = 0; i < wordItr->size(); i++)
-				{
 					shortened.append((*wordItr)[i]);
-				}
 				wordItr++;
 			}
 
@@ -248,6 +247,9 @@ namespace cheat::feature
 					 "3. You can now press Next or Previous Hotkey to Teleport through the Checklist\n"
 					 "Initially it will teleport the player to the selection made\n"
 					 "Note: Double click or click the arrow to open teleport details");
+		ConfigWidget("Interpolation Speed", f_Speed, 0.1f, 0.1f, 99.0f,
+					 "Interpolation speed.\n" \
+					 "recommended setting below or equal to 0.1.");
 		ImGui::SameLine();
 
 		if (ImGui::Button("Delete Checked"))
@@ -315,7 +317,7 @@ namespace cheat::feature
 					maxNameLength = Teleport.name.length();
 			ImGui::BeginTable("Teleports", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable | ImGuiTableFlags_Hideable | ImGuiTableFlags_NoSavedSettings);
 			ImGui::TableSetupColumn("#", ImGuiTableColumnFlags_WidthFixed, 20);
-			ImGui::TableSetupColumn("Commands", ImGuiTableColumnFlags_WidthFixed, 100);
+			ImGui::TableSetupColumn("Commands", ImGuiTableColumnFlags_WidthFixed, 130);
 			ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed, maxNameLength * 8 + 10);
 			ImGui::TableSetupColumn("Position");
 			ImGui::TableHeadersRow();
@@ -331,12 +333,13 @@ namespace cheat::feature
 					bool checked = std::any_of(checkedIndices.begin(), checkedIndices.end(), [&index](const auto &i)
 											   { return i == index; });
 					bool selected = index == selectedIndex;
+					std::string stringIndex = std::to_string(index);
 
 					ImGui::TableNextRow();
 					ImGui::TableNextColumn();
 					ImGui::Text("%d", index);
 					ImGui::TableNextColumn();
-					ImGui::Checkbox(("##Index" + std::to_string(index)).c_str(), &checked);
+					ImGui::Checkbox(("##Index" + stringIndex).c_str(), &checked);
 					if (ImGui::IsItemClicked(0))
 					{
 						if (checked)
@@ -351,7 +354,7 @@ namespace cheat::feature
 					}
 
 					ImGui::SameLine();
-					if (ImGui::Button(("TP##Button" + std::to_string(index)).c_str()))
+					if (ImGui::Button(("TP##Button" + stringIndex).c_str()))
 					{
 						auto &manager = game::EntityManager::instance();
 						auto avatar = manager.avatar();
@@ -367,30 +370,27 @@ namespace cheat::feature
 					}
 
 					ImGui::SameLine();
-					if (ImGui::Button("Interpolate to"))
+					if (ImGui::Button(("Lerp##Button" + stringIndex).c_str()))
 					{
+						float speed = this->f_Speed;
 						auto &manager = game::EntityManager::instance();
 						auto avatarPos = manager.avatar()->absolutePosition();
-						LOG_DEBUG("Defined avatar pos: %s", il2cppi_to_string(avatarPos).c_str());
 						auto endPos = position;
-						LOG_DEBUG("Defined end pos: %s", il2cppi_to_string(endPos).c_str());
-						std::thread interpolate([avatarPos, endPos, &manager](){
+						std::thread interpolate([avatarPos, endPos, &manager, speed](){
                             float t = 0.0f;
 							app::Vector3 zero = {0,0,0};
-							auto newPos = zero, speed = zero;
-                            while (t <= 1.0f) {
+							auto newPos = zero;
+                            while (t < 1.0f) {
                                 newPos = app::Vector3_Lerp(avatarPos, endPos, t, nullptr);
                                 manager.avatar()->setAbsolutePosition(newPos);
-                                t += 0.01f;
-                                LOG_DEBUG("newpos: %s, completion rate: %.02f%%", il2cppi_to_string(newPos).c_str(), t * 100.0f);
+								t += speed / 100.0f;
                                 Sleep(10); 
-                                if (t >= 1.0f) break;  // this *might* be redundant, but i'm paranoid
                             } });
 						interpolate.detach();
 					}
 					ImGui::SameLine();
 
-					if (ImGui::Button(("Select##Button" + std::to_string(index)).c_str()))
+					if (ImGui::Button(("Select##Button" + stringIndex).c_str()))
 					{
 						selectedIndex = index;
 						selectedByClick = true;
