@@ -157,36 +157,28 @@ namespace cheat::feature
 		OnTeleportKeyPressed(true);
 	}
 
+	void itr(std::regex exp, std::string name, std::string s)
+	{
+		std::sregex_iterator itr(name.begin(), name.end(), exp);
+		while (itr != std::sregex_iterator())
+		{
+			for (unsigned i = 0; i < itr->size(); i++)
+				s.append((*itr)[i]);
+			itr++;
+		}
+	}
 
 	void CustomTeleports::UpdateIndexName()
 	{
-		std::string name(selectedIndex == -1 || checkedIndices.empty() ? "" : Teleports.at(selectedIndex).name);
-
 		// abbreviate teleport names that are too long
+		std::string name(selectedIndex == -1 || checkedIndices.empty() ? "" : Teleports.at(selectedIndex).name);
 		if (name.length() > 15)
 		{
 			std::string shortened;
 			std::regex numsExp("[\\d]+");
 			std::regex firstCharsExp("\\b[A-Za-z]");
-
-			std::sregex_iterator wordItr(name.begin(), name.end(), firstCharsExp);
-			while (wordItr != std::sregex_iterator())
-			{
-				for (unsigned i = 0; i < wordItr->size(); i++)
-					shortened.append((*wordItr)[i]);
-				wordItr++;
-			}
-
-			std::sregex_iterator numItr(name.begin(), name.end(), numsExp);
-			while (numItr != std::sregex_iterator())
-			{
-				for (unsigned i = 0; i < numItr->size(); i++)
-				{
-					shortened.append(" ");
-					shortened.append((*numItr)[i]);
-				}
-				numItr++;
-			}
+			itr(firstCharsExp, name, shortened);
+			itr(numsExp, name, shortened);
 			name = shortened;
 		}
 		selectedIndexName = name;
@@ -250,7 +242,6 @@ namespace cheat::feature
 		ConfigWidget("Interpolation Speed", f_Speed, 0.1f, 0.1f, 99.0f,
 					 "Interpolation speed.\n" \
 					 "recommended setting below or equal to 0.1.");
-		ImGui::SameLine();
 
 		if (ImGui::Button("Delete Checked"))
 		{
