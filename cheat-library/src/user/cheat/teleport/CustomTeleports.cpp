@@ -20,6 +20,7 @@ namespace cheat::feature
 		NF(f_Enabled, "Custom Teleport", "CustomTeleports", false),
 		NF(f_Next, "Teleport Next", "CustomTeleports", Hotkey(VK_OEM_6)),
 		NF(f_Previous, "Teleport Previous", "CustomTeleports", Hotkey(VK_OEM_4)),
+		NF(f_Interpolate, "Custom Teleport", "CustomTeleports", false),
 		NF(f_Speed, "Interpolation Speed", "CustomTeleports", 10.0f),
 		dir(util::GetCurrentPath() / "teleports")
 	{
@@ -122,6 +123,42 @@ namespace cheat::feature
 		return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2) + pow(a.z - b.z, 2));
 	}
 
+	void CustomTeleports::TeleportTo(app::Vector3 position, bool interpolate)
+	{
+		auto &manager = game::EntityManager::instance();
+		auto avatar = manager.avatar();
+		if (avatar->moveComponent() == nullptr)
+		{
+			LOG_ERROR("Avatar has no move component, Is scene loaded?");
+			return;
+		}
+		if (interpolate)
+		{
+			float speed = this->f_Speed;
+			auto avatarPos = manager.avatar()->absolutePosition();
+			auto endPos = position;
+			std::thread interpolate([avatarPos, endPos, &manager, speed]()
+									{
+                            float t = 0.0f;
+							app::Vector3 zero = {0,0,0};
+							auto newPos = zero;
+                            while (t < 1.0f) {
+                                newPos = app::Vector3_Lerp(avatarPos, endPos, t, nullptr);
+                                manager.avatar()->setAbsolutePosition(newPos);
+								t += speed / 100.0f;
+                                Sleep(10); 
+                            } });
+			interpolate.detach();
+		}
+		else
+		{
+			if (PositionDistance(position, app::ActorUtils_GetAvatarPos(nullptr)) > 60.0f)
+				MapTeleport::GetInstance().TeleportTo(position);
+			else
+				manager.avatar()->setAbsolutePosition(position);
+		}
+	}
+
 	void CustomTeleports::OnTeleportKeyPressed(bool next)
 	{
 		if (!f_Enabled || selectedIndex < 0)
@@ -144,7 +181,7 @@ namespace cheat::feature
 			position = Teleports.at(list.at(index + (next ? 1 : -1))).position;
 			selectedIndex = list.at(index + (next ? 1 : -1));
 		}
-		mapTeleport.TeleportTo(position);
+		TeleportTo(position, this->f_Interpolate);
 		UpdateIndexName();
 	}
 
@@ -239,9 +276,9 @@ namespace cheat::feature
 					 "3. You can now press Next or Previous Hotkey to Teleport through the Checklist\n"
 					 "Initially it will teleport the player to the selection made\n"
 					 "Note: Double click or click the arrow to open teleport details");
+		ConfigWidget("Enable Interpolation", f_Interpolate, "Enable interpolation between teleports when using keybinds");
 		ConfigWidget("Interpolation Speed", f_Speed, 0.1f, 0.1f, 99.0f,
-					 "Interpolation speed.\n" \
-					 "recommended setting below or equal to 0.1.");
+					 "Interpolation speed.\n recommended setting below or equal to 0.1.");
 
 		if (ImGui::Button("Delete Checked"))
 		{
@@ -347,37 +384,13 @@ namespace cheat::feature
 					ImGui::SameLine();
 					if (ImGui::Button(("TP##Button" + stringIndex).c_str()))
 					{
-						auto &manager = game::EntityManager::instance();
-						auto avatar = manager.avatar();
-						if (avatar->moveComponent() == nullptr)
-						{
-							LOG_ERROR("Avatar has no move component, Is scene loaded?");
-							return;
-						}
-						if (PositionDistance(position, app::ActorUtils_GetAvatarPos(nullptr)) > 60.0f)
-							MapTeleport::GetInstance().TeleportTo(position);
-						else
-							manager.avatar()->setAbsolutePosition(position);
+						TeleportTo(position, false);
 					}
 
 					ImGui::SameLine();
 					if (ImGui::Button(("Lerp##Button" + stringIndex).c_str()))
 					{
-						float speed = this->f_Speed;
-						auto &manager = game::EntityManager::instance();
-						auto avatarPos = manager.avatar()->absolutePosition();
-						auto endPos = position;
-						std::thread interpolate([avatarPos, endPos, &manager, speed](){
-                            float t = 0.0f;
-							app::Vector3 zero = {0,0,0};
-							auto newPos = zero;
-                            while (t < 1.0f) {
-                                newPos = app::Vector3_Lerp(avatarPos, endPos, t, nullptr);
-                                manager.avatar()->setAbsolutePosition(newPos);
-								t += speed / 100.0f;
-                                Sleep(10); 
-                            } });
-						interpolate.detach();
+						TeleportTo(position, true);
 					}
 					ImGui::SameLine();
 
