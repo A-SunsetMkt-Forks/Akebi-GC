@@ -1,9 +1,14 @@
 #include <pch.h>
 #include "Settings.h"
 
-#include <cheat-base/render/gui-util.h>
-#include <cheat-base/render/renderer.h>
 #include <cheat-base/cheat/CheatManagerBase.h>
+#include <cheat-base/render/renderer.h>
+#include <cheat-base/render/gui-util.h>
+#include <misc/cpp/imgui_stdlib.h>
+#include <cheat-base/util.h>
+
+#include "shlwapi.h"
+#pragma comment(lib, "shlwapi.lib")
 
 namespace cheat::feature 
 {
@@ -29,11 +34,14 @@ namespace cheat::feature
 		NF(f_ConsoleLogging, "Console Logging", "General::Logging", true),
 
 		NF(f_FastExitEnable, "Fast Exit", "General::FastExit", false),
-		NF(f_HotkeyExit, "Hotkeys", "General::FastExit", Hotkey(VK_F12))
-		
+		NF(f_HotkeyExit, "Hotkeys", "General::FastExit", Hotkey(VK_F12)),
+		themesDir(util::GetCurrentPath() / "themes")
+
     {
 		renderer::SetGlobalFontSize(static_cast<float>(f_FontSize));
 		f_HotkeyExit.value().PressedEvent += MY_METHOD_HANDLER(Settings::OnExitKeyPressed);
+		if (!std::filesystem::exists(themesDir))
+			std::filesystem::create_directory(themesDir);
     }
 
     const FeatureGUIInfo& Settings::GetGUIInfo() const
@@ -41,6 +49,35 @@ namespace cheat::feature
         static const FeatureGUIInfo info{ "", "Settings", false };
         return info;
     }
+
+	void Settings::Colors_Export(std::string name)
+	{
+		ImGuiStyle &style = ImGui::GetStyle();
+		auto colors = style.Colors;
+
+		nlohmann::json json;
+		for (int i = 0; i < ImGuiCol_COUNT; i++)
+			json[ImGui::GetStyleColorName((ImGuiCol)i)] = {colors[i].x, colors[i].y, colors[i].z, colors[i].w};
+		std::ofstream file(themesDir / (name + ".json"));
+		file << std::setw(4) << json << std::endl;
+	}
+	
+	void Settings::Colors_Import(std::string name)
+	{
+		ImGuiStyle &style = ImGui::GetStyle();
+		auto colors = style.Colors;
+		nlohmann::json json;
+		std::ifstream file(themesDir / (name + ".json"));
+		file >> json;
+		for (int i = 0; i < ImGuiCol_COUNT; i++)
+		{
+			auto color = json[ImGui::GetStyleColorName((ImGuiCol)i)];
+			colors[i].x = color[0];
+			colors[i].y = color[1];
+			colors[i].z = color[2];
+			colors[i].w = color[3];
+		}
+	}
 
 	void Settings::DrawMain()
 	{
@@ -121,6 +158,20 @@ namespace cheat::feature
 
 			if (!f_FastExitEnable)
 				ImGui::EndDisabled();
+		}
+		ImGui::EndGroupPanel();
+
+		ImGui::BeginGroupPanel("Colors");
+		{
+			static std::string nameBuffer_;
+			ImGui::InputText("Name", &nameBuffer_);
+			if (ImGui::Button("Export"))
+				Colors_Export(nameBuffer_);
+			if (ImGui::Button("Import"))
+				Colors_Import(nameBuffer_);
+			if (ImGui::Button("Open themes folder"))
+				ShellExecute(nullptr, "open", themesDir.c_str(), nullptr, nullptr, SW_SHOW);
+			
 		}
 		ImGui::EndGroupPanel();
 	}

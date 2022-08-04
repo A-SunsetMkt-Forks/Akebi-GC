@@ -31,10 +31,14 @@ namespace cheat::feature
 		config::Field<bool> f_FastExitEnable;
 		config::Field<Hotkey> f_HotkeyExit;
 
+		std::filesystem::path themesDir;
+
 		static Settings& GetInstance();
 
 		const FeatureGUIInfo& GetGUIInfo() const override;
 		void DrawMain() override;
+		void Colors_Export(std::string name);
+		void Colors_Import(std::string name);
 	
 	private:
 
