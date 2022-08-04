@@ -138,11 +138,12 @@ namespace cheat::feature
 		else
 		{
 			std::vector list(checkedIndices.begin(), checkedIndices.end());
-			if (selectedIndex == list.back() ? next : selectedIndex == list.front())
+			if (next ?  selectedIndex == list.back() : selectedIndex == list.front())
 				return;
+
 			auto index = std::distance(list.begin(), std::find(list.begin(), list.end(), selectedIndex));
-			position = Teleports.at(list.at(index + (next ? 1 : -1))).position;
 			selectedIndex = list.at(index + (next ? 1 : -1));
+			position = Teleports.at(selectedIndex).position;
 		}
 		mapTeleport.TeleportTo(position);
 		UpdateIndexName();
@@ -281,8 +282,8 @@ namespace cheat::feature
 		{
 			std::sort(Teleports.begin(), Teleports.end(), [](const auto &a, const auto &b)
 					  { return StrCmpLogicalW(std::wstring(a.name.begin(), a.name.end()).c_str(), std::wstring(b.name.begin(), b.name.end()).c_str()) < 0; });
-			bool allChecked = checkedIndices.size() == Teleports.size() && !Teleports.empty();
-			bool allSearchChecked = checkedIndices.size() == searchIndices.size() && !searchIndices.empty();
+			bool allSearchChecked = std::includes(checkedIndices.begin(), checkedIndices.end(), searchIndices.begin(), searchIndices.end()) && !searchIndices.empty();
+			bool allChecked = (checkedIndices.size() == Teleports.size() && !Teleports.empty()) || allSearchChecked;
 			ImGui::Checkbox("All", &allChecked);
 			if (ImGui::IsItemClicked())
 			{
@@ -320,7 +321,6 @@ namespace cheat::feature
 			ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed, maxNameLength * 8 + 10);
 			ImGui::TableSetupColumn("Position");
 			ImGui::TableHeadersRow();
-			ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth;
 
 			for (const auto &[name, position, description] : Teleports)
 			{
@@ -374,15 +374,11 @@ namespace cheat::feature
 						selectedByClick = true;
 						UpdateIndexName();
 					}
-					ImGui::SameLine();
-					ImGui::PushStyleColor(ImGuiCol_Text, selected ? IM_COL32(40, 90, 175, 255) : IM_COL32(255, 255, 255, 255));
-
-					if (selected)
-						nodeFlags |= ImGuiTreeNodeFlags_Selected;
-					ImGui::PopStyleColor();
 					ImGui::TableNextColumn();
 
+					ImGui::PushStyleColor(ImGuiCol_Text, selected ? IM_COL32(40, 90, 175, 255) : ImGui::ColorConvertFloat4ToU32(ImGui::GetStyle().Colors[ImGuiCol_Text]));
 					ImGui::Text("%s", name.c_str());
+					ImGui::PopStyleColor();
 					if (ImGui::IsItemHovered())
 					{
 						ImGui::BeginTooltip();
