@@ -35,6 +35,7 @@ namespace cheat::feature
 
 		NF(f_FastExitEnable, "Fast Exit", "General::FastExit", false),
 		NF(f_HotkeyExit, "Hotkeys", "General::FastExit", Hotkey(VK_F12)),
+		NFS(f_DefaultTheme, "Theme", "General::Colors", "Default"),
 		themesDir(util::GetCurrentPath() / "themes")
 
     {
@@ -43,6 +44,7 @@ namespace cheat::feature
 		if (!std::filesystem::exists(themesDir))
 			std::filesystem::create_directory(themesDir);
     }
+	bool themeLoaded = false;
 
     const FeatureGUIInfo& Settings::GetGUIInfo() const
     {
@@ -164,14 +166,27 @@ namespace cheat::feature
 		ImGui::BeginGroupPanel("Colors");
 		{
 			static std::string nameBuffer_;
+			if (this->f_DefaultTheme.value() != "Default" && !themeLoaded)
+			{
+				Colors_Import(f_DefaultTheme.value());
+				themeLoaded = true;
+			}
+
 			ImGui::InputText("Name", &nameBuffer_);
-			if (ImGui::Button("Export"))
+			if (std::filesystem::exists(themesDir / (nameBuffer_ + ".json")))
+			{
+				if (ImGui::Button("Set as default"))
+					f_DefaultTheme = nameBuffer_;
+				if (ImGui::Button("Load"))
+				{
+					Colors_Import(nameBuffer_);
+					themeLoaded = true;
+				}
+				else {
+					ImGui::Text("Theme does not exist.");}
+			}
+			if (ImGui::Button("Save"))
 				Colors_Export(nameBuffer_);
-			if (ImGui::Button("Import"))
-				Colors_Import(nameBuffer_);
-			if (ImGui::Button("Open themes folder"))
-				ShellExecute(nullptr, "open", themesDir.c_str(), nullptr, nullptr, SW_SHOW);
-			
 		}
 		ImGui::EndGroupPanel();
 	}

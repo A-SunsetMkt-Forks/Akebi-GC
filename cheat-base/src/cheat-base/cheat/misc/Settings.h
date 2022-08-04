@@ -32,6 +32,7 @@ namespace cheat::feature
 		config::Field<Hotkey> f_HotkeyExit;
 
 		std::filesystem::path themesDir;
+		config::Field<std::string> f_DefaultTheme;
 
 		static Settings& GetInstance();
 
