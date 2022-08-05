@@ -224,8 +224,7 @@ namespace cheat::feature
         NF(f_Enabled, "Animation Changer", "Visuals::AnimationChanger", false),
         NF(f_Animation, "Animation", "Visuals::AnimationChanger", "ExtraAttack"),
         NF(f_ApplyKey, "Apply Animation", "Visuals::AnimationChanger", Hotkey('Y')),
-        NF(f_ResetKey, "Reset Animation", "Visuals::AnimationChanger", Hotkey('R')),
-        toBeUpdate(), nextUpdate(0)
+        NF(f_ResetKey, "Reset Animation", "Visuals::AnimationChanger", Hotkey('R'))
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(AnimationChanger::OnGameUpdate);
     }
@@ -250,6 +249,7 @@ namespace cheat::feature
                         bool is_selected = (f_Animation.value().c_str() == animation);
                         if (ImGui::Selectable(animation.c_str(), is_selected))
                             f_Animation.value() = animation;
+
                         if (is_selected)
                             ImGui::SetItemDefaultFocus();
                     }
@@ -284,9 +284,8 @@ namespace cheat::feature
         if (!f_Enabled)
             return;
 
-        auto currentTime = util::GetCurrentTimeMillisec();
-        if (currentTime < nextUpdate)
-            return;
+        // Taiga#5555: Maybe need to add separate option to change delay value if user feels like it's too fast or slow.
+        UPDATE_DELAY(400);
 
         auto& manager = game::EntityManager::instance();
         auto avatar = manager.avatar();
@@ -298,7 +297,5 @@ namespace cheat::feature
 
         if (f_ResetKey.value().IsPressed())
             app::Animator_Rebind(avatar->animator(), nullptr);
-
-        nextUpdate = currentTime + (int)f_DelayUpdate;
     }
 }

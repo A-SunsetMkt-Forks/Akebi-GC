@@ -9,7 +9,6 @@
 
 namespace cheat::feature
 {
-    static bool change = false;
 
     FreezeEnemies::FreezeEnemies() : Feature(),
         NF(f_Enabled, "Freeze Enemies", "FreezeEnemies", false)
@@ -48,6 +47,7 @@ namespace cheat::feature
     void FreezeEnemies::OnGameUpdate()
     {
         auto& manager = game::EntityManager::instance();
+        static bool change = false;
 
         for (const auto& monster : manager.entities(game::filters::combined::Monsters))
         {
