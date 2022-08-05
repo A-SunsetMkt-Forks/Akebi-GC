@@ -17,10 +17,11 @@
 namespace cheat::feature
 {
 	CustomTeleports::CustomTeleports() : Feature(),
-		NF(f_DebugMode, "Debug Mode", "CustomTeleports", false), // Soon to be added
 		NF(f_Enabled, "Custom Teleport", "CustomTeleports", false),
 		NF(f_Next, "Teleport Next", "CustomTeleports", Hotkey(VK_OEM_6)),
 		NF(f_Previous, "Teleport Previous", "CustomTeleports", Hotkey(VK_OEM_4)),
+		NF(f_Interpolate, "Custom Teleport", "CustomTeleports", false),
+		NF(f_Speed, "Interpolation Speed", "CustomTeleports", 10.0f),
 		dir(util::GetCurrentPath() / "teleports")
 	{
 		f_Next.value().PressedEvent += MY_METHOD_HANDLER(CustomTeleports::OnNext);
@@ -122,6 +123,42 @@ namespace cheat::feature
 		return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2) + pow(a.z - b.z, 2));
 	}
 
+	void CustomTeleports::TeleportTo(app::Vector3 position, bool interpolate)
+	{
+		auto &manager = game::EntityManager::instance();
+		auto avatar = manager.avatar();
+		if (avatar->moveComponent() == nullptr)
+		{
+			LOG_ERROR("Avatar has no move component, Is scene loaded?");
+			return;
+		}
+		if (interpolate)
+		{
+			float speed = this->f_Speed;
+			auto avatarPos = manager.avatar()->absolutePosition();
+			auto endPos = position;
+			std::thread interpolate([avatarPos, endPos, &manager, speed]()
+									{
+                            float t = 0.0f;
+							app::Vector3 zero = {0,0,0};
+							auto newPos = zero;
+                            while (t < 1.0f) {
+                                newPos = app::Vector3_Lerp(avatarPos, endPos, t, nullptr);
+                                manager.avatar()->setAbsolutePosition(newPos);
+								t += speed / 100.0f;
+                                Sleep(10); 
+                            } });
+			interpolate.detach();
+		}
+		else
+		{
+			if (PositionDistance(position, app::ActorUtils_GetAvatarPos(nullptr)) > 60.0f)
+				MapTeleport::GetInstance().TeleportTo(position);
+			else
+				manager.avatar()->setAbsolutePosition(position);
+		}
+	}
+
 	void CustomTeleports::OnTeleportKeyPressed(bool next)
 	{
 		if (!f_Enabled || selectedIndex < 0)
@@ -145,7 +182,7 @@ namespace cheat::feature
 			selectedIndex = list.at(index + (next ? 1 : -1));
 			position = Teleports.at(selectedIndex).position;
 		}
-		mapTeleport.TeleportTo(position);
+		TeleportTo(position, this->f_Interpolate);
 		UpdateIndexName();
 	}
 
@@ -158,38 +195,28 @@ namespace cheat::feature
 		OnTeleportKeyPressed(true);
 	}
 
+	void itr(std::regex exp, std::string name, std::string s)
+	{
+		std::sregex_iterator itr(name.begin(), name.end(), exp);
+		while (itr != std::sregex_iterator())
+		{
+			for (unsigned i = 0; i < itr->size(); i++)
+				s.append((*itr)[i]);
+			itr++;
+		}
+	}
 
 	void CustomTeleports::UpdateIndexName()
 	{
-		std::string name(selectedIndex == -1 || checkedIndices.empty() ? "" : Teleports.at(selectedIndex).name);
-
 		// abbreviate teleport names that are too long
+		std::string name(selectedIndex == -1 || checkedIndices.empty() ? "" : Teleports.at(selectedIndex).name);
 		if (name.length() > 15)
 		{
 			std::string shortened;
 			std::regex numsExp("[\\d]+");
 			std::regex firstCharsExp("\\b[A-Za-z]");
-
-			std::sregex_iterator wordItr(name.begin(), name.end(), firstCharsExp);
-			while (wordItr != std::sregex_iterator())
-			{
-				for (unsigned i = 0; i < wordItr->size(); i++)
-				{
-					shortened.append((*wordItr)[i]);
-				}
-				wordItr++;
-			}
-
-			std::sregex_iterator numItr(name.begin(), name.end(), numsExp);
-			while (numItr != std::sregex_iterator())
-			{
-				for (unsigned i = 0; i < numItr->size(); i++)
-				{
-					shortened.append(" ");
-					shortened.append((*numItr)[i]);
-				}
-				numItr++;
-			}
+			itr(firstCharsExp, name, shortened);
+			itr(numsExp, name, shortened);
 			name = shortened;
 		}
 		selectedIndexName = name;
@@ -250,7 +277,9 @@ namespace cheat::feature
 					 "3. You can now press Next or Previous Hotkey to Teleport through the Checklist\n"
 					 "Initially it will teleport the player to the selection made\n"
 					 "Note: Double click or click the arrow to open teleport details");
-		ImGui::SameLine();
+		ConfigWidget("Enable Interpolation", f_Interpolate, "Enable interpolation between teleports when using keybinds");
+		ConfigWidget("Interpolation Speed", f_Speed, 0.1f, 0.1f, 99.0f,
+					 "Interpolation speed.\n recommended setting below or equal to 0.1.");
 
 		if (ImGui::Button("Delete Checked"))
 		{
@@ -317,7 +346,7 @@ namespace cheat::feature
 					maxNameLength = Teleport.name.length();
 			ImGui::BeginTable("Teleports", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable | ImGuiTableFlags_Hideable | ImGuiTableFlags_NoSavedSettings);
 			ImGui::TableSetupColumn("#", ImGuiTableColumnFlags_WidthFixed, 20);
-			ImGui::TableSetupColumn("Commands", ImGuiTableColumnFlags_WidthFixed, 100);
+			ImGui::TableSetupColumn("Commands", ImGuiTableColumnFlags_WidthFixed, 130);
 			ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed, maxNameLength * 8 + 10);
 			ImGui::TableSetupColumn("Position");
 			ImGui::TableHeadersRow();
@@ -332,12 +361,13 @@ namespace cheat::feature
 					bool checked = std::any_of(checkedIndices.begin(), checkedIndices.end(), [&index](const auto &i)
 											   { return i == index; });
 					bool selected = index == selectedIndex;
+					std::string stringIndex = std::to_string(index);
 
 					ImGui::TableNextRow();
 					ImGui::TableNextColumn();
 					ImGui::Text("%d", index);
 					ImGui::TableNextColumn();
-					ImGui::Checkbox(("##Index" + std::to_string(index)).c_str(), &checked);
+					ImGui::Checkbox(("##Index" + stringIndex).c_str(), &checked);
 					if (ImGui::IsItemClicked(0))
 					{
 						if (checked)
@@ -352,23 +382,19 @@ namespace cheat::feature
 					}
 
 					ImGui::SameLine();
-					if (ImGui::Button(("TP##Button" + std::to_string(index)).c_str()))
+					if (ImGui::Button(("TP##Button" + stringIndex).c_str()))
 					{
-						auto &manager = game::EntityManager::instance();
-						auto avatar = manager.avatar();
-						if (avatar->moveComponent() == nullptr)
-						{
-							LOG_ERROR("Avatar has no move component, Is scene loaded?");
-							return;
-						}
-						if (PositionDistance(position, app::ActorUtils_GetAvatarPos(nullptr)) > 60.0f)
-							MapTeleport::GetInstance().TeleportTo(position);
-						else
-							manager.avatar()->setAbsolutePosition(position);
+						TeleportTo(position, false);
 					}
 
 					ImGui::SameLine();
-					if (ImGui::Button(("Select##Button" + std::to_string(index)).c_str()))
+					if (ImGui::Button(("Lerp##Button" + stringIndex).c_str()))
+					{
+						TeleportTo(position, true);
+					}
+					ImGui::SameLine();
+
+					if (ImGui::Button(("Select##Button" + stringIndex).c_str()))
 					{
 						selectedIndex = index;
 						selectedByClick = true;
