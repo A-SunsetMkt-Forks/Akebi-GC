@@ -166,24 +166,39 @@ namespace cheat::feature
 		ImGui::BeginGroupPanel("Colors");
 		{
 			static std::string nameBuffer_;
+				
 			if (this->f_DefaultTheme.value() != "Default" && !themeLoaded)
 			{
-				Colors_Import(f_DefaultTheme.value());
-				themeLoaded = true;
+				LOG_INFO("Loading theme: %s", themesDir / (f_DefaultTheme.value() + ".json").c_str());
+				if (!std::filesystem::exists(themesDir / (f_DefaultTheme.value() + ".json")))
+				{
+					LOG_ERROR("Theme file not found: %s", themesDir / (f_DefaultTheme.value() + ".json").c_str());
+					f_DefaultTheme = "Default";
+					themeLoaded = true;
+				}
+				else
+				{
+					Colors_Import(f_DefaultTheme.value());
+					themeLoaded = true;
+					LOG_INFO("Loaded theme \"%s\"", f_DefaultTheme.value().c_str());
+				}
 			}
 
 			ImGui::InputText("Name", &nameBuffer_);
 			if (std::filesystem::exists(themesDir / (nameBuffer_ + ".json")))
 			{
-				if (ImGui::Button("Set as default"))
-					f_DefaultTheme = nameBuffer_;
+				if (this->f_DefaultTheme.value() != nameBuffer_)
+					if (ImGui::Button("Set as default"))
+						f_DefaultTheme = nameBuffer_;
 				if (ImGui::Button("Load"))
 				{
 					Colors_Import(nameBuffer_);
 					themeLoaded = true;
 				}
-				else {
-					ImGui::Text("Theme does not exist.");}
+			}
+			else
+			{
+				ImGui::Text("Theme does not exist.");
 			}
 			if (ImGui::Button("Save"))
 				Colors_Export(nameBuffer_);
@@ -205,4 +220,3 @@ namespace cheat::feature
 		ExitProcess(0);
 	}
 }
-
