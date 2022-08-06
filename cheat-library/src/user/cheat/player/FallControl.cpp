@@ -10,7 +10,7 @@ namespace cheat::feature
 
     FallControl::FallControl() : Feature(),
         NF(f_Enabled, "Fall Control", "FallControl", false),
-        NF(f_Speed, "Speed", "FallControl", 1.0f)
+        NF(f_Speed, "Speed", "FallControl", 10.0f)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(FallControl::OnGameUpdate);
         events::MoveSyncEvent += MY_METHOD_HANDLER(FallControl::OnMoveSync);
@@ -25,7 +25,7 @@ namespace cheat::feature
     void cheat::feature::FallControl::DrawMain()
     {
         ConfigWidget("Enabled", f_Enabled, "Enables fall control");
-        ConfigWidget("Speed", f_Speed, 0.1f, 5.0f, 10.0f, "Movement speed when using fall control");
+        ConfigWidget("Speed", f_Speed, 1.0f, 0.0f, 100.0f, "Movement speed when using fall control");
     }
 
     bool cheat::feature::FallControl::NeedStatusDraw() const
@@ -52,29 +52,34 @@ namespace cheat::feature
             return;
 
         auto& manager = game::EntityManager::instance();
+
         const auto avatarEntity = manager.avatar();
-
-        app::Vector3 direction = {};
-        if (Hotkey('W').IsPressed())
-            direction = direction + avatarEntity->forward();
-        if (Hotkey('S').IsPressed())
-            direction = direction + avatarEntity->back();
-        if (Hotkey('D').IsPressed())
-            direction = direction + avatarEntity->right();
-        if (Hotkey('A').IsPressed())
-            direction = direction + avatarEntity->left();
-        if (IsVectorZero(direction))
-            return;
-
         auto rigidBody = avatarEntity->rigidbody();
         if (rigidBody == nullptr)
             return;
 
-        // // Alternative, using set_velocity. Does not work while falling?
+        const auto cameraEntity = game::Entity(reinterpret_cast<app::BaseEntity*>(manager.mainCamera()));
+        app::Vector3 direction = {};
+        if (Hotkey(ImGuiKey_W).IsPressed())
+            direction = direction + cameraEntity.forward();;
+        if (Hotkey(ImGuiKey_S).IsPressed())
+            direction = direction + cameraEntity.back();;
+        if (Hotkey(ImGuiKey_D).IsPressed())
+            direction = direction + cameraEntity.right();;
+        if (Hotkey(ImGuiKey_A).IsPressed())
+            direction = direction + cameraEntity.left();;
+        if (IsVectorZero(direction))
+            return;
+        // Do not change falling velocity when camera relative
+        direction.y = 0;
+
+        // Alternative, using set_velocity. Does not work while falling?
         // const float speed = f_Speed.value();
         // const auto currentVelocity = app::Rigidbody_get_velocity(rigidBody, nullptr);
         // const auto desiredvelocity = currentVelocity + direction * speed;
-        // LOG_DEBUG("Current velocity: [%.1f,%.1f,%.1f]", desiredvelocity.x, desiredvelocity.y, desiredvelocity.z);
+        // LOG_DEBUG("Current velocity: [%.1f,%.1f,%.1f]", currentVelocity.x, currentVelocity.y, currentVelocity.z);
+        // LOG_DEBUG("Desired velocity: [%.1f,%.1f,%.1f]\n", desiredvelocity.x, desiredvelocity.y, desiredvelocity.z);
+        // app::Rigidbody_set_collisionDetectionMode(rigidBody, app::CollisionDetectionMode__Enum::Continuous, nullptr);
         // app::Rigidbody_set_velocity(rigidBody, desiredvelocity, nullptr);
 
         const app::Vector3 prevPos = avatarEntity->relativePosition();
@@ -82,12 +87,6 @@ namespace cheat::feature
         const float speed = f_Speed.value();
         const float deltaTime = app::Time_get_deltaTime(nullptr);
         const app::Vector3 newPos = prevPos + (currentVelocity + direction * speed) * deltaTime;
-        // const auto debugvel = (currentVelocity + direction * speed);
-        // LOG_DEBUG("PrevPos: [%.1f,%.1f,%.1f]", prevPos.x, prevPos.y, prevPos.z);
-        // LOG_DEBUG("delta time: %f", deltaTime);
-        // LOG_DEBUG("currentVelocity: [%.1f,%.1f,%.1f]", currentVelocity.x, currentVelocity.y, currentVelocity.z);
-        // LOG_DEBUG("direction: [%.1f,%.1f,%.1f]", direction.x, direction.y, direction.z);
-        // LOG_DEBUG("(currentVelocity + direction * speed): [%.1f,%.1f,%.1f]\n", debugvel.x, debugvel.y, debugvel.z);
         avatarEntity->setRelativePosition(newPos);
     }
 
