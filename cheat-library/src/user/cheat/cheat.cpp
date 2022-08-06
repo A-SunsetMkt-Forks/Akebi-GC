@@ -17,10 +17,12 @@
 #include <cheat/player/NoCD.h>
 #include <cheat/player/NoClip.h>
 #include <cheat/player/RapidFire.h>
+#include <cheat/player/AutoRun.h>
 
 #include <cheat/world/AutoLoot.h>
 #include <cheat/world/DialogSkip.h>
 #include <cheat/world/DumbEnemies.h>
+#include <cheat/world/FreezeEnemies.h>
 #include <cheat/world/ElementalSight.h>
 #include <cheat/world/KillAura.h>
 #include <cheat/world/MobVacuum.h>
@@ -40,7 +42,7 @@
 
 #include <cheat/world/AutoFish.h>
 #include <cheat/world/AutoCook.h>
-#include <cheat/world/MusicEvent.h>
+#include <cheat/world/CustomWeather.h>
 
 #include <cheat/visuals/NoFog.h>
 #include <cheat/visuals/FPSUnlock.h>
@@ -50,9 +52,10 @@
 #include <cheat/visuals/PaimonFollow.h>
 #include <cheat/visuals/HideUI.h>
 #include <cheat/visuals/Browser.h>
-#include <cheat/visuals/EnablePeaking.h>
+#include <cheat/visuals/EnablePeeking.h>
 #include <cheat/visuals/TextureChanger.h>
 #include <cheat/visuals/FreeCamera.h>
+#include <cheat/visuals/AnimationChanger.h>
 #include <cheat/player/FallControl.h>
 
 #include "GenshinCM.h"
@@ -83,6 +86,7 @@ namespace cheat
 			FEAT_INST(NoCD),
 			FEAT_INST(NoClip),
 			FEAT_INST(RapidFire),
+			FEAT_INST(AutoRun),
 			FEAT_INST(FallControl),
 
 			FEAT_INST(AutoLoot),
@@ -92,11 +96,11 @@ namespace cheat
 			FEAT_INST(VacuumLoot),
 			FEAT_INST(DialogSkip),
 			FEAT_INST(DumbEnemies),
+			FEAT_INST(FreezeEnemies),
 			FEAT_INST(ElementalSight),
 			FEAT_INST(KillAura),
 			FEAT_INST(MobVacuum),
 			FEAT_INST(FakeTime),
-			
 
 			FEAT_INST(ChestTeleport),
 			FEAT_INST(OculiTeleport),
@@ -108,7 +112,8 @@ namespace cheat
 
 			FEAT_INST(AutoFish),
 			FEAT_INST(AutoCook),
-			FEAT_INST(MusicEvent),
+
+			FEAT_INST(CustomWeather),
 
 			FEAT_INST(NoFog),
 			FEAT_INST(FPSUnlock),
@@ -118,9 +123,10 @@ namespace cheat
 			FEAT_INST(PaimonFollow),
 			FEAT_INST(HideUI),
 			FEAT_INST(Browser),
-			FEAT_INST(EnablePeaking),
+			FEAT_INST(EnablePeeking),
 			FEAT_INST(TextureChanger),
-			FEAT_INST(FreeCamera)
+			FEAT_INST(FreeCamera),
+			FEAT_INST(AnimationChanger)
 			
 			});
 #undef FEAT_INST

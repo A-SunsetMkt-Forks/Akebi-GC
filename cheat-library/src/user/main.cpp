@@ -14,16 +14,16 @@
 void Run(HMODULE* phModule)
 {
 	ResourceLoader::SetModuleHandle(*phModule);
+	util::SetCurrentPath(util::GetModulePath(*phModule));
 
 	// Init config
-	std::string configPath = (std::filesystem::current_path() / "cfg.json").string();
-	config::Initialize(configPath);
+	config::Initialize((util::GetCurrentPath() / "cfg.json").string());
 
 	// Init logger
 	auto& settings = cheat::feature::Settings::GetInstance();
 	if (settings.f_FileLogging)
 	{
-		Logger::PrepareFileLogging((std::filesystem::current_path() / "logs").string());
+		Logger::PrepareFileLogging((util::GetCurrentPath() / "logs").string());
 		Logger::SetLevel(Logger::Level::Trace, Logger::LoggerType::FileLogger);
 	}
 
@@ -43,7 +43,7 @@ void Run(HMODULE* phModule)
 
 #ifdef _DEBUG
 	LOG_DEBUG("Waiting 10sec for loading game library.");
-	Sleep(10000);
+	Sleep(15000);
 #else
 	LOG_DEBUG("Waiting 15sec for game initialize.");
     Sleep(15000);
@@ -55,5 +55,5 @@ void Run(HMODULE* phModule)
 
 	cheat::Init();
 
-    LOG_DEBUG("Config path is at %s", configPath.c_str());
+    LOG_DEBUG("Config path is at %s", (util::GetCurrentPath() / "cfg.json").string().c_str());
 }

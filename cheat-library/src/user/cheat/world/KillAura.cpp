@@ -190,7 +190,7 @@ namespace cheat::feature
 		if (manager.avatar()->distance(monster) > killAura.f_Range)
 			return;
 
-		moveSync->fields.moveSyncTask.position.x = 1000000.0f;
+		moveSync->fields._syncTask.position.x = 1000000.0f;
 	}
 
 	static void BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo_Hook(app::BaseMoveSyncPlugin* __this, MethodInfo* method)

@@ -37,7 +37,8 @@ namespace cheat::game
 
 		app::GameObject* gameObject();
 		app::Rigidbody* rigidbody();
-		
+		app::Animator* animator();
+
 		app::Vector3 forward();
 		app::Vector3 back();
 		app::Vector3 right();

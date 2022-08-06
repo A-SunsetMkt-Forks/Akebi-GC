@@ -10,6 +10,8 @@ namespace cheat::game::filters
 	{
 		extern SimpleFilter Book;
 		extern SimpleFilter Viewpoint;
+		extern SimpleFilter WoodenCrate;
+		extern SimpleFilter GeoSigil;
 
 		extern ChestFilter RadiantSpincrystal;
 		extern ChestFilter BookPage;
@@ -30,6 +32,8 @@ namespace cheat::game::filters
 		extern ChestFilter SFrozen;
 		extern ChestFilter SBramble;
 		extern ChestFilter STrap;
+
+		extern SimpleFilter BuriedChest;
 	}
 
 	namespace equipment
@@ -47,9 +51,12 @@ namespace cheat::game::filters
 		extern SimpleFilter Anemoculus;
 		extern SimpleFilter CrimsonAgate;
 		extern SimpleFilter Electroculus;
+		extern SimpleFilter Dendroculus;
+		extern SimpleFilter EchoingConch;
 		extern SimpleFilter Electrogranum;
 		extern SimpleFilter FishingPoint;
 		extern SimpleFilter Geoculus;
+		extern SimpleFilter ImagingConch;
 		extern WhitelistFilter ItemDrops;
 		extern SimpleFilter Lumenspar;
 		extern SimpleFilter KeySigil;
@@ -95,6 +102,7 @@ namespace cheat::game::filters
 		extern SimpleFilter LucklightFly;
 		extern SimpleFilter Npc;
 		extern SimpleFilter Salamander;
+		extern SimpleFilter Tukan;
 		extern SimpleFilter Pigeon;
 		extern SimpleFilter Crow;
 		extern SimpleFilter Finch;
@@ -137,6 +145,7 @@ namespace cheat::game::filters
 	namespace monster
 	{
 		extern SimpleFilter AbyssMage;
+		extern SimpleFilter Eremite;
 		extern SimpleFilter FatuiAgent;
 		extern SimpleFilter FatuiCicinMage;
 		extern SimpleFilter FatuiMirrorMaiden;
@@ -144,16 +153,23 @@ namespace cheat::game::filters
 		extern SimpleFilter Geovishap;
 		extern SimpleFilter GeovishapHatchling;
 		extern SimpleFilter Hilichurl;
+		extern SimpleFilter JadeplumeTerrorshroom;
 		extern SimpleFilter Mitachurl;
 		extern SimpleFilter Nobushi;
 		extern SimpleFilter Kairagi;
+		extern SimpleFilter RuinDrake;
 		extern SimpleFilter RuinGuard;
+		extern SimpleFilter RuinGrader;
 		extern SimpleFilter RuinHunter;
 		extern SimpleFilter RuinSentinel;
 		extern SimpleFilter Samachurl;
 		extern SimpleFilter ShadowyHusk;
 		extern SimpleFilter Slime;
 		extern SimpleFilter FloatingFungus;
+		extern SimpleFilter StretchyFungus;
+		extern SimpleFilter WhirlingFungus;
+		extern SimpleFilter WingedShroom;
+		extern SimpleFilter GroundedShroom;
 		extern SimpleFilter Specter;
 		extern SimpleFilter TreasureHoarder;
 		extern SimpleFilter UnusualHilichurl;
@@ -185,6 +201,7 @@ namespace cheat::game::filters
 		extern SimpleFilter OceanidFalcon;
 		extern SimpleFilter PerpetualMechanicalArray;
 		extern SimpleFilter PrimoGeovishap;
+		extern SimpleFilter HydroBathysmalVishap;
 		extern SimpleFilter CryoBathysmalVishap;
 		extern SimpleFilter ElectroBathysmalVishap;
 		extern SimpleFilter ThunderManifestation;
@@ -199,9 +216,14 @@ namespace cheat::game::filters
 		extern SimpleFilter SangonomiyaCohort;
 		extern SimpleFilter CryoRegisvine;
 		extern SimpleFilter PyroRegisvine;
+		extern SimpleFilter ElectroRegisvine;
 		extern SimpleFilter MaguuKenki;
 		extern SimpleFilter Cicin;
 		extern SimpleFilter Beisht;
+		extern SimpleFilter RishbolandTiger;
+		extern SimpleFilter ShaggySumpterBeast;
+		extern SimpleFilter Spincrocodile;
+		extern SimpleFilter SentryTurrets;
 	}
 
 	namespace plant
@@ -247,6 +269,16 @@ namespace cheat::game::filters
 		extern SimpleFilter Wheat;
 		extern SimpleFilter WindwheelAster;
 		extern SimpleFilter Wolfhook;
+		extern SimpleFilter RadishDrop;
+		extern SimpleFilter CarrotDrop;
+		extern SimpleFilter HarraFruit;
+		extern SimpleFilter KalpalataLotus;
+		extern SimpleFilter NilotpalaLotus;
+		extern SimpleFilter Padisarah;
+		extern SimpleFilter RukkhashavaMushrooms;
+		extern SimpleFilter SumeruRose;
+		//extern SimpleFilter Viparyas;
+		extern SimpleFilter ZaytunPeach;
 	}
 
 	namespace puzzle
@@ -255,7 +287,6 @@ namespace cheat::game::filters
 		extern SimpleFilter BakeDanuki;
 		extern SimpleFilter BloattyFloatty;
 		extern WhitelistFilter CubeDevices;
-		
 		extern SimpleFilter EightStoneTablets;
 		extern SimpleFilter ElectricConduction;
 		extern SimpleFilter RelayStone;
@@ -284,6 +315,11 @@ namespace cheat::game::filters
 		extern SimpleFilter UniqueRocks;
 		extern SimpleFilter WarmingSeelie;
 		extern SimpleFilter WindmillMechanism;
+		extern WhitelistFilter MelodicBloom;
+		extern SimpleFilter CloudleisureSteps;
+		extern WhitelistFilter DreamForm;
+		extern SimpleFilter StarlightCoalescence;
+		extern SimpleFilter TheRavenForum;
 	}
 
 	namespace combined
@@ -291,6 +327,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Oculies;
 		extern SimpleFilter Chests;
 		extern SimpleFilter Ores;
+		extern SimpleFilter PlantDestroy;
 		extern WhitelistFilter Doodads;
 		extern SimpleFilter Animals;
 		extern SimpleFilter AnimalDrop;
@@ -302,7 +339,8 @@ namespace cheat::game::filters
 		extern SimpleFilter MonsterBosses;
 		extern SimpleFilter MonsterShielded;
 		extern SimpleFilter MonsterEquips;
-        extern BlacklistFilter Living;
+		extern BlacklistFilter Living;
 		extern SimpleFilter OrganicTargets;
+		extern SimpleFilter Lightning;
 	}
 }

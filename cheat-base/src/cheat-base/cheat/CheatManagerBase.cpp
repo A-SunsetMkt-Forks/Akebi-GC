@@ -173,6 +173,13 @@ namespace cheat
 			config::RemoveProfile(profileName);
 		if (ImGui::IsItemHovered())
 			ImGui::SetTooltip("Delete");
+
+		ImGui::SameLine();
+
+		if (ImGui::SmallButton("Dupe"))
+			config::DuplicateProfile(profileName);
+		if (ImGui::IsItemHovered())
+			ImGui::SetTooltip("Duplicate Profile");
 	}
 
 	void CheatManagerBase::DrawProfileEntry(const std::string& profileName)

@@ -15,6 +15,7 @@ namespace cheat::feature
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
 		config::Field<float> f_Distance;
 		config::Field<float> f_Radius;
+		config::Field<float> f_MobDropRadius;
 		config::Field<int> f_DelayTime;
 
 		static VacuumLoot& GetInstance();
@@ -34,6 +35,16 @@ namespace cheat::feature
 
 		Sections m_Sections;
 		SafeValue<int64_t> nextTime;
+
+		const std::vector<game::IEntityFilter*> m_MobDropFilter = {
+			& game::filters::featured::ItemDrops,
+			& game::filters::equipment::Artifacts,
+			& game::filters::equipment::Bow,
+			& game::filters::equipment::Catalyst,
+			& game::filters::equipment::Claymore,
+			& game::filters::equipment::Pole,
+			& game::filters::equipment::Sword
+		};
 
 		VacuumLoot();
 		void DrawSection(const std::string& section, const Filters& filters);
