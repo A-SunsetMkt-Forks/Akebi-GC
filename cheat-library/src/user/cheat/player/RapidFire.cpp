@@ -10,6 +10,9 @@ namespace cheat::feature
 {
 	static void LCBaseCombat_DoHitEntity_Hook(app::LCBaseCombat* __this, uint32_t targetID, app::AttackResult* attackResult,
 		bool ignoreCheckCanBeHitInMP, MethodInfo* method);
+	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this, 
+		app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem* processItem, 
+		app::AnimatorStateInfo processStateInfo, app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_TriggerMode__Enum mode, MethodInfo* method);
 
 	RapidFire::RapidFire() : Feature(),
 		NF(f_Enabled, "Attack Multiplier", "RapidFire", false),
@@ -20,9 +23,11 @@ namespace cheat::feature
 		NF(f_minMultiplier, "Min Multiplier", "RapidFire", 1),
 		NF(f_maxMultiplier, "Max Multiplier", "RapidFire", 3),
 		NF(f_MultiTarget, "Multi-target", "RapidFire", false),
-		NF(f_MultiTargetRadius, "Multi-target Radius", "RapidFire", 20.0f)
+		NF(f_MultiTargetRadius, "Multi-target Radius", "RapidFire", 20.0f),
+		NF(f_MultiAnimation, "Multi-animation", "RapidFire", false)
 	{
 		HookManager::install(app::MoleMole_LCBaseCombat_DoHitEntity, LCBaseCombat_DoHitEntity_Hook);
+		HookManager::install(app::MoleMole_VCAnimatorEvent_HandleProcessItem, VCAnimatorEvent_HandleProcessItem_Hook);
 	}
 
 	const FeatureGUIInfo& RapidFire::GetGUIInfo() const
@@ -77,11 +82,14 @@ namespace cheat::feature
 		ImGui::Indent();
 		ConfigWidget("Radius (m)", f_MultiTargetRadius, 0.1f, 5.0f, 50.0f, "Radius to check for valid targets.");
 		ImGui::Unindent();
+
+		ConfigWidget("Multi-animation", f_MultiAnimation, "Enables multi-animation attacks.\n" \
+		"Do keep in mind that the character's audio will also be spammed.");
 	}
 
 	bool RapidFire::NeedStatusDraw() const
 	{
-		return f_Enabled && (f_MultiHit || f_MultiTarget);
+		return f_Enabled && (f_MultiHit || f_MultiTarget || f_MultiAnimation);
 	}
 
 	void RapidFire::DrawStatus()
@@ -97,6 +105,9 @@ namespace cheat::feature
 		}
 		if (f_MultiTarget)
 			ImGui::Text("Multi-Target [%.01fm]", f_MultiTargetRadius.value());
+
+		if (f_MultiAnimation)
+			ImGui::Text("Multi-Animation");
 	}
 
 	RapidFire& RapidFire::GetInstance()
@@ -260,6 +271,19 @@ namespace cheat::feature
 			}
 			else CALL_ORIGIN(LCBaseCombat_DoHitEntity_Hook, __this, entity->runtimeID(), attackResult, ignoreCheckCanBeHitInMP, method);
 		}
+	}
+
+	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this,
+		app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem* processItem,
+		app::AnimatorStateInfo processStateInfo, app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_TriggerMode__Enum mode, MethodInfo* method)
+	{
+		auto attacker = game::Entity(__this->fields._._._entity);
+		RapidFire& rapidFire = RapidFire::GetInstance();
+
+		if (rapidFire.f_MultiAnimation && IsAttackByAvatar(attacker))
+			processItem->fields.lastTime = -1;
+
+		CALL_ORIGIN(VCAnimatorEvent_HandleProcessItem_Hook, __this, processItem, processStateInfo, mode, method);
 	}
 }
 

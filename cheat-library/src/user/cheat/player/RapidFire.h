@@ -19,6 +19,7 @@ namespace cheat::feature
 		config::Field<int> f_maxMultiplier;
 		config::Field<config::Toggle<Hotkey>> f_MultiTarget;
 		config::Field<float> f_MultiTargetRadius;
+		config::Field<config::Toggle<Hotkey>> f_MultiAnimation;
 
 		static RapidFire& GetInstance();
 
