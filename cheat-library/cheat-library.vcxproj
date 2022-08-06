@@ -21,9 +21,11 @@
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeClient.h" />
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeIO.h" />
     <ClInclude Include="src\user\cheat\player\AutoRun.h" />
+    <ClInclude Include="src\user\cheat\visuals\AnimationChanger.h" />
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h" />
     <ClInclude Include="src\user\cheat\visuals\FreeCamera.h" />
     <ClInclude Include="src\user\cheat\world\AutoSeelie.h" />
+    <ClInclude Include="src\user\cheat\world\CustomWeather.h" />
     <ClInclude Include="src\user\cheat\world\FakeTime.h" />
     <ClInclude Include="src\user\cheat\debugger.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_WS|x64'">false</ExcludedFromBuild>
@@ -34,7 +36,7 @@
     <ClInclude Include="src\user\cheat\teleport\CustomTeleports.h" />
     <ClInclude Include="src\user\cheat\visuals\Browser.h" />
     <ClInclude Include="src\user\cheat\visuals\CameraZoom.h" />
-    <ClInclude Include="src\user\cheat\visuals\EnablePeaking.h" />
+    <ClInclude Include="src\user\cheat\visuals\EnablePeeking.h" />
     <ClInclude Include="src\user\cheat\visuals\FPSUnlock.h" />
     <ClInclude Include="src\user\cheat\visuals\HideUI.h" />
     <ClInclude Include="src\user\cheat\visuals\NoFog.h" />
@@ -95,6 +97,7 @@
     <ClInclude Include="src\user\cheat\world\AutoTreeFarm.h" />
     <ClInclude Include="src\user\cheat\world\DialogSkip.h" />
     <ClInclude Include="src\user\cheat\world\DumbEnemies.h" />
+    <ClInclude Include="src\user\cheat\world\FreezeEnemies.h" />
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
     <ClInclude Include="src\user\cheat\world\VacuumLoot.h" />
@@ -111,9 +114,11 @@
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeClient.cpp" />
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeIO.cpp" />
     <ClCompile Include="src\user\cheat\player\AutoRun.cpp" />
+    <ClCompile Include="src\user\cheat\visuals\AnimationChanger.cpp" />
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FreeCamera.cpp" />
     <ClCompile Include="src\user\cheat\world\AutoSeelie.cpp" />
+    <ClCompile Include="src\user\cheat\world\CustomWeather.cpp" />
     <ClCompile Include="src\user\cheat\world\FakeTime.cpp" />
     <ClCompile Include="src\user\cheat\debugger.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -124,7 +129,7 @@
     <ClCompile Include="src\user\cheat\GenshinCM.cpp" />
     <ClCompile Include="src\user\cheat\visuals\Browser.cpp" />
     <ClCompile Include="src\user\cheat\visuals\CameraZoom.cpp" />
-    <ClCompile Include="src\user\cheat\visuals\EnablePeaking.cpp" />
+    <ClCompile Include="src\user\cheat\visuals\EnablePeeking.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FPSUnlock.cpp" />
     <ClCompile Include="src\user\cheat\visuals\HideUI.cpp" />
     <ClCompile Include="src\user\cheat\visuals\NoFog.cpp" />
@@ -182,6 +187,7 @@
     <ClCompile Include="src\user\cheat\world\AutoTreeFarm.cpp" />
     <ClCompile Include="src\user\cheat\world\DialogSkip.cpp" />
     <ClCompile Include="src\user\cheat\world\DumbEnemies.cpp" />
+    <ClCompile Include="src\user\cheat\world\FreezeEnemies.cpp" />
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
     <ClCompile Include="src\user\cheat\world\VacuumLoot.cpp" />
@@ -206,12 +212,34 @@
     <None Include="res\map_enkanomiya.json" />
     <None Include="res\map_teyvat.json" />
     <None Include="res\map_undeground_mines.json" />
+    <None Include="res\map_golden_apple_archipelago.json" />
     <None Include="res\signatures.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="icons\Anemoculus.png" />
     <Image Include="res\iconsHD\AbidingAngelfish.png" />
-    <Image Include="res\iconsHD\AbyssHerald.png" />
+    <Image Include="res\iconsHD\Andrius.png" />
+    <Image Include="res\iconsHD\Azhdaha.png" />
+    <Image Include="res\iconsHD\Boar.png" />
+    <Image Include="res\iconsHD\BookPage.png" />
+    <Image Include="res\iconsHD\Cat.png" />
+    <Image Include="res\iconsHD\Cicin.png" />
+    <Image Include="res\iconsHD\Crane.png" />
+    <Image Include="res\iconsHD\CryoBathysmalVishap.png" />
+    <Image Include="res\iconsHD\Dendroculus.png" />
+    <Image Include="res\iconsHD\Dog.png" />
+    <Image Include="res\iconsHD\DunlinsTooth.png" />
+    <Image Include="res\iconsHD\Dvalin.png" />
+    <Image Include="res\iconsHD\Eel.png" />
+    <Image Include="res\iconsHD\ElectroAbyssLector.png" />
+    <Image Include="res\iconsHD\ElectroRegisvine.png" />
+    <Image Include="res\iconsHD\Eremite.png" />
+    <Image Include="res\iconsHD\Falcon.png" />
+    <Image Include="res\iconsHD\Finch.png" />
+    <Image Include="res\iconsHD\Fox.png" />
+    <Image Include="res\iconsHD\GroundedShroom.png" />
+    <Image Include="res\iconsHD\HarraFruit.png" />
+    <Image Include="res\iconsHD\HydroAbyssHerald.png" />
     <Image Include="res\iconsHD\AbyssMage.png" />
     <Image Include="res\iconsHD\AdornedUnagi.png" />
     <Image Include="res\iconsHD\AizenMedaka.png" />
@@ -229,7 +257,7 @@
     <Image Include="res\iconsHD\BakeDanuki.png" />
     <Image Include="res\iconsHD\BambooSegment.png" />
     <Image Include="res\iconsHD\BambooShoot.png" />
-    <Image Include="res\iconsHD\BathysmalVishap.png" />
+    <Image Include="res\iconsHD\ElectroBathysmalVishap.png" />
     <Image Include="res\iconsHD\BathysmalVishapHerd.png" />
     <Image Include="res\iconsHD\Berry.png" />
     <Image Include="res\iconsHD\Betta.png" />
@@ -278,6 +306,7 @@
     <Image Include="res\iconsHD\Dendrobium.png" />
     <Image Include="res\iconsHD\DivdaRay.png" />
     <Image Include="res\iconsHD\Domain.png" />
+    <Image Include="res\iconsHD\EchoingConch.png" />
     <Image Include="res\iconsHD\EightStoneTablets.png" />
     <Image Include="res\iconsHD\ElectricConduction.png" />
     <Image Include="res\iconsHD\ElectroCrystal.png" />
@@ -301,7 +330,7 @@
     <Image Include="res\iconsHD\FishingPoint.png" />
     <Image Include="res\iconsHD\FlamingFlowerStamen.png" />
     <Image Include="res\iconsHD\FloatingAnemoSlime.png" />
-    <Image Include="res\iconsHD\FloatingHydroFungus.png" />
+    <Image Include="res\iconsHD\FloatingFungus.png" />
     <Image Include="res\iconsHD\FluorescentFungus.png" />
     <Image Include="res\iconsHD\FormaloRay.png" />
     <Image Include="res\iconsHD\Fowl.png" />
@@ -333,10 +362,16 @@
     <Image Include="res\iconsHD\Horsetail.png" />
     <Image Include="res\iconsHD\HydroHypostasis.png" />
     <Image Include="res\iconsHD\Illusion.png" />
+    <Image Include="res\iconsHD\ImagingConch.png" />
     <Image Include="res\iconsHD\InazumaShrineofDepths.png" />
+    <Image Include="res\iconsHD\Inu.png" />
     <Image Include="res\iconsHD\IronChunk.png" />
     <Image Include="res\iconsHD\JadeChamber.png" />
+    <Image Include="res\iconsHD\JadeplumeTerrorshroom.png" />
     <Image Include="res\iconsHD\JueyunChili.png" />
+    <Image Include="res\iconsHD\Kairagi.png" />
+    <Image Include="res\iconsHD\KalpalataLotus.png" />
+    <Image Include="res\iconsHD\KeySigil.png" />
     <Image Include="res\iconsHD\KeySigilI.png" />
     <Image Include="res\iconsHD\KeySigilII.png" />
     <Image Include="res\iconsHD\KeySigilIII.png" />
@@ -366,6 +401,7 @@
     <Image Include="res\iconsHD\Matsutake.png" />
     <Image Include="res\iconsHD\Medaka.png" />
     <Image Include="res\iconsHD\Merchant.png" />
+    <Image Include="res\iconsHD\Millelith.png" />
     <Image Include="res\iconsHD\MiniPuzzle.png" />
     <Image Include="res\iconsHD\Mint.png" />
     <Image Include="res\iconsHD\MistBubble.png" />
@@ -377,17 +413,21 @@
     <Image Include="res\iconsHD\Mushroom.png" />
     <Image Include="res\iconsHD\MysteriousCarvings.png" />
     <Image Include="res\iconsHD\NakuWeed.png" />
+    <Image Include="res\iconsHD\NilotpalaLotus.png" />
     <Image Include="res\iconsHD\Nobushi.png" />
     <Image Include="res\iconsHD\NoctilucousJade.png" />
     <Image Include="res\iconsHD\OceanCrab.png" />
     <Image Include="res\iconsHD\Oceanid.png" />
+    <Image Include="res\iconsHD\OceanidSummons.png" />
     <Image Include="res\iconsHD\Onikabuto.png" />
     <Image Include="res\iconsHD\Ores.png" />
     <Image Include="res\iconsHD\OtogiWood.png" />
+    <Image Include="res\iconsHD\Padisarah.png" />
     <Image Include="res\iconsHD\PaleRedCrab.png" />
     <Image Include="res\iconsHD\PerpetualMechanicalArray.png" />
     <Image Include="res\iconsHD\PhaseGate.png" />
     <Image Include="res\iconsHD\PhilanemoMushroom.png" />
+    <Image Include="res\iconsHD\Pigeon.png" />
     <Image Include="res\iconsHD\Pinecone.png" />
     <Image Include="res\iconsHD\PineWood.png" />
     <Image Include="res\iconsHD\PlacesofEssenceWorship.png" />
@@ -397,6 +437,7 @@
     <Image Include="res\iconsHD\PrimoGeovishap.png" />
     <Image Include="res\iconsHD\Pufferfish.png" />
     <Image Include="res\iconsHD\PurpleShirakodai.png" />
+    <Image Include="res\iconsHD\PyroAbyssLector.png" />
     <Image Include="res\iconsHD\PyroHypostasis.png" />
     <Image Include="res\iconsHD\PyroRegisvine.png" />
     <Image Include="res\iconsHD\Qingxin.png" />
@@ -409,6 +450,9 @@
     <Image Include="res\iconsHD\RedHornedLizard.png" />
     <Image Include="res\iconsHD\RedTailedWeasel.png" />
     <Image Include="res\iconsHD\RemarkableChest.png" />
+    <Image Include="res\iconsHD\Rifthound.png" />
+    <Image Include="res\iconsHD\RifthoundWhelp.png" />
+    <Image Include="res\iconsHD\RishbolandTiger.png" />
     <Image Include="res\iconsHD\RockPile.png" />
     <Image Include="res\iconsHD\RuinBrazier.png" />
     <Image Include="res\iconsHD\RuinGrader.png" />
@@ -416,11 +460,14 @@
     <Image Include="res\iconsHD\RuinHunter.png" />
     <Image Include="res\iconsHD\RuinSentinel.png" />
     <Image Include="res\iconsHD\RuinSerpent.png" />
+    <Image Include="res\iconsHD\RukkhashavaMushrooms.png" />
     <Image Include="res\iconsHD\RustyKoi.png" />
     <Image Include="res\iconsHD\SacredSakura.png" />
     <Image Include="res\iconsHD\SakuraBloom.png" />
+    <Image Include="res\iconsHD\Salamander.png" />
     <Image Include="res\iconsHD\Samachurl.png" />
     <Image Include="res\iconsHD\SandbearerWood.png" />
+    <Image Include="res\iconsHD\SangonomiyaCohort.png" />
     <Image Include="res\iconsHD\SangoPearl.png" />
     <Image Include="res\iconsHD\Sapphire.png" />
     <Image Include="res\iconsHD\ScarletQuartz.png" />
@@ -435,6 +482,11 @@
     <Image Include="res\iconsHD\Seelie.png" />
     <Image Include="res\iconsHD\SeelieCourt.png" />
     <Image Include="res\iconsHD\ShadowyHusk.png" />
+    <Image Include="res\iconsHD\ShaggySumpterBeast.png" />
+    <Image Include="res\iconsHD\Shogun.png" />
+    <Image Include="res\iconsHD\ShogunateInfantry.png" />
+    <Image Include="res\iconsHD\ShrineOfDepth.png" />
+    <Image Include="res\iconsHD\Signora.png" />
     <Image Include="res\iconsHD\SilkFlower.png" />
     <Image Include="res\iconsHD\Slime.png" />
     <Image Include="res\iconsHD\SmallLampGrass.png" />
@@ -447,6 +499,7 @@
     <Image Include="res\iconsHD\Snowstrider.png" />
     <Image Include="res\iconsHD\SnowWeasel.png" />
     <Image Include="res\iconsHD\Specter.png" />
+    <Image Include="res\iconsHD\Spincrocodile.png" />
     <Image Include="res\iconsHD\Squirrel.png" />
     <Image Include="res\iconsHD\Starconch.png" />
     <Image Include="res\iconsHD\Starshroom.png" />
@@ -455,6 +508,8 @@
     <Image Include="res\iconsHD\StormBarrier.png" />
     <Image Include="res\iconsHD\Stormstone.png" />
     <Image Include="res\iconsHD\StrangeTooth.png" />
+    <Image Include="res\iconsHD\StretchyFungus.png" />
+    <Image Include="res\iconsHD\SumeruRose.png" />
     <Image Include="res\iconsHD\SunCrab.png" />
     <Image Include="res\iconsHD\SunnyLoach.png" />
     <Image Include="res\iconsHD\SunsetLoach.png" />
@@ -462,6 +517,7 @@
     <Image Include="res\iconsHD\SweetFlower.png" />
     <Image Include="res\iconsHD\SweetFlowerMedaka.png" />
     <Image Include="res\iconsHD\SwordHilt.png" />
+    <Image Include="res\iconsHD\Tartaglia.png" />
     <Image Include="res\iconsHD\TeaColoredShirakodai.png" />
     <Image Include="res\iconsHD\TeleportWaypoint.png" />
     <Image Include="res\iconsHD\TheCruxTheAlcor.png" />
@@ -472,6 +528,7 @@
     <Image Include="res\iconsHD\TorchPuzzle.png" />
     <Image Include="res\iconsHD\TreasureHoarder.png" />
     <Image Include="res\iconsHD\TriangularMechanism.png" />
+    <Image Include="res\iconsHD\Tukan.png" />
     <Image Include="res\iconsHD\UnagiMeat.png" />
     <Image Include="res\iconsHD\UniqueRocks.png" />
     <Image Include="res\iconsHD\UnusualHilichurl.png" />
@@ -480,21 +537,48 @@
     <Image Include="res\iconsHD\Viewpoint.png" />
     <Image Include="res\iconsHD\Violetgrass.png" />
     <Image Include="res\iconsHD\VioletIbis.png" />
+    <Image Include="res\iconsHD\Viparyas.png" />
     <Image Include="res\iconsHD\WarmingSeelie.png" />
     <Image Include="res\iconsHD\WaveriderWaypointCannotTeleport.png" />
     <Image Include="res\iconsHD\Weapon.png" />
+    <Image Include="res\iconsHD\Weasel.png" />
+    <Image Include="res\iconsHD\WhirlingFungus.png" />
     <Image Include="res\iconsHD\WhiteIronChunk.png" />
     <Image Include="res\iconsHD\WhitePigeon.png" />
     <Image Include="res\iconsHD\Whopperflower.png" />
+    <Image Include="res\iconsHD\Wigeon.png" />
     <Image Include="res\iconsHD\WindmillMechanism.png" />
     <Image Include="res\iconsHD\WindwheelAster.png" />
+    <Image Include="res\iconsHD\WingedShroom.png" />
     <Image Include="res\iconsHD\Wolfhook.png" />
     <Image Include="res\iconsHD\WolvesoftheRift.png" />
     <Image Include="res\iconsHD\WoodenCrate.png" />
     <Image Include="res\iconsHD\WorldQuests.png" />
     <Image Include="res\iconsHD\YumemiruWood.png" />
+    <Image Include="res\iconsHD\ZaytunPeach.png" />
     <Image Include="res\icons\AbidingAngelfish.png" />
-    <Image Include="res\icons\AbyssHerald.png" />
+    <Image Include="res\icons\Andrius.png" />
+    <Image Include="res\icons\Azhdaha.png" />
+    <Image Include="res\icons\Boar.png" />
+    <Image Include="res\icons\BookPage.png" />
+    <Image Include="res\icons\Cat.png" />
+    <Image Include="res\icons\Cicin.png" />
+    <Image Include="res\icons\Crane.png" />
+    <Image Include="res\icons\CryoBathysmalVishap.png" />
+    <Image Include="res\icons\Dendroculus.png" />
+    <Image Include="res\icons\Dog.png" />
+    <Image Include="res\icons\DunlinsTooth.png" />
+    <Image Include="res\icons\Dvalin.png" />
+    <Image Include="res\icons\Eel.png" />
+    <Image Include="res\icons\ElectroAbyssLector.png" />
+    <Image Include="res\icons\ElectroRegisvine.png" />
+    <Image Include="res\icons\Eremite.png" />
+    <Image Include="res\icons\Falcon.png" />
+    <Image Include="res\icons\Finch.png" />
+    <Image Include="res\icons\Fox.png" />
+    <Image Include="res\icons\GroundedShroom.png" />
+    <Image Include="res\icons\HarraFruit.png" />
+    <Image Include="res\icons\HydroAbyssHerald.png" />
     <Image Include="res\icons\AbyssMage.png" />
     <Image Include="res\icons\AdornedUnagi.png" />
     <Image Include="res\icons\AizenMedaka.png" />
@@ -512,7 +596,7 @@
     <Image Include="res\icons\BakeDanuki.png" />
     <Image Include="res\icons\BambooSegment.png" />
     <Image Include="res\icons\BambooShoot.png" />
-    <Image Include="res\icons\BathysmalVishap.png" />
+    <Image Include="res\icons\ElectroBathysmalVishap.png" />
     <Image Include="res\icons\BathysmalVishapHerd.png" />
     <Image Include="res\icons\Berry.png" />
     <Image Include="res\icons\Betta.png" />
@@ -561,6 +645,7 @@
     <Image Include="res\icons\Dendrobium.png" />
     <Image Include="res\icons\DivdaRay.png" />
     <Image Include="res\icons\Domain.png" />
+    <Image Include="res\icons\EchoingConch.png" />
     <Image Include="res\icons\EightStoneTablets.png" />
     <Image Include="res\icons\ElectricConduction.png" />
     <Image Include="res\icons\ElectroCrystal.png" />
@@ -584,7 +669,7 @@
     <Image Include="res\icons\FishingPoint.png" />
     <Image Include="res\icons\FlamingFlowerStamen.png" />
     <Image Include="res\icons\FloatingAnemoSlime.png" />
-    <Image Include="res\icons\FloatingHydroFungus.png" />
+    <Image Include="res\icons\FloatingFungus.png" />
     <Image Include="res\icons\FluorescentFungus.png" />
     <Image Include="res\icons\FormaloRay.png" />
     <Image Include="res\icons\Fowl.png" />
@@ -616,10 +701,16 @@
     <Image Include="res\icons\Horsetail.png" />
     <Image Include="res\icons\HydroHypostasis.png" />
     <Image Include="res\icons\Illusion.png" />
+    <Image Include="res\icons\ImagingConch.png" />
     <Image Include="res\icons\InazumaShrineofDepths.png" />
+    <Image Include="res\icons\Inu.png" />
     <Image Include="res\icons\IronChunk.png" />
     <Image Include="res\icons\JadeChamber.png" />
+    <Image Include="res\icons\JadeplumeTerrorshroom.png" />
     <Image Include="res\icons\JueyunChili.png" />
+    <Image Include="res\icons\Kairagi.png" />
+    <Image Include="res\icons\KalpalataLotus.png" />
+    <Image Include="res\icons\KeySigil.png" />
     <Image Include="res\icons\KeySigilI.png" />
     <Image Include="res\icons\KeySigilII.png" />
     <Image Include="res\icons\KeySigilIII.png" />
@@ -649,6 +740,7 @@
     <Image Include="res\icons\Matsutake.png" />
     <Image Include="res\icons\Medaka.png" />
     <Image Include="res\icons\Merchant.png" />
+    <Image Include="res\icons\Millelith.png" />
     <Image Include="res\icons\MiniPuzzle.png" />
     <Image Include="res\icons\Mint.png" />
     <Image Include="res\icons\MistBubble.png" />
@@ -660,17 +752,21 @@
     <Image Include="res\icons\Mushroom.png" />
     <Image Include="res\icons\MysteriousCarvings.png" />
     <Image Include="res\icons\NakuWeed.png" />
+    <Image Include="res\icons\NilotpalaLotus.png" />
     <Image Include="res\icons\Nobushi.png" />
     <Image Include="res\icons\NoctilucousJade.png" />
     <Image Include="res\icons\OceanCrab.png" />
     <Image Include="res\icons\Oceanid.png" />
+    <Image Include="res\icons\OceanidSummons.png" />
     <Image Include="res\icons\Onikabuto.png" />
     <Image Include="res\icons\Ores.png" />
     <Image Include="res\icons\OtogiWood.png" />
+    <Image Include="res\icons\Padisarah.png" />
     <Image Include="res\icons\PaleRedCrab.png" />
     <Image Include="res\icons\PerpetualMechanicalArray.png" />
     <Image Include="res\icons\PhaseGate.png" />
     <Image Include="res\icons\PhilanemoMushroom.png" />
+    <Image Include="res\icons\Pigeon.png" />
     <Image Include="res\icons\Pinecone.png" />
     <Image Include="res\icons\PineWood.png" />
     <Image Include="res\icons\PlacesofEssenceWorship.png" />
@@ -680,6 +776,7 @@
     <Image Include="res\icons\PrimoGeovishap.png" />
     <Image Include="res\icons\Pufferfish.png" />
     <Image Include="res\icons\PurpleShirakodai.png" />
+    <Image Include="res\icons\PyroAbyssLector.png" />
     <Image Include="res\icons\PyroHypostasis.png" />
     <Image Include="res\icons\PyroRegisvine.png" />
     <Image Include="res\icons\Qingxin.png" />
@@ -692,6 +789,9 @@
     <Image Include="res\icons\RedHornedLizard.png" />
     <Image Include="res\icons\RedTailedWeasel.png" />
     <Image Include="res\icons\RemarkableChest.png" />
+    <Image Include="res\icons\Rifthound.png" />
+    <Image Include="res\icons\RifthoundWhelp.png" />
+    <Image Include="res\icons\RishbolandTiger.png" />
     <Image Include="res\icons\RockPile.png" />
     <Image Include="res\icons\RuinBrazier.png" />
     <Image Include="res\icons\RuinGrader.png" />
@@ -699,11 +799,14 @@
     <Image Include="res\icons\RuinHunter.png" />
     <Image Include="res\icons\RuinSentinel.png" />
     <Image Include="res\icons\RuinSerpent.png" />
+    <Image Include="res\icons\RukkhashavaMushrooms.png" />
     <Image Include="res\icons\RustyKoi.png" />
     <Image Include="res\icons\SacredSakura.png" />
     <Image Include="res\icons\SakuraBloom.png" />
+    <Image Include="res\icons\Salamander.png" />
     <Image Include="res\icons\Samachurl.png" />
     <Image Include="res\icons\SandbearerWood.png" />
+    <Image Include="res\icons\SangonomiyaCohort.png" />
     <Image Include="res\icons\SangoPearl.png" />
     <Image Include="res\icons\Sapphire.png" />
     <Image Include="res\icons\ScarletQuartz.png" />
@@ -718,6 +821,11 @@
     <Image Include="res\icons\Seelie.png" />
     <Image Include="res\icons\SeelieCourt.png" />
     <Image Include="res\icons\ShadowyHusk.png" />
+    <Image Include="res\icons\ShaggySumpterBeast.png" />
+    <Image Include="res\icons\Shogun.png" />
+    <Image Include="res\icons\ShogunateInfantry.png" />
+    <Image Include="res\icons\ShrineOfDepth.png" />
+    <Image Include="res\icons\Signora.png" />
     <Image Include="res\icons\SilkFlower.png" />
     <Image Include="res\icons\Slime.png" />
     <Image Include="res\icons\SmallLampGrass.png" />
@@ -730,6 +838,7 @@
     <Image Include="res\icons\Snowstrider.png" />
     <Image Include="res\icons\SnowWeasel.png" />
     <Image Include="res\icons\Specter.png" />
+    <Image Include="res\icons\Spincrocodile.png" />
     <Image Include="res\icons\Squirrel.png" />
     <Image Include="res\icons\Starconch.png" />
     <Image Include="res\icons\Starshroom.png" />
@@ -738,6 +847,8 @@
     <Image Include="res\icons\StormBarrier.png" />
     <Image Include="res\icons\Stormstone.png" />
     <Image Include="res\icons\StrangeTooth.png" />
+    <Image Include="res\icons\StretchyFungus.png" />
+    <Image Include="res\icons\SumeruRose.png" />
     <Image Include="res\icons\SunCrab.png" />
     <Image Include="res\icons\SunnyLoach.png" />
     <Image Include="res\icons\SunsetLoach.png" />
@@ -745,6 +856,7 @@
     <Image Include="res\icons\SweetFlower.png" />
     <Image Include="res\icons\SweetFlowerMedaka.png" />
     <Image Include="res\icons\SwordHilt.png" />
+    <Image Include="res\icons\Tartaglia.png" />
     <Image Include="res\icons\TeaColoredShirakodai.png" />
     <Image Include="res\icons\TeleportWaypoint.png" />
     <Image Include="res\icons\TheCruxTheAlcor.png" />
@@ -755,6 +867,7 @@
     <Image Include="res\icons\TorchPuzzle.png" />
     <Image Include="res\icons\TreasureHoarder.png" />
     <Image Include="res\icons\TriangularMechanism.png" />
+    <Image Include="res\icons\Tukan.png" />
     <Image Include="res\icons\UnagiMeat.png" />
     <Image Include="res\icons\UniqueRocks.png" />
     <Image Include="res\icons\UnusualHilichurl.png" />
@@ -763,19 +876,25 @@
     <Image Include="res\icons\Viewpoint.png" />
     <Image Include="res\icons\Violetgrass.png" />
     <Image Include="res\icons\VioletIbis.png" />
+    <Image Include="res\icons\Viparyas.png" />
     <Image Include="res\icons\WarmingSeelie.png" />
     <Image Include="res\icons\WaveriderWaypointCannotTeleport.png" />
     <Image Include="res\icons\Weapon.png" />
+    <Image Include="res\icons\Weasel.png" />
+    <Image Include="res\icons\WhirlingFungus.png" />
     <Image Include="res\icons\WhiteIronChunk.png" />
     <Image Include="res\icons\WhitePigeon.png" />
     <Image Include="res\icons\Whopperflower.png" />
+    <Image Include="res\icons\Wigeon.png" />
     <Image Include="res\icons\WindmillMechanism.png" />
     <Image Include="res\icons\WindwheelAster.png" />
+    <Image Include="res\icons\WingedShroom.png" />
     <Image Include="res\icons\Wolfhook.png" />
     <Image Include="res\icons\WolvesoftheRift.png" />
     <Image Include="res\icons\WoodenCrate.png" />
     <Image Include="res\icons\WorldQuests.png" />
     <Image Include="res\icons\YumemiruWood.png" />
+    <Image Include="res\icons\ZaytunPeach.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -858,7 +977,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch-il2cpp.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src/appdata;$(ProjectDir)src/framework;$(ProjectDir)res/;$(ProjectDir)vendor/protobuf/src/;$(ProjectDir)src/user;$(SolutionDir)cheat-base/src/;$(SolutionDir)cheat-base/vendor/imgui/;$(SolutionDir)cheat-base/vendor/json/single_include/;$(SolutionDir)cheat-base/vendor/magic_enum/include/;$(SolutionDir)cheat-base/vendor/fmt/include/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/simpleIni/;$(SolutionDir)cheat-base/vendor/detours/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src/appdata;$(ProjectDir)src/framework;$(ProjectDir)res/;$(ProjectDir)src/user;$(SolutionDir)cheat-base/src/;$(SolutionDir)cheat-base/vendor/imgui/;$(SolutionDir)cheat-base/vendor/json/single_include/;$(SolutionDir)cheat-base/vendor/magic_enum/include/;$(SolutionDir)cheat-base/vendor/fmt/include/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/simpleIni/;$(SolutionDir)cheat-base/vendor/detours/</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <Optimization>Disabled</Optimization>
@@ -896,7 +1015,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch-il2cpp.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src/appdata;$(ProjectDir)src/framework;$(ProjectDir)res/;$(ProjectDir)vendor/protobuf/src/;$(ProjectDir)src/user;$(SolutionDir)cheat-base/src/;$(SolutionDir)cheat-base/vendor/imgui/;$(SolutionDir)cheat-base/vendor/json/single_include/;$(SolutionDir)cheat-base/vendor/magic_enum/include/;$(SolutionDir)cheat-base/vendor/fmt/include/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/simpleIni/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/detours/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src/appdata;$(ProjectDir)src/framework;$(ProjectDir)res/;$(ProjectDir)src/user;$(SolutionDir)cheat-base/src/;$(SolutionDir)cheat-base/vendor/imgui/;$(SolutionDir)cheat-base/vendor/json/single_include/;$(SolutionDir)cheat-base/vendor/magic_enum/include/;$(SolutionDir)cheat-base/vendor/fmt/include/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/simpleIni/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/detours/</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <DebugInformationFormat>None</DebugInformationFormat>
@@ -933,7 +1052,7 @@ powershell -nop -c "&amp; {sleep 15}"</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch-il2cpp.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src/appdata;$(ProjectDir)src/framework;$(ProjectDir)res/;$(ProjectDir)vendor/protobuf/src/;$(ProjectDir)src/user;$(SolutionDir)cheat-base/src/;$(SolutionDir)cheat-base/vendor/imgui/;$(SolutionDir)cheat-base/vendor/json/single_include/;$(SolutionDir)cheat-base/vendor/magic_enum/include/;$(SolutionDir)cheat-base/vendor/fmt/include/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/simpleIni/;$(SolutionDir)cheat-base/vendor/detours/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src/appdata;$(ProjectDir)src/framework;$(ProjectDir)res/;$(ProjectDir)src/user;$(SolutionDir)cheat-base/src/;$(SolutionDir)cheat-base/vendor/imgui/;$(SolutionDir)cheat-base/vendor/json/single_include/;$(SolutionDir)cheat-base/vendor/magic_enum/include/;$(SolutionDir)cheat-base/vendor/fmt/include/;$(SolutionDir)cheat-base/vendor/imgui-notify-v2/;$(SolutionDir)cheat-base/vendor/simpleIni/;$(SolutionDir)cheat-base/vendor/detours/</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <DebugInformationFormat>None</DebugInformationFormat>

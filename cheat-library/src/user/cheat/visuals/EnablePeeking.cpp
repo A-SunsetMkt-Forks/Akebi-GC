@@ -1,5 +1,5 @@
 #include "pch-il2cpp.h"
-#include "EnablePeaking.h"
+#include "EnablePeeking.h"
 
 #include <helpers.h>
 
@@ -7,43 +7,43 @@ namespace cheat::feature
 {
     static void MoleMole_VCBaseSetDitherValue_set_ManagerDitherAlphaValue_Hook(app::MoleMole_VCBaseSetDitherValue* __this, float value, MethodInfo* method);
 
-    EnablePeaking::EnablePeaking() : Feature(),
-        NF(f_Enabled, "Enable Peaking", "Visuals::EnablePeaking", false)
+    EnablePeeking::EnablePeeking() : Feature(),
+        NF(f_Enabled, "Enable Peeking", "Visuals::EnablePeeking", false)
     {
         HookManager::install(app::MoleMole_VCBaseSetDitherValue_set_ManagerDitherAlphaValue, MoleMole_VCBaseSetDitherValue_set_ManagerDitherAlphaValue_Hook);
     }
 
-    const FeatureGUIInfo& EnablePeaking::GetGUIInfo() const
+    const FeatureGUIInfo& EnablePeeking::GetGUIInfo() const
     {
-        static const FeatureGUIInfo info{ "EnablePeaking", "Visuals", false };
+        static const FeatureGUIInfo info{ "EnablePeeking", "Visuals", false };
         return info;
     }
 
-    void EnablePeaking::DrawMain()
+    void EnablePeeking::DrawMain()
     {
         ConfigWidget(f_Enabled, ";)");
     }
 
-    bool EnablePeaking::NeedStatusDraw() const
+    bool EnablePeeking::NeedStatusDraw() const
     {
         return f_Enabled;
     }
 
-    void EnablePeaking::DrawStatus()
+    void EnablePeeking::DrawStatus()
     {
-        ImGui::Text("Enable Peaking");
+        ImGui::Text("Enable Peeking");
     }
 
-    EnablePeaking& EnablePeaking::GetInstance()
+    EnablePeeking& EnablePeeking::GetInstance()
     {
-        static EnablePeaking instance;
+        static EnablePeeking instance;
         return instance;
-    } 
+    }
 
     static void MoleMole_VCBaseSetDitherValue_set_ManagerDitherAlphaValue_Hook(app::MoleMole_VCBaseSetDitherValue* __this, float value, MethodInfo* method)
     {
-        EnablePeaking& EnablePeaking = EnablePeaking::GetInstance();
-        if (EnablePeaking.f_Enabled)
+        EnablePeeking& EnablePeeking = EnablePeeking::GetInstance();
+        if (EnablePeeking.f_Enabled)
             value = 1;
 
         CALL_ORIGIN(MoleMole_VCBaseSetDitherValue_set_ManagerDitherAlphaValue_Hook, __this, value, method);

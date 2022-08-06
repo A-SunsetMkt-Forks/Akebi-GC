@@ -25,8 +25,9 @@ namespace cheat::feature
     class CustomTeleports : public Feature
     {
     public:
-        config::Field<config::Toggle<Hotkey>> f_DebugMode;
         config::Field<config::Toggle<Hotkey>> f_Enabled;
+        config::Field<config::Toggle<Hotkey>> f_Interpolate;
+        config::Field<float> f_Speed;
         config::Field<Hotkey> f_Next;
         config::Field<Hotkey> f_Previous;
         static CustomTeleports& GetInstance();
@@ -45,7 +46,7 @@ namespace cheat::feature
         void DrawStatus() override;
         
         std::vector<Teleport> Teleports;
-        std::filesystem::path dir = std::filesystem::current_path() / "teleports";
+        std::filesystem::path dir;
 
     private:
         std::set<unsigned int> checkedIndices;
@@ -55,6 +56,7 @@ namespace cheat::feature
         std::string selectedName;
         std::string selectedIndexName;
         CustomTeleports();
+        void TeleportTo(app::Vector3 position, bool interpolate);
         void OnTeleportKeyPressed(bool next);
         void OnPrevious();
         void OnNext();

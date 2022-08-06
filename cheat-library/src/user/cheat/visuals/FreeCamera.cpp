@@ -3,6 +3,7 @@
 
 #include <helpers.h>
 #include <cheat/events.h>
+#include <cheat/game/EntityManager.h>
 
 namespace cheat::feature
 {
@@ -20,6 +21,7 @@ namespace cheat::feature
 
 	FreeCamera::FreeCamera() : Feature(),
 		NF(f_Enabled, "Free Camera", "Visuals::FreeCamera", false),
+		NF(f_FreezeAnimation, "Freeze Character Animation", "Visuals::FreeCamera", false),
 		NF(f_Speed, "Speed", "Visuals::FreeCamera", 1.0f),
 		NF(f_LookSens, "Look Sensitivity", "Visuals::FreeCamera", 1.0f),
 		NF(f_RollSpeed, "Roll Speed", "Visuals::FreeCamera", 1.0f),
@@ -50,6 +52,7 @@ namespace cheat::feature
 	void FreeCamera::DrawMain()
 	{
 		ConfigWidget("Enable", f_Enabled);
+		ConfigWidget("Freeze Character Animation", f_FreezeAnimation, "Freezes the active character's animation.\nAfter disabling, jump to un-freeze your character.");
 		if (ImGui::BeginTable("FreeCameraDrawTable", 1, ImGuiTableFlags_NoBordersInBody))
 		{
 			ImGui::TableNextRow();
@@ -245,5 +248,25 @@ namespace cheat::feature
 		}
 		else
 			DisableFreeCam();
+
+		// Taiga#5555: There's probably be a better way of implementing this. But for now, this is just what I came up with.
+		auto& manager = game::EntityManager::instance();
+		auto animator = manager.avatar()->animator();
+		auto rigidBody = manager.avatar()->rigidbody();
+		if (animator == nullptr && rigidBody == nullptr)
+			return;
+
+		if (f_FreezeAnimation)
+		{
+			//auto constraints = app::Rigidbody_get_constraints(rigidBody, nullptr);
+			//LOG_DEBUG("%s", magic_enum::enum_name(constraints).data());
+			app::Rigidbody_set_constraints(rigidBody, app::RigidbodyConstraints__Enum::FreezePosition, nullptr);
+			app::Animator_set_speed(animator, 0.f, nullptr);
+		}
+		else
+		{
+			app::Rigidbody_set_constraints(rigidBody, app::RigidbodyConstraints__Enum::FreezeRotation, nullptr);
+			app::Animator_set_speed(animator, 1.f, nullptr);
+		}
 	}
 }
