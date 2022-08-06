@@ -10,8 +10,6 @@ namespace cheat::feature
 	public:
 		config::Field<Hotkey> f_MenuKey;
 		config::Field<bool> f_HotkeysEnabled;
-		config::Field<int> f_FontSize;
-		config::Field<bool> f_ShowStyleEditor;
 
 		config::Field<bool> f_StatusMove;
 		config::Field<bool> f_StatusShow;
@@ -31,8 +29,11 @@ namespace cheat::feature
 		config::Field<bool> f_FastExitEnable;
 		config::Field<Hotkey> f_HotkeyExit;
 
+		config::Field<int> f_FontSize;
+		config::Field<bool> f_ShowStyleEditor;
 		std::filesystem::path themesDir;
 		config::Field<std::string> f_DefaultTheme;
+
 
 		static Settings& GetInstance();
 

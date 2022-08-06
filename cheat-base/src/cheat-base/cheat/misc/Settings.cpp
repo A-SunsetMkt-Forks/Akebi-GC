@@ -15,9 +15,7 @@ namespace cheat::feature
 	Settings::Settings() : Feature(),
 		NF(f_MenuKey, "Show Cheat Menu Key", "General", Hotkey(VK_F1)),
 		NF(f_HotkeysEnabled, "Hotkeys Enabled", "General", true),
-		NF(f_FontSize, "Font size", "General", 16.0f),
-		NF(f_ShowStyleEditor, "Show Style Editor", "General", false),
-
+		
 		NF(f_StatusMove, "Move Status Window", "General::StatusWindow", true),
 		NF(f_StatusShow, "Show Status Window", "General::StatusWindow", true),
 
@@ -35,6 +33,9 @@ namespace cheat::feature
 
 		NF(f_FastExitEnable, "Fast Exit", "General::FastExit", false),
 		NF(f_HotkeyExit, "Hotkeys", "General::FastExit", Hotkey(VK_F12)),
+		
+		NF(f_FontSize, "Font Size", "General", 16.0f),
+		NF(f_ShowStyleEditor, "Show Colors Customization", "General", false),
 		NFS(f_DefaultTheme, "Theme", "General::Colors", "Default"),
 		themesDir(util::GetCurrentPath() / "themes")
 
@@ -102,13 +103,7 @@ namespace cheat::feature
 				"Key to toggle main menu visibility. Cannot be empty.\n"\
 				"If you forget this key, you can see or set it in your config file.");
 			ConfigWidget(f_HotkeysEnabled, "Enable hotkeys.");
-			if (ConfigWidget(f_FontSize, 1, 8, 64, "Font size for cheat interface."))
-			{
-				f_FontSize = std::clamp(f_FontSize.value(), 8, 64);
-				renderer::SetGlobalFontSize(static_cast<float>(f_FontSize));
-			}
-			ConfigWidget(f_ShowStyleEditor, "Show interface style editor window.");
-		}
+					}
 		ImGui::EndGroupPanel();
 
 		ImGui::BeginGroupPanel("Logging");
@@ -175,26 +170,44 @@ namespace cheat::feature
 		}
 		ImGui::EndGroupPanel();
 
-		ImGui::BeginGroupPanel("Colors");
+		ImGui::BeginGroupPanel("Interface Customization");
 		{
+			if (ConfigWidget(f_FontSize, 1, 8, 64, "Adjust interface font size."))
+			{
+				f_FontSize = std::clamp(f_FontSize.value(), 8, 64);
+				renderer::SetGlobalFontSize(static_cast<float>(f_FontSize));
+			}
+			ImGui::Spacing();
+
+			ConfigWidget(f_ShowStyleEditor, "Show colors customization window.");
+			ImGui::Spacing();
+
+			ImGui::Text("Save Customized Color");
 			static std::string nameBuffer_;
-			ImGui::InputText("Name", &nameBuffer_);
+			ImGui::InputText("Color Name", &nameBuffer_);
+			if (ImGui::Button("Save"))
+				Colors_Export(nameBuffer_);
+				ImGui::SameLine();
+
 			if (std::filesystem::exists(themesDir / (nameBuffer_ + ".json")))
 			{
 				if (this->f_DefaultTheme.value() != nameBuffer_)
-					if (ImGui::Button("Set as default"))
-						f_DefaultTheme = nameBuffer_;
-				if (ImGui::Button("Load"))
 				{
-					Colors_Import(nameBuffer_);
+					if (ImGui::Button("Set as default"))
+					{
+						f_DefaultTheme = nameBuffer_;
+					}
+					ImGui::SameLine();
+					if (ImGui::Button("Load"))
+					{
+						Colors_Import(nameBuffer_);
+					}
 				}
 			}
 			else
 			{
-				ImGui::Text("Theme does not exist.");
+				ImGui::Text("Color does not exist.");
 			}
-			if (ImGui::Button("Save"))
-				Colors_Export(nameBuffer_);
 		}
 		ImGui::EndGroupPanel();
 	}
