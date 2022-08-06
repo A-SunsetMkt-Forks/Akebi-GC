@@ -10,9 +10,9 @@
 #include "shlwapi.h"
 #pragma comment(lib, "shlwapi.lib")
 
-namespace cheat::feature 
+namespace cheat::feature
 {
-    Settings::Settings() : Feature(),
+	Settings::Settings() : Feature(),
 		NF(f_MenuKey, "Show Cheat Menu Key", "General", Hotkey(VK_F1)),
 		NF(f_HotkeysEnabled, "Hotkeys Enabled", "General", true),
 		NF(f_FontSize, "Font size", "General", 16.0f),
@@ -20,17 +20,17 @@ namespace cheat::feature
 
 		NF(f_StatusMove, "Move Status Window", "General::StatusWindow", true),
 		NF(f_StatusShow, "Show Status Window", "General::StatusWindow", true),
-		
-		NF(f_InfoMove,   "Move Info Window", "General::InfoWindow", true),
-		NF(f_InfoShow,   "Show Info Window", "General::InfoWindow", true),
-		
+
+		NF(f_InfoMove, "Move Info Window", "General::InfoWindow", true),
+		NF(f_InfoShow, "Show Info Window", "General::InfoWindow", true),
+
 		NF(f_FpsMove, "Move FPS Indicator", "General::FPS", false),
 		NF(f_FpsShow, "Show FPS Indicator", "General::FPS", true),
 
-		NF(f_NotificationsShow, "Show Notifications", "General::Notify", true), 
+		NF(f_NotificationsShow, "Show Notifications", "General::Notify", true),
 		NF(f_NotificationsDelay, "Notifications Delay", "General::Notify", 500),
-  
-		NF(f_FileLogging,    "File Logging",    "General::Logging", false),
+
+		NF(f_FileLogging, "File Logging", "General::Logging", false),
 		NF(f_ConsoleLogging, "Console Logging", "General::Logging", true),
 
 		NF(f_FastExitEnable, "Fast Exit", "General::FastExit", false),
@@ -38,35 +38,47 @@ namespace cheat::feature
 		NFS(f_DefaultTheme, "Theme", "General::Colors", "Default"),
 		themesDir(util::GetCurrentPath() / "themes")
 
-    {
+	{
 		renderer::SetGlobalFontSize(static_cast<float>(f_FontSize));
 		f_HotkeyExit.value().PressedEvent += MY_METHOD_HANDLER(Settings::OnExitKeyPressed);
 		if (!std::filesystem::exists(themesDir))
 			std::filesystem::create_directory(themesDir);
-    }
-	bool themeLoaded = false;
 
-    const FeatureGUIInfo& Settings::GetGUIInfo() const
-    {
-        static const FeatureGUIInfo info{ "", "Settings", false };
-        return info;
-    }
+	}
+
+	bool inited = false;
+	void Settings::Init() {
+		if (this->f_DefaultTheme.value() != "Default" && !inited)
+		{
+			LOG_INFO("Loading theme: %s", themesDir / (f_DefaultTheme.value() + ".json").c_str());
+			if (!std::filesystem::exists(themesDir / (f_DefaultTheme.value() + ".json")))
+				f_DefaultTheme = "Default";
+			else Colors_Import(f_DefaultTheme.value());
+			inited = true;
+		}
+	}
+
+	const FeatureGUIInfo& Settings::GetGUIInfo() const
+	{
+		static const FeatureGUIInfo info{ "", "Settings", false };
+		return info;
+	}
 
 	void Settings::Colors_Export(std::string name)
 	{
-		ImGuiStyle &style = ImGui::GetStyle();
+		ImGuiStyle& style = ImGui::GetStyle();
 		auto colors = style.Colors;
 
 		nlohmann::json json;
 		for (int i = 0; i < ImGuiCol_COUNT; i++)
-			json[ImGui::GetStyleColorName((ImGuiCol)i)] = {colors[i].x, colors[i].y, colors[i].z, colors[i].w};
+			json[ImGui::GetStyleColorName((ImGuiCol)i)] = { colors[i].x, colors[i].y, colors[i].z, colors[i].w };
 		std::ofstream file(themesDir / (name + ".json"));
 		file << std::setw(4) << json << std::endl;
 	}
-	
+
 	void Settings::Colors_Import(std::string name)
 	{
-		ImGuiStyle &style = ImGui::GetStyle();
+		ImGuiStyle& style = ImGui::GetStyle();
 		auto colors = style.Colors;
 		nlohmann::json json;
 		std::ifstream file(themesDir / (name + ".json"));
@@ -142,7 +154,7 @@ namespace cheat::feature
 		ImGui::BeginGroupPanel("Show Notifications");
 		{
 			ConfigWidget(f_NotificationsShow, "Notifications on the bottom-right corner of the window will be displayed.");
-			ConfigWidget(f_NotificationsDelay, 1,1,10000, "Delay in milliseconds between notifications.");
+			ConfigWidget(f_NotificationsDelay, 1, 1, 10000, "Delay in milliseconds between notifications.");
 		}
 		ImGui::EndGroupPanel();
 
@@ -150,7 +162,7 @@ namespace cheat::feature
 		{
 			ConfigWidget("Enabled",
 				f_FastExitEnable,
-				"Enable Fast Exit.\n" 
+				"Enable Fast Exit.\n"
 			);
 			if (!f_FastExitEnable)
 				ImGui::BeginDisabled();
@@ -166,24 +178,6 @@ namespace cheat::feature
 		ImGui::BeginGroupPanel("Colors");
 		{
 			static std::string nameBuffer_;
-				
-			if (this->f_DefaultTheme.value() != "Default" && !themeLoaded)
-			{
-				LOG_INFO("Loading theme: %s", themesDir / (f_DefaultTheme.value() + ".json").c_str());
-				if (!std::filesystem::exists(themesDir / (f_DefaultTheme.value() + ".json")))
-				{
-					LOG_ERROR("Theme file not found: %s", themesDir / (f_DefaultTheme.value() + ".json").c_str());
-					f_DefaultTheme = "Default";
-					themeLoaded = true;
-				}
-				else
-				{
-					Colors_Import(f_DefaultTheme.value());
-					themeLoaded = true;
-					LOG_INFO("Loaded theme \"%s\"", f_DefaultTheme.value().c_str());
-				}
-			}
-
 			ImGui::InputText("Name", &nameBuffer_);
 			if (std::filesystem::exists(themesDir / (nameBuffer_ + ".json")))
 			{
@@ -193,7 +187,6 @@ namespace cheat::feature
 				if (ImGui::Button("Load"))
 				{
 					Colors_Import(nameBuffer_);
-					themeLoaded = true;
 				}
 			}
 			else
@@ -206,11 +199,11 @@ namespace cheat::feature
 		ImGui::EndGroupPanel();
 	}
 
-    Settings& Settings::GetInstance()
-    {
-        static Settings instance;
-        return instance;
-    }
+	Settings& Settings::GetInstance()
+	{
+		static Settings instance;
+		return instance;
+	}
 
 	void Settings::OnExitKeyPressed()
 	{
