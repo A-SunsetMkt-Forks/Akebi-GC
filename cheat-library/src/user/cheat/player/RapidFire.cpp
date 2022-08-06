@@ -281,7 +281,7 @@ namespace cheat::feature
 		RapidFire& rapidFire = RapidFire::GetInstance();
 
 		if (rapidFire.f_MultiAnimation && IsAttackByAvatar(attacker))
-			processItem->fields.lastTime = -1;
+			processItem->fields.lastTime = 0;
 
 		CALL_ORIGIN(VCAnimatorEvent_HandleProcessItem_Hook, __this, processItem, processStateInfo, mode, method);
 	}
