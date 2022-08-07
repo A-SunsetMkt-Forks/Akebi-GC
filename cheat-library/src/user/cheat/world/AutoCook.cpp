@@ -14,7 +14,7 @@ namespace cheat::feature
         app::Component_1* Profirency = nullptr;
     }
 
-    static std::map<std::string, int> qualities{ {"Strange", 1}, {"Normal", 2}, {"Delicious", 3} };
+    static std::map<std::string, int> qualities{ {"Suspicious", 1}, {"Normal", 2}, {"Delicious", 3} };
 
     static void PlayerModule_RequestPlayerCook(app::MoleMole_PlayerModule* __this, uint32_t recipeId, uint32_t avatarId, uint32_t qteQuality, uint32_t count, MethodInfo* method);
     static void PlayerModule_OnPlayerCookRsp(app::MoleMole_PlayerModule* __this, app::PlayerCookRsp* rsp, MethodInfo* method);
