@@ -11998,6 +11998,61 @@ namespace app {
         struct MoleMole_ActorAbilityPlugin__Fields fields;
     };
 
+    struct MoleMole_VCAnimatorEvent__Fields {
+        struct VCBase__Fields _;
+        struct Animator* _animator;
+        struct Action_1_MoleMole_AnimatorParameterEntry_* onUserInputControllerChanged;
+        struct Action_4_Int32_UnityEngine_AnimatorStateInfo_UnityEngine_AnimatorStateInfo_MoleMole_AnimatorStateChangeExtra_* onAnimatorStateTransitionFinish;
+        struct Dictionary_2_System_Int32_Dictionary_2_System_Int32_List_1_System_Int32_* _activeAnimatorEventPatterns;
+        struct Dictionary_2_System_Int32_System_Int32_* _filterOldPattern2newPattern;
+        struct Action_2_Int32_Single_* processNormalizedTimeActions;
+        struct Queue_1_MoleMole_CompensateDiffInfo_* authorityEventQueue;
+        struct Queue_1_MoleMole_CompensateDiffInfo_* remoteEventQueue;
+        struct MoleMole_VCMoveData* _moveData;
+        struct MoleMole_VCSyncAnimator* _vcSyncAnimator;
+        int32_t MAX_ALLOW_COMPENSATE_TIME;
+        struct List_1_System_Int32_* _layerIndexes;
+        struct Dictionary_2_System_Int32_MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorLayerItem_* _layerItems;
+    };
+
+    struct MoleMole_VCAnimatorEvent {
+        struct MoleMole_VCAnimatorEvent__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_VCAnimatorEvent__Fields fields;
+    };
+
+    struct AnimatorStateInfo {
+        int32_t m_Name;
+        int32_t m_Path;
+        int32_t m_FullPath;
+        float m_NormalizedTime;
+        float m_Length;
+        float m_Speed;
+        float m_SpeedMultiplier;
+        int32_t m_Tag;
+        int32_t m_Loop;
+    };
+    
+    struct __declspec(align(8)) MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem__Fields {
+        struct List_1_System_Int32_* patterns;
+        struct AnimatorStateInfo stateInfo;
+        float lastTime;
+    };
+
+    struct MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem {
+        struct MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem__Fields fields;
+    };
+
+    enum class MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_TriggerMode__Enum : int32_t {
+        NormalTrigger = 0x00000000,
+        ForceTriggerOnEnter = 0x00000001,
+        ForceTriggerOnExitImediately = 0x00000002,
+        ForceTriggerOnExitTransition = 0x00000003,
+        ForceTriggerOnExitTransitionFinish = 0x00000004,
+    };
+
 #if !defined(_GHIDRA_) && !defined(_IDA_)
 }
 #endif
