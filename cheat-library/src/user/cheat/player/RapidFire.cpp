@@ -10,8 +10,8 @@ namespace cheat::feature
 {
 	static void LCBaseCombat_DoHitEntity_Hook(app::LCBaseCombat* __this, uint32_t targetID, app::AttackResult* attackResult,
 		bool ignoreCheckCanBeHitInMP, MethodInfo* method);
-	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this, 
-		app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem* processItem, 
+	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this,
+		app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem* processItem,
 		app::AnimatorStateInfo processStateInfo, app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_TriggerMode__Enum mode, MethodInfo* method);
 
 	RapidFire::RapidFire() : Feature(),
@@ -84,7 +84,7 @@ namespace cheat::feature
 		ImGui::Unindent();
 
 		ConfigWidget("Multi-animation", f_MultiAnimation, "Enables multi-animation attacks.\n" \
-		"Do keep in mind that the character's audio will also be spammed.");
+			"Do keep in mind that the character's audio will also be spammed.");
 	}
 
 	bool RapidFire::NeedStatusDraw() const
@@ -271,6 +271,8 @@ namespace cheat::feature
 			}
 			else app::MoleMole_LCBaseCombat_FireBeingHitEvent(__this, entity->runtimeID(), attackResult, method);
 		}
+
+		CALL_ORIGIN(LCBaseCombat_DoHitEntity_Hook, __this, targetID, attackResult, ignoreCheckCanBeHitInMP, method);
 	}
 
 	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this,
