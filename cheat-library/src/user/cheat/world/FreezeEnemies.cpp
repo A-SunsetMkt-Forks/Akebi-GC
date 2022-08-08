@@ -47,6 +47,7 @@ namespace cheat::feature
     void FreezeEnemies::OnGameUpdate()
     {
         auto& manager = game::EntityManager::instance();
+        static bool change = false;
 
         for (const auto& monster : manager.entities(game::filters::combined::Monsters))
         {
@@ -61,11 +62,16 @@ namespace cheat::feature
                 //LOG_DEBUG("%s", magic_enum::enum_name(constraints).data());
                 app::Rigidbody_set_constraints(rigidBody, app::RigidbodyConstraints__Enum::FreezeAll, nullptr);
                 app::Animator_set_speed(animator, 0.f, nullptr);
+                change = false;
             }
             else
             {
                 app::Rigidbody_set_constraints(rigidBody, app::RigidbodyConstraints__Enum::FreezeRotation, nullptr);
-                app::Animator_set_speed(animator, 1.f, nullptr);
+                if (!change)
+                {
+                    app::Animator_set_speed(animator, 1.f, nullptr);
+                    change = true;
+                }
             }
         }
     }

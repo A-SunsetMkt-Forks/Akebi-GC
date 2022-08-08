@@ -12,6 +12,7 @@
 #include <cheat-base/render/backend/dx12-hook.h>
 
 #include <cheat-base/ResourceLoader.h>
+#include <cheat-base/cheat/misc/Settings.h>
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -33,14 +34,14 @@ namespace renderer
 	static constexpr int _fontsCount = _fontSizeMax / _fontSizeStep;
 	static std::array<ImFont*, _fontsCount> _fonts;
 
-	static Data _customFontData {};
+	static Data _customFontData{};
 
 	static WNDPROC OriginalWndProcHandler;
 	static ID3D11RenderTargetView* mainRenderTargetView;
 
 	static void OnRenderDX11(ID3D11DeviceContext* pContext);
 	static void OnInitializeDX11(HWND window, ID3D11Device* pDevice, ID3D11DeviceContext* pContext, IDXGISwapChain* pChain);
-	
+
 	static void OnPreRenderDX12();
 	static void OnPostRenderDX12(ID3D12GraphicsCommandList* commandList);
 	static void OnInitializeDX12(HWND window, ID3D12Device* pDevice, UINT buffersCounts, ID3D12DescriptorHeap* pDescriptorHeapImGuiRender);
@@ -106,7 +107,7 @@ namespace renderer
 			return io.FontDefault;
 		}
 		int fontSizeInt = static_cast<int>(fontSize);
-		int fontIndex = fontSizeInt / _fontSizeStep + 
+		int fontIndex = fontSizeInt / _fontSizeStep +
 			(fontSizeInt % _fontSizeStep > (_fontSizeStep / 2) ? 1 : 0) - 1;
 		fontIndex = std::clamp(fontIndex, 0, _fontsCount - 1);
 		return _fonts[fontIndex];
@@ -122,7 +123,7 @@ namespace renderer
 
 		int fontSizeInt = static_cast<int>(fontSize);
 		int fontIndex = fontSizeInt / _fontSizeStep;
-		int fontAligned = fontIndex * _fontSizeStep + 
+		int fontAligned = fontIndex * _fontSizeStep +
 			((fontSizeInt % _fontSizeStep) > _fontSizeStep / 2 ? _fontSizeStep : 0);
 		fontAligned = std::clamp(fontAligned, _fontSizeStep, _fontSizeMax);
 
@@ -138,7 +139,7 @@ namespace renderer
 	{
 		return _globalFontSize;
 	}
-	
+
 	static void LoadCustomFont()
 	{
 		if (_customFontData.data == nullptr)
@@ -195,7 +196,7 @@ namespace renderer
 			reinterpret_cast<LONG_PTR>(hWndProc)));
 
 		ImGui_ImplWin32_Init(window);
-		ImGui_ImplDX12_Init(pDevice, buffersCounts, DXGI_FORMAT_R8G8B8A8_UNORM, 
+		ImGui_ImplDX12_Init(pDevice, buffersCounts, DXGI_FORMAT_R8G8B8A8_UNORM,
 			pDescriptorHeapImGuiRender,
 			pDescriptorHeapImGuiRender->GetCPUDescriptorHandleForHeapStart(),
 			pDescriptorHeapImGuiRender->GetGPUDescriptorHandleForHeapStart());
@@ -253,6 +254,9 @@ namespace renderer
 
 		pContext->OMSetRenderTargets(1, &mainRenderTargetView, nullptr);
 		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+
+		auto& themes = cheat::feature::Settings::GetInstance();
+		themes.Init();
 	}
 
 	static LRESULT CALLBACK hWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
