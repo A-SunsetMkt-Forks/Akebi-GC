@@ -12,10 +12,10 @@ namespace cheat::feature
 		config::Field<config::Toggle<Hotkey>> f_FastProficiency;
 
 		config::Field<int> f_CountField;
-		config::Field<int> f_QualityField;
+		config::Field<std::string> f_QualityField;
 
 		int CookFoodMaxNum; // Maximum quantity at a time
-		int CookCount; 
+		int CookCount;
 
 		static AutoCook& GetInstance();
 
@@ -26,7 +26,7 @@ namespace cheat::feature
 		void DrawStatus() override;
 
 	private:
-		
+
 		AutoCook();
 	};
 }
