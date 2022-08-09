@@ -9,6 +9,7 @@ namespace cheat::feature
     {
     public:
         config::Field<config::Toggle<Hotkey>> f_Enabled;
+        config::Field<config::Toggle<Hotkey>> f_BombDestroy;
         config::Field<int> f_Delay;
         config::Field<float> f_Range;
 
