@@ -10,6 +10,7 @@ namespace cheat::feature
 
 	AutoChallenge::AutoChallenge() : Feature(),
 		NF(f_Enabled, "Auto challenge", "AutoChallenge", false),
+		NF(f_BombDestroy, "Bomb destroy", "AutoChallenge", false),
 		NF(f_Delay, "Collect delay", "AutoChallenge", 1000),
 		NF(f_Range, "Collect range", "AutoChallenge", 20.f)
 	{
@@ -25,6 +26,10 @@ namespace cheat::feature
 	void AutoChallenge::DrawMain()
 	{
 		ConfigWidget("Enabled", f_Enabled, "Auto collect time challenge item");
+		ImGui::SameLine();
+		ConfigWidget("Destroy Bomb", f_BombDestroy, "Auto destroy bombbarrel");
+		ImGui::SameLine();
+		ImGui::TextColored(ImColor(255, 165, 0, 255), "I haven't tested how high the risk is");
 		ImGui::SetNextItemWidth(200.f);
 		ConfigWidget("Range", f_Range, 0.1f, 0.f, 300.f, "Collect range.");
 		ImGui::SameLine();

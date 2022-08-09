@@ -321,6 +321,7 @@ namespace cheat::game::filters
 		extern SimpleFilter StarlightCoalescence;
 		extern SimpleFilter TheRavenForum;
 		extern WhitelistFilter TimeTrialChallengeCollection;
+		extern SimpleFilter Bombbarrel;
 	}
 
 	namespace combined

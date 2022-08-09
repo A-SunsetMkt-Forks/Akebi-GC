@@ -7,6 +7,7 @@
 #include <cheat/events.h>
 #include <cheat/game/SimpleFilter.h>
 #include <cheat/game/EntityManager.h>
+#include <cheat/world/AutoChallenge.h>
 #include <cheat/game/filters.h>
 
 namespace cheat::feature
@@ -81,7 +82,17 @@ namespace cheat::feature
 	{
 		auto& manager = game::EntityManager::instance();
 		auto& autoDestroy = AutoDestroy::GetInstance();
+		auto& autoChallenge = AutoChallenge::GetInstance();
 		auto entity = __this->fields._._._entity;
+		// call origin ReduceModifierDurability without correct modifierDurabilityIndex will coz game crash.
+		// so use this hook function to destroy challenge's bombbarrel
+		if (autoChallenge.f_Enabled && autoChallenge.f_BombDestroy &&
+			autoChallenge.f_Range > manager.avatar()->distance(entity) &&
+			game::filters::puzzle::Bombbarrel.IsValid(manager.entity(entity))
+			)
+		{
+			reduceDurability = 1000.f;
+		}
 		if (autoDestroy.f_Enabled &&
 			autoDestroy.f_Range > manager.avatar()->distance(entity) &&
 			(
