@@ -42,6 +42,7 @@
 
 #include <cheat/world/AutoFish.h>
 #include <cheat/world/AutoCook.h>
+#include <cheat/world/AutoChallenge.h>
 #include <cheat/world/CustomWeather.h>
 
 #include <cheat/visuals/NoFog.h>
@@ -97,6 +98,7 @@ namespace cheat
 			FEAT_INST(FreezeEnemies),
 			FEAT_INST(ElementalSight),
 			FEAT_INST(KillAura),
+			FEAT_INST(AutoChallenge),
 			FEAT_INST(MobVacuum),
 			FEAT_INST(FakeTime),
 

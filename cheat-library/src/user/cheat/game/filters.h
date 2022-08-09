@@ -320,6 +320,7 @@ namespace cheat::game::filters
 		extern WhitelistFilter DreamForm;
 		extern SimpleFilter StarlightCoalescence;
 		extern SimpleFilter TheRavenForum;
+		extern WhitelistFilter TimeTrialChallengeCollection;
 	}
 
 	namespace combined

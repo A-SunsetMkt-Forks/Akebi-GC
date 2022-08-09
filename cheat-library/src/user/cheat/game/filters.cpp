@@ -320,7 +320,7 @@ namespace cheat::game::filters
 		WhitelistFilter DreamForm = { {EntityType__Enum_1::Field, EntityType__Enum_1::Platform }, "_AnimalSeelie" };
 		SimpleFilter StarlightCoalescence = { EntityType__Enum_1::Field, "_PaperStar" };
 		SimpleFilter TheRavenForum = { EntityType__Enum_1::Gadget, "_NightCrowStatue" };
-
+		WhitelistFilter TimeTrialChallengeCollection = { { EntityType__Enum_1::Field, EntityType__Enum_1::Gadget }, { "SkillObj_EmptyGadget", "_GlideChampOrb" } };
 	}
 
 	namespace combined
