@@ -41,7 +41,7 @@ namespace cheat::feature
         Teleport Teleport_(std::string name, app::Vector3 position, std::string description);
         void SerializeTeleport(Teleport t);
         void ReloadTeleports();
-        Teleport SerializeFromJson(std::string json, bool fromfile);
+        std::optional<Teleport> SerializeFromJson(std::string json, bool fromfile);
 
 
 		void DrawMain() override;

@@ -24,7 +24,7 @@ namespace cheat::feature
 		NF(f_DelayTime,		"Delay time (in s)",	"CustomTeleports",	20),
 		NF(f_Interpolate,	"Interpolate Teleport",	"CustomTeleports",	false),
 		NF(f_Speed,			"Interpolation Speed",	"CustomTeleports",	10.0f),
-		dir(util::GetCurrentPath() / "teleports"),
+		dir(util::GetCurrentPath() /= "teleports"),
 		nextTime(0)
 	{
 		f_Next.value().PressedEvent += MY_METHOD_HANDLER(CustomTeleports::OnNext);
@@ -83,16 +83,19 @@ namespace cheat::feature
 		}
 	}
 
-	Teleport CustomTeleports::SerializeFromJson(std::string json, bool fromfile)
+	 std::optional<Teleport> CustomTeleports::SerializeFromJson(std::string json, bool fromfile)
 	{
 		nlohmann::json j;
-		try { j = nlohmann::json::parse(json);}
-		catch (nlohmann::json::parse_error &e)
+		try { j = nlohmann::json::parse(json); }
+		catch (nlohmann::json::parse_error& e)
 		{
 			LOG_ERROR("Invalid JSON Format");
 			LOG_ERROR("Failed to parse JSON: %s", e.what());
+			return std::nullopt;
 		}
-		std::string teleportName; 
+
+		std::string teleportName;
+
 		teleportName = j["name"];
 		if (j["name"].is_null() && fromfile)
 		{
@@ -102,7 +105,8 @@ namespace cheat::feature
 		std::string description;
 		if (j["description"].is_null()) description = "";
 		else description = j["description"];
-		return Teleport_(teleportName, {j["position"][0], j["position"][1], j["position"][2]}, description);
+		return Teleport_(teleportName, { j["position"][0], j["position"][1], j["position"][2] }, description);
+
 	}
 	
 	void CustomTeleports::ReloadTeleports()
@@ -117,7 +121,8 @@ namespace cheat::feature
 				std::ifstream ifs(file.path());
 				std::string json;
 				std::getline(ifs, json);
-				SerializeTeleport(SerializeFromJson(json, true));
+				auto t = SerializeFromJson(json, true);
+				if(t.has_value()) SerializeTeleport(t.value());
 			}
 		}
 	}
@@ -289,10 +294,16 @@ namespace cheat::feature
 		ImGui::SameLine();
 		if (ImGui::Button("Load from JSON"))
 		{
-			selectedIndex = -1;
-			UpdateIndexName();
-			SerializeTeleport(SerializeFromJson(JSONBuffer_, false));
-			JSONBuffer_ = "";
+			if (!JSONBuffer_.empty()) {
+				auto t = SerializeFromJson(JSONBuffer_, false);
+				if (t.has_value()) {
+					selectedIndex = -1;
+					UpdateIndexName();
+					SerializeTeleport(t.value());
+				}
+				JSONBuffer_.clear();
+			}
+
 		}
 		ImGui::InputTextMultiline("JSON input", &JSONBuffer_, ImVec2(0, 50), ImGuiInputTextFlags_AllowTabInput);
 
