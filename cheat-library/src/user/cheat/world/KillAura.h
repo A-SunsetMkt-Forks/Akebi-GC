@@ -15,7 +15,7 @@ namespace cheat::feature
 		config::Field<float> f_Range;
 		config::Field<int> f_AttackDelay;
 		config::Field<int> f_RepeatDelay;
-		config::Field<int> f_DamageValue;
+		config::Field<float> f_DamageValue;
 
 
 		static KillAura& GetInstance();

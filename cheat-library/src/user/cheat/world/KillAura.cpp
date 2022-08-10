@@ -21,7 +21,7 @@ namespace cheat::feature
         NF(f_Range,        "Range",                     "KillAura", 15.0f),
         NF(f_AttackDelay,  "Attack delay time (in ms)", "KillAura", 100),
         NF(f_RepeatDelay,  "Repeat delay time (in ms)", "KillAura", 1000),
-		NF(f_DamageValue, "Crash damage value", "Damage mode", 233)
+		NF(f_DamageValue, "Crash damage value", "Damage mode", 233.0f)
     { 
 		events::GameUpdateEvent += MY_METHOD_HANDLER(KillAura::OnGameUpdate);
 		HookManager::install(app::MoleMole_BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo, BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo_Hook);
@@ -153,14 +153,26 @@ namespace cheat::feature
 		}
 
 		attackSet.erase(monster->runtimeID());
-
-		int Damage = f_DamageValue * 2.5 + 2;
-
+		
 		auto combat = monster->combat();
 
 		auto crashEvt = app::MoleMole_EventHelper_Allocate_103(*app::MoleMole_EventHelper_Allocate_103__MethodInfo);
 		app::MoleMole_EvtCrash_Init(crashEvt, monster->runtimeID(), nullptr);
-		crashEvt->fields.maxHp = Damage;    
+		
+		//Migita^Rin#1762: Fixed inaccurate damage caused by floating point precision(Maybe)
+		float FPValue;                               
+		if (f_DamageValue <= 10000000) FPValue = 27.0f;
+		if (f_DamageValue <= 9000000) FPValue = 22.5f;
+		if (f_DamageValue <= 8000000) FPValue = 20.0f;
+		if (f_DamageValue <= 7000000) FPValue = 17.5f;
+		if (f_DamageValue <= 6000000) FPValue = 15.0f;
+		if (f_DamageValue <= 5000000) FPValue = 12.5f;
+		if (f_DamageValue <= 4000000) FPValue = 10.0f;
+		if (f_DamageValue <= 3000000) FPValue = 7.5f;
+		if (f_DamageValue <= 2000000) FPValue = 5.0f;
+		if (f_DamageValue <= 1000000) FPValue = 2.5f;
+
+		crashEvt->fields.maxHp = f_DamageValue /0.4f + FPValue;
 		crashEvt->fields.velChange = 10000000;
 		crashEvt->fields.hitPos = monster->absolutePosition();
 
