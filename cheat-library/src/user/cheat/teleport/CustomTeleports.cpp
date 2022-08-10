@@ -17,15 +17,19 @@
 namespace cheat::feature
 {
 	CustomTeleports::CustomTeleports() : Feature(),
-		NF(f_Enabled, "Custom Teleport", "CustomTeleports", false),
-		NF(f_Next, "Teleport Next", "CustomTeleports", Hotkey(VK_OEM_6)),
-		NF(f_Previous, "Teleport Previous", "CustomTeleports", Hotkey(VK_OEM_4)),
-		NF(f_Interpolate, "Custom Teleport", "CustomTeleports", false),
-		NF(f_Speed, "Interpolation Speed", "CustomTeleports", 10.0f),
-		dir(util::GetCurrentPath() / "teleports")
+		NF(f_Enabled,		"Custom Teleport",		"CustomTeleports",	false),
+		NF(f_Next,			"Teleport Next",		"CustomTeleports",	Hotkey(VK_OEM_6)),
+		NF(f_Previous,		"Teleport Previous",	"CustomTeleports",	Hotkey(VK_OEM_4)),
+		NF(f_Auto,			"Auto Teleport",		"CustomTeleports",	false),
+		NF(f_DelayTime,		"Delay time (in s)",	"CustomTeleports",	20),
+		NF(f_Interpolate,	"Interpolate Teleport",	"CustomTeleports",	false),
+		NF(f_Speed,			"Interpolation Speed",	"CustomTeleports",	10.0f),
+		dir(util::GetCurrentPath() / "teleports"),
+		nextTime(0)
 	{
 		f_Next.value().PressedEvent += MY_METHOD_HANDLER(CustomTeleports::OnNext);
 		f_Previous.value().PressedEvent += MY_METHOD_HANDLER(CustomTeleports::OnPrevious);
+		events::GameUpdateEvent += MY_METHOD_HANDLER(CustomTeleports::OnGameUpdate);
 	}
 
 	const FeatureGUIInfo& CustomTeleports::GetGUIInfo() const
@@ -188,11 +192,36 @@ namespace cheat::feature
 
 	void CustomTeleports::OnPrevious()
 	{
+		if (f_Auto) return;
 		OnTeleportKeyPressed(false);
 	}
 	void CustomTeleports::OnNext()
 	{
+		if (f_Auto) return;
 		OnTeleportKeyPressed(true);
+	}
+
+	void CustomTeleports::OnGameUpdate()
+	{
+		if (!f_Enabled || !f_Auto)
+			return;
+
+		auto currentTime = util::GetCurrentTimeMillisec();
+		if (currentTime < nextTime)
+			return;
+
+		auto loadingManager = GET_SINGLETON(MoleMole_LoadingManager);
+		if (loadingManager == nullptr || !app::MoleMole_LoadingManager_IsLoaded(loadingManager, nullptr))
+			return;
+
+		auto camera = app::Camera_get_main(nullptr);
+		if (camera == nullptr) return;
+
+		if (!app::Behaviour_get_isActiveAndEnabled(reinterpret_cast<app::Behaviour*>(camera), nullptr))
+			return;
+
+		nextTime = currentTime + (int64_t)f_DelayTime * 1000;
+		OnTeleportKeyPressed(true); 
 	}
 
 	void itr(std::regex exp, std::string name, std::string s)
@@ -267,19 +296,22 @@ namespace cheat::feature
 		}
 		ImGui::InputTextMultiline("JSON input", &JSONBuffer_, ImVec2(0, 50), ImGuiInputTextFlags_AllowTabInput);
 
-		ConfigWidget("Teleport Next", f_Next, true, "Press to teleport next of selected");
-		ConfigWidget("Teleport Previous", f_Previous, true, "Press to teleport previous of selected");
+		ConfigWidget("Teleport Next", f_Next, true, "Press to teleport next of selected.");
+		ConfigWidget("Teleport Previous", f_Previous, true, "Press to teleport previous of selected.");
 		ConfigWidget("Enable", f_Enabled,
-					 "Enable teleport-through-list functionality\n"
+					 "Enable teleport-through-list functionality.\n"
 					 "Usage:\n"
 					 "1. Put Checkmark to the teleports you want to teleport using hotkey\n"
 					 "2. Single click the teleport (with checkmark) to select where you want to start\n"
 					 "3. You can now press Next or Previous Hotkey to Teleport through the Checklist\n"
 					 "Initially it will teleport the player to the selection made\n"
 					 "Note: Double click or click the arrow to open teleport details");
-		ConfigWidget("Enable Interpolation", f_Interpolate, "Enable interpolation between teleports when using keybinds");
+		ConfigWidget("Enable Interpolation", f_Interpolate, "Enable interpolation between teleports when using keybinds."); ImGui::SameLine(); ImGui::SetNextItemWidth(300.0f);
 		ConfigWidget("Interpolation Speed", f_Speed, 0.1f, 0.1f, 99.0f,
 					 "Interpolation speed.\n recommended setting below or equal to 0.1.");
+		ConfigWidget("Auto Teleport", f_Auto, "Enable automatic forward teleporation between teleports"); ImGui::SameLine(); ImGui::SetNextItemWidth(300.0f);
+		ConfigWidget("Delay Time (s)", f_DelayTime, 1, 0, 60, "Delay (in s) between teleport.\n"
+			"Note: This is not fully tested detection-wise.\nNot recommended with low values.");
 
 		if (ImGui::Button("Delete Checked"))
 		{
@@ -396,9 +428,12 @@ namespace cheat::feature
 
 					if (ImGui::Button(("Select##Button" + stringIndex).c_str()))
 					{
-						selectedIndex = index;
-						selectedByClick = true;
-						UpdateIndexName();
+						auto isChecked = checkedIndices.find(index) != checkedIndices.end();
+						if (isChecked) {
+							selectedIndex = index;
+							selectedByClick = true;
+							UpdateIndexName();
+						}
 					}
 					ImGui::TableNextColumn();
 
@@ -432,7 +467,7 @@ namespace cheat::feature
 
 	void CustomTeleports::DrawStatus()
 	{
-		ImGui::Text("Custom Teleport\n[%s]", selectedIndexName);
+		ImGui::Text("Custom Teleport\n[%s|%s]", f_Auto ? "Auto" : "Manual", selectedIndexName);
 	}
 
 	CustomTeleports &CustomTeleports::GetInstance()
