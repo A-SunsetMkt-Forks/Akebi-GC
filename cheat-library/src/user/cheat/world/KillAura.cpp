@@ -20,7 +20,8 @@ namespace cheat::feature
         NF(f_OnlyTargeted, "Only targeted",             "KillAura", true),
         NF(f_Range,        "Range",                     "KillAura", 15.0f),
         NF(f_AttackDelay,  "Attack delay time (in ms)", "KillAura", 100),
-        NF(f_RepeatDelay,  "Repeat delay time (in ms)", "KillAura", 1000)
+        NF(f_RepeatDelay,  "Repeat delay time (in ms)", "KillAura", 1000),
+		NF(f_DamageValue, "Crash damage value", "Damage mode", 233)
     { 
 		events::GameUpdateEvent += MY_METHOD_HANDLER(KillAura::OnGameUpdate);
 		HookManager::install(app::MoleMole_BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo, BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo_Hook);
@@ -39,6 +40,9 @@ namespace cheat::feature
 		ImGui::TextColored(ImColor(255, 165, 0, 255), "Choose any or both modes below.");
 
 		ConfigWidget("Crash Damage Mode", f_DamageMode, "Kill aura causes crash damage for monster around you.");
+		if (f_DamageMode) {
+			ConfigWidget("Damage Value", f_DamageValue, 1, 0, 10000000, "Crash damage value");
+		}
 		ConfigWidget("Instant Death Mode", f_InstantDeathMode, "Kill aura will attempt to instagib any valid target.");
 		ImGui::SameLine();
 		ImGui::TextColored(ImColor(255, 165, 0, 255), "Can get buggy with bosses like PMA and Hydro Hypo.");
@@ -94,7 +98,7 @@ namespace cheat::feature
 
 		auto& manager = game::EntityManager::instance();
 
-		for (const auto& monster : manager.entities(game::filters::combined::Monsters))
+		for (const auto& monster : manager.entities(game::filters::combined::Monsters))   
 		{
 			auto monsterID = monster->runtimeID();
 
@@ -150,13 +154,14 @@ namespace cheat::feature
 
 		attackSet.erase(monster->runtimeID());
 
+		int Damage = f_DamageValue * 2.5 + 2;
+
 		auto combat = monster->combat();
-		auto maxHP = app::MoleMole_SafeFloat_get_Value(combat->fields._combatProperty_k__BackingField->fields.maxHP, nullptr);
 
 		auto crashEvt = app::MoleMole_EventHelper_Allocate_103(*app::MoleMole_EventHelper_Allocate_103__MethodInfo);
 		app::MoleMole_EvtCrash_Init(crashEvt, monster->runtimeID(), nullptr);
-		crashEvt->fields.maxHp = maxHP;
-		crashEvt->fields.velChange = 1000;
+		crashEvt->fields.maxHp = Damage;    
+		crashEvt->fields.velChange = 10000000;
 		crashEvt->fields.hitPos = monster->absolutePosition();
 
 		app::MoleMole_EventManager_FireEvent(eventManager, reinterpret_cast<app::BaseEvent*>(crashEvt), false, nullptr);
