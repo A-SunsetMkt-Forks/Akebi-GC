@@ -13,11 +13,17 @@ namespace cheat::feature
 		return inst.OnRecordUserData(nType);
 	}
 
+	static int CrashReporter_Hook(__int64 a1, __int64 a2, const char* a3)
+	{
+		return 0;
+	}
+
     ProtectionBypass::ProtectionBypass() : Feature(),
         NFEX(f_Enabled, "Disable Protection", "m_DisableMhyProt", "General", true, false),
 		m_CorrectSignatures({})
     {
 		HookManager::install(app::Unity_RecordUserData, RecordUserData_Hook);
+		HookManager::install(app::CrashReporter, CrashReporter_Hook);
     }
 
 	void ProtectionBypass::Init()
