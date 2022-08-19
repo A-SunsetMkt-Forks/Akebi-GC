@@ -14,8 +14,6 @@ namespace cheat::feature
 	static bool LCSelectPickup_IsOutPosition_Hook(void* __this, app::BaseEntity* entity, MethodInfo* method);
 
 	float g_default_range = 3.0f;
-	static std::random_device rd;     
-	static std::mt19937 rng(rd());    
 
     AutoLoot::AutoLoot() : Feature(),
         NF(f_AutoPickup,     "Auto-pickup drops",               "AutoLoot", false),
@@ -242,8 +240,7 @@ namespace cheat::feature
 		int fluctuation = 0;
 		if (f_UseDelayTimeFluctuation)
 		{
-			std::uniform_int_distribution<int> uni(0, f_DelayTimeFluctuation);
-			fluctuation = uni(rng);
+			fluctuation = std::rand() % (f_DelayTimeFluctuation + 1);
 		}
 
 		nextLootTime = currentTime + (int)f_DelayTime + fluctuation;
