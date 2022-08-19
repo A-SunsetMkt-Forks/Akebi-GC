@@ -13,6 +13,10 @@ namespace cheat::feature
 	static bool LCSelectPickup_IsInPosition_Hook(void* __this, app::BaseEntity* entity, MethodInfo* method);
 	static bool LCSelectPickup_IsOutPosition_Hook(void* __this, app::BaseEntity* entity, MethodInfo* method);
 
+	float g_default_range = 3.0f;
+	static std::random_device rd;     
+	static std::mt19937 rng(rd());    
+
     AutoLoot::AutoLoot() : Feature(),
         NF(f_AutoPickup,     "Auto-pickup drops",               "AutoLoot", false),
 		NF(f_AutoTreasure,   "Auto-open treasures",             "AutoLoot", false),
@@ -26,7 +30,9 @@ namespace cheat::feature
 		NF(f_Investigate,	 "Search points",					"AutoLoot", false),
 		NF(f_QuestInteract,  "Quest interacts",					"AutoLoot", false),
         NF(f_Others,		 "Other treasures",					"AutoLoot", false),
-		NF(f_DelayTime,		 "Delay time (in ms)",				"AutoLoot", 150),
+		NF(f_DelayTime,		 "Delay time (in ms)",				"AutoLoot", 200),
+		NF(f_UseDelayTimeFluctuation, "Use delay fluctuation", "AutoLoot", false),
+		NF(f_DelayTimeFluctuation,		 "Delay fluctuation +(in ms)",				"AutoLoot", 200),
         NF(f_CustomRange,    "Pickup Range",                    "AutoLoot", 5.0f),
 		toBeLootedItems(), nextLootTime(0)
     {
@@ -81,6 +87,17 @@ namespace cheat::feature
 					"Values under 200ms are unsafe.\nNot used if no auto-functions are on.");
 			}
 			ImGui::EndGroupPanel();
+
+			ImGui::BeginGroupPanel("Looting delay fluctuation");
+			{
+				ConfigWidget("Enabled", f_UseDelayTimeFluctuation, "Enable delay fluctuation.\n" \
+					"Simulates human clicking delay as manual clickling never consistent.");
+				ImGui::SameLine();
+				ImGui::TextColored(ImColor(255, 165, 0, 255), "Read the note!");
+				ImGui::SetNextItemWidth(100.0f);
+				ConfigWidget("Delay range +(ms)", f_DelayTimeFluctuation, 1, 0, 1000, "Delay randomly fluctuates between 'Delay Time'+'Delay Time+range'");
+			}
+			ImGui::EndGroupPanel();
 			
 			ImGui::TableSetColumnIndex(1);
 			ImGui::BeginGroupPanel("Auto-Treasure");
@@ -120,12 +137,13 @@ namespace cheat::feature
 
     void AutoLoot::DrawStatus() 
     {
-		ImGui::Text("Auto Loot\n[%s%s%s%s%s]",
+		ImGui::Text("Auto Loot\n[%s%s%s%s%s%s]",
 			f_AutoPickup ? "AP" : "",
 			f_AutoTreasure ? fmt::format("{}AT", f_AutoPickup ? "|" : "").c_str() : "",
 			f_UseCustomRange ? fmt::format("{}CR{:.1f}m", f_AutoPickup || f_AutoTreasure ? "|" : "", f_CustomRange.value()).c_str() : "",
 			f_PickupFilter ? fmt::format("{}PF", f_AutoPickup || f_AutoTreasure || f_UseCustomRange ? "|" : "").c_str() : "",
-			f_AutoPickup || f_AutoTreasure ? fmt::format("|{}ms", f_DelayTime.value()).c_str() : ""
+			f_AutoPickup || f_AutoTreasure ? fmt::format("|{}ms", f_DelayTime.value()).c_str() : "", 
+			f_UseDelayTimeFluctuation ? fmt::format("|FL+{}ms", f_DelayTimeFluctuation.value()).c_str() : ""
 		);
     }
 
@@ -171,7 +189,7 @@ namespace cheat::feature
 			auto& manager = game::EntityManager::instance();
 			for (auto& entity : manager.entities(game::filters::combined::Chests)) 
 			{
-				float range = f_UseCustomRange ? f_CustomRange : 3.5f;
+				float range = f_UseCustomRange ? f_CustomRange : g_default_range;
 				if (manager.avatar()->distance(entity) >= range)
 					continue;
 
@@ -220,13 +238,21 @@ namespace cheat::feature
 			return;
 
 		app::MoleMole_ItemModule_PickItem(itemModule, *entityId, nullptr);
-		nextLootTime = currentTime + (int)f_DelayTime;
+
+		int fluctuation = 0;
+		if (f_UseDelayTimeFluctuation)
+		{
+			std::uniform_int_distribution<int> uni(0, f_DelayTimeFluctuation);
+			fluctuation = uni(rng);
+		}
+
+		nextLootTime = currentTime + (int)f_DelayTime + fluctuation;
 	}
 
 	void AutoLoot::OnCheckIsInPosition(bool& result, app::BaseEntity* entity)
 	{
 		if (f_AutoPickup || f_UseCustomRange) {
-			float pickupRange = f_UseCustomRange ? f_CustomRange : 3.5f;
+			float pickupRange = f_UseCustomRange ? f_CustomRange : g_default_range;
 			if (f_PickupFilter)
 			{
 				if (!f_PickupFilter_Animals && entity->fields.entityType == app::EntityType__Enum_1::EnvAnimal ||
