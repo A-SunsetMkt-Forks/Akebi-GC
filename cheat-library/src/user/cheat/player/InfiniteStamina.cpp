@@ -79,36 +79,41 @@ namespace cheat::feature
 		static bool afterDash = false;
 
 		auto& manager = game::EntityManager::instance();
-		if (manager.avatar()->runtimeID() != entityId)
-			return;
-
-		// LOG_DEBUG("Movement packet: %s", magic_enum::enum_name(syncInfo->fields.motionState).data());
-		if (f_Enabled && f_PacketReplacement)
+		auto entity = manager.entity(entityId);
+		if (entity->type() == app::EntityType__Enum_1::Vehicle || entity->isAvatar())
 		{
-			auto state = syncInfo->fields.motionState;
-			switch (state)
+			// LOG_DEBUG("Movement packet: %s", magic_enum::enum_name(syncInfo->fields.motionState).data());
+			if (f_Enabled && f_PacketReplacement)
 			{
-			case app::MotionState__Enum::MotionDash:
-			case app::MotionState__Enum::MotionClimb:
-			case app::MotionState__Enum::MotionClimbJump:
-			case app::MotionState__Enum::MotionStandbyToClimb:
-			case app::MotionState__Enum::MotionSwimDash:
-			case app::MotionState__Enum::MotionSwimIdle:
-			case app::MotionState__Enum::MotionSwimMove:
-			case app::MotionState__Enum::MotionSwimJump:
-			case app::MotionState__Enum::MotionFly:
-			case app::MotionState__Enum::MotionFight:
-			case app::MotionState__Enum::MotionDashBeforeShake:
-			case app::MotionState__Enum::MotionDangerDash:
-				syncInfo->fields.motionState = app::MotionState__Enum::MotionRun;
-				break;
-			case app::MotionState__Enum::MotionJump:
-				if (afterDash)
+				auto state = syncInfo->fields.motionState;
+				switch (state)
+				{
+				case app::MotionState__Enum::MotionDash:
+				case app::MotionState__Enum::MotionClimb:
+				case app::MotionState__Enum::MotionClimbJump:
+				case app::MotionState__Enum::MotionStandbyToClimb:
+				case app::MotionState__Enum::MotionSwimDash:
+				case app::MotionState__Enum::MotionSwimIdle:
+				case app::MotionState__Enum::MotionSwimMove:
+				case app::MotionState__Enum::MotionSwimJump:
+				case app::MotionState__Enum::MotionFly:
+				case app::MotionState__Enum::MotionFight:
+				case app::MotionState__Enum::MotionDashBeforeShake:
+				case app::MotionState__Enum::MotionDangerDash:
 					syncInfo->fields.motionState = app::MotionState__Enum::MotionRun;
-				break;
+					break;
+				case app::MotionState__Enum::MotionJump:
+					if (afterDash)
+						syncInfo->fields.motionState = app::MotionState__Enum::MotionRun;
+					break;
+				case app::MotionState__Enum::MotionSkiffDash:
+				case app::MotionState__Enum::MotionSkiffPoweredDash:
+					syncInfo->fields.motionState = app::MotionState__Enum::MotionSkiffNormal;
+					break;
+				}
+				if (state != app::MotionState__Enum::MotionJump && state != app::MotionState__Enum::MotionFallOnGround)
+					afterDash = state == app::MotionState__Enum::MotionDash;
 			}
-			if (state != app::MotionState__Enum::MotionJump && state != app::MotionState__Enum::MotionFallOnGround)
-				afterDash = state == app::MotionState__Enum::MotionDash;
 		}
 	}
 	
