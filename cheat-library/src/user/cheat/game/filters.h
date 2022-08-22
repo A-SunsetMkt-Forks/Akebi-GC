@@ -277,7 +277,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Padisarah;
 		extern SimpleFilter RukkhashavaMushrooms;
 		extern SimpleFilter SumeruRose;
-		//extern SimpleFilter Viparyas;
+		extern SimpleFilter Viparyas;
 		extern SimpleFilter ZaytunPeach;
 	}
 

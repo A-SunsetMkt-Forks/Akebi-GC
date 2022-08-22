@@ -789,7 +789,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(plant, SweetFlower);
 		ADD_FILTER_FIELD(plant, Valberry);
 		ADD_FILTER_FIELD(plant, Violetgrass);
-		//ADD_FILTER_FIELD(plant, Viparyas);
+		ADD_FILTER_FIELD(plant, Viparyas);
 		ADD_FILTER_FIELD(plant, WindwheelAster);
 		ADD_FILTER_FIELD(plant, Wolfhook);
 		ADD_FILTER_FIELD(plant, ZaytunPeach);
