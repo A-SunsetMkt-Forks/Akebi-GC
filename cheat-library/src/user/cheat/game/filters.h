@@ -76,6 +76,11 @@ namespace cheat::game::filters
 		extern SimpleFilter RuinBrazier;
 		extern SimpleFilter Stormstone;
 		extern SimpleFilter TriangularMechanism;
+		extern SimpleFilter DendroGranum;
+		extern SimpleFilter BouncyMushroom;
+		extern SimpleFilter ClusterleafOfCultivation;
+		extern SimpleFilter DendroRock;
+		extern SimpleFilter DendroPile;
 	}
 
 	namespace living
@@ -322,6 +327,13 @@ namespace cheat::game::filters
 		extern SimpleFilter TheRavenForum;
 		extern WhitelistFilter TimeTrialChallengeCollection;
 		extern SimpleFilter Bombbarrel;
+		extern SimpleFilter NurseriesInTheWilds;
+		extern SimpleFilter SaghiraMachine;
+		extern SimpleFilter StonePillarSeal;
+		extern SimpleFilter TriYanaSeeds;
+		extern SimpleFilter DendroProjector;
+		extern SimpleFilter DreadfulWithering;
+		extern SimpleFilter PhantasmalGate;
 	}
 
 	namespace combined

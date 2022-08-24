@@ -75,6 +75,11 @@ namespace cheat::game::filters
 		SimpleFilter RuinBrazier = { EntityType__Enum_1::Gadget, "_AncientHeatSource" };
 		SimpleFilter Stormstone = { EntityType__Enum_1::Gadget, "_ReginLamp" };
 		SimpleFilter TriangularMechanism = { EntityType__Enum_1::Field, "_TuningFork" };
+		SimpleFilter DendroGranum = { EntityType__Enum_1::Gadget, "GrassSeedCreate" };
+		SimpleFilter BouncyMushroom = { EntityType__Enum_1::Gadget, "JumpMushroom" };
+		SimpleFilter ClusterleafOfCultivation = { EntityType__Enum_1::Field, "RaioFlower" };
+		SimpleFilter DendroRock = { EntityType__Enum_1::Field, "GrassSealStone" };
+		SimpleFilter DendroPile = { EntityType__Enum_1::Field, "XuMiPlantinshitou" };
 	}
 
 	namespace living
@@ -322,6 +327,13 @@ namespace cheat::game::filters
 		SimpleFilter TheRavenForum = { EntityType__Enum_1::Gadget, "_NightCrowStatue" };
 		WhitelistFilter TimeTrialChallengeCollection = { { EntityType__Enum_1::Field, EntityType__Enum_1::Gadget }, { "SkillObj_EmptyGadget", "_GlideChampOrb" } };
 		SimpleFilter Bombbarrel = { EntityType__Enum_1::Gadget, "_Bombbarrel" };
+		SimpleFilter NurseriesInTheWilds = { EntityType__Enum_1::Field, "PlantDrawStart" };
+		SimpleFilter SaghiraMachine = { EntityType__Enum_1::Gadget, "FatuiMaranaWell" };
+		SimpleFilter StonePillarSeal = { EntityType__Enum_1::Gadget, "GrassSealRing_" };
+		SimpleFilter TriYanaSeeds = { EntityType__Enum_1::Gadget, "XuMiVisualizationplant" };
+		SimpleFilter DendroProjector = { EntityType__Enum_1::Gadget, "AyusProjector" };
+		SimpleFilter DreadfulWithering = { EntityType__Enum_1::Gadget, "DeathZonePoint" };
+		SimpleFilter PhantasmalGate = { EntityType__Enum_1::Field, "DreamlandDoor" };
 	}
 
 	namespace combined

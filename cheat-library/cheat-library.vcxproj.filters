@@ -2526,5 +2526,77 @@
     <Image Include="res\iconsHD\DuskBird.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\iconsHD\TriYanaSeeds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BouncyMushroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ClusterleafOfCultivation.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DendroGranum.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DendroPile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DendroProjector.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DendroRock.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DreadfulWithering.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\NurseriesInTheWilds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PhantasmalGate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SaghiraMachine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\StonePillarSeal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\StonePillarSeal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\TriYanaSeeds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\BouncyMushroom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ClusterleafOfCultivation.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DendroGranum.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DendroPile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DendroProjector.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DendroRock.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DreadfulWithering.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\NurseriesInTheWilds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\PhantasmalGate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SaghiraMachine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
