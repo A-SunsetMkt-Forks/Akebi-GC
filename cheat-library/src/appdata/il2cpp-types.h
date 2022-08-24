@@ -4188,7 +4188,7 @@ namespace app {
         struct AbilityComponentProxy* _abilityProxy;
         struct TokenManager* _tokenMgr;
         VisionType__Enum _NLFDIGCIFIA_k__BackingField;
-        bool _KLBEFMDPLBE_k__BackingField;
+        bool _createDuringReconnectingSceneInitFinish_k__BackingField;
         bool _isCleared;
         bool _checkRemoveifCached_k__BackingField;
         bool _hasAddedInitialComponents;
@@ -7128,6 +7128,7 @@ namespace app {
         struct SafeFloat maxElemEnergy;
         struct SafeFloat attackBase;
         struct SafeFloat attackPermanent;
+        struct SafeFloat defenseBase;
         struct SafeFloat defensePermanent;
         struct SafeFloat addHurtBase;
         struct SafeFloat subHurtBase;
@@ -7135,7 +7136,6 @@ namespace app {
         struct SafeFloat criticalBase;
         struct SafeFloat antiCriticalBase;
         struct SafeFloat physicalSubHurtBase;
-        struct SafeFloat ICCABJELAHK;
         struct SafeFloat EBKLJENHIND;
         struct SafeFloat LAIBHDDNLKJ;
         struct SafeFloat OGBPAAPLBGM;

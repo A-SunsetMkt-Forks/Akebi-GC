@@ -364,6 +364,8 @@ HDHORSETAIL             PNG                     "iconsHD\\Horsetail.png"
 
 HDHYDROABYSSHERALD      PNG                     "iconsHD\\HydroAbyssHerald.png"
 
+HDHYDROBATHYSMALVISHAP  PNG                     "iconsHD\\HydroBathysmalVishap.png"
+
 HDHYDROHYPOSTASIS       PNG                     "iconsHD\\HydroHypostasis.png"
 
 HDILLUSION              PNG                     "iconsHD\\Illusion.png"
@@ -1078,6 +1080,8 @@ HILICHURLSHOOTER        PNG                     "icons\\HilichurlShooter.png"
 HORSETAIL               PNG                     "icons\\Horsetail.png"
 
 HYDROABYSSHERALD        PNG                     "icons\\HydroAbyssHerald.png"
+
+HYDROBATHYSMALVISHAP	PNG                     "icons\\HydroBathysmalVishap.png"
 
 HYDROHYPOSTASIS         PNG                     "icons\\HydroHypostasis.png"
 

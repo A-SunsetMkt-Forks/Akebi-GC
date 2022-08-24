@@ -587,8 +587,8 @@ namespace cheat::feature
 
 		ADD_FILTER_FIELD(featured, Anemoculus);
 		ADD_FILTER_FIELD(featured, CrimsonAgate);
-		ADD_FILTER_FIELD(featured, Electroculus);
 		ADD_FILTER_FIELD(featured, Dendroculus);
+		ADD_FILTER_FIELD(featured, Electroculus);
 		ADD_FILTER_FIELD(featured, Electrogranum);
 		ADD_FILTER_FIELD(featured, FishingPoint);
 		ADD_FILTER_FIELD(featured, Geoculus);
@@ -708,7 +708,6 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, Hilichurl);
 		ADD_FILTER_FIELD(monster, HydroAbyssHerald);
 		ADD_FILTER_FIELD(monster, HydroBathysmalVishap);
-		ADD_FILTER_FIELD(monster, HydroHypostasisSummon);
 		ADD_FILTER_FIELD(monster, Kairagi);
 		ADD_FILTER_FIELD(monster, Millelith);
 		ADD_FILTER_FIELD(monster, Mitachurl);
