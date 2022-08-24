@@ -57,6 +57,7 @@
 #include <cheat/visuals/TextureChanger.h>
 #include <cheat/visuals/FreeCamera.h>
 #include <cheat/visuals/AnimationChanger.h>
+#include <cheat/player/FallControl.h>
 
 #include "GenshinCM.h"
 
@@ -87,6 +88,7 @@ namespace cheat
 			FEAT_INST(NoClip),
 			FEAT_INST(RapidFire),
 			FEAT_INST(AutoRun),
+			FEAT_INST(FallControl),
 
 			FEAT_INST(AutoLoot),
 			FEAT_INST(AutoTreeFarm),
