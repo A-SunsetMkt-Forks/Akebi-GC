@@ -29,8 +29,13 @@ As well as setting up **`cheat-library`** as startup project.
 ## Latest Release
 1. Head over to the [action](https://github.com/Akebi-Group/Akebi-GC/actions) page
 1. Click Publish workflow
-1. Select most recent workflow with green checkmark ✔
+1. Select most recent workflow with green checkmark ✔ 
+(Choose your client version **GLOBAL/CN/BETA**)
+![image](https://user-images.githubusercontent.com/96950043/186429274-1e556c58-8027-4ec9-9c1d-3609c75aede4.png)
 1. Download Akebi-GC-release in Artifacts section
+
+![image](https://user-images.githubusercontent.com/96950043/186429302-7c7be3f6-df2f-4e49-9bb9-4a703c3491df.png)
+
 
 ### Requirements
 - [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
