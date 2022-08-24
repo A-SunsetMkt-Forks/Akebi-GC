@@ -235,7 +235,7 @@
     <Image Include="res\iconsHD\Dendroculus.png" />
     <Image Include="res\iconsHD\DendroGranum.png" />
     <Image Include="res\iconsHD\DendroPile.png" />
-    <Image Include="res\iconsHD\DendroProjector.png" />
+    <Image Include="res\iconsHD\DendroPuzzles.png" />
     <Image Include="res\iconsHD\DendroRock.png" />
     <Image Include="res\iconsHD\Dog.png" />
     <Image Include="res\iconsHD\DreadfulWithering.png" />
@@ -586,7 +586,7 @@
     <Image Include="res\icons\Dendroculus.png" />
     <Image Include="res\icons\DendroGranum.png" />
     <Image Include="res\icons\DendroPile.png" />
-    <Image Include="res\icons\DendroProjector.png" />
+    <Image Include="res\icons\DendroPuzzles.png" />
     <Image Include="res\icons\DendroRock.png" />
     <Image Include="res\icons\Dog.png" />
     <Image Include="res\icons\DreadfulWithering.png" />

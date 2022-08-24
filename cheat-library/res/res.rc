@@ -232,7 +232,7 @@ HDDENDROGRANUM			PNG						"iconsHD\\DendroGranum.png"
 
 HDDENDROPILE			PNG						"iconsHD\\DendroPile.png"
 
-HDDENDROPROJECTOR		PNG						"iconsHD\\DendroProjector.png"
+HDDENDROPUZZLES			PNG						"iconsHD\\DendroPuzzles.png"
 
 HDDENDROROCK			PNG						"iconsHD\\DendroRock.png"
 
@@ -976,7 +976,7 @@ DENDROGRANUM			PNG						"icons\\DendroGranum.png"
 
 DENDROPILE				PNG						"icons\\DendroPile.png"
 
-DENDROPROJECTOR			PNG						"icons\\DendroProjector.png"
+DENDROPUZZLES			PNG						"icons\\DendroPuzzles.png"
 
 DENDROROCK				PNG						"icons\\DendroRock.png"
 

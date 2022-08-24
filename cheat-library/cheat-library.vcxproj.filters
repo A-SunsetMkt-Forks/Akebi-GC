@@ -2547,7 +2547,7 @@
     <Image Include="res\iconsHD\DendroPile.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\iconsHD\DendroProjector.png">
+    <Image Include="res\iconsHD\DendroPuzzles.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\iconsHD\DendroRock.png">
@@ -2586,7 +2586,7 @@
     <Image Include="res\icons\DendroPile.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\icons\DendroProjector.png">
+    <Image Include="res\icons\DendroPuzzles.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\DendroRock.png">
