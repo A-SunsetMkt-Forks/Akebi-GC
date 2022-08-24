@@ -45,8 +45,7 @@ namespace cheat::feature
 		ConfigWidget("Multi-hit Mode", f_MultiHit, "Enables multi-hit.\n" \
 			"Multiplies your attack count.\n" \
 			"This is not well tested, and can be detected by anticheat.\n" \
-			"Not recommended to be used with main accounts or used with high values.\n" \
-			"Known issues with certain multi-hit attacks, e.g. Xiao E, Ayaka CA, etc.");
+			"Not recommended to be used with main accounts or used with high values.\n");
 
 		ImGui::Indent();
 
@@ -205,7 +204,7 @@ namespace cheat::feature
 		// Taiga#5555: IDs can be found in ConfigAbility_Avatar_*.json or GadgetExcelConfigData.json
 		bool bulletID = attackerID >= 40000160 && attackerID <= 41069999;
 
-		return avatarID == attackerID || bulletID;
+		return avatarID == attackerID || bulletID || attacker.type() == app::EntityType__Enum_1::Bullet;
 	}
 
 	bool IsValidByFilter(game::Entity* entity)
@@ -269,7 +268,6 @@ namespace cheat::feature
 				for (int i = 0; i < attackCount; i++)
 					app::MoleMole_LCBaseCombat_FireBeingHitEvent(__this, entity->runtimeID(), attackResult, method);
 			}
-			else app::MoleMole_LCBaseCombat_FireBeingHitEvent(__this, entity->runtimeID(), attackResult, method);
 		}
 
 		CALL_ORIGIN(LCBaseCombat_DoHitEntity_Hook, __this, targetID, attackResult, ignoreCheckCanBeHitInMP, method);

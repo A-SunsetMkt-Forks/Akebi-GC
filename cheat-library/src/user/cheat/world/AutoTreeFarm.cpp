@@ -162,7 +162,7 @@ namespace cheat::feature
 		static std::unordered_set<app::SceneTreeObject*> s_AttackQueueSet;
 		static uint64_t s_LastAttackTimestamp = 0;
 
-		uint64_t timestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr);
+		uint64_t timestamp = app::MoleMole_TimeUtil_get_LocalNowMsTimeStamp(nullptr);
 		if (!m_Enabled || s_LastAttackTimestamp + m_AttackDelay > timestamp)
 			return;
 

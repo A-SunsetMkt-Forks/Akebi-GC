@@ -75,6 +75,11 @@ namespace cheat::game::filters
 		SimpleFilter RuinBrazier = { EntityType__Enum_1::Gadget, "_AncientHeatSource" };
 		SimpleFilter Stormstone = { EntityType__Enum_1::Gadget, "_ReginLamp" };
 		SimpleFilter TriangularMechanism = { EntityType__Enum_1::Field, "_TuningFork" };
+		SimpleFilter DendroGranum = { EntityType__Enum_1::Gadget, "GrassSeedCreate" };
+		SimpleFilter BouncyMushroom = { EntityType__Enum_1::Gadget, "JumpMushroom" };
+		SimpleFilter ClusterleafOfCultivation = { EntityType__Enum_1::Field, "RaioFlower" };
+		SimpleFilter DendroRock = { EntityType__Enum_1::Field, "GrassSealStone" };
+		SimpleFilter DendroPile = { EntityType__Enum_1::Field, "XuMiPlantinshitou" };
 	}
 
 	namespace living
@@ -101,7 +106,7 @@ namespace cheat::game::filters
 		SimpleFilter Falcon = { EntityType__Enum_1::Monster, "Falcon" };
 		SimpleFilter LucklightFly = { EntityType__Enum_1::EnvAnimal, "Boltbug_" };
 		SimpleFilter Salamander = { EntityType__Enum_1::EnvAnimal, "Salamander" };
-		SimpleFilter Tukan = { EntityType__Enum_1::Monster, "Pigeon_Beak" };
+		SimpleFilter DuskBird = { EntityType__Enum_1::Monster, "Pigeon_Beak" };
 		SimpleFilter Pigeon = { EntityType__Enum_1::Monster, "Pigeon_0" };
 		SimpleFilter Crow = { EntityType__Enum_1::Monster, "Crow" };
 		SimpleFilter Finch = { EntityType__Enum_1::Monster, "Tit" };
@@ -277,7 +282,7 @@ namespace cheat::game::filters
 		SimpleFilter Padisarah = { EntityType__Enum_1::GatherObject, "_Pasusalan" };
 		SimpleFilter RukkhashavaMushrooms = { EntityType__Enum_1::GatherObject, "_HolyMushroom" };
 		SimpleFilter SumeruRose = { EntityType__Enum_1::GatherObject, "_XumiRose" };
-		//SimpleFilter Viparyas = { EntityType__Enum_1::GatherObject, "_" };
+		SimpleFilter Viparyas = { EntityType__Enum_1::GatherObject, "_DreamerPlant" };
 		SimpleFilter ZaytunPeach = { EntityType__Enum_1::GatherObject, "_Olea" };
 	}
 
@@ -322,6 +327,13 @@ namespace cheat::game::filters
 		SimpleFilter TheRavenForum = { EntityType__Enum_1::Gadget, "_NightCrowStatue" };
 		WhitelistFilter TimeTrialChallengeCollection = { { EntityType__Enum_1::Field, EntityType__Enum_1::Gadget }, { "SkillObj_EmptyGadget", "_GlideChampOrb" } };
 		SimpleFilter Bombbarrel = { EntityType__Enum_1::Gadget, "_Bombbarrel" };
+		SimpleFilter NurseriesInTheWilds = { EntityType__Enum_1::Field, "PlantDrawStart" };
+		SimpleFilter SaghiraMachine = { EntityType__Enum_1::Gadget, "FatuiMaranaWell" };
+		SimpleFilter StonePillarSeal = { EntityType__Enum_1::Gadget, "GrassSealRing_" };
+		SimpleFilter TriYanaSeeds = { EntityType__Enum_1::Gadget, "XuMiVisualizationplant" };
+		SimpleFilter DendroProjector = { EntityType__Enum_1::Gadget, "AyusProjector" };
+		SimpleFilter DreadfulWithering = { EntityType__Enum_1::Gadget, "DeathZonePoint" };
+		SimpleFilter PhantasmalGate = { EntityType__Enum_1::Field, "DreamlandDoor" };
 	}
 
 	namespace combined
@@ -395,7 +407,7 @@ namespace cheat::game::filters
 			living::Squirrel,
 			living::Boar,
 			living::Weasel,
-			living::Tukan
+			living::DuskBird
 		};
 		SimpleFilter AnimalPickUp = {
 			living::CrystalCore,
