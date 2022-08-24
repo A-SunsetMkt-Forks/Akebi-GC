@@ -10093,20 +10093,24 @@ namespace app {
         uint32_t _sceneChairConfigsHandle;
         struct SceneBushConfigs* _sceneBushConfigs;
         uint32_t _sceneBushConfigsHandle;
+        struct SceneButterflyConfigs* ELKJMHEEJBI;
+        uint32_t PPDOAJLHMIE;
         struct SceneTreeConfigs* _sceneTreeConfigs;
         uint32_t _sceneTreeConfigsHandle;
-        struct SceneStoneTintConfigs* AIOHDMBGHEI;
-        uint32_t LCLFKLDHKIM;
+        struct SceneStoneTintConfigs* KPCGBGDKAKM;
+        uint32_t NOKPOKFNHIO;
         struct Dictionary_2_System_Int32_MoleMole_ZOrderCollection_3_* _treeBushCollection;
         struct List_1_MoleMole_ICombatSceneProp_* _treeBushList;
         struct Dictionary_2_System_Int32_UnityEngine_Vector3_* _treeBushId2Pos;
         struct Vector3 _rangeQueryLen;
         struct Dictionary_2_System_Int32_MoleMole_ICombatSceneProp_* _scenePropDict;
         struct Dictionary_2_System_Int32_MoleMole_Config_TreeType_* _treeTypeDict;
+        struct DKGAEHIFICD* JNPAIHAOJFC;
         struct List_1_MoleMole_MonoEnviroLight_* _pointLights;
         struct List_1_MoleMole_MonoEnviroCityLight_* _cityLights;
-        struct List_1_NPOOODHAHMF_* BAKKEOKNFOI;
+        struct List_1_MKDEEDMDPAJ_* NCHNJGLFBPH;
         struct Vector3 _lastSectorPos;
+        struct List_1_MKDEEDMDPAJ_* BEJHPFKENGD;
         struct MoleMole_ScenePropManager_MoleMole_ScenePropManager_TreeLeafInfo__Array* _treeLeafInfos;
         int32_t _treeLeafNum;
         struct MaterialPropertyBlock* _mpb;
@@ -10125,7 +10129,6 @@ namespace app {
         MonitorData* monitor;
         struct MoleMole_ScenePropManager__Fields fields;
     };
-
 
     enum class ScenePropType__Enum : int32_t {
         None = 0x00000000,
@@ -10164,22 +10167,21 @@ namespace app {
         bool _die;
     };
 
-    struct JDJGACCAFAA__Fields
-    {
+    struct SceneTreeObject__Fields {
         struct BaseCombatScenePropObject__Fields _;
         struct SceneTreeConfig* _config;
         uint64_t _lastTreeDropTimeStamp;
         uint64_t _lastHitEffectTimeStamp;
+        struct MonoBroadleafProxy* BCOFGNECLAE;
     };
 
     struct SceneTreeObject__Class
     { };
 
-    struct SceneTreeObject
-    {
-        struct JDJGACCAFAA__Class* klass;
+    struct SceneTreeObject {
+        struct SceneTreeObject__Class* klass;
         MonitorData* monitor;
-        struct JDJGACCAFAA__Fields fields;
+        struct SceneTreeObject__Fields fields;
     };
 
     struct __declspec(align(8)) ScenePropBaseConfig__Fields {
@@ -10246,7 +10248,7 @@ namespace app {
         struct Dictionary_2_System_Int32_List_1_MoleMole_ActorModifier_* _elementModifierMap;
         struct Action* onElementModifierChanged;
         struct List_1_System_Nullable_1__2* _modifierDurabilities;
-        struct List_1_System_ValueTuple_3__3* _elemOverloadDurabilities;
+        struct List_1_System_ValueTuple_3__4* _elemOverloadDurabilities;
         struct MoleMole_LCAbility* _levelAbilityCom;
         struct MoleMole_LCAbility* _selfLCAbility;
         struct MoleMole_LCAbilityState* _lcAbilityState;
@@ -10260,13 +10262,17 @@ namespace app {
         struct MoleMole_EntityTimerReceiver* _shakeInterval;
         bool _showReactionText;
         struct String* elementDecrateGroup;
-        bool LDAPBJPCDHC;
+        bool IEGOGMPMOAO;
+        bool DNHFGAMIIJP;
+        struct List_1_System_ValueTuple_3__5* CJNBCHLAKHE;
         struct Func_2_MoleMole_ActorModifier_Boolean_* HGAAHMCALBE;
         struct Action_3_MoleMole_Config_ElementReactionType_MoleMole_BaseEntity_Nullable_1_UnityEngine_Vector3_* GGOGFKDBFHJ;
         struct Action_3_MoleMole_Config_ElementReactionType_MoleMole_BaseEntity_Nullable_1_UnityEngine_Vector3_* MIIBJEAOIJI;
         struct Vector3 elementReactionPos;
         bool triggerFrozenBroken;
+        ElementReactionType__Enum NOPPEEHOMFG;
         float _lastCrystallizeTime;
+        float GEHGAKLLPGA;
     };
 
     struct LCAbilityElement {
