@@ -9785,16 +9785,7 @@ namespace app {
     };
 
     struct __declspec(align(8)) MHCEDJLGNMG__Fields {
-        struct String* _curLimitRegionName;
-        bool _isCurActivityLimitRegion;
-        bool _isCurHomeworldLimitRegion;
-        struct Coroutine* _curDestroyLimitRegionCoroutine;
-        struct Dictionary_2_System_String_MKKACPLIBDI_* _polygonLimitRegions;
-        struct MKKACPLIBDI* _curPolygonLimitRegion;
-        struct String* _curPolygonLimitRegionName;
-        bool GJKFDGHHMFA;
-        float _limitRegionDistance;
-        struct Vector3 _limitRegionDirection;
+        bool smthg;
         struct GameObject* mapObj;
         struct MonoLevelMapUI* monoLevelMapUI;
         uint32_t _mapContainerHandle;
