@@ -9815,11 +9815,56 @@ namespace app {
         struct List_1_System_String_* FDFHCABDDFE;
         bool NMJJKJPPIGC;
     };
+	struct __declspec(align(8)) MoleMole_MapManager__Fields
+	{
+		bool GCNMOPKPIMF;
+		struct GameObject* mapObj;
+		struct MonoLevelMapUI* monoLevelMapUI;
+		uint32_t _mapContainerHandle;
+		uint32_t playerSceneID;
+		uint32_t mapSceneID;
+		struct SceneScriptData* _sceneDataInMap;
+		struct MapScriptData* mapData;
+		struct String* _currMapPrefabPath;
+		struct Nullable_1_MoleMole_AsyncJob_ BKMDLHJBOMF;
+		bool _forceCurrentScene;
+		uint32_t _mapSceneIDSelected;
+		bool DebugNewmap;
+		struct String* currMapString;
+		struct RectTransform* currParent;
+		struct GameObject* mapGameObjectInst;
+		uint32_t _mapImageHandle;
+		struct MonoLevelMap* levelMap;
+		float mainPageCheckDistance;
+		int32_t _currState;
+		bool _hasSignalv;
+		struct Vector3 _signalPos;
+		float _distanceThreshold;
+		uint32_t _id;
+		bool FLDAFADKOJI;
+		struct GameObject* FPKDGCJHAGM;
+		uint32_t LPOBPKLKGGK;
+		struct List_1_OOMOGPMHEAO_* HAEOLGFHPEN;
+		struct List_1_System_String_* EIJHGKFFDHO;
+		struct Dictionary_2_System_String_PILLJDIDHIJ_* _polygonLimitRegions;
+		bool _isCurActivityLimitRegion;
+		bool _isCurHomeworldLimitRegion;
+		struct Coroutine* _curDestroyLimitRegionCoroutine;
+		float KJLNBKEIFCJ;
+		struct Vector3 CIPDJNHBFPB;
+		struct List_1_System_UInt32_* OBMINJCEAJL;
+		struct Dictionary_2_System_UInt32_List_1_LPKPLIFIBGA_* JAKFLGOOBMP;
+		bool OJNGNBKMMFI;
+		struct List_1_System_String_* OJBKAGDIEIK;
+		struct List_1_System_String_* NFGGLJBPIBO;
+		struct Dictionary_2_System_String_System_UInt32_* AIMGKHPHKMP;
+		struct Dictionary_2_System_UInt32_System_UInt32_* NCOMNKCALBL;
+	};
 
     struct MoleMole_MapManager {
         struct MapManager__Class* klass;
         MonitorData* monitor;
-        struct MHCEDJLGNMG__Fields fields;
+        struct MoleMole_MapManager__Fields fields;
     };
 
     struct GadgetEntity__Fields {
