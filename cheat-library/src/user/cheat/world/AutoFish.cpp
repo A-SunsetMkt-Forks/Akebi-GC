@@ -91,7 +91,7 @@ namespace cheat::feature
         }
 
         std::lock_guard<std::mutex> catchLock(autoFish.m_BattleFinishTimestampMutex);
-        autoFish.m_BattleFinishTimestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
+        autoFish.m_BattleFinishTimestamp = app::MoleMole_TimeUtil_get_LocalNowMsTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
     }
 
     void AutoFish::FishingModule_OnFishBattleEndRsp_Hook(void* __this, app::FishBattleEndRsp* rsp, MethodInfo* method)
@@ -115,7 +115,7 @@ namespace cheat::feature
         {
             LOG_WARNING("Failed to catch fish, retrying in %u ms", autoFish.f_DelayBeforeCatch);
             std::lock_guard<std::mutex> catchLock(autoFish.m_BattleFinishTimestampMutex);
-            autoFish.m_BattleFinishTimestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
+            autoFish.m_BattleFinishTimestamp = app::MoleMole_TimeUtil_get_LocalNowMsTimeStamp(nullptr) + autoFish.f_DelayBeforeCatch;
             return;
         }
 
@@ -123,7 +123,7 @@ namespace cheat::feature
             return;
 
         std::lock_guard<std::mutex> _lock(autoFish.m_RecastTimestampMutex);
-        autoFish.m_RecastTimestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr) + autoFish.f_DelayBeforeRecast;
+        autoFish.m_RecastTimestamp = app::MoleMole_TimeUtil_get_LocalNowMsTimeStamp(nullptr) + autoFish.f_DelayBeforeRecast;
     }
 
     void AutoFish::FishingModule_OnExitFishingRsp_Hook(void* __this, void* rsp, MethodInfo* method)
@@ -154,7 +154,7 @@ namespace cheat::feature
 
     void AutoFish::OnGameUpdate()
     {
-        auto timestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr);
+        auto timestamp = app::MoleMole_TimeUtil_get_LocalNowMsTimeStamp(nullptr);
 
         std::lock_guard<std::mutex> _lock(m_BattleFinishTimestampMutex);
         std::lock_guard<std::mutex> _lock2(m_RecastTimestampMutex);

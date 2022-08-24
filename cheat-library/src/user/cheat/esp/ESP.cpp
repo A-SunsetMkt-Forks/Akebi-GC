@@ -581,27 +581,30 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(chest, LuxuriousChest);
 		ADD_FILTER_FIELD(chest, RemarkableChest);
 		// Other Chests
-		ADD_FILTER_FIELD(chest, BuriedChest);
+		//ADD_FILTER_FIELD(chest, BuriedChest); // Shared name, commented for now
 		ADD_FILTER_FIELD(chest, SearchPoint);
 		
 
 		ADD_FILTER_FIELD(featured, Anemoculus);
 		ADD_FILTER_FIELD(featured, CrimsonAgate);
-		ADD_FILTER_FIELD(featured, Electroculus);
 		ADD_FILTER_FIELD(featured, Dendroculus);
-		ADD_FILTER_FIELD(featured, EchoingConch);
+		ADD_FILTER_FIELD(featured, Electroculus);
 		ADD_FILTER_FIELD(featured, Electrogranum);
 		ADD_FILTER_FIELD(featured, FishingPoint);
 		ADD_FILTER_FIELD(featured, Geoculus);
-		ADD_FILTER_FIELD(featured, ImagingConch);
 		ADD_FILTER_FIELD(featured, ItemDrops);
 		ADD_FILTER_FIELD(featured, KeySigil);
 		ADD_FILTER_FIELD(featured, Lumenspar);
 		ADD_FILTER_FIELD(featured, ShrineOfDepth);
 		ADD_FILTER_FIELD(featured, TimeTrialChallenge);
 
+		ADD_FILTER_FIELD(guide, BouncyMushroom);
 		ADD_FILTER_FIELD(guide, CampfireTorch);
+		ADD_FILTER_FIELD(guide, ClusterleafOfCultivation);
 		ADD_FILTER_FIELD(guide, DayNightSwitchingMechanism);
+		ADD_FILTER_FIELD(guide, DendroGranum);
+		ADD_FILTER_FIELD(guide, DendroPile);
+		ADD_FILTER_FIELD(guide, DendroRock);
 		ADD_FILTER_FIELD(guide, EnkanomiyaPhaseGate);
 		ADD_FILTER_FIELD(guide, MysteriousCarvings);
 		ADD_FILTER_FIELD(guide, PhaseGate);
@@ -623,6 +626,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Crow);
 		ADD_FILTER_FIELD(living, CrystalCore);
 		ADD_FILTER_FIELD(living, Dog);
+		ADD_FILTER_FIELD(living, DuskBird);
 		ADD_FILTER_FIELD(living, Eel);
 		ADD_FILTER_FIELD(living, Falcon);
 		ADD_FILTER_FIELD(living, Finch);
@@ -640,7 +644,6 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Salamander);
 		ADD_FILTER_FIELD(living, Squirrel);
 		ADD_FILTER_FIELD(living, Starconch);
-		ADD_FILTER_FIELD(living, Tukan);
 		ADD_FILTER_FIELD(living, Weasel);
 		ADD_FILTER_FIELD(living, Wigeon);
 
@@ -710,7 +713,6 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, Hilichurl);
 		ADD_FILTER_FIELD(monster, HydroAbyssHerald);
 		ADD_FILTER_FIELD(monster, HydroBathysmalVishap);
-		ADD_FILTER_FIELD(monster, HydroHypostasisSummon);
 		ADD_FILTER_FIELD(monster, Kairagi);
 		ADD_FILTER_FIELD(monster, Millelith);
 		ADD_FILTER_FIELD(monster, Mitachurl);
@@ -789,7 +791,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(plant, SweetFlower);
 		ADD_FILTER_FIELD(plant, Valberry);
 		ADD_FILTER_FIELD(plant, Violetgrass);
-		//ADD_FILTER_FIELD(plant, Viparyas);
+		ADD_FILTER_FIELD(plant, Viparyas);
 		ADD_FILTER_FIELD(plant, WindwheelAster);
 		ADD_FILTER_FIELD(plant, Wolfhook);
 		ADD_FILTER_FIELD(plant, ZaytunPeach);
@@ -798,39 +800,41 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, BakeDanuki);
 		ADD_FILTER_FIELD(puzzle, BloattyFloatty);
 		ADD_FILTER_FIELD(puzzle, CubeDevices);
+		ADD_FILTER_FIELD(puzzle, DendroProjector);
+		ADD_FILTER_FIELD(puzzle, DreadfulWithering);
 		ADD_FILTER_FIELD(puzzle, EightStoneTablets);
 		ADD_FILTER_FIELD(puzzle, ElectricConduction);
-		ADD_FILTER_FIELD(puzzle, RelayStone);
 		ADD_FILTER_FIELD(puzzle, ElectroSeelie);
 		ADD_FILTER_FIELD(puzzle, ElementalMonument);
 		ADD_FILTER_FIELD(puzzle, FloatingAnemoSlime);
 		ADD_FILTER_FIELD(puzzle, Geogranum);
 		ADD_FILTER_FIELD(puzzle, GeoPuzzle);
 		ADD_FILTER_FIELD(puzzle, LargeRockPile);
-		ADD_FILTER_FIELD(puzzle, LightUpTilePuzzle);
 		ADD_FILTER_FIELD(puzzle, LightningStrikeProbe);
+		ADD_FILTER_FIELD(puzzle, LightUpTilePuzzle);
 		ADD_FILTER_FIELD(puzzle, LumenCage);
 		ADD_FILTER_FIELD(puzzle, LuminousSeelie);
 		ADD_FILTER_FIELD(puzzle, MistBubble);
+		ADD_FILTER_FIELD(puzzle, NurseriesInTheWilds);
 		ADD_FILTER_FIELD(puzzle, OozingConcretions);
+		ADD_FILTER_FIELD(puzzle, PhantasmalGate);
 		ADD_FILTER_FIELD(puzzle, PirateHelm);
 		ADD_FILTER_FIELD(puzzle, PressurePlate);
+		ADD_FILTER_FIELD(puzzle, RelayStone);
+		ADD_FILTER_FIELD(puzzle, SaghiraMachine);
 		ADD_FILTER_FIELD(puzzle, SealLocations);
 		ADD_FILTER_FIELD(puzzle, Seelie);
 		ADD_FILTER_FIELD(puzzle, SeelieLamp);
 		ADD_FILTER_FIELD(puzzle, SmallRockPile);
+		ADD_FILTER_FIELD(puzzle, StonePillarSeal);
 		ADD_FILTER_FIELD(puzzle, StormBarrier);
 		ADD_FILTER_FIELD(puzzle, SwordHilt);
 		ADD_FILTER_FIELD(puzzle, Temari);
 		ADD_FILTER_FIELD(puzzle, TorchPuzzle);
+		ADD_FILTER_FIELD(puzzle, TriYanaSeeds);
 		ADD_FILTER_FIELD(puzzle, UniqueRocks);
 		ADD_FILTER_FIELD(puzzle, WarmingSeelie);
 		ADD_FILTER_FIELD(puzzle, WindmillMechanism);
-		ADD_FILTER_FIELD(puzzle, MelodicBloom);
-		ADD_FILTER_FIELD(puzzle, CloudleisureSteps);
-		ADD_FILTER_FIELD(puzzle, DreamForm);
-		ADD_FILTER_FIELD(puzzle, StarlightCoalescence);
-		ADD_FILTER_FIELD(puzzle, TheRavenForum);
 	}
 #undef ADD_FILTER_FIELD
 }

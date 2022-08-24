@@ -9,6 +9,8 @@ namespace cheat::feature
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
 		config::Field<config::Toggle<Hotkey>> f_FreezeAnimation;
+		config::Field<bool> f_DamageOverlay;
+		config::Field<bool> f_HpOverlay;
 		config::Field<float> f_Speed;
 		config::Field<float> f_LookSens;
 		config::Field<float> f_RollSpeed;

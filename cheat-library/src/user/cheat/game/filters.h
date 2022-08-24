@@ -76,6 +76,11 @@ namespace cheat::game::filters
 		extern SimpleFilter RuinBrazier;
 		extern SimpleFilter Stormstone;
 		extern SimpleFilter TriangularMechanism;
+		extern SimpleFilter DendroGranum;
+		extern SimpleFilter BouncyMushroom;
+		extern SimpleFilter ClusterleafOfCultivation;
+		extern SimpleFilter DendroRock;
+		extern SimpleFilter DendroPile;
 	}
 
 	namespace living
@@ -102,7 +107,7 @@ namespace cheat::game::filters
 		extern SimpleFilter LucklightFly;
 		extern SimpleFilter Npc;
 		extern SimpleFilter Salamander;
-		extern SimpleFilter Tukan;
+		extern SimpleFilter DuskBird;
 		extern SimpleFilter Pigeon;
 		extern SimpleFilter Crow;
 		extern SimpleFilter Finch;
@@ -277,7 +282,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Padisarah;
 		extern SimpleFilter RukkhashavaMushrooms;
 		extern SimpleFilter SumeruRose;
-		//extern SimpleFilter Viparyas;
+		extern SimpleFilter Viparyas;
 		extern SimpleFilter ZaytunPeach;
 	}
 
@@ -320,6 +325,15 @@ namespace cheat::game::filters
 		extern WhitelistFilter DreamForm;
 		extern SimpleFilter StarlightCoalescence;
 		extern SimpleFilter TheRavenForum;
+		extern WhitelistFilter TimeTrialChallengeCollection;
+		extern SimpleFilter Bombbarrel;
+		extern SimpleFilter NurseriesInTheWilds;
+		extern SimpleFilter SaghiraMachine;
+		extern SimpleFilter StonePillarSeal;
+		extern SimpleFilter TriYanaSeeds;
+		extern SimpleFilter DendroProjector;
+		extern SimpleFilter DreadfulWithering;
+		extern SimpleFilter PhantasmalGate;
 	}
 
 	namespace combined

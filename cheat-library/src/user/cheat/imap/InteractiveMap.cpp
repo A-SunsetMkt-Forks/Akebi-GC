@@ -563,13 +563,13 @@ namespace cheat::feature
 		std::lock_guard _userDataLock(m_UserDataMutex);
 		LOG_WARNING("Complete point at %.0f.", game::EntityManager::instance().avatar()->distance(pointData->levelPosition));
 
-		if (m_CompletedPoints.count(pointData) > 0)
+		if (std::find_if(m_CompletedPoints.begin(), m_CompletedPoints.end(), [=](PointData* data) { return pointData->id == data->id; }) != std::end(m_CompletedPoints))
 			return;
 
 		pointData->completed = true;
 		pointData->completeTimestamp = util::GetCurrentTimeMillisec();
 		m_ScenesData[pointData->sceneID].labels[pointData->labelID].completedCount++;
-		m_CompletedPoints.insert(pointData);
+		m_CompletedPoints.push_back(pointData);
 		
 		SaveCompletedPoints();
 	}
@@ -578,13 +578,14 @@ namespace cheat::feature
 	{
 		std::lock_guard _userDataLock(m_UserDataMutex);
 
-		if (m_CompletedPoints.count(pointData) == 0)
+        auto pointDataIterator = std::find_if(m_CompletedPoints.begin(), m_CompletedPoints.end(), [=](PointData* data) { return pointData->id == data->id; });
+        if (pointDataIterator == m_CompletedPoints.end())
 			return;
 
 		pointData->completed = false;
 		pointData->completeTimestamp = 0;
 		m_ScenesData[pointData->sceneID].labels[pointData->labelID].completedCount--;
-		m_CompletedPoints.erase(pointData);
+		m_CompletedPoints.erase(pointDataIterator);
 
 		SaveCompletedPoints();
 	}
@@ -595,11 +596,12 @@ namespace cheat::feature
 		if (m_CompletedPoints.empty())
 			return;
 
-		PointData* pointData = *m_CompletedPoints.begin();
+        auto pointDataIterator = --m_CompletedPoints.end();
+        PointData* pointData = *pointDataIterator;
 		pointData->completed = false;
 		pointData->completeTimestamp = 0;
 		m_ScenesData[pointData->sceneID].labels[pointData->labelID].completedCount--;
-		m_CompletedPoints.erase(pointData);
+		m_CompletedPoints.erase(pointDataIterator);
 
 		SaveCompletedPoints();
 	}
@@ -916,7 +918,7 @@ namespace cheat::feature
 		}
 
 		auto& point = points[pointID];
-		if (m_CompletedPoints.count(&point) > 0)
+		if (std::find_if(m_CompletedPoints.begin(), m_CompletedPoints.end(), [=](PointData* data) { return point.id == data->id; }) != std::end(m_CompletedPoints))
 		{
 			LOG_WARNING("Completed point %u duplicate.", pointID);
 			return;
@@ -926,7 +928,7 @@ namespace cheat::feature
 		point.completeTimestamp = data["complete_timestamp"];
 		labelData->completedCount++;
 
-		m_CompletedPoints.insert(&point);
+		m_CompletedPoints.push_back(&point);
 	}
 
 	void InteractiveMap::LoadFixedPointData(LabelData* labelData, const nlohmann::json& data)
@@ -1026,6 +1028,7 @@ namespace cheat::feature
 	void InteractiveMap::LoadCompletedPoints()
 	{
 		LoadUserData(f_CompletedPointsJson, &InteractiveMap::LoadCompletedPointData);
+		ReorderCompletedPointDataByTimestamp();
 	}
 
 	void InteractiveMap::SaveCompletedPoints()
@@ -1039,6 +1042,11 @@ namespace cheat::feature
 		ResetUserData(&InteractiveMap::ResetCompletedPointData);
 		m_CompletedPoints.clear();
 	}
+
+    void InteractiveMap::ReorderCompletedPointDataByTimestamp()
+    {
+        m_CompletedPoints.sort([](PointData* a, PointData* b) { return a->completeTimestamp < b->completeTimestamp; });
+    }
 
 	void InteractiveMap::LoadCustomPoints()
 	{
@@ -1779,9 +1787,11 @@ namespace cheat::feature
 		INIT_FILTER(chest, RemarkableChest);
 		INIT_FILTER(featured, Anemoculus);
 		INIT_FILTER(featured, CrimsonAgate);
+		INIT_FILTER(featured, Dendroculus);
 		INIT_FILTER(featured, Electroculus);
 		//INIT_FILTER(featured, Electrogranum);
 		INIT_FILTER(featured, Geoculus);
+		INIT_FILTER(featured, KeySigil);
 		INIT_FILTER(featured, Lumenspar);
 		//INIT_FILTER(featured, KeySigil);
 		//INIT_FILTER(featured, ShrineOfDepth);
@@ -1917,8 +1927,10 @@ namespace cheat::feature
 
 		INIT_DETECT_ITEM(Anemoculus);
 		INIT_DETECT_ITEM(CrimsonAgate);
+		INIT_DETECT_ITEM(Dendroculus);
 		INIT_DETECT_ITEM(Electroculus);
 		INIT_DETECT_ITEM(Geoculus);
+		INIT_DETECT_ITEM(KeySigil);
 		INIT_DETECT_ITEM(Lumenspar);
 
 #undef INIT_DETECT_ITEM
