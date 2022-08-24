@@ -10,6 +10,8 @@ using namespace app;
 // Map hooks
 DO_APP_FUNC(0x0343C910, void, MoleMole_InLevelMapPageContext_OnMarkClicked, (InLevelMapPageContext* __this, MonoMapMark* mark, MethodInfo* method));
 DO_APP_FUNC(0x034539D0, void, MoleMole_InLevelMapPageContext_OnMapClicked, (InLevelMapPageContext* __this, Vector2 screenPos, MethodInfo* method));
+DO_APP_FUNC(0x0346A5C0, void, MoleMole_InLevelMapPageContext_ZoomMap, (InLevelMapPageContext* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x03474560, void, MoleMole_InLevelMapPageContext_UpdateView, (InLevelMapPageContext* __this, MethodInfo* method));
 DO_APP_FUNC(0x017865C0, bool, MoleMole_MapModule_IsAreaUnlock, (MoleMole_MapModule* __this, uint32_t sceneID, uint32_t areaID, MethodInfo* method));
 
 
@@ -149,8 +151,8 @@ DO_APP_FUNC(0x03621CD0, void, MoleMole_LCIndicatorPlugin_HideIcon, (LCIndicatorP
 DO_APP_FUNC(0x014BF6D0, void, MoleMole_PlayerModule_RequestPlayerCook, (MoleMole_PlayerModule* __this, uint32_t recipeId, uint32_t avatarId, uint32_t qteQuality, uint32_t count, MethodInfo* method));
 DO_APP_FUNC(0x014E23F0, void, MoleMole_PlayerModule_OnPlayerCookRsp, (MoleMole_PlayerModule* __this, PlayerCookRsp* rsp, MethodInfo* method));
 DO_APP_FUNC(0x01A6ECA0, void, MoleMole_CookingQtePageContext_UpdateProficiency, (CookingQtePageContext* __this, MethodInfo* method));
+DO_APP_FUNC(0x01A6F5E0, void, MoleMole_CookingQtePageContext_CloseItemGotPanel, (CookingQtePageContext* __this, MethodInfo* method));
 DO_APP_FUNC(0x009FA430, uint32_t, MoleMole_Config_CookRecipeExcelConfig_CheckCookFoodMaxNum, (uint32_t UpdateCookRecipeDic, MethodInfo* method));
-DO_APP_FUNC(0x01A6F5E0, void, CookingQtePageContext_CloseItemGotPanel, (CookingQtePageContext* __this, MethodInfo* method));
 
 // Profile Changer | RyujinZX#6666
 DO_APP_FUNC(0x029A6160, Button_1*, ProfilePage, (MonoInLevelPlayerProfilePage* __this, MethodInfo* method)); // MonoInLevelPlayerProfilePage_get_logoutButton
@@ -184,7 +186,6 @@ DO_APP_FUNC(0x05B6DA00, Vector3, Transform_get_localPosition, (Transform* __this
 DO_APP_FUNC(0x05B6DED0, void, Transform_set_localPosition, (Transform* __this, Vector3 value, MethodInfo* method));
 DO_APP_FUNC(0x05C3E960, Component_1*, GameObject_AddComponentInternal, (GameObject* __this, String* className, MethodInfo* method));
 DO_APP_FUNC(0x05C3ED10, Component_1*, GameObject_AddComponent, (GameObject* __this, Type* componentType, MethodInfo* method));
-DO_APP_FUNC(0x05B68860, void, Object_1_DestroyImmediate_1, (Object_1* obj, MethodInfo* method));
 DO_APP_FUNC(0x05B68BB0, Object_1*, Object_1_Instantiate_2, (Object_1* original, MethodInfo* method));
 DO_APP_FUNC(0x05E47BE0, Object*, Object_1_Instantiate_5, (Object* original, MethodInfo* method));
 DO_APP_FUNC(0x05E47BE0, GameObject*, Object_1_Instantiate_10, (GameObject* original, MethodInfo* method));
@@ -202,10 +203,12 @@ DO_APP_FUNC(0x05B6DCA0, Vector3, Transform_get_up, (Transform* __this, MethodInf
 DO_APP_FUNC(0x05B6DFE0, void, Transform_set_up, (Transform* __this, Vector3 value, MethodInfo* method));
 DO_APP_FUNC(0x05B6D8E0, Vector3, Transform_get_forward, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x05B6DE10, void, Transform_set_forward, (Transform* __this, Vector3 value, MethodInfo* method));
+DO_APP_FUNC(0x05B6DC50, Quaternion, Transform_get_rotation, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x05B6C890, void, Transform_set_rotation, (Transform* __this, Quaternion value, MethodInfo* method));
+DO_APP_FUNC(0x05B688B0, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
+DO_APP_FUNC(0x05B68860, void, Object_1_DestroyImmediate_1, (Object_1* obj, MethodInfo* method));
 DO_APP_FUNC(0x05BF07F0, float, Mathf_Lerp, (float a, float b, float t, MethodInfo* method));
 DO_APP_FUNC(0x05C07270, float, Input_GetAxis, (String* axisName, MethodInfo* method));
-DO_APP_FUNC(0x05B688B0, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method));
 
 
 // Utility
@@ -275,7 +278,6 @@ DO_APP_FUNC(0x02A56E10, GameObject*, MoleMole_BaseEntity_get_rootGameObject, (Ba
 
 // type should be 'MoleMole_AvatarEntity' not 'MoleMole_BaseEntity'
 DO_APP_FUNC(0x02A58120, BaseEntity*, MoleMole_EntityManager_GetLocalAvatarEntity, (MoleMole_EntityManager* __this, MethodInfo* method));
-
 DO_APP_FUNC(0x02A51C20, CameraEntity*, MoleMole_EntityManager_GetMainCameraEntity, (MoleMole_EntityManager* __this, MethodInfo* method));
 DO_APP_FUNC(0x02A52B10, BaseEntity*, MoleMole_EntityManager_GetValidEntity, (MoleMole_EntityManager* __this, uint32_t runtimeID, MethodInfo* method));
 DO_APP_FUNC(0x02A6CAE0, bool, MoleMole_EntityManager_RemoveEntity, (MoleMole_EntityManager* __this, BaseEntity* entity, uint32_t specifiedRuntimeID, MethodInfo* method));
@@ -296,9 +298,6 @@ DO_APP_FUNC(0x00E06690, bool, MoleMole_LoadingManager_IsLoaded, (MoleMole_Loadin
 DO_APP_FUNC(0x0143BF90, void, MoleMole_LCAbilityElement_ReduceModifierDurability, (LCAbilityElement* __this, int32_t modifierDurabilityIndex, float reduceDurability, Nullable_1_Single_ deltaTime, MethodInfo* method));
 
 DO_APP_FUNC(0x0218C660, BaseEntity*, MoleMole_GadgetEntity_GetOwnerEntity, (GadgetEntity* __this, MethodInfo* method));
-
-DO_APP_FUNC(0x0346A5C0, void, MoleMole_InLevelMapPageContext_ZoomMap, (InLevelMapPageContext* __this, float value, MethodInfo* method));
-DO_APP_FUNC(0x03474560, void, MoleMole_InLevelMapPageContext_UpdateView, (InLevelMapPageContext* __this, MethodInfo* method));
 
 DO_APP_FUNC(0x027385E0, bool, MoleMole_UIManager_HasEnableMapCamera, (MoleMole_UIManager* __this, MethodInfo* method));
 
@@ -353,7 +352,6 @@ DO_APP_FUNC(0x05C5B3D0, bool, Behaviour_get_isActiveAndEnabled, (Behaviour* __th
 
 DO_APP_FUNC(0x05C401A0, Vector3, Quaternion_ToEulerAngles, (Quaternion rotation, MethodInfo* method));
 DO_APP_FUNC(0x05C40290, Vector3, Quaternion_get_eulerAngles, (Quaternion__Boxed* __this, MethodInfo* method));
-DO_APP_FUNC(0x05B6DC50, Quaternion, Transform_get_rotation, (Transform* __this, MethodInfo* method));
 DO_APP_FUNC(0x05B6AF20, Rect, RectTransform_get_rect, (RectTransform* __this, MethodInfo* method));
 DO_APP_FUNC(0x05C8B870, float, Canvas_get_scaleFactor, (/*Canvas**/void* __this, MethodInfo* method));
 

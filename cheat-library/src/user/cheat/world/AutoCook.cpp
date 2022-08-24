@@ -170,7 +170,7 @@ namespace cheat::feature
         {
             __this->fields._pageMono->fields._qteTime = 0;
             __this->fields._pageMono->fields._autoQteTime = 0;
-            app::CookingQtePageContext_CloseItemGotPanel(__this, nullptr); // Auto Close Panel
+            app::MoleMole_CookingQtePageContext_CloseItemGotPanel(__this, nullptr); // Auto Close Panel
         }
         return CALL_ORIGIN(CookingQtePageContext_UpdateProficiency, __this, method);
     }

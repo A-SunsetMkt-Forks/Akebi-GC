@@ -7258,8 +7258,8 @@ namespace app {
         ElementReactionType__Enum elementAddhurtType;
         ElementReactionType__Enum elementReactionType;
         struct ConfigAttackProperty* _attackerAttackProperty;
-        void* modifiedAttackProperty;
-        float BNKPGFGKGBF;
+        struct AttackResult_AttackResult_ModifiedAttackProperty* modifiedAttackProperty;
+        float MNAHKAGGKBI;
         ElementType__Enum _origElementType;
         float _origElementDurability;
         float endureDelta;
@@ -7318,39 +7318,38 @@ namespace app {
         struct AttackHitEffectResult__Fields fields;
     };
 
-    //FNNBKNJJGNM__Fields
     struct AttackResult_1__Fields {
         struct MessageBase_1__Fields _;
-        uint32_t attackerId_;
-        uint32_t defenseId_;
-        struct String* animEventId_;
-        struct AbilityIdentifier_1* abilityIdentifier_;
-        float damage_;
-        bool isCrit_;
-        void* hitCollision_;
-        uint32_t hitPosType_;
-        uint32_t endureBreak_;
-        struct Vector_1* resolvedDir_;
-        int32_t hitRetreatAngleCompat_;
-        struct AttackHitEffectResult* hitEffResult_;
-        uint32_t elementType_;
-        bool useGadgetDamageAction_;
-        uint32_t gadgetDamageActionIdx_;
         bool isResistText_;
-        uint32_t criticalRand_;
-        float elementAmplifyRate_;
-        float damageShield_;
-        bool muteElementHurt_;
+        uint32_t HEFALFKIKJK;
         uint32_t amplifyReactionType_;
-        uint32_t addhurtReactionType_;
-        uint32_t bulletFlyTimeMs_;
-        uint32_t attackCount_;
-        uint32_t hashedAnimEventId_;
-        uint32_t attackTimestampMs_;
-        float endureDelta_;
-        uint32_t targetType_;
+        uint32_t endureBreak_;
+        uint32_t elementType_;
         float elementDurabilityAttenuation_;
-        uint32_t HGENJBMMFDH;
+        uint32_t defenseId_;
+        uint32_t attackTimestampMs_;
+        uint32_t bulletFlyTimeMs_;
+        bool isCrit_;
+        float elementAmplifyRate_;
+        uint32_t attackCount_;
+        uint32_t criticalRand_;
+        uint32_t hitPosType_;
+        struct String* animEventId_;
+        struct AttackHitEffectResult* hitEffResult_;
+        float damageShield_;
+        float endureDelta_;
+        struct Vector_1* resolvedDir_;
+        float damage_;
+        uint32_t addhurtReactionType_;
+        uint32_t hashedAnimEventId_;
+        bool useGadgetDamageAction_;
+        int32_t hitRetreatAngleCompat_;
+        struct AbilityIdentifier_1* abilityIdentifier_;
+        uint32_t attackerId_;
+        bool muteElementHurt_;
+        uint32_t targetType_;
+        void* hitCollision_;
+        uint32_t gadgetDamageActionIdx_;
     };
 
     struct AttackResult_1 {
@@ -9275,6 +9274,27 @@ namespace app {
         OriginOwner = 0x00000002,
     };
 
+    struct __declspec(align(8)) ConfigAttackInfo__Fields {
+        struct String* _attackTag;
+        struct String* _attenuationTag;
+        struct String* _attenuationGroup;
+        GIMPBDFJKCF__Enum KELLHNJOHEE;
+        struct ConfigAttackProperty* _attackProperty;
+        struct ConfigHitPattern* _hitPattern;
+        bool _canHitHead;
+        struct JMEHFAFIGOB* _hitHeadPattern;
+        bool _forceCameraShake;
+        struct HIFJNLHKFEE* NADMPJNLGEC;
+        struct EMKDPBDJPFA* HHIMIJDIPPE;
+        CanBeModifiedBy__Enum FLCCOAEHOJH;
+    };
+
+    struct ConfigAttackInfo {
+        struct ConfigAttackInfo__Class* klass;
+        MonitorData* monitor;
+        struct ConfigAttackInfo__Fields fields;
+    };
+
     struct Rigidbody__Fields {
         struct Component_1__Fields _;
     };
@@ -11012,6 +11032,7 @@ namespace app {
         bool levelCinemachine;
         struct SimpleVector3Damper* _skfilter;
         bool _isFilterInitialized;
+        float JEADCBNIEGD;
         bool _isTrySmoothBetweenNormalAndClimb;
         double _smoothLerpSpeed;
         struct Vector3d_1 _smoothingTransformLookAtPoint;
@@ -11731,7 +11752,8 @@ namespace app {
         float _detectDitherRangeBetweenCameraAndAvatar;
         float _detectDitherRangeNormalBetweenCamera;
         float _detectDitherRangeNormalBetweenCameraInTimeLine;
-        bool LGEKBIFMMLF;
+        bool CDOLKFJPMIP;
+        bool KDADEIBKKOE;
         struct List_1_MoleMole_BaseDither_* _dithers;
         bool _isDitherChangeStarted;
         float _spd;

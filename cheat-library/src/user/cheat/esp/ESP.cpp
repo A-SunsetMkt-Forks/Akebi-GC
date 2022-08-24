@@ -581,7 +581,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(chest, LuxuriousChest);
 		ADD_FILTER_FIELD(chest, RemarkableChest);
 		// Other Chests
-		ADD_FILTER_FIELD(chest, BuriedChest);
+		//ADD_FILTER_FIELD(chest, BuriedChest); // Shared name, commented for now
 		ADD_FILTER_FIELD(chest, SearchPoint);
 		
 
@@ -589,11 +589,9 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(featured, CrimsonAgate);
 		ADD_FILTER_FIELD(featured, Electroculus);
 		ADD_FILTER_FIELD(featured, Dendroculus);
-		ADD_FILTER_FIELD(featured, EchoingConch);
 		ADD_FILTER_FIELD(featured, Electrogranum);
 		ADD_FILTER_FIELD(featured, FishingPoint);
 		ADD_FILTER_FIELD(featured, Geoculus);
-		ADD_FILTER_FIELD(featured, ImagingConch);
 		ADD_FILTER_FIELD(featured, ItemDrops);
 		ADD_FILTER_FIELD(featured, KeySigil);
 		ADD_FILTER_FIELD(featured, Lumenspar);
@@ -623,6 +621,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Crow);
 		ADD_FILTER_FIELD(living, CrystalCore);
 		ADD_FILTER_FIELD(living, Dog);
+		ADD_FILTER_FIELD(living, DuskBird);
 		ADD_FILTER_FIELD(living, Eel);
 		ADD_FILTER_FIELD(living, Falcon);
 		ADD_FILTER_FIELD(living, Finch);
@@ -640,7 +639,6 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Salamander);
 		ADD_FILTER_FIELD(living, Squirrel);
 		ADD_FILTER_FIELD(living, Starconch);
-		ADD_FILTER_FIELD(living, Tukan);
 		ADD_FILTER_FIELD(living, Weasel);
 		ADD_FILTER_FIELD(living, Wigeon);
 
@@ -826,11 +824,6 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, UniqueRocks);
 		ADD_FILTER_FIELD(puzzle, WarmingSeelie);
 		ADD_FILTER_FIELD(puzzle, WindmillMechanism);
-		ADD_FILTER_FIELD(puzzle, MelodicBloom);
-		ADD_FILTER_FIELD(puzzle, CloudleisureSteps);
-		ADD_FILTER_FIELD(puzzle, DreamForm);
-		ADD_FILTER_FIELD(puzzle, StarlightCoalescence);
-		ADD_FILTER_FIELD(puzzle, TheRavenForum);
 	}
 #undef ADD_FILTER_FIELD
 }

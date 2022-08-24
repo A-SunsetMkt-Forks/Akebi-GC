@@ -56,19 +56,18 @@ As well as setting up **`cheat-library`** as startup project.
 - Notifications
 
 #### Player
-- Invincible
-- Attack Modifier
-- No Cooldown Skill/Ultimate/Sprint/Bow
+- God Mode(Invincible)
+- Attack Modifier: Multi-Hit/Target/Animation
+- No Cooldown: Skill/Ultimate/Sprint/Bow
 - Unlimited Stamina
 - No Clip
 
 #### World
 - Auto Seelie
-- Vacuum Loot
 - Dumb Enemies
 - Freeze Enemies
-- Auto Destroy Objects
-- Auto Loot
+- Auto Destroy: Ores/Shields/Doodas/Plants
+- Auto Loot/Open Chests
 - Pickup Range
 - Auto Talk
 - Auto Tree Farm
@@ -77,6 +76,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Auto Fish
 - Kill Aura
 - Mob Vacuum
+- Vacuum Loot
 
 #### Teleport
 - Chest/Oculi Teleport (Teleports to nearest)
@@ -94,16 +94,17 @@ As well as setting up **`cheat-library`** as startup project.
 - Hide UI
 - In-game Embedded Browser
 - Enable Peeking
-- Profile Changer
+- Profile Changer: UID/Nickname/AR/WorldLevel/Avatar/Namecard
+- Custom Weather
 - Free Camera
-- Texture Changer
 - Paimon Follow
+- Texture Changer
 
 #### Debugging
 - Entities Manager
 - Position Info
 - FPS Graph
-- Packet Sniffer
+- [Packet Sniffer](https://github.com/Akebi-Group/Akebi-PacketSniffer)
 
 
 <h1 align="center">Demo</h1>

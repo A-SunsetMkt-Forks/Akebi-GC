@@ -530,7 +530,7 @@
     <Image Include="res\iconsHD\TorchPuzzle.png" />
     <Image Include="res\iconsHD\TreasureHoarder.png" />
     <Image Include="res\iconsHD\TriangularMechanism.png" />
-    <Image Include="res\iconsHD\Tukan.png" />
+    <Image Include="res\iconsHD\DuskBird.png" />
     <Image Include="res\iconsHD\UnagiMeat.png" />
     <Image Include="res\iconsHD\UniqueRocks.png" />
     <Image Include="res\iconsHD\UnusualHilichurl.png" />
@@ -869,7 +869,7 @@
     <Image Include="res\icons\TorchPuzzle.png" />
     <Image Include="res\icons\TreasureHoarder.png" />
     <Image Include="res\icons\TriangularMechanism.png" />
-    <Image Include="res\icons\Tukan.png" />
+    <Image Include="res\icons\DuskBird.png" />
     <Image Include="res\icons\UnagiMeat.png" />
     <Image Include="res\icons\UniqueRocks.png" />
     <Image Include="res\icons\UnusualHilichurl.png" />

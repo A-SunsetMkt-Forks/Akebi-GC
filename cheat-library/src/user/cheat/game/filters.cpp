@@ -101,7 +101,7 @@ namespace cheat::game::filters
 		SimpleFilter Falcon = { EntityType__Enum_1::Monster, "Falcon" };
 		SimpleFilter LucklightFly = { EntityType__Enum_1::EnvAnimal, "Boltbug_" };
 		SimpleFilter Salamander = { EntityType__Enum_1::EnvAnimal, "Salamander" };
-		SimpleFilter Tukan = { EntityType__Enum_1::Monster, "Pigeon_Beak" };
+		SimpleFilter DuskBird = { EntityType__Enum_1::Monster, "Pigeon_Beak" };
 		SimpleFilter Pigeon = { EntityType__Enum_1::Monster, "Pigeon_0" };
 		SimpleFilter Crow = { EntityType__Enum_1::Monster, "Crow" };
 		SimpleFilter Finch = { EntityType__Enum_1::Monster, "Tit" };
@@ -395,7 +395,7 @@ namespace cheat::game::filters
 			living::Squirrel,
 			living::Boar,
 			living::Weasel,
-			living::Tukan
+			living::DuskBird
 		};
 		SimpleFilter AnimalPickUp = {
 			living::CrystalCore,

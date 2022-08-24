@@ -228,6 +228,8 @@ HDDOMAIN                PNG                     "iconsHD\\Domain.png"
 
 HDDUNLINSTOOTH 			PNG                     "iconsHD\\DunlinsTooth.png"
 
+HDDUSKBIRD              PNG                     "iconsHD\\DuskBird.png"
+
 HDDVALIN 				PNG                     "iconsHD\\Dvalin.png"
 
 HDECHOINGCONCH          PNG                     "iconsHD\\EchoingConch.png"
@@ -716,7 +718,6 @@ HDTREASUREHOARDER       PNG                     "iconsHD\\TreasureHoarder.png"
 
 HDTRIANGULARMECHANISM   PNG                     "iconsHD\\TriangularMechanism.png"
 
-HDTUKAN                 PNG                     "iconsHD\\Tukan.png"
 
 HDUNAGIMEAT             PNG                     "iconsHD\\UnagiMeat.png"
 
@@ -941,6 +942,8 @@ DOG 					PNG                     "icons\\Dog.png"
 DOMAIN                  PNG                     "icons\\Domain.png"
 
 DUNLINSTOOTH 			PNG                     "icons\\DunlinsTooth.png"
+
+DUSKBIRD                PNG                     "icons\\DuskBird.png"
 
 DVALIN 					PNG                     "icons\\Dvalin.png"
 
@@ -1431,8 +1434,6 @@ TORCHPUZZLE             PNG                     "icons\\TorchPuzzle.png"
 TREASUREHOARDER         PNG                     "icons\\TreasureHoarder.png"
 
 TRIANGULARMECHANISM     PNG                     "icons\\TriangularMechanism.png"
-
-TUKAN                   PNG                     "icons\\Tukan.png"
 
 UNAGIMEAT               PNG                     "icons\\UnagiMeat.png"
 

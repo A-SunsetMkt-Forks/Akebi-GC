@@ -102,7 +102,7 @@ namespace cheat::game::filters
 		extern SimpleFilter LucklightFly;
 		extern SimpleFilter Npc;
 		extern SimpleFilter Salamander;
-		extern SimpleFilter Tukan;
+		extern SimpleFilter DuskBird;
 		extern SimpleFilter Pigeon;
 		extern SimpleFilter Crow;
 		extern SimpleFilter Finch;

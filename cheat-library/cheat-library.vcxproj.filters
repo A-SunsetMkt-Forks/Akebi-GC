@@ -2409,9 +2409,6 @@
     <Image Include="res\iconsHD\SumeruRose.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\iconsHD\Tukan.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="res\iconsHD\Viparyas.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -2437,9 +2434,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\iconsHD\RukkhashavaMushrooms.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\icons\Tukan.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\Viparyas.png">
@@ -2524,6 +2518,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\BookPage.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DuskBird.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DuskBird.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
