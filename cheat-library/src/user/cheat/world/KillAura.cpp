@@ -20,7 +20,8 @@ namespace cheat::feature
         NF(f_OnlyTargeted, "Only targeted",             "KillAura", true),
         NF(f_Range,        "Range",                     "KillAura", 15.0f),
         NF(f_AttackDelay,  "Attack delay time (in ms)", "KillAura", 100),
-        NF(f_RepeatDelay,  "Repeat delay time (in ms)", "KillAura", 1000)
+        NF(f_RepeatDelay,  "Repeat delay time (in ms)", "KillAura", 1000),
+		NF(f_DamageValue, "Crash damage value", "Damage mode", 233.0f)
     { 
 		events::GameUpdateEvent += MY_METHOD_HANDLER(KillAura::OnGameUpdate);
 		HookManager::install(app::MoleMole_BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo, BaseMoveSyncPlugin_ConvertSyncTaskToMotionInfo_Hook);
@@ -39,6 +40,9 @@ namespace cheat::feature
 		ImGui::TextColored(ImColor(255, 165, 0, 255), "Choose any or both modes below.");
 
 		ConfigWidget("Crash Damage Mode", f_DamageMode, "Kill aura causes crash damage for monster around you.");
+		if (f_DamageMode) {
+			ConfigWidget("Damage Value", f_DamageValue, 1, 0, 10000000, "Crash damage value");
+		}
 		ConfigWidget("Instant Death Mode", f_InstantDeathMode, "Kill aura will attempt to instagib any valid target.");
 		ImGui::SameLine();
 		ImGui::TextColored(ImColor(255, 165, 0, 255), "Can get buggy with bosses like PMA and Hydro Hypo.");
@@ -94,7 +98,7 @@ namespace cheat::feature
 
 		auto& manager = game::EntityManager::instance();
 
-		for (const auto& monster : manager.entities(game::filters::combined::Monsters))
+		for (const auto& monster : manager.entities(game::filters::combined::Monsters))   
 		{
 			auto monsterID = monster->runtimeID();
 
@@ -149,14 +153,27 @@ namespace cheat::feature
 		}
 
 		attackSet.erase(monster->runtimeID());
-
+		
 		auto combat = monster->combat();
-		auto maxHP = app::MoleMole_SafeFloat_get_Value(combat->fields._combatProperty_k__BackingField->fields.maxHP, nullptr);
 
 		auto crashEvt = app::MoleMole_EventHelper_Allocate_103(*app::MoleMole_EventHelper_Allocate_103__MethodInfo);
 		app::MoleMole_EvtCrash_Init(crashEvt, monster->runtimeID(), nullptr);
-		crashEvt->fields.maxHp = maxHP;
-		crashEvt->fields.velChange = 1000;
+		
+		//Migita^Rin#1762: Fixed inaccurate damage caused by floating point precision(Maybe)
+		float FPValue;                               
+		if (f_DamageValue <= 10000000) FPValue = 27.0f;
+		if (f_DamageValue <= 9000000) FPValue = 22.5f;
+		if (f_DamageValue <= 8000000) FPValue = 20.0f;
+		if (f_DamageValue <= 7000000) FPValue = 17.5f;
+		if (f_DamageValue <= 6000000) FPValue = 15.0f;
+		if (f_DamageValue <= 5000000) FPValue = 12.5f;
+		if (f_DamageValue <= 4000000) FPValue = 10.0f;
+		if (f_DamageValue <= 3000000) FPValue = 7.5f;
+		if (f_DamageValue <= 2000000) FPValue = 5.0f;
+		if (f_DamageValue <= 1000000) FPValue = 2.5f;
+
+		crashEvt->fields.maxHp = f_DamageValue /0.4f + FPValue;
+		crashEvt->fields.velChange = 10000000;
 		crashEvt->fields.hitPos = monster->absolutePosition();
 
 		app::MoleMole_EventManager_FireEvent(eventManager, reinterpret_cast<app::BaseEvent*>(crashEvt), false, nullptr);
