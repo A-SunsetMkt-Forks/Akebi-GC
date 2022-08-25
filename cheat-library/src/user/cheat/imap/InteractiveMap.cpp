@@ -1787,9 +1787,11 @@ namespace cheat::feature
 		INIT_FILTER(chest, RemarkableChest);
 		INIT_FILTER(featured, Anemoculus);
 		INIT_FILTER(featured, CrimsonAgate);
+		INIT_FILTER(featured, Dendroculus);
 		INIT_FILTER(featured, Electroculus);
 		//INIT_FILTER(featured, Electrogranum);
 		INIT_FILTER(featured, Geoculus);
+		INIT_FILTER(featured, KeySigil);
 		INIT_FILTER(featured, Lumenspar);
 		//INIT_FILTER(featured, KeySigil);
 		//INIT_FILTER(featured, ShrineOfDepth);
@@ -1925,8 +1927,10 @@ namespace cheat::feature
 
 		INIT_DETECT_ITEM(Anemoculus);
 		INIT_DETECT_ITEM(CrimsonAgate);
+		INIT_DETECT_ITEM(Dendroculus);
 		INIT_DETECT_ITEM(Electroculus);
 		INIT_DETECT_ITEM(Geoculus);
+		INIT_DETECT_ITEM(KeySigil);
 		INIT_DETECT_ITEM(Lumenspar);
 
 #undef INIT_DETECT_ITEM

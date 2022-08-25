@@ -12,9 +12,11 @@ namespace cheat::feature
 		config::Field<config::Toggle<Hotkey>> f_AutoPickup;
 		config::Field<config::Toggle<Hotkey>> f_AutoTreasure;
 		config::Field<config::Toggle<Hotkey>> f_UseCustomRange;
+		config::Field<config::Toggle<Hotkey>> f_UseDelayTimeFluctuation;
 		config::Field<config::Toggle<Hotkey>> f_PickupFilter;
 
 		config::Field<int> f_DelayTime;
+		config::Field<int> f_DelayTimeFluctuation;
 		config::Field<float> f_CustomRange;
 
 		config::Field<bool> f_Chest;

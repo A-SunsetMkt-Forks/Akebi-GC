@@ -56,7 +56,7 @@ namespace cheat::feature
 	void AutoChallenge::OnGameUpdate()
 	{
 		static uint64_t lastTime = 0;
-		auto timestamp = app::MoleMole_TimeUtil_get_NowTimeStamp(nullptr);
+		auto timestamp = app::MoleMole_TimeUtil_get_LocalNowMsTimeStamp(nullptr);
 
 		if (!f_Enabled || lastTime + f_Delay > timestamp)
 			return;

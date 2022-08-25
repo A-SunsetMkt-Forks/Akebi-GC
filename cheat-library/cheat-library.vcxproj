@@ -22,6 +22,7 @@
     <ClInclude Include="src\user\cheat\misc\sniffer\pipe\PipeIO.h" />
     <ClInclude Include="src\user\cheat\player\AutoRun.h" />
     <ClInclude Include="src\user\cheat\visuals\AnimationChanger.h" />
+    <ClInclude Include="src\user\cheat\player\FallControl.h" />
     <ClInclude Include="src\user\cheat\visuals\TextureChanger.h" />
     <ClInclude Include="src\user\cheat\visuals\FreeCamera.h" />
     <ClInclude Include="src\user\cheat\world\AutoChallenge.h" />
@@ -116,6 +117,7 @@
     <ClCompile Include="src\user\cheat\misc\sniffer\pipe\PipeIO.cpp" />
     <ClCompile Include="src\user\cheat\player\AutoRun.cpp" />
     <ClCompile Include="src\user\cheat\visuals\AnimationChanger.cpp" />
+    <ClCompile Include="src\user\cheat\player\FallControl.cpp" />
     <ClCompile Include="src\user\cheat\visuals\TextureChanger.cpp" />
     <ClCompile Include="src\user\cheat\visuals\FreeCamera.cpp" />
     <ClCompile Include="src\user\cheat\world\AutoChallenge.cpp" />
@@ -224,12 +226,19 @@
     <Image Include="res\iconsHD\Azhdaha.png" />
     <Image Include="res\iconsHD\Boar.png" />
     <Image Include="res\iconsHD\BookPage.png" />
+    <Image Include="res\iconsHD\BouncyMushroom.png" />
     <Image Include="res\iconsHD\Cat.png" />
     <Image Include="res\iconsHD\Cicin.png" />
+    <Image Include="res\iconsHD\ClusterleafOfCultivation.png" />
     <Image Include="res\iconsHD\Crane.png" />
     <Image Include="res\iconsHD\CryoBathysmalVishap.png" />
     <Image Include="res\iconsHD\Dendroculus.png" />
+    <Image Include="res\iconsHD\DendroGranum.png" />
+    <Image Include="res\iconsHD\DendroPile.png" />
+    <Image Include="res\iconsHD\DendroPuzzles.png" />
+    <Image Include="res\iconsHD\DendroRock.png" />
     <Image Include="res\iconsHD\Dog.png" />
+    <Image Include="res\iconsHD\DreadfulWithering.png" />
     <Image Include="res\iconsHD\DunlinsTooth.png" />
     <Image Include="res\iconsHD\Dvalin.png" />
     <Image Include="res\iconsHD\Eel.png" />
@@ -418,6 +427,7 @@
     <Image Include="res\iconsHD\NilotpalaLotus.png" />
     <Image Include="res\iconsHD\Nobushi.png" />
     <Image Include="res\iconsHD\NoctilucousJade.png" />
+    <Image Include="res\iconsHD\NurseriesInTheWilds.png" />
     <Image Include="res\iconsHD\OceanCrab.png" />
     <Image Include="res\iconsHD\Oceanid.png" />
     <Image Include="res\iconsHD\OceanidSummons.png" />
@@ -427,6 +437,7 @@
     <Image Include="res\iconsHD\Padisarah.png" />
     <Image Include="res\iconsHD\PaleRedCrab.png" />
     <Image Include="res\iconsHD\PerpetualMechanicalArray.png" />
+    <Image Include="res\iconsHD\PhantasmalGate.png" />
     <Image Include="res\iconsHD\PhaseGate.png" />
     <Image Include="res\iconsHD\PhilanemoMushroom.png" />
     <Image Include="res\iconsHD\Pigeon.png" />
@@ -465,6 +476,7 @@
     <Image Include="res\iconsHD\RukkhashavaMushrooms.png" />
     <Image Include="res\iconsHD\RustyKoi.png" />
     <Image Include="res\iconsHD\SacredSakura.png" />
+    <Image Include="res\iconsHD\SaghiraMachine.png" />
     <Image Include="res\iconsHD\SakuraBloom.png" />
     <Image Include="res\iconsHD\Salamander.png" />
     <Image Include="res\iconsHD\Samachurl.png" />
@@ -507,6 +519,7 @@
     <Image Include="res\iconsHD\Starshroom.png" />
     <Image Include="res\iconsHD\Starsilver.png" />
     <Image Include="res\iconsHD\StatueofTheSeven.png" />
+    <Image Include="res\iconsHD\StonePillarSeal.png" />
     <Image Include="res\iconsHD\StormBarrier.png" />
     <Image Include="res\iconsHD\Stormstone.png" />
     <Image Include="res\iconsHD\StrangeTooth.png" />
@@ -530,7 +543,8 @@
     <Image Include="res\iconsHD\TorchPuzzle.png" />
     <Image Include="res\iconsHD\TreasureHoarder.png" />
     <Image Include="res\iconsHD\TriangularMechanism.png" />
-    <Image Include="res\iconsHD\Tukan.png" />
+    <Image Include="res\iconsHD\DuskBird.png" />
+    <Image Include="res\iconsHD\TriYanaSeeds.png" />
     <Image Include="res\iconsHD\UnagiMeat.png" />
     <Image Include="res\iconsHD\UniqueRocks.png" />
     <Image Include="res\iconsHD\UnusualHilichurl.png" />
@@ -563,12 +577,19 @@
     <Image Include="res\icons\Azhdaha.png" />
     <Image Include="res\icons\Boar.png" />
     <Image Include="res\icons\BookPage.png" />
+    <Image Include="res\icons\BouncyMushroom.png" />
     <Image Include="res\icons\Cat.png" />
     <Image Include="res\icons\Cicin.png" />
+    <Image Include="res\icons\ClusterleafOfCultivation.png" />
     <Image Include="res\icons\Crane.png" />
     <Image Include="res\icons\CryoBathysmalVishap.png" />
     <Image Include="res\icons\Dendroculus.png" />
+    <Image Include="res\icons\DendroGranum.png" />
+    <Image Include="res\icons\DendroPile.png" />
+    <Image Include="res\icons\DendroPuzzles.png" />
+    <Image Include="res\icons\DendroRock.png" />
     <Image Include="res\icons\Dog.png" />
+    <Image Include="res\icons\DreadfulWithering.png" />
     <Image Include="res\icons\DunlinsTooth.png" />
     <Image Include="res\icons\Dvalin.png" />
     <Image Include="res\icons\Eel.png" />
@@ -757,6 +778,7 @@
     <Image Include="res\icons\NilotpalaLotus.png" />
     <Image Include="res\icons\Nobushi.png" />
     <Image Include="res\icons\NoctilucousJade.png" />
+    <Image Include="res\icons\NurseriesInTheWilds.png" />
     <Image Include="res\icons\OceanCrab.png" />
     <Image Include="res\icons\Oceanid.png" />
     <Image Include="res\icons\OceanidSummons.png" />
@@ -766,6 +788,7 @@
     <Image Include="res\icons\Padisarah.png" />
     <Image Include="res\icons\PaleRedCrab.png" />
     <Image Include="res\icons\PerpetualMechanicalArray.png" />
+    <Image Include="res\icons\PhantasmalGate.png" />
     <Image Include="res\icons\PhaseGate.png" />
     <Image Include="res\icons\PhilanemoMushroom.png" />
     <Image Include="res\icons\Pigeon.png" />
@@ -804,6 +827,7 @@
     <Image Include="res\icons\RukkhashavaMushrooms.png" />
     <Image Include="res\icons\RustyKoi.png" />
     <Image Include="res\icons\SacredSakura.png" />
+    <Image Include="res\icons\SaghiraMachine.png" />
     <Image Include="res\icons\SakuraBloom.png" />
     <Image Include="res\icons\Salamander.png" />
     <Image Include="res\icons\Samachurl.png" />
@@ -846,6 +870,7 @@
     <Image Include="res\icons\Starshroom.png" />
     <Image Include="res\icons\Starsilver.png" />
     <Image Include="res\icons\StatueofTheSeven.png" />
+    <Image Include="res\icons\StonePillarSeal.png" />
     <Image Include="res\icons\StormBarrier.png" />
     <Image Include="res\icons\Stormstone.png" />
     <Image Include="res\icons\StrangeTooth.png" />
@@ -869,7 +894,8 @@
     <Image Include="res\icons\TorchPuzzle.png" />
     <Image Include="res\icons\TreasureHoarder.png" />
     <Image Include="res\icons\TriangularMechanism.png" />
-    <Image Include="res\icons\Tukan.png" />
+    <Image Include="res\icons\DuskBird.png" />
+    <Image Include="res\icons\TriYanaSeeds.png" />
     <Image Include="res\icons\UnagiMeat.png" />
     <Image Include="res\icons\UniqueRocks.png" />
     <Image Include="res\icons\UnusualHilichurl.png" />

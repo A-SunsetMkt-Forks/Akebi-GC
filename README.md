@@ -29,8 +29,15 @@ As well as setting up **`cheat-library`** as startup project.
 ## Latest Release
 1. Head over to the [action](https://github.com/Akebi-Group/Akebi-GC/actions) page
 1. Click Publish workflow
-1. Select most recent workflow with green checkmark ✔
-1. Download Akebi-GC-release in Artifacts section
+1. Select most recent workflow with green checkmark ✔ (Choose your client version **GLOBAL/CN/BETA**)
+	<p align="center">
+	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429274-1e556c58-8027-4ec9-9c1d-3609c75aede4.png"></a>
+	</p>
+4. Download Akebi-GC-release in Artifacts section
+	<p align="center">
+	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429302-7c7be3f6-df2f-4e49-9bb9-4a703c3491df.png"></a>
+	</p>
+
 
 ### Requirements
 - [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
@@ -56,19 +63,18 @@ As well as setting up **`cheat-library`** as startup project.
 - Notifications
 
 #### Player
-- Invincible
-- Attack Modifier
-- No Cooldown Skill/Ultimate/Sprint/Bow
+- God Mode(Invincible)
+- Attack Modifier: Multi-Hit/Target/Animation
+- No Cooldown: Skill/Ultimate/Sprint/Bow
 - Unlimited Stamina
 - No Clip
 
 #### World
 - Auto Seelie
-- Vacuum Loot
 - Dumb Enemies
 - Freeze Enemies
-- Auto Destroy Objects
-- Auto Loot
+- Auto Destroy: Ores/Shields/Doodas/Plants
+- Auto Loot/Open Chests
 - Pickup Range
 - Auto Talk
 - Auto Tree Farm
@@ -77,6 +83,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Auto Fish
 - Kill Aura
 - Mob Vacuum
+- Vacuum Loot
 
 #### Teleport
 - Chest/Oculi Teleport (Teleports to nearest)
@@ -94,16 +101,17 @@ As well as setting up **`cheat-library`** as startup project.
 - Hide UI
 - In-game Embedded Browser
 - Enable Peeking
-- Profile Changer
+- Profile Changer: UID/Nickname/AR/WorldLevel/Avatar/Namecard
+- Custom Weather
 - Free Camera
-- Texture Changer
 - Paimon Follow
+- Texture Changer
 
 #### Debugging
 - Entities Manager
 - Position Info
 - FPS Graph
-- Packet Sniffer
+- [Packet Sniffer](https://github.com/Akebi-Group/Akebi-PacketSniffer)
 
 
 <h1 align="center">Demo</h1>
