@@ -59,7 +59,7 @@ namespace cheat::feature
 		auto distance = manager.avatar()->distance(entity);
 		float radius = 100.0f;
 
-		if (entity->name().find("Seelie") != std::string::npos)
+		if (entity->name().find("_Seelie") != std::string::npos)
 		{
 			if (entity->name().find("ElectricSeelie") != std::string::npos)
 			{

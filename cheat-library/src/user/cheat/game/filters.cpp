@@ -310,7 +310,7 @@ namespace cheat::game::filters
 		SimpleFilter PirateHelm = { EntityType__Enum_1::Field, "_PirateHelm" };
 		WhitelistFilter PressurePlate = { {EntityType__Enum_1::Field, EntityType__Enum_1::Gadget }, {"Gear_Gravity", "_LitPathPlate" } };
 		SimpleFilter SealLocations = { EntityType__Enum_1::Gadget, "_RunesKey" };
-		SimpleFilter SeelieLamp = { EntityType__Enum_1::Field, "Gear_SeeliaLamp" };
+		SimpleFilter SeelieLamp = { EntityType__Enum_1::Field, {"Gear_SeeliaLamp", "LifeSeelieBase"} };
 		SimpleFilter Seelie = { EntityType__Enum_1::Platform, "Gear_Seelie" };
 		SimpleFilter SmallRockPile = { EntityType__Enum_1::Gadget, "_StonePile_01" };
 		SimpleFilter StormBarrier = { EntityType__Enum_1::Field, "_WindField_PushField" };
