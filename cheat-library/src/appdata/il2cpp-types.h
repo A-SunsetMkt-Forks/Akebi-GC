@@ -10544,6 +10544,20 @@ namespace app {
         struct IGKEDHHIDMA__Fields fields;
     };
 
+	struct __declspec(align(8)) InLevelMainPageContext_DoTeamCountDown_Iterator__Fields
+	{
+		int32_t HGCHJINEMCM;
+		struct Object* KOBKOALABHL;
+		struct InLevelMainPageContext* _levelMainPageContext;
+	};
+
+	struct InLevelMainPageContext_DoTeamCountDown_Iterator
+	{
+		struct InLevelMainPageContext_DoTeamCountDown_Iterator__Class* klass;
+		MonitorData* monitor;
+		struct InLevelMainPageContext_DoTeamCountDown_Iterator__Fields fields;
+	};
+
     struct MonoMiniMap__Fields {
         struct MonoBehaviour__Fields _;
         struct Button* _actionButton;

@@ -102,6 +102,7 @@
     <ClInclude Include="src\user\cheat\world\FreezeEnemies.h" />
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
+    <ClInclude Include="src\user\cheat\world\OpenTeamImmediately.h" />
     <ClInclude Include="src\user\cheat\world\VacuumLoot.h" />
     <ClInclude Include="src\user\main.h" />
   </ItemGroup>
@@ -194,6 +195,7 @@
     <ClCompile Include="src\user\cheat\world\FreezeEnemies.cpp" />
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
+    <ClCompile Include="src\user\cheat\world\OpenTeamImmediately.cpp" />
     <ClCompile Include="src\user\cheat\world\VacuumLoot.cpp" />
     <ClCompile Include="src\user\main.cpp" />
   </ItemGroup>
