@@ -358,6 +358,10 @@ DO_APP_FUNC(0x05C8B870, float, Canvas_get_scaleFactor, (/*Canvas**/void* __this,
 
 DO_APP_FUNC(0x03066EB0, void, LevelTimeManager_SetInternalTimeOfDay, (/*LevelTimeManager**/void* __this, float inHours, bool force, bool refreshEnviroTime, MethodInfo* method));
 
+// Open team immediately
+// F3 0F 10 83 ?? ?? ?? ?? 0F 29 74 24 30 F3 0F 10 B3 ?? ?? ?? ?? 
+DO_APP_FUNC(0x01387C20, bool, MoleMole_InLevelMainPageContext_DoTeamCountDown_c_Iterator0__MoveNext, (InLevelMainPageContext_DoTeamCountDown_Iterator* __this, MethodInfo* method));
+
 
 // Singletons
 DO_APP_FUNC(0x061A8830, void*, Singleton_GetInstance, (MethodInfo* method));
