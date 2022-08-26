@@ -44,6 +44,7 @@
 #include <cheat/world/AutoCook.h>
 #include <cheat/world/AutoChallenge.h>
 #include <cheat/world/CustomWeather.h>
+#include <cheat/world/OpenTeamImmediately.h>
 
 #include <cheat/visuals/NoFog.h>
 #include <cheat/visuals/FPSUnlock.h>
@@ -94,6 +95,7 @@ namespace cheat
 			FEAT_INST(AutoTreeFarm),
 			FEAT_INST(AutoDestroy),
 			FEAT_INST(AutoSeelie),
+			FEAT_INST(OpenTeamImmediately),
 			FEAT_INST(VacuumLoot),
 			FEAT_INST(DialogSkip),
 			FEAT_INST(DumbEnemies),
