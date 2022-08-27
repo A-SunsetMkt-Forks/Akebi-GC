@@ -778,7 +778,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(plant, Pinecone);
 		ADD_FILTER_FIELD(plant, Qingxin);
 		ADD_FILTER_FIELD(plant, Radish);
-		ADD_FILTER_FIELD(plant, RukkhashavaMushrooms);
+		ADD_FILTER_FIELD(plant, RukkhashavaMushroom);
 		ADD_FILTER_FIELD(plant, SakuraBloom);
 		ADD_FILTER_FIELD(plant, SangoPearl);
 		ADD_FILTER_FIELD(plant, SeaGanoderma);
