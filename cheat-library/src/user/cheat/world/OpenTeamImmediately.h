@@ -8,6 +8,8 @@ namespace cheat::feature
 	{
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
+		//MoleMole_InLevelPlayerProfilePageContext*
+		void* InLevelPlayerProfilePageContext;
 
 		static OpenTeamImmediately& GetInstance();
 
