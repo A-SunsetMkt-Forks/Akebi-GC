@@ -72,10 +72,17 @@ namespace cheat::feature
 			auto combat = entity->combat();
 			if (combat != nullptr)
 			{
-				auto combatProp = combat->fields._combatProperty_k__BackingField;
-				auto maxHP = app::MoleMole_SafeFloat_get_Value(combatProp->fields.maxHP, nullptr);
-				// so many entities named "SkillObj_EmptyGadget", but the collection's hp is 99999.f
-				if (maxHP > 99998 && maxHP < 99999.9)
+				if (entity->name().find("SkillObj_EmptyGadget") != std::string::npos)
+				{
+					auto combatProp = combat->fields._combatProperty_k__BackingField;
+					auto maxHP = app::MoleMole_SafeFloat_get_Value(combatProp->fields.maxHP, nullptr);
+					// so many entities named "SkillObj_EmptyGadget", but the collection's hp is 99999.f
+					if (maxHP > 99998 && maxHP < 99999.9)
+					{
+						entity->setRelativePosition(avatarEntity->relativePosition());
+					}
+				}
+				else
 				{
 					entity->setRelativePosition(avatarEntity->relativePosition());
 				}
