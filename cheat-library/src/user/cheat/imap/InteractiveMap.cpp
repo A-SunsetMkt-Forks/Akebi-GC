@@ -1793,7 +1793,6 @@ namespace cheat::feature
 		INIT_FILTER(featured, Geoculus);
 		INIT_FILTER(featured, KeySigil);
 		INIT_FILTER(featured, Lumenspar);
-		//INIT_FILTER(featured, KeySigil);
 		//INIT_FILTER(featured, ShrineOfDepth);
 		//INIT_FILTER(featured, TimeTrialChallenge);
 		//INIT_FILTER(guide, CampfireTorch);
@@ -1856,8 +1855,10 @@ namespace cheat::feature
 		INIT_FILTER(plant, FlamingFlowerStamen);
 		INIT_FILTER(plant, FluorescentFungus);
 		INIT_FILTER(plant, GlazeLily);
+		INIT_FILTER(plant, HarraFruit);
 		INIT_FILTER(plant, Horsetail);
 		INIT_FILTER(plant, JueyunChili);
+		INIT_FILTER(plant, KalpalataLotus);
 		INIT_FILTER(plant, LavenderMelon);
 		INIT_FILTER(plant, LotusHead);
 		INIT_FILTER(plant, Matsutake);
@@ -1865,10 +1866,13 @@ namespace cheat::feature
 		INIT_FILTER(plant, MistFlowerCorolla);
 		INIT_FILTER(plant, Mushroom);
 		INIT_FILTER(plant, NakuWeed);
+		INIT_FILTER(plant, NilotpalaLotus);
+		INIT_FILTER(plant, Padisarah);
 		INIT_FILTER(plant, PhilanemoMushroom);
 		INIT_FILTER(plant, Pinecone);
 		INIT_FILTER(plant, Qingxin);
 		INIT_FILTER(plant, Radish);
+		INIT_FILTER(plant, RukkhashavaMushroom);
 		INIT_FILTER(plant, SakuraBloom);
 		INIT_FILTER(plant, SangoPearl);
 		INIT_FILTER(plant, SeaGanoderma);
@@ -1876,12 +1880,15 @@ namespace cheat::feature
 		INIT_FILTER(plant, SilkFlower);
 		INIT_FILTER(plant, SmallLampGrass);
 		INIT_FILTER(plant, Snapdragon);
+		INIT_FILTER(plant, SumeruRose);
 		INIT_FILTER(plant, Sunsettia);
 		INIT_FILTER(plant, SweetFlower);
 		INIT_FILTER(plant, Valberry);
 		INIT_FILTER(plant, Violetgrass);
+		INIT_FILTER(plant, Viparyas);
 		INIT_FILTER(plant, WindwheelAster);
 		INIT_FILTER(plant, Wolfhook);
+		INIT_FILTER(plant, ZaytunPeach);
 		//INIT_FILTER(puzzle, AncientRime);
 		//INIT_FILTER(puzzle, BakeDanuki);
 		//INIT_FILTER(puzzle, BloattyFloatty);

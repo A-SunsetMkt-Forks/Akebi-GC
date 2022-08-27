@@ -2445,7 +2445,7 @@
     <Image Include="res\iconsHD\Padisarah.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\iconsHD\RukkhashavaMushrooms.png">
+    <Image Include="res\iconsHD\RukkhashavaMushroom.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\Viparyas.png">
@@ -2472,7 +2472,7 @@
     <Image Include="res\icons\Padisarah.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\icons\RukkhashavaMushrooms.png">
+    <Image Include="res\icons\RukkhashavaMushroom.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\SumeruRose.png">
@@ -2608,6 +2608,216 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\SaghiraMachine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BlackSerpentKnight.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CloudleisureSteps.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DreamForm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HydroBathysmalVishap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\MelodicBloom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RuinDrake.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\StarlightCoalescence.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheRavenForum.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Avatar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\BlackSerpentKnight.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\CloudleisureSteps.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DreamForm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\HydroBathysmalVishap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\MelodicBloom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Npc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\RuinDrake.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\StarlightCoalescence.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\TheRavenForum.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\AdhigamaWood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Amber.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Aranara.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\DendroCrystalfly.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\HalcyonJadeAxeMarlin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\LazuriteAxeMarlin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\PeachoftheDeepWaves.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SandstormAngler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SunsetCloudAngler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\TheEremites.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\TreeofDreams.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\TrueFruitAngler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Shroomboar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SumeruShrineofDepths.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Aranara.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DendroCrystalfly.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TreeofDreams.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SandstormAngler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TrueFruitAngler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PeachoftheDeepWaves.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Shroomboar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheEremites.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LazuriteAxeMarlin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SunsetCloudAngler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HalcyonJadeAxeMarlin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SumeruShrineofDepths.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AdhigamaWood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Amber.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\FloatingHydroFungus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FloatinghHydroFungus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Puzzles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Puzzles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ItemDrops.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\OozingConcretions.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PirateHelm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Temari.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LumenCage.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SeelieLamp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\QuestInteract.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SearchPoint.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RelayStone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LuminousSeelie.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\ItemDrops.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SearchPoint.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\OozingConcretions.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\PirateHelm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Temari.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\LumenCage.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SeelieLamp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\QuestInteract.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\RelayStone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\LuminousSeelie.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
