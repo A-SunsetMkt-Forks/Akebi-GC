@@ -101,7 +101,7 @@ namespace cheat::game::filters
 		SimpleFilter Boar = { EntityType__Enum_1::Monster, "Boar" };
 		SimpleFilter Fox = { EntityType__Enum_1::Monster, "Fox" };
 		SimpleFilter Squirrel = { EntityType__Enum_1::Monster, "Squirrel" };
-		SimpleFilter Npc = { EntityType__Enum_1::NPC, { "_Liyue", "_Mengde", "_Inazuma", "_Enkanomiya", "_Sumeru", "_Fontaine", "_Natlan", "_Snezhnaya", "_Coop", "_Quest", "_Animal", "_Guide", "_Homeworld", "_Avatar", "_Kanban", "_Monster"} };
+		SimpleFilter Npc = { EntityType__Enum_1::NPC, { "Liyue", "Mengde", "Inazuma", "Enkanomiya", "Sumeru", "Fontaine", "Aranara", "Natlan", "Snezhnaya", "Coop", "Quest", "Animal", "Guide", "Homeworld", "Avatar", "Kanban", "Monster"} };
 		SimpleFilter Crane = { EntityType__Enum_1::Monster, "Crane" };
 		SimpleFilter Falcon = { EntityType__Enum_1::Monster, "Falcon" };
 		SimpleFilter LucklightFly = { EntityType__Enum_1::EnvAnimal, "Boltbug_" };
