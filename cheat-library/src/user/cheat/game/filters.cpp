@@ -393,7 +393,8 @@ namespace cheat::game::filters
 			"WatchTower02",
 			"StonePile",
 			"BrokenWall",
-			"WoodenBox"
+			"WoodenBox",
+			"RoadBlock"
 			}
 		};
 		SimpleFilter Animals = { EntityType__Enum_1::EnvAnimal };

@@ -5,6 +5,7 @@
 #include <cheat/events.h>
 #include <cheat/game/EntityManager.h>
 #include <cheat/game/util.h>
+#include <cheat/game/filters.h>
 
 namespace cheat::feature
 {
@@ -59,7 +60,9 @@ namespace cheat::feature
 		auto distance = manager.avatar()->distance(entity);
 		float radius = 100.0f;
 
-		if (entity->name().find("Seelie_") != std::string::npos)
+		if (game::filters::puzzle::Seelie.IsValid(entity) || 
+			game::filters::puzzle::WarmingSeelie.IsValid(entity) || 
+			game::filters::puzzle::ElectroSeelie.IsValid(entity))
 		{
 			if (entity->name().find("ElectricSeelie") != std::string::npos)
 			{
