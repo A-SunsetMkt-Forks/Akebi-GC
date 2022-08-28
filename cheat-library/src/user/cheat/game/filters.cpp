@@ -77,9 +77,9 @@ namespace cheat::game::filters
 		SimpleFilter TriangularMechanism = { EntityType__Enum_1::Field, "_TuningFork" };
 		SimpleFilter DendroGranum = { EntityType__Enum_1::Gadget, "GrassSeedCreate" };
 		SimpleFilter BouncyMushroom = { EntityType__Enum_1::Gadget, "JumpMushroom" };
-		SimpleFilter ClusterleafOfCultivation = { EntityType__Enum_1::Field, "RaioFlower" };
-		SimpleFilter DendroRock = { EntityType__Enum_1::Field, "GrassSealStone" };
-		SimpleFilter DendroPile = { EntityType__Enum_1::Field, "XuMiPlantinshitou" };
+		SimpleFilter ClusterleafOfCultivation = { EntityType__Enum_1::Gadget, "RaioFlower" };
+		SimpleFilter DendroRock = { EntityType__Enum_1::Gadget, "GrassSealStone" };
+		SimpleFilter DendroPile = { EntityType__Enum_1::Gadget, "XuMiPlantinshitou" };
 	}
 
 	namespace living
