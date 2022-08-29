@@ -10,6 +10,8 @@
 	<a href="https://discord.gg/MmV8hNZB9S"><img src="https://img.shields.io/discord/440536354544156683?label=Discord&logo=discord&style=for-the-badge&color=blueviolet"></a>
 </p>
 
+[EN](README.md) | [简中](README_zh-Hans.md) | [繁中](README_zh-Hant.md)
+
 ---
 
 <h1 align="center">Getting Started</h1>
@@ -71,6 +73,7 @@ As well as setting up **`cheat-library`** as startup project.
 
 #### World
 - Auto Seelie
+- Open Team Immediately
 - Dumb Enemies
 - Freeze Enemies
 - Auto Destroy: Ores/Shields/Doodas/Plants
