@@ -13,6 +13,8 @@ namespace cheat::feature
 
     Browser::Browser() : Feature(),
         NFEX(f_Enabled, "Browser", "Browser", "Visuals", false, false),
+        NF(f_planeWidth, "Browser", "Visuals", 1.0f),
+        NF(f_planeHeight, "Browser", "Visuals", 1.0f),
         toBeUpdate(), nextUpdate(0)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(Browser::OnGameUpdate);
@@ -28,6 +30,8 @@ namespace cheat::feature
     {
         ConfigWidget(f_Enabled, "Create in-game Browser");
         ImGui::InputText("URL", &f_URL);
+        ConfigWidget("Browser width", f_planeWidth, 0.1f, 0.5f, 20.0f);
+        ConfigWidget("Browser height", f_planeHeight, 0.1f, 0.5f, 20.0f);
     }
 
     bool Browser::NeedStatusDraw() const
@@ -67,7 +71,7 @@ namespace cheat::feature
                 auto avatarPos = app::ActorUtils_GetAvatarPos(nullptr);
                 auto relativePos = app::WorldShiftManager_GetRelativePosition(avatarPos, nullptr);
                 app::Vector3 planeObject_Transform_Vector3 = { relativePos.x, relativePos.y + 3, relativePos.z };
-                app::Vector3 planeObject_Transform_Scale = { 1, 1, 1 };
+                app::Vector3 planeObject_Transform_Scale = { f_planeWidth, 1, f_planeHeight };
 
                 app::Transform_set_localPosition(planeObject_Transform, planeObject_Transform_Vector3, nullptr);
                 app::Transform_set_localScale(planeObject_Transform, planeObject_Transform_Scale, nullptr);
@@ -85,6 +89,11 @@ namespace cheat::feature
                     reinterpret_cast<app::Browser*>(BrowserComponents)->fields.forceNextRender = true;
                     reinterpret_cast<app::Browser*>(BrowserComponents)->fields._EnableInput_k__BackingField = true;
                 }
+
+                //Set the scale at update interval for dynamic scaling instead of re-initialize the plane again
+                app::Transform* planeObject_Transform = app::GameObject_get_transform(planeObject, nullptr);
+                app::Vector3 planeObject_Transform_Scale = { f_planeWidth, 1, f_planeHeight };
+                app::Transform_set_localScale(planeObject_Transform, planeObject_Transform_Scale, nullptr);
             }
         }
         else {
