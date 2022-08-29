@@ -16,7 +16,10 @@ namespace cheat::feature
 		config::Field<float> f_RollSpeed;
 		config::Field<float> f_FOVSpeed;
 		config::Field<float> f_FOV;
-		config::Field<float> f_Smoothing;
+		config::Field<float> f_MovSmoothing;
+		config::Field<float> f_LookSmoothing;
+		config::Field<float> f_RollSmoothing;
+		config::Field<float> f_FovSmoothing;
 		config::Field<Hotkey> f_Forward;
 		config::Field<Hotkey> f_Backward;
 		config::Field<Hotkey> f_Left;
