@@ -263,6 +263,16 @@ namespace cheat::feature
 				}
 			}
 			name = name.substr(pos1 + 1, pos2 - pos1 - 1);
+		}	
+		else if (name.find("Aranara") != std::string::npos)
+		{
+		char AA[] = "Aranara";
+		name = AA;
+		}
+		else if (name.find("Kanban") != std::string::npos)
+		{
+		char AA[] = "Paimon";
+		name = AA;
 		}
 		else
 		{
