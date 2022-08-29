@@ -409,7 +409,10 @@ namespace cheat::game::filters
 			living::Squirrel,
 			living::Boar,
 			living::Weasel,
-			living::DuskBird
+			living::DuskBird,
+			monster::ShaggySumpterBeast,
+			monster::RishbolandTiger,
+			monster::Spincrocodile
 		};
 		SimpleFilter AnimalPickUp = {
 			living::CrystalCore,
@@ -454,9 +457,7 @@ namespace cheat::game::filters
 			monster::WhirlingFungus,
 			monster::WingedShroom,
 			monster::GroundedShroom,
-			monster::ShaggySumpterBeast,
-			monster::RishbolandTiger,
-			monster::Spincrocodile
+			monster::ShaggySumpterBeast
 		};
 		SimpleFilter MonsterElites = {
 			monster::Mitachurl,
