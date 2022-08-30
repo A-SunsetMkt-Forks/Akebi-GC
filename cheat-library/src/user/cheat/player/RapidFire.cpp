@@ -201,8 +201,9 @@ namespace cheat::feature
 		auto& manager = game::EntityManager::instance();
 		auto avatarID = manager.avatar()->raw()->fields._configID_k__BackingField;
 		auto attackerID = attacker.raw()->fields._configID_k__BackingField;
+		// LOG_DEBUG("configID = %d", attackerID);
 		// Taiga#5555: IDs can be found in ConfigAbility_Avatar_*.json or GadgetExcelConfigData.json
-		bool bulletID = attackerID >= 40000160 && attackerID <= 41069999;
+		bool bulletID = attackerID >= 40000160 && attackerID <= 41079999;
 
 		return avatarID == attackerID || bulletID || attacker.type() == app::EntityType__Enum_1::Bullet;
 	}
@@ -270,6 +271,8 @@ namespace cheat::feature
 			}
 			else CALL_ORIGIN(LCBaseCombat_DoHitEntity_Hook, __this, entity->runtimeID(), attackResult, ignoreCheckCanBeHitInMP, method);
 		}
+
+		CALL_ORIGIN(LCBaseCombat_DoHitEntity_Hook, __this, targetID, attackResult, ignoreCheckCanBeHitInMP, method);
 	}
 
 	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this,
