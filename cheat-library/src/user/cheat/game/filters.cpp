@@ -278,7 +278,7 @@ namespace cheat::game::filters
 		SimpleFilter CarrotDrop = { EntityType__Enum_1::GatherObject, "_Plant_Radish02_Clear" };
 		SimpleFilter HarraFruit = { EntityType__Enum_1::GatherObject, "_Ligusticum" };
 		SimpleFilter KalpalataLotus = { EntityType__Enum_1::GatherObject, "_Kalpalata" };
-		SimpleFilter NilotpalaLotus = { EntityType__Enum_1::GatherObject, "_MoonLotus" };
+		SimpleFilter NilotpalaLotus = { EntityType__Enum_1::GatherObject, "_MoonLotus_" };
 		SimpleFilter Padisarah = { EntityType__Enum_1::GatherObject, "_Pasusalan" };
 		SimpleFilter RukkhashavaMushroom = { EntityType__Enum_1::GatherObject, "_HolyMushroom" };
 		SimpleFilter SumeruRose = { EntityType__Enum_1::GatherObject, "_XumiRose" };
