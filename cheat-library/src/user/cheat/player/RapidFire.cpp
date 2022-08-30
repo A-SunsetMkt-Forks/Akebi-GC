@@ -65,7 +65,7 @@ namespace cheat::feature
 			}
 			else
 			{
-				ConfigWidget("Min Multiplier", f_minMultiplier, 1, 2, 1000, "Attack count minimum multiplier.");
+				ConfigWidget("Min Multiplier", f_minMultiplier, 1, 1, 1000, "Attack count minimum multiplier.");
 				ConfigWidget("Max Multiplier", f_maxMultiplier, 1, 2, 1000, "Attack count maximum multiplier.");
 			}
 		}
@@ -158,7 +158,10 @@ namespace cheat::feature
 		}
 		if (f_Randomize)
 		{
-			countOfAttacks = rand() % (f_maxMultiplier.value() - f_minMultiplier.value()) + f_minMultiplier.value();
+			if (f_minMultiplier.value() >= f_maxMultiplier.value()) 
+				countOfAttacks = f_minMultiplier.value();
+			else
+				countOfAttacks = rand() % (f_maxMultiplier.value() - f_minMultiplier.value()) + f_minMultiplier.value();
 			return countOfAttacks;
 		}
 

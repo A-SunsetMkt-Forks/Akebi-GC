@@ -78,7 +78,7 @@ bool TypeWidget(const char* label, int& value, int step, int start, int end, con
     if (start == end)
         result = ImGui::InputInt(label, &value, step);
     else
-        result = ImGui::DragInt(label, &value, (float)step, start, end);
+        result = ImGui::DragInt(label, &value, (float)step, start, end, nullptr, ImGuiSliderFlags_AlwaysClamp);
 
     END_TYPE_WIDGET();
 }
@@ -90,7 +90,7 @@ bool TypeWidget(const char* label, float& value, float step, float start, float 
     if (start == end)
         result = ImGui::InputFloat(label, &value, step);
     else
-        result = ImGui::DragFloat(label, &value, step, start, end);
+        result = ImGui::DragFloat(label, &value, step, start, end, nullptr, ImGuiSliderFlags_AlwaysClamp);
 
     END_TYPE_WIDGET();
 }
