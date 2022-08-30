@@ -76,7 +76,7 @@ As well as setting up **`cheat-library`** as startup project.
 - Open Team Immediately
 - Dumb Enemies
 - Freeze Enemies
-- Auto Destroy: Ores/Shields/Doodas/Plants
+- Auto Destroy: Ores/Shields/Doodads/Plants
 - Auto Loot/Open Chests
 - Pickup Range
 - Auto Talk
