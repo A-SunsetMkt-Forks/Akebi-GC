@@ -8,11 +8,11 @@
 
 namespace cheat::feature
 {
-	static void LCBaseCombat_DoHitEntity_Hook(app::LCBaseCombat* __this, uint32_t targetID, app::AttackResult* attackResult,
-		bool ignoreCheckCanBeHitInMP, MethodInfo* method);
+	//static void LCBaseCombat_DoHitEntity_Hook(app::LCBaseCombat* __this, uint32_t targetID, app::AttackResult* attackResult, bool ignoreCheckCanBeHitInMP, MethodInfo* method);
 	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this,
 		app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem* processItem,
 		app::AnimatorStateInfo processStateInfo, app::MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_TriggerMode__Enum mode, MethodInfo* method);
+	static void LCBaseCombat_FireBeingHitEvent_Hook(app::LCBaseCombat* __this, uint32_t attackeeRuntimeID, app::AttackResult* attackResult, MethodInfo* method);
 
 	RapidFire::RapidFire() : Feature(),
 		NF(f_Enabled, "Attack Multiplier", "RapidFire", false),
@@ -26,8 +26,9 @@ namespace cheat::feature
 		NF(f_MultiTargetRadius, "Multi-target Radius", "RapidFire", 20.0f),
 		NF(f_MultiAnimation, "Multi-animation", "RapidFire", false)
 	{
-		HookManager::install(app::MoleMole_LCBaseCombat_DoHitEntity, LCBaseCombat_DoHitEntity_Hook);
+		// HookManager::install(app::MoleMole_LCBaseCombat_DoHitEntity, LCBaseCombat_DoHitEntity_Hook); -- Looks like FireBeingHitEvent is superior to this.
 		HookManager::install(app::MoleMole_VCAnimatorEvent_HandleProcessItem, VCAnimatorEvent_HandleProcessItem_Hook);
+		HookManager::install(app::MoleMole_LCBaseCombat_FireBeingHitEvent, LCBaseCombat_FireBeingHitEvent_Hook);
 	}
 
 	const FeatureGUIInfo& RapidFire::GetGUIInfo() const
@@ -223,8 +224,7 @@ namespace cheat::feature
 	// Raises when any entity do hit event.
 	// Just recall attack few times (regulating by combatProp)
 	// It's not tested well, so, I think, anticheat can detect it.
-	static void LCBaseCombat_DoHitEntity_Hook(app::LCBaseCombat* __this, uint32_t targetID, app::AttackResult* attackResult,
-		bool ignoreCheckCanBeHitInMP, MethodInfo* method)
+	/*static void LCBaseCombat_DoHitEntity_Hook(app::LCBaseCombat* __this, uint32_t targetID, app::AttackResult* attackResult, bool ignoreCheckCanBeHitInMP, MethodInfo* method)
 	{
 		auto attacker = game::Entity(__this->fields._._._entity);
 		RapidFire& rapidFire = RapidFire::GetInstance();
@@ -273,6 +273,51 @@ namespace cheat::feature
 		}
 
 		CALL_ORIGIN(LCBaseCombat_DoHitEntity_Hook, __this, targetID, attackResult, ignoreCheckCanBeHitInMP, method);
+	}*/
+
+	static void LCBaseCombat_FireBeingHitEvent_Hook(app::LCBaseCombat* __this, uint32_t attackeeRuntimeID, app::AttackResult* attackResult, MethodInfo* method)
+	{
+		auto attacker = game::Entity(__this->fields._._._entity);
+		RapidFire& rapidFire = RapidFire::GetInstance();
+		if (!IsConfigByAvatar(attacker) || !IsAttackByAvatar(attacker) || !rapidFire.f_Enabled)
+			return CALL_ORIGIN(LCBaseCombat_FireBeingHitEvent_Hook, __this, attackeeRuntimeID, attackResult, method);
+
+		auto& manager = game::EntityManager::instance();
+		auto originalTarget = manager.entity(attackeeRuntimeID);
+
+		if (!IsValidByFilter(originalTarget))
+			return CALL_ORIGIN(LCBaseCombat_FireBeingHitEvent_Hook, __this, attackeeRuntimeID, attackResult, method);
+
+		std::vector<cheat::game::Entity*> validEntities;
+		validEntities.push_back(originalTarget);
+
+		if (rapidFire.f_MultiTarget)
+		{
+			auto filteredEntities = manager.entities();
+			for (const auto& entity : filteredEntities) {
+				auto distance = originalTarget->distance(entity);
+
+				if (entity->runtimeID() == manager.avatar()->runtimeID())
+					continue;
+
+				if (entity->runtimeID() == attackeeRuntimeID)
+					continue;
+
+				if (distance > rapidFire.f_MultiTargetRadius)
+					continue;
+
+				if (!IsValidByFilter(entity))
+					continue;
+
+				validEntities.push_back(entity);
+			}
+		}
+
+		for (const auto& entity : validEntities) {
+			int attackCount = rapidFire.f_MultiHit ? rapidFire.GetAttackCount(__this, entity->runtimeID(), attackResult) : 1;
+			for (int i = 0; i < attackCount; i++)
+				CALL_ORIGIN(LCBaseCombat_FireBeingHitEvent_Hook, __this, entity->runtimeID(), attackResult, method);
+		}
 	}
 
 	static void VCAnimatorEvent_HandleProcessItem_Hook(app::MoleMole_VCAnimatorEvent* __this,
