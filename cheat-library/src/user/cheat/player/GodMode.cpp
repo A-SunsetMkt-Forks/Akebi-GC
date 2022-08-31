@@ -106,37 +106,17 @@ namespace cheat::feature
 			"ElectricWater",
 			"SeiraiThunder",
 			"UNIQUE_Monster_",
-			"Monster_Shougun"
+			"Monster_Shougun",
+            "UNIQUE_Life_Point_Search",
+            "UNIQUE_DynamicAbility_DeathZone_LoseHp"
 		};
         
         std::string modifierName = il2cppi_to_string(actorModifier->fields._config->fields._modifierName);
+        //LOG_DEBUG("modifierName = %s", modifierName.c_str());
 		for (auto& forbiddenModifierName : modifierBlacklist)
 			if (modifierName.find(forbiddenModifierName) != std::string::npos)
 				return true;
 
         return false;
 	}
-
-	//  ____________________________________________________________________________________________________________
-    // | Name                                                                   | Description                       |
-    // |------------------------------------------------------------------------|-----------------------------------|
-    // | SERVER_ClimateAbility_Cold_Area                                        | Sheer cold                        |
-    // | SERVER_ClimateAbility_Cold_Lv1                                         | Sheer cold                        |
-    // | SERVER_ClimateAbility_Cold_Lv2                                         | Sheer cold                        |
-    // | SERVER_ClimateAbility_TsurumiMist_Area                                 | Electric debuff                   |
-    // | SERVER_ClimateAbility_TatariRegion_Area                                | Electric debuff                   |
-    // | SERVER_ClimateAbility_TatariRegion_Lv1                                 | Electric debuff                   |
-    // | SERVER_ClimateAbility_TatariRegion_Lv2                                 | Electric debuff                   |
-    // | SERVER_ClimateAbility_SeiraiStorm_Area                                 | Serai Island                      |
-    // | SERVER_ClimateAbility_SeiraiStorm_Lv1                                  | Serai Island                      |
-    // | SERVER_ClimateAbility_SeiraiStorm_Lv2                                  | Serai Island                      |
-    // | SERVER_ClimateAbility_TsurumiMist_Area                                 | Tsurumi Island                    |
-    // | ElectricWaterAreaModifier                                              | All electric water in inazuma     |
-    // | BlackMudAreaBuff_Avatar                                                |                                   |
-    // | BlackMudAreaBuff_Avatar02                                              |                                   |
-    // | WaterAreaModifier                                                      |                                   |
-    // | SeiraiThunder_Manager                                                  |                                   |
-    // | UNIQUE_Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldPredicated |                                   |
-    // | Monster_Shougun_Mitakenarukami_BurstAtk02_NotInShieldAtk               |                                   |
-    // |------------------------------------------------------------------------|-----------------------------------|
 }

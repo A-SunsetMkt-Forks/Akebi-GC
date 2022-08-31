@@ -97,7 +97,8 @@ namespace cheat::feature
             std::vector<std::string> impEntitiesNames = {
                 "Djinn",
                 "Katheryne",
-                "Wagner"
+                "Wagner",
+                "Ahangar"
             };
             auto dialogPartnerID = context->fields._inteeID;
             auto& manager = game::EntityManager::instance();
