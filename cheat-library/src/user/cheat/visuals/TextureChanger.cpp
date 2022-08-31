@@ -80,7 +80,6 @@ namespace cheat::feature
         if (ApplyTexture)
         { 
             GameObject::AvatarRoot = app::GameObject_Find(string_to_il2cppi("/EntityRoot/AvatarRoot"), nullptr);
-            GameObject::GliderRoot = app::GameObject_Find(string_to_il2cppi(""), nullptr);
 
             if (GameObject::AvatarRoot != nullptr)
             {
