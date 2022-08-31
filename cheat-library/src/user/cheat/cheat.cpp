@@ -10,6 +10,7 @@
 #include <cheat/misc/ProtectionBypass.h>
 #include <cheat/misc/Hotkeys.h>
 #include <cheat/misc/Debug.h>
+#include <cheat/misc/About.h>
 #include <cheat/misc/sniffer/PacketSniffer.h>
 
 #include <cheat/player/GodMode.h>
@@ -81,6 +82,7 @@ namespace cheat
 			FEAT_INST(Settings),
 			FEAT_INST(Hotkeys),
 			FEAT_INST(Debug),
+			FEAT_INST(About),
 			FEAT_INST(PacketSniffer),
 
 			FEAT_INST(GodMode),
@@ -143,6 +145,7 @@ namespace cheat
 			"Visuals",
 			"Hotkeys",
 			"Settings",
+			"About",
 			"Debug"
 			});
 

@@ -7,6 +7,8 @@
 #include <cheat-base/render/gui-util.h>
 #include <cheat-base/cheat/misc/Settings.h>
 
+#include <imgui_internal.h>
+
 namespace cheat
 {
 
@@ -74,6 +76,12 @@ namespace cheat
 					ImGui::SetItemDefaultFocus();
 				index++;
 			}
+
+			ImGui::TextColored(ImColor(255, 136, 0, 255), "Private ToF cheat:");
+			ImGui::PushStyleColor(ImGuiCol_ButtonHovered, 0xC0D5C8FF);
+			TextURL("Acai", "http://acai-tof.shop", true, false);
+			ImGui::PopStyleColor();
+
 			ImGui::EndListBox();
 		}
 
