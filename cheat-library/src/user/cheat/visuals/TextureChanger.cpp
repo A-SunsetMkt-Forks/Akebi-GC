@@ -10,7 +10,6 @@ namespace cheat::feature
 {
     namespace GameObject {
         app::GameObject* AvatarRoot = nullptr;
-        app::GameObject* GliderRoot = nullptr;
     }
  
     TextureChanger::TextureChanger() : Feature(),
