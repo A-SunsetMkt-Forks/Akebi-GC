@@ -342,6 +342,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Chests;
 		extern SimpleFilter Ores;
 		extern SimpleFilter PlantDestroy;
+		extern SimpleFilter BreakableObjects;
 		extern WhitelistFilter Doodads;
 		extern SimpleFilter Animals;
 		extern SimpleFilter AnimalDrop;

@@ -101,6 +101,7 @@
     <ClInclude Include="src\user\cheat\world\DialogSkip.h" />
     <ClInclude Include="src\user\cheat\world\DumbEnemies.h" />
     <ClInclude Include="src\user\cheat\world\FreezeEnemies.h" />
+    <ClInclude Include="src\user\cheat\world\GameSpeed.h" />
     <ClInclude Include="src\user\cheat\world\KillAura.h" />
     <ClInclude Include="src\user\cheat\world\MobVacuum.h" />
     <ClInclude Include="src\user\cheat\world\OpenTeamImmediately.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="src\user\cheat\world\DialogSkip.cpp" />
     <ClCompile Include="src\user\cheat\world\DumbEnemies.cpp" />
     <ClCompile Include="src\user\cheat\world\FreezeEnemies.cpp" />
+    <ClCompile Include="src\user\cheat\world\GameSpeed.cpp" />
     <ClCompile Include="src\user\cheat\world\KillAura.cpp" />
     <ClCompile Include="src\user\cheat\world\MobVacuum.cpp" />
     <ClCompile Include="src\user\cheat\world\OpenTeamImmediately.cpp" />

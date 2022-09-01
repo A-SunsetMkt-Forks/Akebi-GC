@@ -32,6 +32,7 @@
 #include <cheat/world/FakeTime.h>
 #include <cheat/world/AutoSeelie.h>
 #include <cheat/world/VacuumLoot.h>
+#include <cheat/world/GameSpeed.h>
 
 #include <cheat/teleport/ChestTeleport.h>
 #include <cheat/teleport/MapTeleport.h>
@@ -107,6 +108,7 @@ namespace cheat
 			FEAT_INST(AutoChallenge),
 			FEAT_INST(MobVacuum),
 			FEAT_INST(FakeTime),
+			FEAT_INST(GameSpeed),
 
 			FEAT_INST(ChestTeleport),
 			FEAT_INST(OculiTeleport),

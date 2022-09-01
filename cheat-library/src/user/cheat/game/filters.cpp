@@ -311,7 +311,7 @@ namespace cheat::game::filters
 		WhitelistFilter PressurePlate = { {EntityType__Enum_1::Field, EntityType__Enum_1::Gadget }, {"Gear_Gravity", "_LitPathPlate" } };
 		SimpleFilter SealLocations = { EntityType__Enum_1::Gadget, "_RunesKey" };
 		SimpleFilter SeelieLamp = { EntityType__Enum_1::Field, {"Gear_SeeliaLamp", "LifeSeelieBase"} };
-		SimpleFilter Seelie = { EntityType__Enum_1::Platform, {"Gear_Seelie", "_LifeSeelie"}};
+		SimpleFilter Seelie = { EntityType__Enum_1::Platform, {"Gear_Seelie", "_LifeSeelie"} };
 		SimpleFilter SmallRockPile = { EntityType__Enum_1::Gadget, "_StonePile_01" };
 		SimpleFilter StormBarrier = { EntityType__Enum_1::Field, "_WindField_PushField" };
 		SimpleFilter SwordHilt = { EntityType__Enum_1::Field, "_WastedSword_" };
@@ -367,7 +367,11 @@ namespace cheat::game::filters
 			plant::MistFlowerCorolla,
 			plant::FlamingFlowerStamen
 		};
-
+		SimpleFilter BreakableObjects = {
+			puzzle::AncientRime,
+			puzzle::LargeRockPile,
+			puzzle::SmallRockPile
+		};
 		WhitelistFilter Doodads = {
 			EntityType__Enum_1::Gadget,
 			{
