@@ -29,6 +29,7 @@ namespace cheat::feature
 		config::Field<float> f_Distance;
 		config::Field<bool> f_OnlyTarget;
 		config::Field<bool> f_Instantly;
+		config::Field<config::Toggle<Hotkey>> f_SetCollider;
 
 		static MobVacuum& GetInstance();
 
