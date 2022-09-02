@@ -22,7 +22,7 @@ namespace cheat::feature
 
     void HideUI::DrawMain()
     {
-        ConfigWidget(f_Enabled, "Hide in-game UI.");
+        ConfigWidget(f_Enabled, "Hide in-game UI.\nWhen you switch to another scene (e.g. into Domains), turn off and re-enable this feature");
     }
 
     bool HideUI::NeedStatusDraw() const
@@ -47,15 +47,17 @@ namespace cheat::feature
         {
             if (ui_camera == nullptr)
                 ui_camera = app::GameObject_Find(string_to_il2cppi("/UICamera"), nullptr);
-
-            
+  
             if (ui_camera)
                 app::GameObject_SetActive(ui_camera, false, nullptr);
         }
         else
         {
             if (ui_camera)
+            {                
                 app::GameObject_SetActive(ui_camera, true, nullptr);
+                ui_camera = nullptr;
+            }                  
         }
     }
 }
