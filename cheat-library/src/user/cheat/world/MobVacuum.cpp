@@ -146,14 +146,23 @@ namespace cheat::feature
 
     // Set Monster's collider
     // Taiga#5555: There might be an in-game function for this already I'm just not sure which one
-    void SetMonsterCollider(game::Entity* entity, bool v)
+    void SetMonsterCollider(bool v)
     {
-        auto objName = entity->name();
-        auto name = objName.substr(0, objName.find_first_of(" "));
-        // path example: "EntityRoot/MonsterRoot/Monster_Fungus_Raptor_01(Clone)/Collider"
-        auto collider = app::GameObject_Find(string_to_il2cppi("/EntityRoot/MonsterRoot/" + name + "/Collider"), nullptr);
-        if (collider != nullptr)
-            app::GameObject_SetActive(collider, v, nullptr);
+        auto monsterRoot = app::GameObject_Find(string_to_il2cppi("/EntityRoot/MonsterRoot"), nullptr);
+        if (monsterRoot != nullptr)
+        {
+            auto transform = app::GameObject_GetComponentByName(monsterRoot, string_to_il2cppi("Transform"), nullptr);
+            auto monsterCount = app::Transform_get_childCount(reinterpret_cast<app::Transform*>(transform), nullptr);
+            for (int i = 0; i <= monsterCount - 1; i++)
+            {
+                auto monsters = app::Transform_GetChild(reinterpret_cast<app::Transform*>(transform), i, nullptr);
+                auto monsterGameObject = app::Component_1_get_gameObject(reinterpret_cast<app::Component_1*>(monsters), nullptr);
+                auto monsterTransform = app::GameObject_GetComponentByName(monsterGameObject, string_to_il2cppi("Transform"), nullptr);
+                auto transformChild = app::Transform_GetChild(reinterpret_cast<app::Transform*>(monsterTransform), 1, nullptr);
+                auto colliderGameObject = app::Component_1_get_gameObject(reinterpret_cast<app::Component_1*>(transformChild), nullptr);
+                app::GameObject_SetActive(colliderGameObject, v, nullptr);
+            }
+        }
     }
 
     // Mob vacuum update function.
@@ -183,7 +192,7 @@ namespace cheat::feature
             if (!IsEntityForVac(entity))
                 continue;
 
-            SetMonsterCollider(entity, !f_SetCollider);
+            SetMonsterCollider(!f_SetCollider);
 
             if (f_Instantly)
             {
@@ -227,7 +236,7 @@ namespace cheat::feature
         if (!IsEntityForVac(entity))
             return;
 
-        SetMonsterCollider(entity, !f_SetCollider);
+        SetMonsterCollider(!f_SetCollider);
 
         app::Vector3 targetPos = CalcMobVacTargetPos();
         app::Vector3 entityPos = entity->relativePosition();
