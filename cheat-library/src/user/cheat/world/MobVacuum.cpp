@@ -83,7 +83,7 @@ namespace cheat::feature
             f_Radius.value(),
             f_Distance.value(),
             f_OnlyTarget ? "Aggro" : "All",
-            f_SetCollider ? "RCollider" : "ECollider");
+            f_SetCollider ? "RC" : "");
     }
 
     MobVacuum& MobVacuum::GetInstance()
