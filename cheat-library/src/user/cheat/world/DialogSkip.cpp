@@ -107,7 +107,7 @@ namespace cheat::feature
             for (auto impEntityName : impEntitiesNames)
             {
                 if (dialogPartnerName.find(impEntityName) != -1) {
-                    LOG_DEBUG("%s %s %d", dialogPartnerName.c_str(), impEntityName, dialogPartnerName.find(impEntityName));
+                    //LOG_DEBUG("%s %s %d", dialogPartnerName.c_str(), impEntityName, dialogPartnerName.find(impEntityName));
                     isImportant = true;
                     break;
                 }
