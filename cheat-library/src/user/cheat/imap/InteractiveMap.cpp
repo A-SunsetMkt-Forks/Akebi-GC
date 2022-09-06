@@ -1476,6 +1476,9 @@ namespace cheat::feature
 	
 	static void RenderPointCircle(const ImVec2& position, ImTextureID textureID, float transparency, float radius, bool isCustom = false)
 	{
+		auto& settings = feature::Settings::GetInstance();
+		radius *= settings.f_FontSize / 16.0f;
+
 		ImVec2 imageStartPos = position - radius;
 		ImVec2 imageEndPos = position + radius;
 
