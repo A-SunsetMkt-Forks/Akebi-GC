@@ -148,6 +148,8 @@ namespace cheat::feature
     // Taiga#5555: There might be an in-game function for this already I'm just not sure which one
     void SetMonsterCollider(bool v)
     {
+        UPDATE_DELAY(300);
+
         auto monsterRoot = app::GameObject_Find(string_to_il2cppi("/EntityRoot/MonsterRoot"), nullptr);
         if (monsterRoot != nullptr)
         {
@@ -160,6 +162,8 @@ namespace cheat::feature
                 auto monsterTransform = app::GameObject_GetComponentByName(monsterGameObject, string_to_il2cppi("Transform"), nullptr);
                 auto transformChild = app::Transform_GetChild(reinterpret_cast<app::Transform*>(monsterTransform), 1, nullptr);
                 auto colliderGameObject = app::Component_1_get_gameObject(reinterpret_cast<app::Component_1*>(transformChild), nullptr);
+                if (app::GameObject_get_active(colliderGameObject, nullptr) == v)
+                    continue;
                 app::GameObject_SetActive(colliderGameObject, v, nullptr);
             }
         }
