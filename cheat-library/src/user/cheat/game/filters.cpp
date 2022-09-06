@@ -331,8 +331,8 @@ namespace cheat::game::filters
 		SimpleFilter SaghiraMachine = { EntityType__Enum_1::Gadget, "FatuiMaranaWell" };
 		SimpleFilter StonePillarSeal = { EntityType__Enum_1::Gadget, "GrassSealRing_" };
 		SimpleFilter TriYanaSeeds = { EntityType__Enum_1::Gadget, "XuMiVisualizationplant" };
-		SimpleFilter DendroPuzzles = { EntityType__Enum_1::Gadget, "AyusProjector" };
-		SimpleFilter DreadfulWithering = { EntityType__Enum_1::Gadget, "DeathZonePoint" };
+		SimpleFilter SumeruPuzzles = { EntityType__Enum_1::Gadget, "AyusProjector" };
+		SimpleFilter TheWithering = { EntityType__Enum_1::Gadget, "DeathZonePoint" };
 		SimpleFilter PhantasmalGate = { EntityType__Enum_1::Field, "DreamlandDoor" };
 	}
 

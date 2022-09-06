@@ -511,6 +511,7 @@
     <None Include="res\map_undeground_mines.json" />
     <None Include="res\assembly_checksum.json" />
     <None Include="res\map_golden_apple_archipelago.json" />
+    <None Include="res\ascension_materials.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="icons\Anemoculus.png">
@@ -2830,6 +2831,627 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\icons\LuminousSeelie.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AmenomaKageuchi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Aloy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AlleyHunter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Albedo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Akuoumaru.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Zhongli.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\YunJin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Yoimiya.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Yelan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Yanfei.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Xinyan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\YaeMiko.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Xingqiu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Xiao.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Xiangling.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WolfsGravestone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WineandSong.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WindblumeOde.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WhiteTassel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WhiteIronGreatsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Whiteblind.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WavebreakersFin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\VortexVanquisher.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\WasterGreatsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Venti.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TwinNephrite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TravelersHandySword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Traveler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Tighnari.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ThunderingPulse.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ThrillingTalesofDragonSlayers.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheWidsith.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Thoma.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheViridescentHunt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheUnforged.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheStringless.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheCatch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheFlute.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheBell.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheBlackSword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheAlleyFlash.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CharacterTartaglia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SummitShaper.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\StaffofHoma.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Sucrose.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SongofBrokenPines.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SolarPearl.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SnowTombedStarsilver.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Slingshot.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SkywardSpine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SkywardPride.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SkywardHarp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SkywardAtlas.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SkywardBlade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SkyriderGreatsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SkyriderSword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ShikanoinHeizou.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SilverSword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Shenhe.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SharpshootersOath.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SerpentSpine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SeasonedHuntersBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Sayu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SangonomiyaKokomi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SapwoodBlade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SacrificialGreatsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SacrificialSword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SacrificialFragments.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SacrificialBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Rust.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RoyalSpear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RoyalLongsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RoyalGrimoire.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RoyalGreatsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RoyalBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RedhornStonethresher.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Rosaria.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RecurveBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Razor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RavenBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Rainslasher.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\RaidenShogun.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Qiqi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrototypeStarglitter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrototypeRancour.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrototypeCrescent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrototypeArchaic.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrototypeAmber.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrimordialJadeCutter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrimordialJadeWingedSpear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Predator.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PolarStar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PocketGrimoire.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\OtherworldlyStory.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\OldMercsPal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\OathswornEye.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Noelle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Ningguang.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\MouunsMoon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Moonpiercer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Mona.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\MitternachtsWaltz.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\MistsplitterReforged.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Messenger.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\MemoryofDust.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\MappaMare.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\MagicGuide.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LuxuriousSeaLord.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LostPrayertotheSacredWinds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LithicSpear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LithicBlade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Lisa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\LionsRoar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KukiShinobu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KujouSara.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KitainCrossSpear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Klee.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Keqing.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KingsSquire.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KamisatoAyato.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KatsuragikiriNagamasa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KagurasVerity.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KamisatoAyaka.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Kaeya.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KagotsurubeIsshin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\KaedeharaKazuha.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\IronSting.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Jean.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HuTao.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\IronPoint.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HuntersBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HuntersPath.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HaranGeppakuFutsu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HarbingerofDawn.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Halberd.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Hamayumi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Gorou.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\HakushinRing.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FruitofFulfillment.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Ganyu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FreedomSworn.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Frostbearer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Fischl.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ForestRegalia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FilletBlade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FesteringDesire.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FerrousShadow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FavoniusWarbow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FavoniusSword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FavoniusLance.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FavoniusGreatsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FavoniusCodex.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\FadingTwilight.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\EyeofPerception.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\EverlastingMoonglow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Eula.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\EngulfingLightning.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\EndoftheLine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\EmeraldOrb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ElegyfortheEnd.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DullBlade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DragonspineSpear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DragonsBane.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DodocoTales.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Diluc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Diona.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DebateClub.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Deathmatch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\DarkIronSword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CrescentPike.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CoolSteel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CompoundBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CinnabarSpindle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Collei.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CalamityQueller.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Chongyun.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BlackTassel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BloodtaintedGreatsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BlackcliffSlasher.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BlackcliffWarbow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BlackcliffAgate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BlackcliffLongsword.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BlackcliffPole.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Bennett.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\BeginnersProtector.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Beidou.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AratakiItto.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Barbara.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AquaSimulacra.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AquilaFavonia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\ApprenticesNotes.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AmosBow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\CharacterAmber.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="iconsHD\Cave.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="iconsHD\Brightwood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icons\Brightwood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icons\Cave.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Fungi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SumeruPuzzles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\TheWithering.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Fungi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SumeruPuzzles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\TheWithering.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Cave.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Brightwood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Brightwood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Cave.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

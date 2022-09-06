@@ -19,6 +19,7 @@ namespace cheat::feature
 		};
 
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
+		config::Field<bool> f_ShowMaterialsWindow;
 		config::Field<bool> f_SeparatedWindows;
 		config::Field<bool> f_CompletionLogShow;
 
@@ -134,7 +135,30 @@ namespace cheat::feature
 			std::vector<CategoryData> categories;
 		};
 
+		struct MaterialData
+		{
+			uint32_t id;
+			std::string name;
+			std::string clearName;
+			std::vector<uint32_t> filter;
+			config::Field<bool> selected;
+		};
+
+		struct MaterialCategoryData
+		{
+			uint32_t id;
+			std::string name;
+			std::vector<MaterialData*> children;
+		};
+
+		struct MaterialFilterData
+		{
+			std::map<uint32_t, MaterialData> materials;
+			std::vector<MaterialCategoryData> categories;
+		};
+
 		std::map<uint32_t, SceneData> m_ScenesData;
+		std::map<std::string, MaterialFilterData> m_MaterialData;
 
 		std::mutex m_UserDataMutex; // Support multithread
 		config::Field<nlohmann::json> f_CustomPointsJson;
@@ -160,6 +184,10 @@ namespace cheat::feature
 		void LoadCategoriaData(const nlohmann::json& data, uint32_t sceneID);
 		void LoadSceneData(const nlohmann::json& data, uint32_t sceneID);
 		void LoadScenesData();
+
+		// Parsing ascension materials data
+		void LoadMaterialFilterData(const nlohmann::json& data, std::string type);
+		void LoadMaterialFilterData();
 
 		
 		void ApplySceneScalling(uint32_t sceneId, const ScallingInput& input);
@@ -213,6 +241,10 @@ namespace cheat::feature
 
 		// Drawing
 		void DrawMenu();
+		void DrawMaterialFilters();
+		void DrawMaterialFilterCategories(MaterialCategoryData& category, std::string type);
+		void DrawMaterialFilter(MaterialData* material, std::string type);
+		void DrawMaterials(uint32_t sceneID);
 		void DrawFilters(const bool searchFixed = true);
 		void DrawFilter(LabelData& label);
 

@@ -9,6 +9,8 @@
 #include <cheat/events.h>
 #include <cheat/game/CacheFilterExecutor.h>
 #include <cheat/GenshinCM.h>
+#include <set>
+
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
@@ -22,6 +24,7 @@ namespace cheat::feature
 	InteractiveMap::InteractiveMap() : Feature(),
 		NFEX(f_Enabled, "Interactive map", "m_InteractiveMap", "InteractiveMap", false, false),
 		NF(f_SeparatedWindows, "Separated windows", "InteractiveMap", true),
+		NF(f_ShowMaterialsWindow, "Materials filter window", "InteractiveMap", false),
 		NF(f_CompletionLogShow, "Completion log show", "InteractiveMap", false),
 
 		NFS(f_STFixedPoints, "Fixed points", "InteractiveMap", SaveAttachType::Global),
@@ -59,6 +62,7 @@ namespace cheat::feature
 	{
 		// Initializing
 		LoadScenesData();
+		LoadMaterialFilterData();
 		ApplyScaling();
 
 		// --Loading user data
@@ -184,12 +188,171 @@ namespace cheat::feature
 		ImGui::EndGroupPanel();
 	}
 
+	void InteractiveMap::DrawMaterialFilters()
+	{
+		ImGui::BeginTabBar("#TypesTabs", ImGuiTabBarFlags_None);
+		for (auto& [type, data] : m_MaterialData)
+		{
+			if (ImGui::BeginTabItem(util::MakeCapital(type).c_str()))
+			{
+				for (auto& category : data.categories)
+					DrawMaterialFilterCategories(category, type);
+
+				ImGui::EndTabItem();
+			}
+		}
+
+		ImGui::EndTabBar();
+	}
+
+	void InteractiveMap::DrawMaterialFilterCategories(MaterialCategoryData& category, std::string type)
+	{
+		bool checked = std::all_of(category.children.begin(), category.children.end(), [](MaterialData* matData) {  return matData->selected; });
+		bool changed = false;
+		if (ImGui::BeginSelectableGroupPanel(category.name.c_str(), checked, changed, true))
+		{
+			int columns = 3;
+			if (ImGui::BeginTable(category.name.c_str(), columns))
+			{
+				uint32_t i = 0;
+				for (auto& child : category.children)
+				{
+					if (i % columns == 0)
+					{
+						ImGui::TableNextRow();
+						ImGui::TableSetColumnIndex(0);
+					}
+					else ImGui::TableNextColumn();
+
+					ImGui::PushID(child);
+					DrawMaterialFilter(child, type);
+					ImGui::PopID();
+					i++;
+				}
+				ImGui::EndTable();
+			}
+		}
+		ImGui::EndSelectableGroupPanel();
+
+		if (changed)
+		{
+			for (const auto& material : category.children)
+			{
+				material->selected.value() = checked;
+				material->selected.FireChanged();
+			}
+		}
+	}
+
+	void InteractiveMap::DrawMaterialFilter(MaterialData* material, std::string type)
+	{
+		ImGuiWindow* window = ImGui::GetCurrentWindow();
+		if (window->SkipItems)
+			return;
+
+		const ImGuiStyle& style = ImGui::GetStyle();
+
+		// Image Box
+		const auto image_sz = 50.f;
+		ImVec2 box_sz = ImVec2(50, 50);
+		ImVec2 pos_min = ImGui::GetCursorScreenPos();
+		ImVec2 pos_max = pos_min + box_sz;
+
+		// Text
+		const ImVec2 textSize = ImGui::CalcTextSize(material->name.c_str(), nullptr, true);
+		ImVec2 textPos = ImVec2(pos_max.x + style.FramePadding.x, pos_min.y + (box_sz.y / 2) - (textSize.y / 2));
+
+		// Widget
+		ImGui::InvisibleButton(("##" + material->clearName).c_str(), box_sz, ImGuiButtonFlags_MouseButtonLeft);
+		bool itemHovered = ImGui::IsItemHovered();
+		bool itemClicked = ImGui::IsItemActive() && ImGui::IsItemClicked(0);
+
+		if(material->selected)
+			window->DrawList->AddRectFilled(pos_min, pos_max, ImGui::GetColorU32(ImGuiCol_CheckMark), 10.f);
+
+		auto image = ImageLoader::GetImage("HD" + material->clearName);
+		if (image)
+			window->DrawList->AddImageRounded(image->textureID, pos_min, pos_max, ImVec2(0.0f, 0.0f), ImVec2(1.0f, 1.0f), IM_COL32_WHITE, 10.f);
+		else
+			window->DrawList->AddRectFilled(pos_min, pos_max, ImGui::GetColorU32(ImGuiCol_FrameBg), 10.f);
+
+		window->DrawList->AddText(textPos, ImGui::GetColorU32(ImGuiCol_Text), material->name.c_str());
+
+		if (itemClicked)
+			material->selected = !material->selected;
+
+		if(material->selected || itemHovered)
+			window->DrawList->AddRect(pos_min, pos_max, ImGui::GetColorU32(ImGuiCol_CheckMark), 10.f);
+
+		// Center checkmark
+		//auto check_sz = box_sz.x / 4;
+		//if (material->selected)
+		//{
+		//	window->DrawList->AddCircleFilled(pos_min + (box_sz / 2), check_sz * 0.75, ImGui::GetColorU32(ImGuiCol_CheckMark), 20);
+		//	ImGui::RenderCheckMark(window->DrawList, pos_min + ((box_sz - ImVec2(check_sz, check_sz)) / 2), ImGui::GetColorU32(ImGuiCol_FrameBgActive), check_sz);
+		//}
+	}
+
+	void InteractiveMap::DrawMaterials(uint32_t sceneID)
+	{
+		auto& labels = m_ScenesData[sceneID].labels;
+		std::map<std::string, std::set<LabelData*>> materialLabels = { {"character", {}}, {"weapon", {}} };
+		for (auto& [type, list] : materialLabels)
+		{
+			for (auto& [charID, character] : m_MaterialData[type].materials)
+				if (character.selected)
+					for (auto materialID : character.filter)
+						if(labels.count(materialID) > 0) // Depends on sceneID
+							list.insert(&labels[materialID]);
+		}
+
+		for (auto& [type, materials] : materialLabels)
+		{
+			if (materials.empty())
+				continue;
+
+			bool checked = std::all_of(materials.begin(), materials.end(), [](const LabelData* label) { return label->enabled; });
+			bool changed = false;
+
+			if (ImGui::BeginSelectableGroupPanel((util::MakeCapital(type) + " Filters").c_str(), checked, changed, true))
+			{
+				if (ImGui::BeginTable(("##" + util::MakeCapital(type) + "Table").c_str(), 3))
+				{
+					for (const auto& label : materials)
+					{
+						ImGui::TableNextColumn();
+						ImGui::PushID(label);
+						DrawFilter(*label);
+						ImGui::PopID();
+					}
+					ImGui::EndTable();
+				}
+			}
+			ImGui::EndSelectableGroupPanel();
+
+			if (changed)
+			{
+				for (const auto& label : materials)
+				{
+					label->enabled = checked;
+				}
+			}
+		}
+	}
+
 	void InteractiveMap::DrawFilters(const bool searchFixed)
 	{
 		const auto sceneID = game::GetCurrentMapSceneID();
 		if (m_ScenesData.count(sceneID) == 0)
 			ImGui::Text("Sorry. Current scene is not supported.");
-		
+
+		ImGui::BeginGroupPanel("Ascension Materials Filter");
+		{
+			ConfigWidget("Show Ascension Materials", f_ShowMaterialsWindow, "Open ascension materials filter window");
+			DrawMaterials(sceneID);
+		}
+		ImGui::EndGroupPanel();
+
 		ImGui::InputText("Search", &m_SearchText); ImGui::SameLine();
 		HelpMarker(
 			"This page following with filters for items.\n"
@@ -199,6 +362,7 @@ namespace cheat::feature
 			"\tthey indicate that filter support some features. (Hover it)\n"
 			"Thats all for now. Happy using ^)"
 		);
+
 		if (searchFixed)
 			ImGui::BeginChild("FiltersList", ImVec2(-1, 0), false, ImGuiWindowFlags_NoBackground);
 
@@ -1225,6 +1389,51 @@ namespace cheat::feature
         LOG_INFO("Interactive map data loaded successfully.");
     }
 
+	void InteractiveMap::LoadMaterialFilterData(const nlohmann::json& data, std::string type)
+	{
+		auto& materials = m_MaterialData[type].materials;
+		for (auto& [filterID, filterData] : data[type].items())
+		{
+			auto& materialEntry = materials[std::stoi(filterID)];
+
+			materialEntry.id = std::stoi(filterID);
+			materialEntry.name = filterData["name"];
+			materialEntry.clearName = filterData["clear_name"];
+			materialEntry.filter = filterData["materials"].get<std::vector<uint32_t>>();
+			materialEntry.selected = config::CreateField<bool>(materialEntry.name, materialEntry.clearName,
+				"InteractiveMap::Materials::" + util::MakeCapital(type) + "{}", false, false);
+		}
+
+		auto& categories = m_MaterialData[type].categories;
+		for (auto& category : data[type + "_types"])
+		{
+			categories.push_back({});
+			auto& newCategory = categories.back();
+
+			newCategory.id = std::stoi(category["id"].get<std::string>());
+			newCategory.name = category["name"];
+			auto& children = newCategory.children;
+			for (auto& child : category["children"])
+			{
+				if (materials.count(child) > 0)
+					children.push_back(&materials[child]);
+			}
+
+			if (children.size() == 0)
+			{
+				categories.pop_back();
+				return;
+			}
+		}
+	}
+
+	void InteractiveMap::LoadMaterialFilterData()
+	{
+		auto data = nlohmann::json::parse(ResourceLoader::Load("AscensionMaterialsData", RT_RCDATA));
+		LoadMaterialFilterData(data, "character");
+		LoadMaterialFilterData(data, "weapon");
+	}
+
     struct ScalingData
     {
         float scale;
@@ -1457,6 +1666,17 @@ namespace cheat::feature
 
 				if (filtersOpened)
 					DrawFilters();
+
+				ImGui::End();
+			}
+
+			if (f_ShowMaterialsWindow)
+			{
+				bool materialsOpened = ImGui::Begin("Ascension Materials Filter", nullptr, ImGuiWindowFlags_NoFocusOnAppearing);
+				AddWindowRect();
+
+				if (materialsOpened)
+					DrawMaterialFilters();
 
 				ImGui::End();
 			}
