@@ -55,7 +55,7 @@ namespace cheat::feature
 
         if (f_Enabled)
         {
-            if (f_Hotkey.value().IsPressed() && !isSpeed)
+            if (f_Hotkey.value().IsPressed())
             {
                 if (currentSpeed == 1.0f)
                 {
