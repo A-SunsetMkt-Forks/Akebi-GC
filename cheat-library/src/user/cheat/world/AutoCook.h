@@ -8,11 +8,18 @@ namespace cheat::feature
 	class AutoCook : public Feature
 	{
 	public:
+		enum class CookQuality 
+		{
+			Delicious,
+			Normal,
+			Suspicious,
+		};
+
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
 		config::Field<config::Toggle<Hotkey>> f_FastProficiency;
 
 		config::Field<int> f_CountField;
-		config::Field<std::string> f_QualityField;
+		config::Field<config::Enum<CookQuality>> f_QualityField;
 
 		int CookFoodMaxNum; // Maximum quantity at a time
 		int CookCount;

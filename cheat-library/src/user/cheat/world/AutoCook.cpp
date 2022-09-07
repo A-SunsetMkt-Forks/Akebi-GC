@@ -14,7 +14,7 @@ namespace cheat::feature
         app::Component_1* Profirency = nullptr;
     }
 
-    static std::map<std::string, int> qualities{ {"Suspicious", 1}, {"Normal", 2}, {"Delicious", 3} };
+    static std::map<AutoCook::CookQuality, int> qualities{ {AutoCook::CookQuality::Suspicious, 1}, {AutoCook::CookQuality::Normal, 2}, {AutoCook::CookQuality::Delicious, 3} };
 
     static void PlayerModule_RequestPlayerCook(app::MoleMole_PlayerModule* __this, uint32_t recipeId, uint32_t avatarId, uint32_t qteQuality, uint32_t count, MethodInfo* method);
     static void PlayerModule_OnPlayerCookRsp(app::MoleMole_PlayerModule* __this, app::PlayerCookRsp* rsp, MethodInfo* method);
@@ -24,7 +24,7 @@ namespace cheat::feature
         NF(f_Enabled, "Standart Cooking", "AutoCook", false),
         NF(f_FastProficiency, "Fast Proficiency", "AutoCook", false),
         NF(f_CountField, "Count Item", "AutoCook", 1),
-        NF(f_QualityField, "Quality", "AutoCook", "Normal")
+        NF(f_QualityField, "Quality", "AutoCook", AutoCook::CookQuality::Normal)
     {
         HookManager::install(app::MoleMole_PlayerModule_RequestPlayerCook, PlayerModule_RequestPlayerCook);
         HookManager::install(app::MoleMole_PlayerModule_OnPlayerCookRsp, PlayerModule_OnPlayerCookRsp);
@@ -45,19 +45,7 @@ namespace cheat::feature
         ConfigWidget("Count Item", f_CountField, 1, 1, 100,
             "How much to cook at a time.\n" \
             "(For standard mode only.)");
-        if (ImGui::BeginCombo("Cooking Quality", f_QualityField.value().c_str()))
-        {
-            for (auto& [qualityName, quality] : qualities)
-            {
-                bool is_selected = (f_QualityField.value().c_str() == qualityName);
-                if (ImGui::Selectable(qualityName.c_str(), is_selected))
-                    f_QualityField.value() = qualityName;
-
-                if (is_selected)
-                    ImGui::SetItemDefaultFocus();
-            }
-            ImGui::EndCombo();
-        }
+        ConfigWidget(f_QualityField, "Select the quality of cook result.");
     }
 
     bool AutoCook::NeedStatusDraw() const
@@ -70,7 +58,9 @@ namespace cheat::feature
         if (f_FastProficiency)
             ImGui::Text("Auto Cooking [Proficiency]");
         else
-            ImGui::Text("Auto Cooking [Standart, %s]", f_QualityField.value().c_str());
+            ImGui::Text("Auto Cooking [Standart, %s]", 
+                f_QualityField.value() == AutoCook::CookQuality::Suspicious ? "Suspicious" : f_QualityField.value() == AutoCook::CookQuality::Normal ? "Normal" : "Delicious"
+            );
     }
 
     AutoCook& AutoCook::GetInstance()
@@ -102,7 +92,7 @@ namespace cheat::feature
 
             // To prevent possible crashes
             if (!qualities.count(autoCook.f_QualityField.value()))
-                autoCook.f_QualityField.value() = "Normal";
+                autoCook.f_QualityField.value() = AutoCook::CookQuality::Normal;
 
             qteQuality = qualities.find(autoCook.f_QualityField.value())->second;
 
@@ -151,7 +141,7 @@ namespace cheat::feature
         {
             // To prevent possible crashes
             if (!qualities.count(autoCook.f_QualityField.value()))
-                autoCook.f_QualityField.value() = "Normal";
+                autoCook.f_QualityField.value() = AutoCook::CookQuality::Normal;
 
             rsp->fields.qteQuality_ = qualities.find(autoCook.f_QualityField.value())->second;
             rsp->fields.cookCount_ = autoCook.f_CountField;
