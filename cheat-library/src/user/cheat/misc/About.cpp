@@ -14,10 +14,6 @@ namespace cheat::feature
 
     void About::DrawMain()
     {
-        // Advertisement. To change/delete contact with Callow#1429
-        ImGui::TextColored(ImColor(199, 16, 162, 255), "Our private ToF cheat: ");
-        TextURL("Acai ToF", "http://acai-tof.shop", true, false);
-
         ImGui::TextColored(ImColor(28, 202, 214, 255), "Akebi github:");
         TextURL("Github link", "https://github.com/Akebi-Group/Akebi-GC", true, false);
 
@@ -32,12 +28,8 @@ namespace cheat::feature
 		ImGui::SameLine();
 		ImGui::TextColored(ImColor(0, 102, 255, 255), "Taiga");
 
-        ImGui::Text("Feature developer and Acai founder:");
-		ImGui::SameLine();
-		ImGui::TextColored(ImColor(0, 102, 255, 255), "RyujinZX");
-
 		ImGui::Text("Main contributors:");
-		ImGui::TextColored(ImColor(0, 102, 255, 255), "WitchGod, m0nkrel, Shichiha, harlanx, andiabrudan, hellomykami");
+		ImGui::TextColored(ImColor(0, 102, 255, 255), "RyujinZX, WitchGod, m0nkrel, Shichiha, harlanx, andiabrudan, hellomykami");
 
 		ImGui::Text("Full contributor list:");
 		TextURL("Github link", "https://github.com/Akebi-Group/Akebi-GC/graphs/contributors", true, false);
