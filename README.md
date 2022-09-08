@@ -74,6 +74,7 @@ As well as setting up **`cheat-library`** as startup project.
 #### World
 - Auto Seelie
 - Open Team Immediately
+- GameSpeed
 - Dumb Enemies
 - Freeze Enemies
 - Auto Destroy: Ores/Shields/Doodads/Plants
