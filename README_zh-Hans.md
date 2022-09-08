@@ -145,7 +145,7 @@
 1. 创建一个新的功能分支（`git checkout -b feature/AmazingFeature`）
 1. 提交更改（`git commit -m 'Add some AmazingFeature'`）
 1. 推送（Push）更改到分支（`git push origin feature/AmazingFeature`）
-1. (打开 Pull Request 并提交)[https://github.com/Akebi-Group/Akebi-GC/pulls]
+2. [打开 Pull Request 并提交](https://github.com/Akebi-Group/Akebi-GC/pulls)
 
 ## 建议
 
