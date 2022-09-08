@@ -97,7 +97,8 @@ namespace cheat::feature
             std::vector<std::string> impEntitiesNames = {
                 "Djinn",
                 "Katheryne",
-                "Wagner"
+                "Wagner",
+                "Ahangar"
             };
             auto dialogPartnerID = context->fields._inteeID;
             auto& manager = game::EntityManager::instance();
@@ -106,7 +107,7 @@ namespace cheat::feature
             for (auto impEntityName : impEntitiesNames)
             {
                 if (dialogPartnerName.find(impEntityName) != -1) {
-                    LOG_DEBUG("%s %s %d", dialogPartnerName.c_str(), impEntityName, dialogPartnerName.find(impEntityName));
+                    //LOG_DEBUG("%s %s %d", dialogPartnerName.c_str(), impEntityName, dialogPartnerName.find(impEntityName));
                     isImportant = true;
                     break;
                 }

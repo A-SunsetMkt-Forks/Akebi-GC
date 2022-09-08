@@ -12,8 +12,7 @@ namespace cheat::feature
     }
 
     PaimonFollow::PaimonFollow() : Feature(),
-        NFEX(f_Enabled, "Paimon Follow", "PaimonFollow", "Visuals", false, false),
-        toBeUpdate(), nextUpdate(0)
+        NFEX(f_Enabled, "Paimon Follow", "PaimonFollow", "Visuals", false, false)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(PaimonFollow::OnGameUpdate);
     }
@@ -48,31 +47,32 @@ namespace cheat::feature
 
     void PaimonFollow::OnGameUpdate()
     {
-        if (!f_Enabled)
-            return;
+        UPDATE_DELAY(100);
 
-        auto currentTime = util::GetCurrentTimeMillisec();
-        if (currentTime < nextUpdate)
-            return;
-
-        if (GameObject::Paimon == nullptr) {
-            GameObject::Paimon = app::GameObject_Find(string_to_il2cppi("/EntityRoot/OtherGadgetRoot/NPC_Guide_Paimon(Clone)"), nullptr);  
-        }
-
-        if (GameObject::ProfileLayer == nullptr) {
+        if (f_Enabled)
+        {
+            GameObject::Paimon = app::GameObject_Find(string_to_il2cppi("/EntityRoot/OtherGadgetRoot/NPC_Guide_Paimon(Clone)"), nullptr);
+            if (GameObject::Paimon == nullptr)
+                return;
+            
             GameObject::ProfileLayer = app::GameObject_Find(string_to_il2cppi("/Canvas/Pages/PlayerProfilePage"), nullptr);
-        }
-          
-        if (GameObject::Paimon != nullptr && GameObject::ProfileLayer != nullptr) {
-            auto ProfileOpen = app::GameObject_get_active(GameObject::ProfileLayer, nullptr);
+            if (GameObject::ProfileLayer == nullptr)
+                return;
 
-            if (ProfileOpen) {
-                app::GameObject_set_active(GameObject::Paimon, false, nullptr);
-            }
-            else {
-                app::GameObject_set_active(GameObject::Paimon, true, nullptr);
+            if (GameObject::Paimon->fields._.m_CachedPtr != nullptr && GameObject::ProfileLayer->fields._.m_CachedPtr != nullptr)
+            {
+                auto ProfileOpen = app::GameObject_get_active(GameObject::ProfileLayer, nullptr);
+
+                if (ProfileOpen)
+                    app::GameObject_set_active(GameObject::Paimon, false, nullptr);
+                else
+                    app::GameObject_set_active(GameObject::Paimon, true, nullptr);
             }
         }
-        nextUpdate = currentTime + (int)f_DelayUpdate;
+        else
+        {
+            GameObject::Paimon == nullptr;
+            GameObject::ProfileLayer == nullptr;
+        }
     }
 }

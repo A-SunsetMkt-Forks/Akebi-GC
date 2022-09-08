@@ -7,6 +7,8 @@
 #include <cheat-base/render/gui-util.h>
 #include <cheat-base/cheat/misc/Settings.h>
 
+#include <imgui_internal.h>
+
 namespace cheat
 {
 

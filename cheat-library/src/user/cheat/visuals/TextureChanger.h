@@ -12,7 +12,9 @@ namespace cheat::feature
 		config::Field<config::Toggle<std::string>> f_HeadPath;
 		config::Field<config::Toggle<std::string>> f_BodyPath;
 		config::Field<config::Toggle<std::string>> f_DressPath;
+		config::Field<config::Toggle<std::string>> f_GliderPath;
 		std::string ActiveHero = "NONE";
+		std::string ActiveGlider = "NONE";
  		bool ApplyTexture;
 
 		static TextureChanger& GetInstance();

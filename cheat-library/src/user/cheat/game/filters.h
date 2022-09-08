@@ -280,7 +280,7 @@ namespace cheat::game::filters
 		extern SimpleFilter KalpalataLotus;
 		extern SimpleFilter NilotpalaLotus;
 		extern SimpleFilter Padisarah;
-		extern SimpleFilter RukkhashavaMushrooms;
+		extern SimpleFilter RukkhashavaMushroom;
 		extern SimpleFilter SumeruRose;
 		extern SimpleFilter Viparyas;
 		extern SimpleFilter ZaytunPeach;
@@ -331,8 +331,8 @@ namespace cheat::game::filters
 		extern SimpleFilter SaghiraMachine;
 		extern SimpleFilter StonePillarSeal;
 		extern SimpleFilter TriYanaSeeds;
-		extern SimpleFilter DendroPuzzles;
-		extern SimpleFilter DreadfulWithering;
+		extern SimpleFilter SumeruPuzzles;
+		extern SimpleFilter TheWithering;
 		extern SimpleFilter PhantasmalGate;
 	}
 
@@ -342,6 +342,7 @@ namespace cheat::game::filters
 		extern SimpleFilter Chests;
 		extern SimpleFilter Ores;
 		extern SimpleFilter PlantDestroy;
+		extern SimpleFilter BreakableObjects;
 		extern WhitelistFilter Doodads;
 		extern SimpleFilter Animals;
 		extern SimpleFilter AnimalDrop;

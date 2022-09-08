@@ -20,7 +20,7 @@ namespace cheat::game
 
 		if (name().find("TreasureBox") != std::string::npos)
 			m_ItemType = ItemType::Chest;
-		else if (name().find("Search") != std::string::npos || name().find("JunkChest") != std::string::npos)
+		else if (name().find("Search") != std::string::npos || name().find("JunkChest") != std::string::npos || name().find("SumeruCrudeChest") != std::string::npos)
 			m_ItemType = ItemType::Investigate;
 		else if (name().find("BookPage") != std::string::npos)
 			m_ItemType = ItemType::BookPage;

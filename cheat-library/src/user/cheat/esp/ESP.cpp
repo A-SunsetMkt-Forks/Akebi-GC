@@ -263,6 +263,16 @@ namespace cheat::feature
 				}
 			}
 			name = name.substr(pos1 + 1, pos2 - pos1 - 1);
+		}	
+		else if (name.find("Aranara") != std::string::npos)
+		{
+		char AA[] = "Aranara";
+		name = AA;
+		}
+		else if (name.find("Kanban") != std::string::npos)
+		{
+		char AA[] = "Paimon";
+		name = AA;
 		}
 		else
 		{
@@ -778,7 +788,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(plant, Pinecone);
 		ADD_FILTER_FIELD(plant, Qingxin);
 		ADD_FILTER_FIELD(plant, Radish);
-		ADD_FILTER_FIELD(plant, RukkhashavaMushrooms);
+		ADD_FILTER_FIELD(plant, RukkhashavaMushroom);
 		ADD_FILTER_FIELD(plant, SakuraBloom);
 		ADD_FILTER_FIELD(plant, SangoPearl);
 		ADD_FILTER_FIELD(plant, SeaGanoderma);
@@ -800,8 +810,8 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, BakeDanuki);
 		ADD_FILTER_FIELD(puzzle, BloattyFloatty);
 		ADD_FILTER_FIELD(puzzle, CubeDevices);
-		ADD_FILTER_FIELD(puzzle, DendroPuzzles);
-		ADD_FILTER_FIELD(puzzle, DreadfulWithering);
+		ADD_FILTER_FIELD(puzzle, SumeruPuzzles);
+		ADD_FILTER_FIELD(puzzle, TheWithering);
 		ADD_FILTER_FIELD(puzzle, EightStoneTablets);
 		ADD_FILTER_FIELD(puzzle, ElectricConduction);
 		ADD_FILTER_FIELD(puzzle, ElectroSeelie);
