@@ -21,7 +21,7 @@
 1. 下载最新的版本
 
 ## 最新版本
-1. 前往 [action](https://github.com/Akebi-Group/Akebi-GC/actions) 介面
+1. 前往[action](https://github.com/Akebi-Group/Akebi-GC/actions)介面
 1. 选择[Publish](https://github.com/Akebi-Group/Akebi-GC/actions/workflows/main.yml)工作流程
 1. 选择最近带有绿色对号(:heavy_check_mark:)的工作流程（注意选择自己客户端的版本 **GLOBAL:国际服/CN:国服/BETA:测试服**）。
 	<p align="center">
