@@ -3454,5 +3454,17 @@
     <Image Include="res\icons\Cave.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\iconsHD\Candace.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Cyno.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Dori.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Nilou.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

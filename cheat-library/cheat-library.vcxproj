@@ -265,6 +265,7 @@
     <Image Include="res\iconsHD\BouncyMushroom.png" />
     <Image Include="res\iconsHD\Brightwood.png" />
     <Image Include="res\iconsHD\CalamityQueller.png" />
+    <Image Include="res\iconsHD\Candace.png" />
     <Image Include="res\iconsHD\Cat.png" />
     <Image Include="res\iconsHD\Cave.png" />
     <Image Include="res\iconsHD\CharacterAmber.png" />
@@ -280,6 +281,7 @@
     <Image Include="res\iconsHD\Crane.png" />
     <Image Include="res\iconsHD\CrescentPike.png" />
     <Image Include="res\iconsHD\CryoBathysmalVishap.png" />
+    <Image Include="res\iconsHD\Cyno.png" />
     <Image Include="res\iconsHD\DarkIronSword.png" />
     <Image Include="res\iconsHD\Deathmatch.png" />
     <Image Include="res\iconsHD\DebateClub.png" />
@@ -293,6 +295,7 @@
     <Image Include="res\iconsHD\Diona.png" />
     <Image Include="res\iconsHD\DodocoTales.png" />
     <Image Include="res\iconsHD\Dog.png" />
+    <Image Include="res\iconsHD\Dori.png" />
     <Image Include="res\iconsHD\DragonsBane.png" />
     <Image Include="res\iconsHD\DragonspineSpear.png" />
     <Image Include="res\iconsHD\DreadfulWithering.png" />
@@ -555,6 +558,7 @@
     <Image Include="res\iconsHD\MysteriousCarvings.png" />
     <Image Include="res\iconsHD\NakuWeed.png" />
     <Image Include="res\iconsHD\NilotpalaLotus.png" />
+    <Image Include="res\iconsHD\Nilou.png" />
     <Image Include="res\iconsHD\Ningguang.png" />
     <Image Include="res\iconsHD\Nobushi.png" />
     <Image Include="res\iconsHD\NoctilucousJade.png" />
