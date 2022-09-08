@@ -810,8 +810,8 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(puzzle, BakeDanuki);
 		ADD_FILTER_FIELD(puzzle, BloattyFloatty);
 		ADD_FILTER_FIELD(puzzle, CubeDevices);
-		ADD_FILTER_FIELD(puzzle, DendroPuzzles);
-		ADD_FILTER_FIELD(puzzle, DreadfulWithering);
+		ADD_FILTER_FIELD(puzzle, SumeruPuzzles);
+		ADD_FILTER_FIELD(puzzle, TheWithering);
 		ADD_FILTER_FIELD(puzzle, EightStoneTablets);
 		ADD_FILTER_FIELD(puzzle, ElectricConduction);
 		ADD_FILTER_FIELD(puzzle, ElectroSeelie);

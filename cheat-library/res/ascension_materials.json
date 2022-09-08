@@ -1,0 +1,2290 @@
+{
+  "character": {
+    "10000002": {
+      "name": "Kamisato Ayaka",
+      "clear_name": "KamisatoAyaka",
+      "materials": [
+        199,
+        204,
+        209
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/991bfe1b965f4768e201e4019b18604d.png"
+    },
+    "10000003": {
+      "name": "Jean",
+      "clear_name": "Jean",
+      "materials": [
+        37,
+        53,
+        55,
+        56,
+        57,
+        132,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6d144b96f9c4123b2a6f86216f193680.png"
+    },
+    "10000005": {
+      "name": "Traveler",
+      "clear_name": "Traveler",
+      "materials": [
+        43,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://uploadstatic-sea.hoyoverse.com/hk4e/e20200928calculate/character_icon/UI_AvatarIcon_PlayerBoy.png"
+    },
+    "10000006": {
+      "name": "Lisa",
+      "clear_name": "Lisa",
+      "materials": [
+        29,
+        59,
+        135
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d789b598296de75e1c39e8f6a95045d4.png"
+    },
+    "10000014": {
+      "name": "Barbara",
+      "clear_name": "Barbara",
+      "materials": [
+        39,
+        57,
+        136
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/1958d5dee693497ce140309619bee8c0.png"
+    },
+    "10000015": {
+      "name": "Kaeya",
+      "clear_name": "Kaeya",
+      "materials": [
+        31,
+        58,
+        133
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/39d5414539d84f248b115803079d7a67.png"
+    },
+    "10000016": {
+      "name": "Diluc",
+      "clear_name": "Diluc",
+      "materials": [
+        25,
+        26,
+        33,
+        54,
+        137
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/70b9dcd4039aee2d3ad265a5e9326236.png"
+    },
+    "10000020": {
+      "name": "Razor",
+      "clear_name": "Razor",
+      "materials": [
+        41,
+        53,
+        55,
+        56,
+        57,
+        135,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/591e7682f4fbaa284a02dbced48ff658.png"
+    },
+    "10000021": {
+      "name": "Amber",
+      "clear_name": "CharacterAmber",
+      "materials": [
+        33,
+        56,
+        137
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/975a8115267e805bdd74480d3249e7b6.png"
+    },
+    "10000022": {
+      "name": "Venti",
+      "clear_name": "Venti",
+      "materials": [
+        35,
+        59,
+        132
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/790fd1fd7365a19d72063d538c05ae37.png"
+    },
+    "10000023": {
+      "name": "Xiangling",
+      "clear_name": "Xiangling",
+      "materials": [
+        30,
+        59,
+        137
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/455cb92fc077844d79c6cf1d0441ecf6.png"
+    },
+    "10000024": {
+      "name": "Beidou",
+      "clear_name": "Beidou",
+      "materials": [
+        42,
+        58,
+        135
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/060eeaefe720f41831c1a41ba1133ac2.png"
+    },
+    "10000025": {
+      "name": "Xingqiu",
+      "clear_name": "Xingqiu",
+      "materials": [
+        36,
+        53,
+        55,
+        56,
+        57,
+        136,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b13de8b67a47d916bcf47790d552ed74.png"
+    },
+    "10000026": {
+      "name": "Xiao",
+      "clear_name": "Xiao",
+      "materials": [
+        32,
+        59,
+        157
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a638e74b20825458044b7b9d7e1d0b1c.png"
+    },
+    "10000027": {
+      "name": "Ningguang",
+      "clear_name": "Ningguang",
+      "materials": [
+        25,
+        26,
+        38,
+        54,
+        138
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/c54a842e4422058edfc3281554af4248.png"
+    },
+    "10000029": {
+      "name": "Klee",
+      "clear_name": "Klee",
+      "materials": [
+        39,
+        57,
+        137
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/cc8a2f9f6d328cbee59136a3eadf3c23.png"
+    },
+    "10000030": {
+      "name": "Zhongli",
+      "clear_name": "Zhongli",
+      "materials": [
+        40,
+        59,
+        138
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/edd002229d02a684d3616c63aa1d68e3.png"
+    },
+    "10000031": {
+      "name": "Fischl",
+      "clear_name": "Fischl",
+      "materials": [
+        33,
+        56,
+        135
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/29a130db393867a62e3cd90ed3befc47.png"
+    },
+    "10000032": {
+      "name": "Bennett",
+      "clear_name": "Bennett",
+      "materials": [
+        43,
+        58,
+        137
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e93e42850d8283c4333cb3e18d1471a6.png"
+    },
+    "10000033": {
+      "name": "Tartaglia",
+      "clear_name": "CharacterTartaglia",
+      "materials": [
+        25,
+        26,
+        54,
+        78,
+        136
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/016dbc77cf3e3a3117fa3e1b52164454.png"
+    },
+    "10000034": {
+      "name": "Noelle",
+      "clear_name": "Noelle",
+      "materials": [
+        29,
+        53,
+        55,
+        56,
+        57,
+        138,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/189cd497b207c2e99b18e5fed297c16e.png"
+    },
+    "10000035": {
+      "name": "Qiqi",
+      "clear_name": "Qiqi",
+      "materials": [
+        34,
+        57,
+        133
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/3f995559e1405306c27a9732140f785d.png"
+    },
+    "10000036": {
+      "name": "Chongyun",
+      "clear_name": "Chongyun",
+      "materials": [
+        40,
+        53,
+        55,
+        56,
+        57,
+        133,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5da36943a375e4529454f5ca14c5675c.png"
+    },
+    "10000037": {
+      "name": "Ganyu",
+      "clear_name": "Ganyu",
+      "materials": [
+        32,
+        47,
+        133
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/7c30214ebe0b859687b0bd8618a41b01.png"
+    },
+    "10000038": {
+      "name": "Albedo",
+      "clear_name": "Albedo",
+      "materials": [
+        35,
+        57,
+        138
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/2fb617e1c7bc90298cb5b8fad8a0e5b4.png"
+    },
+    "10000039": {
+      "name": "Diona",
+      "clear_name": "Diona",
+      "materials": [
+        31,
+        56,
+        133
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/7c3f780780e5349efdf2a55552bff5fa.png"
+    },
+    "10000041": {
+      "name": "Mona",
+      "clear_name": "Mona",
+      "materials": [
+        39,
+        47,
+        136
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5b15f556fbb665c426fcf12eb400a724.png"
+    },
+    "10000042": {
+      "name": "Keqing",
+      "clear_name": "Keqing",
+      "materials": [
+        40,
+        47,
+        135
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/81ae5e34a7d54f24aba74c1062113d3a.png"
+    },
+    "10000043": {
+      "name": "Sucrose",
+      "clear_name": "Sucrose",
+      "materials": [
+        43,
+        47,
+        132
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/7474fc2d4fe0f2345a1ce99d1891fbe6.png"
+    },
+    "10000044": {
+      "name": "Xinyan",
+      "clear_name": "Xinyan",
+      "materials": [
+        34,
+        58,
+        137
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d9dbec0b2a88a7910e5d2bc4a7eaf64c.png"
+    },
+    "10000045": {
+      "name": "Rosaria",
+      "clear_name": "Rosaria",
+      "materials": [
+        25,
+        26,
+        29,
+        54,
+        133
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/70508fdd879ce139da5807a66678eec6.png"
+    },
+    "10000046": {
+      "name": "Hu Tao",
+      "clear_name": "HuTao",
+      "materials": [
+        36,
+        47,
+        157
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/cd31ee8e24162a72e2afc1d23da0ddfe.png"
+    },
+    "10000047": {
+      "name": "Kaedehara Kazuha",
+      "clear_name": "KaedeharaKazuha",
+      "materials": [
+        58,
+        183,
+        185
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5e89a2f8a349b2530f50526a18a924f0.png"
+    },
+    "10000048": {
+      "name": "Yanfei",
+      "clear_name": "Yanfei",
+      "materials": [
+        42,
+        58,
+        157
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/46ad95e777bcb931cbf37bc73fa26506.png"
+    },
+    "10000049": {
+      "name": "Yoimiya",
+      "clear_name": "Yoimiya",
+      "materials": [
+        57,
+        197,
+        203
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5c70b3d79bcc0c128551cbab9e9ecdcb.png"
+    },
+    "10000050": {
+      "name": "Thoma",
+      "clear_name": "Thoma",
+      "materials": [
+        58,
+        203,
+        266
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/544dc06d8c382fd76068fc7fae417ff4.png"
+    },
+    "10000051": {
+      "name": "Eula",
+      "clear_name": "Eula",
+      "materials": [
+        37,
+        53,
+        55,
+        56,
+        57,
+        149,
+        181
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5ead6794cf5a95f8765aed3bd86a84a3.png"
+    },
+    "10000052": {
+      "name": "Raiden Shogun",
+      "clear_name": "RaidenShogun",
+      "materials": [
+        209,
+        228,
+        263
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/3545d33dea4f24fa79492479a54e51d9.png"
+    },
+    "10000053": {
+      "name": "Sayu",
+      "clear_name": "Sayu",
+      "materials": [
+        47,
+        183,
+        211
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/9d3e3c70a3edc8fe59bd568d85dc7802.png"
+    },
+    "10000054": {
+      "name": "Sangonomiya Kokomi",
+      "clear_name": "SangonomiyaKokomi",
+      "materials": [
+        227,
+        229,
+        262
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b798176c48966e5d2c39ea7e640f85c3.png"
+    },
+    "10000055": {
+      "name": "Gorou",
+      "clear_name": "Gorou",
+      "materials": [
+        204,
+        227,
+        229
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/18aa7c7715634433c23b827eb83fdf98.png"
+    },
+    "10000056": {
+      "name": "Kujou Sara",
+      "clear_name": "KujouSara",
+      "materials": [
+        53,
+        55,
+        56,
+        57,
+        149,
+        198,
+        263
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/9f415e036e4b3349f7dee787e4f3054b.png"
+    },
+    "10000057": {
+      "name": "Arataki Itto",
+      "clear_name": "AratakiItto",
+      "materials": [
+        59,
+        196,
+        318
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b24f9d1a2be3e663622ee646ae1c4d97.png"
+    },
+    "10000058": {
+      "name": "Yae Miko",
+      "clear_name": "YaeMiko",
+      "materials": [
+        185,
+        209,
+        333
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6ef1633dc98579f81293ec3ef8544927.png"
+    },
+    "10000059": {
+      "name": "Shikanoin Heizou",
+      "clear_name": "ShikanoinHeizou",
+      "materials": [
+        58,
+        196,
+        352
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b6d66051bd69173e37ca5373911319cc.png"
+    },
+    "10000060": {
+      "name": "Yelan",
+      "clear_name": "Yelan",
+      "materials": [
+        25,
+        26,
+        54,
+        78,
+        352
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/1a05db64d1fb79ea08772ebd5d13b95a.png"
+    },
+    "10000062": {
+      "name": "Aloy",
+      "clear_name": "Aloy",
+      "materials": [
+        181,
+        211,
+        229
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/9899b8324759fcdcc03a886f5e2f3acf.png"
+    },
+    "10000063": {
+      "name": "Shenhe",
+      "clear_name": "Shenhe",
+      "materials": [
+        32,
+        47,
+        333
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/59b13325c4e00f5721f89a298a9f824c.png"
+    },
+    "10000064": {
+      "name": "Yun Jin",
+      "clear_name": "YunJin",
+      "materials": [
+        38,
+        53,
+        55,
+        56,
+        57,
+        149,
+        318
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6e8fa129c1568008bfdd91db02fe8b0a.png"
+    },
+    "10000065": {
+      "name": "Kuki Shinobu",
+      "clear_name": "KukiShinobu",
+      "materials": [
+        197,
+        229,
+        352
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d039eefd8c6c5cd37887476e4384f314.png"
+    },
+    "10000066": {
+      "name": "Kamisato Ayato",
+      "clear_name": "KamisatoAyato",
+      "materials": [
+        199,
+        209,
+        262
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/37787ac39359071ab18f05cad4a476ad.png"
+    },
+    "10000067": {
+      "name": "Collei",
+      "clear_name": "Collei",
+      "materials": [
+        56,
+        391,
+        402
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/276b4632bcaf86847fbb9de3a95085e0.png"
+    },
+    "10000069": {
+      "name": "Tighnari",
+      "clear_name": "Tighnari",
+      "materials": [
+        221,
+        391,
+        400
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/79f0d8c4866e5bafe0e5d80e34997358.png"
+    }
+  },
+  "character_types": [
+    {
+      "id": "1",
+      "name": "Pyro",
+      "children": [
+        10000016,
+        10000021,
+        10000023,
+        10000029,
+        10000032,
+        10000044,
+        10000046,
+        10000048,
+        10000049,
+        10000050
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/6f20b224d213bbca89c954b647d2ba9d_2876657561528774348.png"
+    },
+    {
+      "id": "2",
+      "name": "Anemo",
+      "children": [
+        10000003,
+        10000005,
+        10000022,
+        10000026,
+        10000043,
+        10000047,
+        10000053,
+        10000059
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/af796ab9dd8271ea86eb8334fbdba37b_684272703534831318.png"
+    },
+    {
+      "id": "3",
+      "name": "Geo",
+      "children": [
+        10000005,
+        10000027,
+        10000030,
+        10000034,
+        10000038,
+        10000055,
+        10000057,
+        10000064
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/ea185f4d38462337f9f142f826508a02_7983313287063270478.png"
+    },
+    {
+      "id": "4",
+      "name": "Dendro",
+      "children": [
+        10000005,
+        10000067,
+        10000069
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/08/24/007402379ec4182590ab9d2398af915d_3407882109289426968.png"
+    },
+    {
+      "id": "5",
+      "name": "Electro",
+      "children": [
+        10000005,
+        10000006,
+        10000020,
+        10000024,
+        10000031,
+        10000042,
+        10000052,
+        10000056,
+        10000058,
+        10000065
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/2832584e192deb57088f91b3bb35efd7_894036867413841112.png"
+    },
+    {
+      "id": "6",
+      "name": "Hydro",
+      "children": [
+        10000014,
+        10000025,
+        10000033,
+        10000041,
+        10000054,
+        10000060,
+        10000066
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/ac01b8d744e15a25ff655b9cf459330f_5771890546756044029.png"
+    },
+    {
+      "id": "7",
+      "name": "Cryo",
+      "children": [
+        10000002,
+        10000015,
+        10000035,
+        10000036,
+        10000037,
+        10000039,
+        10000045,
+        10000051,
+        10000062,
+        10000063
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/3186fa909d9b0e676e4b8f358a3bded3_7889347036743384914.png"
+    }
+  ],
+  "weapon": {
+    "11101": {
+      "name": "Dull Blade",
+      "clear_name": "DullBlade",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/543fe852c4b507c51f6e5f4978e46a39.png"
+    },
+    "11201": {
+      "name": "Silver Sword",
+      "clear_name": "SilverSword",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/4e784d3aa1e76358c5452ecb75eab152.png"
+    },
+    "11301": {
+      "name": "Cool Steel",
+      "clear_name": "CoolSteel",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5d5fd7c35fc8f386f52057b653839b09.png"
+    },
+    "11302": {
+      "name": "Harbinger of Dawn",
+      "clear_name": "HarbingerofDawn",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/474eee65cf9faa95e8acd344bd35354a.png"
+    },
+    "11303": {
+      "name": "Traveler's Handy Sword",
+      "clear_name": "TravelersHandySword",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/f2479029b31e7e0fdbf8f1d1dfc148d2.png"
+    },
+    "11304": {
+      "name": "Dark Iron Sword",
+      "clear_name": "DarkIronSword",
+      "materials": [
+        25,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/4aa2643bf07f955a73b7b724b4ca4cad.png"
+    },
+    "11305": {
+      "name": "Fillet Blade",
+      "clear_name": "FilletBlade",
+      "materials": [
+        26,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/68db2a55c427a02a7df9e747532a72b0.png"
+    },
+    "11306": {
+      "name": "Skyrider Sword",
+      "clear_name": "SkyriderSword",
+      "materials": [
+        25,
+        26,
+        49,
+        54,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/f046c3004423e73c9b1075ec0f8add60.png"
+    },
+    "11401": {
+      "name": "Favonius Sword",
+      "clear_name": "FavoniusSword",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/f9c4f0de4ca04c98e446caa93711ca92.png"
+    },
+    "11402": {
+      "name": "The Flute",
+      "clear_name": "TheFlute",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/4c2fc821eeced733de3c34085b37abca.png"
+    },
+    "11403": {
+      "name": "Sacrificial Sword",
+      "clear_name": "SacrificialSword",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/22584a8369ec51d1acf00f50d609f991.png"
+    },
+    "11404": {
+      "name": "Royal Longsword",
+      "clear_name": "RoyalLongsword",
+      "materials": [
+        53,
+        55,
+        56,
+        57,
+        149,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b229af054ddf104825f6fbd03d886d00.png"
+    },
+    "11405": {
+      "name": "Lion's Roar",
+      "clear_name": "LionsRoar",
+      "materials": [
+        25,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/0b4ebe7d0d78676d41c28cee31a621d2.png"
+    },
+    "11406": {
+      "name": "Prototype Rancour",
+      "clear_name": "PrototypeRancour",
+      "materials": [
+        25,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6d6c7557f202e8faf076664038dee7ea.png"
+    },
+    "11407": {
+      "name": "Iron Sting",
+      "clear_name": "IronSting",
+      "materials": [
+        47,
+        49,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/30c34494afe890f5b37091caddf3f2ac.png"
+    },
+    "11408": {
+      "name": "Blackcliff Longsword",
+      "clear_name": "BlackcliffLongsword",
+      "materials": [
+        25,
+        56
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d306919ce9aac448a7ce5fa4687f8125.png"
+    },
+    "11409": {
+      "name": "The Black Sword",
+      "clear_name": "TheBlackSword",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/0782e5dbec108705e440fe9e64f0b206.png"
+    },
+    "11410": {
+      "name": "The Alley Flash",
+      "clear_name": "TheAlleyFlash",
+      "materials": [
+        53,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e69bf78fe13784e049cf7947b1f0b67d.png"
+    },
+    "11413": {
+      "name": "Festering Desire",
+      "clear_name": "FesteringDesire",
+      "materials": [
+        25,
+        26,
+        53,
+        54,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/9cc47c874e9ebb3c4a68b179454629f7.png"
+    },
+    "11414": {
+      "name": "Amenoma Kageuchi",
+      "clear_name": "AmenomaKageuchi",
+      "materials": [
+        209,
+        215
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/61ca53776421e0d760d0e29fff7cb6d4.png"
+    },
+    "11415": {
+      "name": "Cinnabar Spindle",
+      "clear_name": "CinnabarSpindle",
+      "materials": [
+        27,
+        28,
+        53,
+        55,
+        56,
+        57,
+        149,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/309f151f1f896610a906b290215d4105.png"
+    },
+    "11416": {
+      "name": "Kagotsurube Isshin",
+      "clear_name": "KagotsurubeIsshin",
+      "materials": [
+        229,
+        344
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/4ee355bdade6bb49e68b255d7ea6e7a4.png"
+    },
+    "11417": {
+      "name": "Sapwood Blade",
+      "clear_name": "SapwoodBlade",
+      "materials": [
+        388,
+        389
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6abdff40ca1eeb3500b8419842f8914c.png"
+    },
+    "11501": {
+      "name": "Aquila Favonia",
+      "clear_name": "AquilaFavonia",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/0faa3aeb059404c2ae88f3980383bd5d.png"
+    },
+    "11502": {
+      "name": "Skyward Blade",
+      "clear_name": "SkywardBlade",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/83ac306246991cbf5cd07be78b02032d.png"
+    },
+    "11503": {
+      "name": "Freedom-Sworn",
+      "clear_name": "FreedomSworn",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/46fe6c244dc7d3996839f252b146a80e.png"
+    },
+    "11504": {
+      "name": "Summit Shaper",
+      "clear_name": "SummitShaper",
+      "materials": [
+        25,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/18f85e8f1759fce7d996295350709022.png"
+    },
+    "11505": {
+      "name": "Primordial Jade Cutter",
+      "clear_name": "PrimordialJadeCutter",
+      "materials": [
+        26,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/3bdde2d7a3579041a8453b3135c98912.png"
+    },
+    "11509": {
+      "name": "Mistsplitter Reforged",
+      "clear_name": "MistsplitterReforged",
+      "materials": [
+        209,
+        215
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b95f956b71d9a18af125e42e32dcdd18.png"
+    },
+    "11510": {
+      "name": "Haran Geppaku Futsu",
+      "clear_name": "HaranGeppakuFutsu",
+      "materials": [
+        209,
+        344
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/12f0559d896694849757ea28b5de5b04.png"
+    },
+    "12101": {
+      "name": "Waster Greatsword",
+      "clear_name": "WasterGreatsword",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/4c988f29843389e35e555cd84b4677a4.png"
+    },
+    "12201": {
+      "name": "Old Merc's Pal",
+      "clear_name": "OldMercsPal",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b0b7015b3ad68900f21ffa1a9c8ff568.png"
+    },
+    "12301": {
+      "name": "Ferrous Shadow",
+      "clear_name": "FerrousShadow",
+      "materials": [
+        47,
+        53,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/3f2e757546aafad78f3412cd9fb75a43.png"
+    },
+    "12302": {
+      "name": "Bloodtainted Greatsword",
+      "clear_name": "BloodtaintedGreatsword",
+      "materials": [
+        24,
+        56
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a642266832169c40f9ad1552b7896988.png"
+    },
+    "12303": {
+      "name": "White Iron Greatsword",
+      "clear_name": "WhiteIronGreatsword",
+      "materials": [
+        27,
+        28,
+        59,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5dc5c17a3022f73277949974e2842a1e.png"
+    },
+    "12305": {
+      "name": "Debate Club",
+      "clear_name": "DebateClub",
+      "materials": [
+        26,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/1536f8b6834fde4ca9f62f36259406b5.png"
+    },
+    "12306": {
+      "name": "Skyrider Greatsword",
+      "clear_name": "SkyriderGreatsword",
+      "materials": [
+        49,
+        58,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/4fcea5445f02122bd5326f9cd2fc163b.png"
+    },
+    "12401": {
+      "name": "Favonius Greatsword",
+      "clear_name": "FavoniusGreatsword",
+      "materials": [
+        25,
+        26,
+        27,
+        28,
+        54,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/1b547f1424385ced1adc4c4817b1a9c2.png"
+    },
+    "12402": {
+      "name": "The Bell",
+      "clear_name": "TheBell",
+      "materials": [
+        53,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/81f5381798a931152c2e039e6fc0806f.png"
+    },
+    "12403": {
+      "name": "Sacrificial Greatsword",
+      "clear_name": "SacrificialGreatsword",
+      "materials": [
+        24,
+        56
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/64b7303b9c08c50e71696c53bab8bf31.png"
+    },
+    "12404": {
+      "name": "Royal Greatsword",
+      "clear_name": "RoyalGreatsword",
+      "materials": [
+        27,
+        28,
+        59,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/097e98ca6e122207313b9efda5ab5594.png"
+    },
+    "12405": {
+      "name": "Rainslasher",
+      "clear_name": "Rainslasher",
+      "materials": [
+        26,
+        57
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/32b87a19b518bc86c6b46a9bda70e4d0.png"
+    },
+    "12406": {
+      "name": "Prototype Archaic",
+      "clear_name": "PrototypeArchaic",
+      "materials": [
+        49,
+        53,
+        55,
+        56,
+        57,
+        149,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/ba745a92f36b71a5c22fd4ab06d46a0e.png"
+    },
+    "12407": {
+      "name": "Whiteblind",
+      "clear_name": "Whiteblind",
+      "materials": [
+        25,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/db555054cfa094b7509f4d34783dc253.png"
+    },
+    "12408": {
+      "name": "Blackcliff Slasher",
+      "clear_name": "BlackcliffSlasher",
+      "materials": [
+        25,
+        26,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/71dd1ddb6143b506881f55a0d35cc45b.png"
+    },
+    "12409": {
+      "name": "Serpent Spine",
+      "clear_name": "SerpentSpine",
+      "materials": [
+        47,
+        49,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6ae0ebf650e0f3529df57fc2e88fdba1.png"
+    },
+    "12410": {
+      "name": "Lithic Blade",
+      "clear_name": "LithicBlade",
+      "materials": [
+        25,
+        56
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/c714b0bc5b8e0c34fbe97da9ed057d86.png"
+    },
+    "12411": {
+      "name": "Snow-Tombed Starsilver",
+      "clear_name": "SnowTombedStarsilver",
+      "materials": [
+        53,
+        59,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a21dc74302d59f2a0fbc2cc70b8ad2c8.png"
+    },
+    "12412": {
+      "name": "Luxurious Sea-Lord",
+      "clear_name": "LuxuriousSeaLord",
+      "materials": [
+        49,
+        59,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/bbbdabade89102fa589ec6e544a709c8.png"
+    },
+    "12414": {
+      "name": "Katsuragikiri Nagamasa",
+      "clear_name": "KatsuragikiriNagamasa",
+      "materials": [
+        209,
+        215
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/afa218b18cda2e76958bf446571f709c.png"
+    },
+    "12416": {
+      "name": "Akuoumaru",
+      "clear_name": "Akuoumaru",
+      "materials": [
+        209,
+        265
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a39546fbbfa665ba51d3ce1b60bf2b90.png"
+    },
+    "12417": {
+      "name": "Forest Regalia",
+      "clear_name": "ForestRegalia",
+      "materials": [
+        388,
+        389
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/262c4dfbbdf5e5f334cd863e5d8c4823.png"
+    },
+    "12501": {
+      "name": "Skyward Pride",
+      "clear_name": "SkywardPride",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5082b27aaf87478b45b7a4960865bb8f.png"
+    },
+    "12502": {
+      "name": "Wolf's Gravestone",
+      "clear_name": "WolfsGravestone",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/c7bb17a0d643a6b8e9ae68d7d18a8ce7.png"
+    },
+    "12503": {
+      "name": "Song of Broken Pines",
+      "clear_name": "SongofBrokenPines",
+      "materials": [
+        27,
+        28,
+        53,
+        55,
+        56,
+        57,
+        149,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/70a8caeaad9113bf91d8644b8dfcbba3.png"
+    },
+    "12504": {
+      "name": "The Unforged",
+      "clear_name": "TheUnforged",
+      "materials": [
+        26,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d620c3d3613b69b4256dfc1a4d80d051.png"
+    },
+    "12510": {
+      "name": "Redhorn Stonethresher",
+      "clear_name": "RedhornStonethresher",
+      "materials": [
+        209,
+        265
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5eb4ac3da6d3749536702578585f1e11.png"
+    },
+    "13101": {
+      "name": "Beginner's Protector",
+      "clear_name": "BeginnersProtector",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b327f6ae10975dc1d0ac91a877a03795.png"
+    },
+    "13201": {
+      "name": "Iron Point",
+      "clear_name": "IronPoint",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/31e7b73165971f2313b47ff1f3e6c0ff.png"
+    },
+    "13301": {
+      "name": "White Tassel",
+      "clear_name": "WhiteTassel",
+      "materials": [
+        25,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/ae99916f1d109514160ba7f2a8e01f05.png"
+    },
+    "13302": {
+      "name": "Halberd",
+      "clear_name": "Halberd",
+      "materials": [
+        26,
+        47
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/ce5ab0c32c0a5a03d8f8f05aff019128.png"
+    },
+    "13303": {
+      "name": "Black Tassel",
+      "clear_name": "BlackTassel",
+      "materials": [
+        49,
+        56,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/7456db1cb335a687e759cda448dcd023.png"
+    },
+    "13401": {
+      "name": "Dragon's Bane",
+      "clear_name": "DragonsBane",
+      "materials": [
+        26,
+        57
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/06c0232ebad60d9734938d4915b988ab.png"
+    },
+    "13402": {
+      "name": "Prototype Starglitter",
+      "clear_name": "PrototypeStarglitter",
+      "materials": [
+        49,
+        53,
+        55,
+        56,
+        57,
+        149,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/9217485dad3602b39faa465e922abff8.png"
+    },
+    "13403": {
+      "name": "Crescent Pike",
+      "clear_name": "CrescentPike",
+      "materials": [
+        25,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/c782e635490b8e542ac72a3ec9e7b40d.png"
+    },
+    "13404": {
+      "name": "Blackcliff Pole",
+      "clear_name": "BlackcliffPole",
+      "materials": [
+        25,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/8f0886f41d8cb7b92487f617363127ea.png"
+    },
+    "13405": {
+      "name": "Deathmatch",
+      "clear_name": "Deathmatch",
+      "materials": [
+        24,
+        47
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a155967829eb2890b04b32d1f379d94c.png"
+    },
+    "13406": {
+      "name": "Lithic Spear",
+      "clear_name": "LithicSpear",
+      "materials": [
+        49,
+        56,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e997004695243e41a93452dbfcd82546.png"
+    },
+    "13407": {
+      "name": "Favonius Lance",
+      "clear_name": "FavoniusLance",
+      "materials": [
+        27,
+        28,
+        59,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/3d659e09ef751315df4f7a067dd4a8e6.png"
+    },
+    "13408": {
+      "name": "Royal Spear",
+      "clear_name": "RoyalSpear",
+      "materials": [
+        25,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/1db6cf8f8795f8aa663391fb54e11da7.png"
+    },
+    "13409": {
+      "name": "Dragonspine Spear",
+      "clear_name": "DragonspineSpear",
+      "materials": [
+        25,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/2d9d87c78afff5cf85e501daa93fb8a8.png"
+    },
+    "13414": {
+      "name": "Kitain Cross Spear",
+      "clear_name": "KitainCrossSpear",
+      "materials": [
+        58,
+        215
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/68539756deca960c86fe5f941b44847c.png"
+    },
+    "13415": {
+      "name": "\"The Catch\"",
+      "clear_name": "TheCatch",
+      "materials": [
+        215,
+        229
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5f5507b8d6feca0c92796da801c65d72.png"
+    },
+    "13416": {
+      "name": "Wavebreaker's Fin",
+      "clear_name": "WavebreakersFin",
+      "materials": [
+        209,
+        265
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5efa3dddd28086cd52fbf5748ad40df7.png"
+    },
+    "13417": {
+      "name": "Moonpiercer",
+      "clear_name": "Moonpiercer",
+      "materials": [
+        25,
+        26,
+        54,
+        388
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e7706a9a97ae0b001d31ed2ed3afd143.png"
+    },
+    "13501": {
+      "name": "Staff of Homa",
+      "clear_name": "StaffofHoma",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b666299c419bc360d41b81373276071a.png"
+    },
+    "13502": {
+      "name": "Skyward Spine",
+      "clear_name": "SkywardSpine",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/2c7330bf5593e5f59ac31bccaf8c1ca5.png"
+    },
+    "13504": {
+      "name": "Vortex Vanquisher",
+      "clear_name": "VortexVanquisher",
+      "materials": [
+        49,
+        58,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/542ebf0dd04eadc53662a0450e95bf45.png"
+    },
+    "13505": {
+      "name": "Primordial Jade Winged-Spear",
+      "clear_name": "PrimordialJadeWingedSpear",
+      "materials": [
+        25,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/2d9d7d57b85f238c51e3afb36b33c169.png"
+    },
+    "13507": {
+      "name": "Calamity Queller",
+      "clear_name": "CalamityQueller",
+      "materials": [
+        26,
+        47
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/661dea38acbbb5efe9c22788c0671e1c.png"
+    },
+    "13509": {
+      "name": "Engulfing Lightning",
+      "clear_name": "EngulfingLightning",
+      "materials": [
+        209,
+        215
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/52cedcf56b1015f8b288f4fa59a28b00.png"
+    },
+    "14101": {
+      "name": "Apprentice's Notes",
+      "clear_name": "ApprenticesNotes",
+      "materials": [
+        53,
+        55,
+        56,
+        57,
+        149,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6856f1741f80581df8cece5f5b6a5d70.png"
+    },
+    "14201": {
+      "name": "Pocket Grimoire",
+      "clear_name": "PocketGrimoire",
+      "materials": [
+        53,
+        55,
+        56,
+        57,
+        149,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/0045647276e6a800da384f2530b3ea02.png"
+    },
+    "14301": {
+      "name": "Magic Guide",
+      "clear_name": "MagicGuide",
+      "materials": [
+        53,
+        59,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/04d9a50b64ab97b23b61f7ff81908bbc.png"
+    },
+    "14302": {
+      "name": "Thrilling Tales of Dragon Slayers",
+      "clear_name": "ThrillingTalesofDragonSlayers",
+      "materials": [
+        24,
+        57
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/cd88c537570575be1f4f772106daa3f5.png"
+    },
+    "14303": {
+      "name": "Otherworldly Story",
+      "clear_name": "OtherworldlyStory",
+      "materials": [
+        27,
+        28,
+        53,
+        55,
+        56,
+        57,
+        149,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/46e05399e5392011c65d9c424a28b57c.png"
+    },
+    "14304": {
+      "name": "Emerald Orb",
+      "clear_name": "EmeraldOrb",
+      "materials": [
+        25,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/fa8aac555d69aa2f2d80a16245cad73d.png"
+    },
+    "14305": {
+      "name": "Twin Nephrite",
+      "clear_name": "TwinNephrite",
+      "materials": [
+        25,
+        26,
+        54
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/56c3ddb609b1821e3733c7f65f9a83cc.png"
+    },
+    "14401": {
+      "name": "Favonius Codex",
+      "clear_name": "FavoniusCodex",
+      "materials": [
+        53,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/508c7df76eefba6a05674048ca8594dc.png"
+    },
+    "14402": {
+      "name": "The Widsith",
+      "clear_name": "TheWidsith",
+      "materials": [
+        24,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e86709b4ef08be8ede240966272fa2f9.png"
+    },
+    "14403": {
+      "name": "Sacrificial Fragments",
+      "clear_name": "SacrificialFragments",
+      "materials": [
+        27,
+        28,
+        58,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/250b831470ac657905973f4d417927b1.png"
+    },
+    "14404": {
+      "name": "Royal Grimoire",
+      "clear_name": "RoyalGrimoire",
+      "materials": [
+        25,
+        26,
+        53,
+        54,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a13529118969ca84506d83ee6e9404c0.png"
+    },
+    "14405": {
+      "name": "Solar Pearl",
+      "clear_name": "SolarPearl",
+      "materials": [
+        25,
+        47
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e1058e69399fd2f0be1329e0ea0a33a6.png"
+    },
+    "14406": {
+      "name": "Prototype Amber",
+      "clear_name": "PrototypeAmber",
+      "materials": [
+        26,
+        56
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/4c30f445c67ce31d73d72776620fa267.png"
+    },
+    "14407": {
+      "name": "Mappa Mare",
+      "clear_name": "MappaMare",
+      "materials": [
+        49,
+        59,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b46e8ab0398694acec37ebd9e55494df.png"
+    },
+    "14408": {
+      "name": "Blackcliff Agate",
+      "clear_name": "BlackcliffAgate",
+      "materials": [
+        25,
+        57
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e5909c8bf2b2b6785dedbb46532a1fb0.png"
+    },
+    "14409": {
+      "name": "Eye of Perception",
+      "clear_name": "EyeofPerception",
+      "materials": [
+        26,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/da579b5a9841bdfc01f404081b5e0e89.png"
+    },
+    "14410": {
+      "name": "Wine and Song",
+      "clear_name": "WineandSong",
+      "materials": [
+        24,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/2c50ba2d6405598e482964d46e0674f3.png"
+    },
+    "14412": {
+      "name": "Frostbearer",
+      "clear_name": "Frostbearer",
+      "materials": [
+        27,
+        28,
+        47,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6608e69a1caeb7d22090b911b60ceb4d.png"
+    },
+    "14413": {
+      "name": "Dodoco Tales",
+      "clear_name": "DodocoTales",
+      "materials": [
+        24,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/addbf1d8670ed87c21b5a99e9c7006f5.png"
+    },
+    "14414": {
+      "name": "Hakushin Ring",
+      "clear_name": "HakushinRing",
+      "materials": [
+        57,
+        210
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/3d59cce97695a51afda67d08fc7f2dee.png"
+    },
+    "14415": {
+      "name": "Oathsworn Eye",
+      "clear_name": "OathswornEye",
+      "materials": [
+        229,
+        265
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/9a96e46e1786398a63fb80894ef9b843.png"
+    },
+    "14417": {
+      "name": "Fruit of Fulfillment",
+      "clear_name": "FruitofFulfillment",
+      "materials": [
+        221,
+        344
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/750c0d5e9d5210a47067e01348f42542.png"
+    },
+    "14501": {
+      "name": "Skyward Atlas",
+      "clear_name": "SkywardAtlas",
+      "materials": [
+        24,
+        56
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/37bbfc1438ecb921dbac81c65063018d.png"
+    },
+    "14502": {
+      "name": "Lost Prayer to the Sacred Winds",
+      "clear_name": "LostPrayertotheSacredWinds",
+      "materials": [
+        27,
+        28,
+        59,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a407999842dd1e536887bd55aea1f39d.png"
+    },
+    "14504": {
+      "name": "Memory of Dust",
+      "clear_name": "MemoryofDust",
+      "materials": [
+        49,
+        53,
+        55,
+        56,
+        57,
+        149,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/71be48454dcd5079ee8c271a996ffd30.png"
+    },
+    "14506": {
+      "name": "Everlasting Moonglow",
+      "clear_name": "EverlastingMoonglow",
+      "materials": [
+        210,
+        229
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5fb2660d135568ff29ce2e9b4611627a.png"
+    },
+    "14509": {
+      "name": "Kagura's Verity",
+      "clear_name": "KagurasVerity",
+      "materials": [
+        229,
+        265
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/bfe533a03276860dbfa31b806fde2710.png"
+    },
+    "15101": {
+      "name": "Hunter's Bow",
+      "clear_name": "HuntersBow",
+      "materials": [
+        24,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/656393e71cead47df4ce9871964ac7ec.png"
+    },
+    "15201": {
+      "name": "Seasoned Hunter's Bow",
+      "clear_name": "SeasonedHuntersBow",
+      "materials": [
+        24,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/47490c0380bfb67949783d7c121b89d8.png"
+    },
+    "15301": {
+      "name": "Raven Bow",
+      "clear_name": "RavenBow",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/5b13926b183feb701b68f557dc5b0d41.png"
+    },
+    "15302": {
+      "name": "Sharpshooter's Oath",
+      "clear_name": "SharpshootersOath",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b24124cc0c2fef0519f8a49c144cfb2f.png"
+    },
+    "15303": {
+      "name": "Recurve Bow",
+      "clear_name": "RecurveBow",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6e936e43e6da4c0b3c22e6ab849557f2.png"
+    },
+    "15304": {
+      "name": "Slingshot",
+      "clear_name": "Slingshot",
+      "materials": [
+        25,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d5c65d1fc31be11f6c8ad1f6b276cf6c.png"
+    },
+    "15305": {
+      "name": "Messenger",
+      "clear_name": "Messenger",
+      "materials": [
+        26,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/48d9a2808b5cf3e4ae6104af52977289.png"
+    },
+    "15401": {
+      "name": "Favonius Warbow",
+      "clear_name": "FavoniusWarbow",
+      "materials": [
+        27,
+        28,
+        47,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d03b625d93e838462d50ed05daa46cd8.png"
+    },
+    "15402": {
+      "name": "The Stringless",
+      "clear_name": "TheStringless",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/66a91bbb8fedc09b7033b7d070aa5639.png"
+    },
+    "15403": {
+      "name": "Sacrificial Bow",
+      "clear_name": "SacrificialBow",
+      "materials": [
+        24,
+        59
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/a2c72bc9ddce44dc947f6f4845296764.png"
+    },
+    "15404": {
+      "name": "Royal Bow",
+      "clear_name": "RoyalBow",
+      "materials": [
+        27,
+        28,
+        57,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/51e3bed1a0b5696fc4b5aa2c83bc9e12.png"
+    },
+    "15405": {
+      "name": "Rust",
+      "clear_name": "Rust",
+      "materials": [
+        25,
+        53,
+        55,
+        56,
+        57,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/ae6a23d6289072317e27a690e841ac62.png"
+    },
+    "15406": {
+      "name": "Prototype Crescent",
+      "clear_name": "PrototypeCrescent",
+      "materials": [
+        26,
+        58
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/f8b8ed8ca176b1f91d480f0fbca07100.png"
+    },
+    "15407": {
+      "name": "Compound Bow",
+      "clear_name": "CompoundBow",
+      "materials": [
+        25,
+        26,
+        49,
+        54,
+        169
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/800f28100d4dbbe7a3a9b48e9e795081.png"
+    },
+    "15408": {
+      "name": "Blackcliff Warbow",
+      "clear_name": "BlackcliffWarbow",
+      "materials": [
+        25,
+        47
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/ea7e05fb2af1616134fa5c74e797ad17.png"
+    },
+    "15409": {
+      "name": "The Viridescent Hunt",
+      "clear_name": "TheViridescentHunt",
+      "materials": [
+        53,
+        56,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/b420d5b8573cd97aaf52e9f4da49dfa2.png"
+    },
+    "15410": {
+      "name": "Alley Hunter",
+      "clear_name": "AlleyHunter",
+      "materials": [
+        27,
+        28,
+        59,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/e1b5a14e746d933f2ebe063aaefededc.png"
+    },
+    "15411": {
+      "name": "Fading Twilight",
+      "clear_name": "FadingTwilight",
+      "materials": [
+        25,
+        57
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/db97d33e6704cae00bf25c6988377766.png"
+    },
+    "15412": {
+      "name": "Mitternachts Waltz",
+      "clear_name": "MitternachtsWaltz",
+      "materials": [
+        53,
+        58,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/d3314278f98aac2761a3261e37fe9d3f.png"
+    },
+    "15413": {
+      "name": "Windblume Ode",
+      "clear_name": "WindblumeOde",
+      "materials": [
+        24,
+        47
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/1bf593f2b17729456976228271dc8dd8.png"
+    },
+    "15414": {
+      "name": "Hamayumi",
+      "clear_name": "Hamayumi",
+      "materials": [
+        56,
+        210
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6c16e66de4f4ef63e3a3ee19f9447c24.png"
+    },
+    "15415": {
+      "name": "Predator",
+      "clear_name": "Predator",
+      "materials": [
+        56,
+        210
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/72f571184acde3866e5ac947914cd99a.png"
+    },
+    "15416": {
+      "name": "Mouun's Moon",
+      "clear_name": "MouunsMoon",
+      "materials": [
+        210,
+        229
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/454a60c131d1c5cf7c7f36c65cf6041f.png"
+    },
+    "15417": {
+      "name": "King's Squire",
+      "clear_name": "KingsSquire",
+      "materials": [
+        56,
+        221
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/0bf96a231fe5eeed3e2d47b31e729a5e.png"
+    },
+    "15418": {
+      "name": "End of the Line",
+      "clear_name": "EndoftheLine",
+      "materials": [
+        221
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/8438e8fcc4874064be65d9bf4b9ce818.png"
+    },
+    "15501": {
+      "name": "Skyward Harp",
+      "clear_name": "SkywardHarp",
+      "materials": [
+        24,
+        56
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/61d4c9337688236b343511bd8b40f9de.png"
+    },
+    "15502": {
+      "name": "Amos' Bow",
+      "clear_name": "AmosBow",
+      "materials": [
+        27,
+        28,
+        59,
+        150
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/f139ea08132d2cb678c04833de4c5b61.png"
+    },
+    "15503": {
+      "name": "Elegy for the End",
+      "clear_name": "ElegyfortheEnd",
+      "materials": [
+        25,
+        26,
+        53,
+        54,
+        149
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/01ef60910886435b668a9b936d316a6e.png"
+    },
+    "15507": {
+      "name": "Polar Star",
+      "clear_name": "PolarStar",
+      "materials": [
+        229,
+        265
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/648cc2afd5aa90e25e70318d0e6bd6ae.png"
+    },
+    "15508": {
+      "name": "Aqua Simulacra",
+      "clear_name": "AquaSimulacra",
+      "materials": [
+        229,
+        344
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/c240bd58c76b3aa306e8c17d64935409.png"
+    },
+    "15509": {
+      "name": "Thundering Pulse",
+      "clear_name": "ThunderingPulse",
+      "materials": [
+        56,
+        210
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/6cf175af3a24ed96c10e45cbd2ec1e63.png"
+    },
+    "15511": {
+      "name": "Hunter's Path",
+      "clear_name": "HuntersPath",
+      "materials": [
+        221,
+        389
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/057059e7bdacbd3c6db6a1e0bc2936e8.png"
+    }
+  },
+  "weapon_types": [
+    {
+      "id": "1",
+      "name": "Swords",
+      "children": [
+        11101,
+        11201,
+        11301,
+        11302,
+        11303,
+        11304,
+        11305,
+        11306,
+        11401,
+        11402,
+        11403,
+        11404,
+        11405,
+        11406,
+        11407,
+        11408,
+        11409,
+        11410,
+        11413,
+        11414,
+        11415,
+        11416,
+        11417,
+        11501,
+        11502,
+        11503,
+        11504,
+        11505,
+        11509,
+        11510
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/032432e2089a894f3d98678ddea4e484_2454015647499290911.png"
+    },
+    {
+      "id": "10",
+      "name": "Catalysts",
+      "children": [
+        14101,
+        14201,
+        14301,
+        14302,
+        14303,
+        14304,
+        14305,
+        14401,
+        14402,
+        14403,
+        14404,
+        14405,
+        14406,
+        14407,
+        14408,
+        14409,
+        14410,
+        14412,
+        14413,
+        14414,
+        14415,
+        14417,
+        14501,
+        14502,
+        14504,
+        14506,
+        14509
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/b05ef98ab016c4629bf352dd86e84a9a_47176135494969887.png"
+    },
+    {
+      "id": "11",
+      "name": "Claymores",
+      "children": [
+        12101,
+        12201,
+        12301,
+        12302,
+        12303,
+        12305,
+        12306,
+        12401,
+        12402,
+        12403,
+        12404,
+        12405,
+        12406,
+        12407,
+        12408,
+        12409,
+        12410,
+        12411,
+        12412,
+        12414,
+        12416,
+        12417,
+        12501,
+        12502,
+        12503,
+        12504,
+        12510
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/3e9015fab96d2236637f1c6f68690af6_5735100558624484282.png"
+    },
+    {
+      "id": "12",
+      "name": "Bows",
+      "children": [
+        15101,
+        15201,
+        15301,
+        15302,
+        15303,
+        15304,
+        15305,
+        15401,
+        15402,
+        15403,
+        15404,
+        15405,
+        15406,
+        15407,
+        15408,
+        15409,
+        15410,
+        15411,
+        15412,
+        15413,
+        15414,
+        15415,
+        15416,
+        15417,
+        15418,
+        15501,
+        15502,
+        15503,
+        15507,
+        15508,
+        15509,
+        15511
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/98379d4d063f69248e86e6b59551c1d1_9098290791106510802.png"
+    },
+    {
+      "id": "13",
+      "name": "Polearms",
+      "children": [
+        13101,
+        13201,
+        13301,
+        13302,
+        13303,
+        13401,
+        13402,
+        13403,
+        13404,
+        13405,
+        13406,
+        13407,
+        13408,
+        13409,
+        13414,
+        13415,
+        13416,
+        13417,
+        13501,
+        13502,
+        13504,
+        13505,
+        13507,
+        13509
+      ],
+      "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/4a74f4b5e2679d15240f83616a69f900_3022069685761699225.png"
+    }
+  ]
+}

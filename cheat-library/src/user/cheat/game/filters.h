@@ -331,8 +331,8 @@ namespace cheat::game::filters
 		extern SimpleFilter SaghiraMachine;
 		extern SimpleFilter StonePillarSeal;
 		extern SimpleFilter TriYanaSeeds;
-		extern SimpleFilter DendroPuzzles;
-		extern SimpleFilter DreadfulWithering;
+		extern SimpleFilter SumeruPuzzles;
+		extern SimpleFilter TheWithering;
 		extern SimpleFilter PhantasmalGate;
 	}
 
