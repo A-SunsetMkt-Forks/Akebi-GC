@@ -157,7 +157,7 @@ namespace cheat::feature
                 return false;
 
 			auto configID = entity->raw()->fields._configID_k__BackingField;
-			LOG_DEBUG("%d", configID);
+			//LOG_DEBUG("%d", configID);
 			if (configID != 70360001 && configID != 70360286)
 				return false;
 
