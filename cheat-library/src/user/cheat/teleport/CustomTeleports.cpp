@@ -317,10 +317,12 @@ namespace cheat::feature
 					 "3. You can now press Next or Previous Hotkey to Teleport through the Checklist\n"
 					 "Initially it will teleport the player to the selection made\n"
 					 "Note: Double click or click the arrow to open teleport details");
-		ConfigWidget("Enable Interpolation", f_Interpolate, "Enable interpolation between teleports when using keybinds."); ImGui::SameLine(); ImGui::SetNextItemWidth(300.0f);
+		ConfigWidget("Enable Interpolation", f_Interpolate, "Enable interpolation between teleports when using keybinds.");
+		ImGui::SetNextItemWidth(300.0f);
 		ConfigWidget("Interpolation Speed", f_Speed, 0.1f, 0.1f, 99.0f,
 					 "Interpolation speed.\n recommended setting below or equal to 0.1.");
-		ConfigWidget("Auto Teleport", f_Auto, "Enable automatic forward teleporation between teleports"); ImGui::SameLine(); ImGui::SetNextItemWidth(300.0f);
+		ConfigWidget("Auto Teleport", f_Auto, "Enable automatic forward teleporation between teleports");
+		ImGui::SetNextItemWidth(300.0f);
 		ConfigWidget("Delay Time (s)", f_DelayTime, 1, 0, 60, "Delay (in s) between teleport.\n"
 			"Note: This is not fully tested detection-wise.\nNot recommended with low values.");
 
@@ -448,7 +450,7 @@ namespace cheat::feature
 					}
 					ImGui::TableNextColumn();
 
-					ImGui::PushStyleColor(ImGuiCol_Text, selected ? IM_COL32(40, 90, 175, 255) : ImGui::ColorConvertFloat4ToU32(ImGui::GetStyle().Colors[ImGuiCol_Text]));
+					ImGui::PushStyleColor(ImGuiCol_Text, selected ? ImGui::GetColorU32(ImGuiCol_CheckMark) : ImGui::GetColorU32(ImGuiCol_Text));
 					ImGui::Text("%s", name.c_str());
 					ImGui::PopStyleColor();
 					if (ImGui::IsItemHovered())

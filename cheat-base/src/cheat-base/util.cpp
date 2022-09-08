@@ -17,7 +17,6 @@
 
 namespace util
 {
-
     std::string GetLastErrorAsString(DWORD errorId /*= 0*/)
 	{
         //Get the error message ID, if any.
