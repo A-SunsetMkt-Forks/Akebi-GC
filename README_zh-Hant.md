@@ -23,7 +23,7 @@
 ## 最新版本
 1. 前往 [action](https://github.com/Akebi-Group/Akebi-GC/actions) 介面
 1. 點選[Publish](https://github.com/Akebi-Group/Akebi-GC/actions/workflows/main.yml)工作流程
-1. 選擇帶有綠色複選標記的最新工作流程 :heavy_check_mark: （選擇您的客戶端版本 **GLOBAL/CN/BETA**）。
+1. 選擇帶有綠色複選標記的最新工作流程 :heavy_check_mark: （選擇您的客戶端版本 **GLOBAL:國際服/CN:國服/BETA:測試服**）。
 	<p align="center">
 	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429274-1e556c58-8027-4ec9-9c1d-3609c75aede4.png"></a>
 	</p>
@@ -38,7 +38,7 @@
 ### 使用方法
 1. 確保 `CLibrary.dll` 跟 `injector.exe` 在同一個資料夾裡面。
 2. 執行 `injector.exe`.
-3. 等到登錄界面出現後，按下F1來打開Akebi介面。
+3. 等到登錄界面出現後，按下`F1`來打開Akebi介面。
 
 <h1 align="center">功能簡介</h1>
 
@@ -130,13 +130,13 @@
 
 <h1 align="center">Bugs</h1>
 
-歡迎閱讀關於錯誤報告（Bug reporting）的簡短解釋！(開啟issue時，有提供模板)
+歡迎閱讀關於錯誤報告（Bug reporting）的簡短解釋！
 
 1. 您發現了一個錯誤。
-1. 把接下來發生的事情記錄下來，以及你認為造成這種情況的第一想法。
-1. 它可以被重現嗎？可以或不可以。如果可以：盡可能清楚地解釋清楚，當錯誤發生時，會發生什麼，為什麼會發生。 ~~如果不可以：無須報告，建議求佛。我們不會通靈。~~
-1. 告訴我們你使用的是哪個版本。複製你建立mod時的最新提交的SHA Hash/版本號。例如：`bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
-1. [開啟一個Issue(有提供模板!)](https://github.com/Akebi-Group/Akebi-GC/issues)
+2. 把接下來發生的事情記錄下來，以及你認為造成這種情況的第一想法。
+3. 它可以被重現嗎？可以或不可以。如果可以：盡可能清楚地解釋清楚，當錯誤發生時，會發生什麼，為什麼會發生。 ~~如果不可以：無須報告，建議求佛。我們不會通靈。~~
+4. 告訴我們你使用的是哪個版本。複製你建立mod時的最新提交的SHA Hash/版本號。例如：`bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
+5. [使用英文開啟一個Issue(有提供模板!)](https://github.com/Akebi-Group/Akebi-GC/issues)
 
 <h1 align="center">社群貢獻</h1>
 
@@ -149,5 +149,5 @@
 
 ## 建議
 
-用你想提出的建議，開一個問題（Issues）。
-在描述中，確保內容有足夠的描述性，以便我們的開發人員能夠理解，你想要什麼以及你想要怎樣。
+用英文開一個問題([Issue](https://github.com/Akebi-Group/Akebi-GC/issues))。
+在描述中，確保內容**足夠清楚**，以便我們的開發人員能夠理解，你想要什麼以及你想要怎樣。

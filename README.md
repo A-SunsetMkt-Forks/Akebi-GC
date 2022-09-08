@@ -17,7 +17,7 @@
 <h1 align="center">Getting Started</h1>
 
 ## Stable Release
-1. Head over to the releases page
+1. Head over to the (releases page)[https://github.com/Akebi-Group/Akebi-GC/releases]
 1. Download the latest binaries
 
 ## Latest Release
@@ -150,5 +150,5 @@ Welcome to the short explanation for bug reporting
 
 ## Suggestions
 
-Open an issue with the title of the suggestion you want to make.
-In the description, make sure it is descriptive enough so our devs can understand what you want and how you want it.  
+Open an [issue](https://github.com/Akebi-Group/Akebi-GC/issues) with the title of the suggestion you want to make.
+In the description, make sure it is **descriptive enough** so our devs can understand what you want and how you want it.  
