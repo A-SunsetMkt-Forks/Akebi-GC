@@ -146,7 +146,7 @@ Welcome to the short explanation for bug reporting
 1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 1. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 1. Push to the Branch (`git push origin feature/AmazingFeature`)
-1. (Open a Pull Request)[https://github.com/Akebi-Group/Akebi-GC/pulls]
+2. [Open a Pull Request](https://github.com/Akebi-Group/Akebi-GC/pulls)
 
 ## Suggestions
 
