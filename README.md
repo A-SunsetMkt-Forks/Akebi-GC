@@ -17,11 +17,11 @@
 <h1 align="center">Getting Started</h1>
 
 ## Stable Release
-1. Head over to the (releases page)[https://github.com/Akebi-Group/Akebi-GC/releases]
-1. Download the latest binaries
+1. Head over to the [releases page](https://github.com/Akebi-Group/Akebi-GC/releases)
+2. Download the latest binaries
 
 ## Latest Release
-1. Head over to the [action](https://github.com/Akebi-Group/Akebi-GC/actions) page
+1. Head over to the [Action](https://github.com/Akebi-Group/Akebi-GC/actions) page
 1. Click Publish workflow
 1. Select most recent workflow with green checkmark ✔ (Choose your client version **GLOBAL/CN/BETA**)
 	<p align="center">
