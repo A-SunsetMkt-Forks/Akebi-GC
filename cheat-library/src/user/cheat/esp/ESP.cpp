@@ -146,6 +146,26 @@ namespace cheat::feature
 		return instance;
 	}
 
+    bool ESP::isBuriedChest(game::Entity* entity)
+    {
+        if (entity->name().find("_WorldArea_Operator") != std::string::npos)
+        {
+            auto entityGameObject = app::MoleMole_BaseEntity_get_rootGameObject(entity->raw(), nullptr);
+            auto transform = app::GameObject_GetComponentByName(entityGameObject, string_to_il2cppi("Transform"), nullptr);
+            auto child = app::Transform_FindChild(reinterpret_cast<app::Transform*>(transform), string_to_il2cppi("CircleR2H2"), nullptr);
+            if (child == nullptr)
+                return false;
+
+			auto configID = entity->raw()->fields._configID_k__BackingField;
+			LOG_DEBUG("%d", configID);
+			if (configID != 70360001 && configID != 70360286)
+				return false;
+
+            return true;
+        }
+        return false;
+    }
+
 	void ESP::GetNpcName(std::string& name)
 	{
 		if (name.find("Avatar") != std::string::npos)
@@ -414,9 +434,18 @@ namespace cheat::feature
 					auto& entry = field.value();
 					if (!entry.m_Enabled || !m_FilterExecutor.ApplyFilter(entity, filter))
 						continue;
-
+                    if (entry.m_Name == "Buried Chest")
+					{
+                        if(isBuriedChest(entity))
+                        {
+                            esp::render::DrawEntity(entry.m_Name, entity, entry.m_Color, entry.m_ContrastColor);
+                        }
+                        break;
+                    }
 					if (entry.m_Name == "Npc" || "AvatarOwn" || "AvatarTeammate")
 					{
+                        if (isBuriedChest(entity))
+                            continue;
 						if (entity->type() == app::EntityType__Enum_1::Avatar || entity->type() == app::EntityType__Enum_1::NPC)
 						{
 							std::string name = entity->name();
@@ -591,7 +620,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(chest, LuxuriousChest);
 		ADD_FILTER_FIELD(chest, RemarkableChest);
 		// Other Chests
-		//ADD_FILTER_FIELD(chest, BuriedChest); // Shared name, commented for now
+		ADD_FILTER_FIELD(chest, BuriedChest);
 		ADD_FILTER_FIELD(chest, SearchPoint);
 		
 

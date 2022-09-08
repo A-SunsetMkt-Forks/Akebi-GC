@@ -35,6 +35,7 @@ namespace cheat::feature
 
 		config::Field<bool> f_DrawDistance;
 		config::Field<bool> f_DrawName;
+		//config::Field<bool> f_HideCompleted;
 		config::Field<float> f_ArrowRadius;
 		config::Field<float> f_OutlineThickness;
 		config::Field<float> f_TracerSize;
@@ -80,7 +81,8 @@ namespace cheat::feature
 		void DrawFilterField(const config::Field<esp::ESPItem>& field);
 
 		void GetNpcName(std::string& name);
-		
+		bool isBuriedChest(game::Entity* entity);
+
 		void OnKeyUp(short key, bool& cancelled);
 
 		ESP();
