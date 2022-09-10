@@ -25,6 +25,7 @@ namespace cheat::feature
 	FreeCamera::FreeCamera() : Feature(),
 		NF(f_Enabled, "Free Camera", "Visuals::FreeCamera", false),
 		NF(f_FreezeAnimation, "Freeze Character Animation", "Visuals::FreeCamera", false),
+		NF(f_BlockInput, "Block Input", "Visuals::FreeCamera", false),
 		NF(f_DamageOverlay, "Damage Overlay", "Visuals::FreeCamera", false),
 		NF(f_HpOverlay, "Enemy HP Overlay", "Visuals::FreeCamera", false),
 		NF(f_Speed, "Speed", "Visuals::FreeCamera", 1.0f),
@@ -61,6 +62,7 @@ namespace cheat::feature
 	{
 		ConfigWidget("Enable", f_Enabled);
 		ConfigWidget("Freeze Character Animation", f_FreezeAnimation, "Freezes the active character's animation.");
+		ConfigWidget("Block User Input", f_BlockInput, "If enabled, any input will be blocked.");
 		if (f_Enabled)
 		{
 			ConfigWidget("Toggle Damage Overlay", f_DamageOverlay, "Remove damage output overlay");
@@ -242,6 +244,12 @@ namespace cheat::feature
 
 	void FreeCamera::OnGameUpdate()
 	{
+		auto uiManager = GET_SINGLETON(MoleMole_UIManager);
+		if (uiManager == nullptr)
+			return;
+
+		static bool isBlock = false;
+
 		if (f_Enabled)
 		{
 			if (mainCam == nullptr)
@@ -282,6 +290,23 @@ namespace cheat::feature
 			DisableFreeCam();
 			damageOverlay = nullptr;
 			hpOverlay = nullptr;
+		}
+
+		if (f_BlockInput)
+		{
+			if (!isBlock)
+			{
+				app::MoleMole_UIManager_EnableInput(uiManager, false, false, false, nullptr);
+				isBlock = true;
+			}
+		}
+		else
+		{
+			if (isBlock)
+			{
+				app::MoleMole_UIManager_EnableInput(uiManager, true, false, false, nullptr);
+				isBlock = false;
+			}
 		}
 
 		// Taiga#5555: There's probably be a better way of implementing this. But for now, this is just what I came up with.
