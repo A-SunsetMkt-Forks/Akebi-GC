@@ -234,7 +234,8 @@ namespace cheat::feature
         NF(f_Enabled, "Animation Changer", "Visuals::AnimationChanger", false),
         NF(f_Animation, "Animation", "Visuals::AnimationChanger", "ExtraAttack"),
         NF(f_ApplyKey, "Apply Animation", "Visuals::AnimationChanger", Hotkey('Y')),
-        NF(f_ResetKey, "Reset Animation", "Visuals::AnimationChanger", Hotkey('R'))
+        NF(f_ResetKey, "Reset Animation", "Visuals::AnimationChanger", Hotkey('R')),
+        NF(f_Delay, "Repeat Delay", "Visuals::AnimationChanger", 400)
     {
         events::GameUpdateEvent += MY_METHOD_HANDLER(AnimationChanger::OnGameUpdate);
     }
@@ -268,6 +269,7 @@ namespace cheat::feature
 
                 ConfigWidget("Apply Key", f_ApplyKey, true);
                 ConfigWidget("Reset Key", f_ResetKey, true);
+                ConfigWidget("Delay", f_Delay, 1, 1, 1000000000, "Delay to repeat animation");
             }
         }
         ImGui::EndGroupPanel();
@@ -294,8 +296,7 @@ namespace cheat::feature
         if (!f_Enabled)
             return;
 
-        // Taiga#5555: Maybe need to add separate option to change delay value if user feels like it's too fast or slow.
-        UPDATE_DELAY(400);
+        UPDATE_DELAY(f_Delay);
 
         auto& manager = game::EntityManager::instance();
         auto avatar = manager.avatar();
