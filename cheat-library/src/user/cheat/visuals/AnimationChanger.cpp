@@ -269,7 +269,7 @@ namespace cheat::feature
 
                 ConfigWidget("Apply Key", f_ApplyKey, true);
                 ConfigWidget("Reset Key", f_ResetKey, true);
-                ConfigWidget("Delay", f_Delay, 1.0f, 1.0f, 1000000000.0f, "Delay to repeat animation");
+                ConfigWidget("Delay", f_Delay, 1, 1, 1000000000, "Delay to repeat animation");
             }
         }
         ImGui::EndGroupPanel();
