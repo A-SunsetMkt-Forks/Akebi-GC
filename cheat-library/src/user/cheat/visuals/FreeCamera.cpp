@@ -189,9 +189,9 @@ namespace cheat::feature
 			targetPosition = targetPosition - app::Transform_get_right(freeCam_Transform, nullptr) * settings.f_Speed;
 
 		if (settings.f_LeftRoll.value().IsPressed())
-			targetRotation.roll += settings.f_Speed;
+			targetRotation.roll += settings.f_RollSpeed;
 		if (settings.f_RightRoll.value().IsPressed())
-			targetRotation.roll -= settings.f_Speed;
+			targetRotation.roll -= settings.f_RollSpeed;
 		if (settings.f_ResetRoll.value().IsPressed())
 			targetRotation.roll = 0.0f;
 
