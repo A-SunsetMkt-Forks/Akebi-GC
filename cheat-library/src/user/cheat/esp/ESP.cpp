@@ -681,6 +681,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Onikabuto);
 		ADD_FILTER_FIELD(living, Pigeon);
 		ADD_FILTER_FIELD(living, Salamander);
+		ADD_FILTER_FIELD(living, Scarab);
 		ADD_FILTER_FIELD(living, Squirrel);
 		ADD_FILTER_FIELD(living, Starconch);
 		ADD_FILTER_FIELD(living, Weasel);
@@ -734,6 +735,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, MaguuKenki);
 		// Sumeru
 		ADD_FILTER_FIELD(monster, JadeplumeTerrorshroom);
+		ADD_FILTER_FIELD(monster, AeonblightDrake);
 		// Regular. Alphabetical.
 		ADD_FILTER_FIELD(monster, AbyssMage);
 		ADD_FILTER_FIELD(monster, BlackSerpentKnight);
@@ -764,6 +766,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, OceanidFrog);
 		ADD_FILTER_FIELD(monster, OceanidSquirrel);
 		ADD_FILTER_FIELD(monster, OceanidWigeon);
+		ADD_FILTER_FIELD(monster, PrimalConstruct);
 		ADD_FILTER_FIELD(monster, PyroAbyssLector);
 		ADD_FILTER_FIELD(monster, Rifthound);
 		ADD_FILTER_FIELD(monster, RifthoundWhelp);
@@ -775,6 +778,8 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, RuinSentinel);
 		ADD_FILTER_FIELD(monster, Samachurl);
 		ADD_FILTER_FIELD(monster, SangonomiyaCohort);
+		ADD_FILTER_FIELD(monster, Scorpion);
+		ADD_FILTER_FIELD(monster, SemiPerpetualControlMatrix);
 		ADD_FILTER_FIELD(monster, ShadowyHusk);
 		ADD_FILTER_FIELD(monster, ShaggySumpterBeast);
 		ADD_FILTER_FIELD(monster, ShogunateInfantry);
@@ -784,10 +789,12 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, StretchyFungus);
 		ADD_FILTER_FIELD(monster, TreasureHoarder);
 		ADD_FILTER_FIELD(monster, UnusualHilichurl);
+		ADD_FILTER_FIELD(monster, Vulture);
 		ADD_FILTER_FIELD(monster, WhirlingFungus);
 		ADD_FILTER_FIELD(monster, Whopperflower);
 		ADD_FILTER_FIELD(monster, WingedShroom);
 
+		ADD_FILTER_FIELD(plant, Ajilenakh);
 		ADD_FILTER_FIELD(plant, AmakumoFruit);
 		ADD_FILTER_FIELD(plant, Apple);
 		ADD_FILTER_FIELD(plant, BambooShoot);
@@ -817,6 +824,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(plant, Pinecone);
 		ADD_FILTER_FIELD(plant, Qingxin);
 		ADD_FILTER_FIELD(plant, Radish);
+		ADD_FILTER_FIELD(plant, Redcrest);
 		ADD_FILTER_FIELD(plant, RukkhashavaMushroom);
 		ADD_FILTER_FIELD(plant, SakuraBloom);
 		ADD_FILTER_FIELD(plant, SangoPearl);
