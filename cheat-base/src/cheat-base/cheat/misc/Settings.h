@@ -1,6 +1,7 @@
 #pragma once
 #include <cheat-base/cheat/Feature.h>
 #include <cheat-base/config/config.h>
+#include <cheat-base/util.h>
 
 namespace cheat::feature
 {
@@ -40,10 +41,16 @@ namespace cheat::feature
 		const FeatureGUIInfo& GetGUIInfo() const override;
 		void DrawMain() override;
 		void Init();
-		void Colors_Export(std::string name);
-		void Colors_Import(std::string name);
 
 	private:
+		struct Theme{
+			std::map<std::string, ImVec4> colors;
+			std::map<std::string, std::any> styles;
+		};
+		std::map<std::string, Theme> m_Themes;
+		void ThemeImport(std::filesystem::directory_entry file);
+		void ThemeExport(std::string name, bool replace = false);
+		void ApplyTheme(std::string name);
 
 		void OnExitKeyPressed();
 		Settings();
