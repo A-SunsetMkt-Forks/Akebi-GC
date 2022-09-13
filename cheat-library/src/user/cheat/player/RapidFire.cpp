@@ -370,10 +370,18 @@ namespace cheat::feature
 			}
 		}
 
+		static bool isFastSpeed = false;
 		if (rapidFire.f_AttackSpeed && isAttacking)
-			app::Animator_set_speed(attacker.animator(), rapidFire.f_SpeedMultiplier, nullptr);
-		else 
+		{
+			if (!isinf(processStateInfo.m_Length))
+				app::Animator_set_speed(attacker.animator(), rapidFire.f_SpeedMultiplier, nullptr);
+			isFastSpeed = true;
+		}
+		else if (IsAttackByAvatar(attacker) && isFastSpeed) {
+			//LOG_DEBUG("Speed Reverted");
 			app::Animator_set_speed(attacker.animator(), processStateInfo.m_SpeedMultiplier, nullptr);
+			isFastSpeed = false;
+		}
 
 		CALL_ORIGIN(VCAnimatorEvent_HandleProcessItem_Hook, __this, processItem, processStateInfo, mode, method);
 	}
