@@ -80,6 +80,7 @@ namespace cheat::feature
     "Attack03",
     "Attack04",
     "Attack05",
+    "Attack06",
     "Attack01",
     "Attack02",
     "ExtraAttack",
