@@ -303,9 +303,9 @@ namespace cheat
 
 					feature->DrawStatus();
 
-					ImU32 row_bg_color = ImGui::GetColorU32(
-						ImVec4(0.2f + row * 0.1f, 0.1f + row * 0.05f, 0.1f + row * 0.03f, 0.85f));
-					ImGui::TableSetBgColor(ImGuiTableBgTarget_RowBg0, row_bg_color);
+					//ImU32 row_bg_color = ImGui::GetColorU32(
+					//	ImVec4(0.2f + row * 0.1f, 0.1f + row * 0.05f, 0.1f + row * 0.03f, 0.85f));
+					//ImGui::TableSetBgColor(ImGuiTableBgTarget_RowBg0, row_bg_color);
 					row++;
 				}
 			}
@@ -332,9 +332,9 @@ namespace cheat
 		if (!showAny && !settings.f_StatusMove)
 			return;
 
-		ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.04f, 0.05f, 0.05f, 0.90f));
+		//ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.04f, 0.05f, 0.05f, 0.90f));
 		ImGui::Begin("Info window", nullptr, flags);
-		ImGui::PopStyleColor();
+		//ImGui::PopStyleColor();
 
 		if (!showAny)
 		{
@@ -347,14 +347,14 @@ namespace cheat
 		{
 			auto& sections = m_FeatureMap[moduleName];
 			bool moduleShowAny = std::any_of(sections.begin(), sections.end(),
-			                                 [](const auto& iter)
-			                                 {
-				                                 return std::any_of(iter.second.begin(), iter.second.end(),
-				                                                    [](const auto feat)
-				                                                    {
-					                                                    return feat->NeedInfoDraw();
-				                                                    });
-			                                 }
+				[](const auto& iter)
+				{
+					return std::any_of(iter.second.begin(), iter.second.end(),
+						[](const auto feat)
+						{
+							return feat->NeedInfoDraw();
+						});
+				}
 			);
 			if (!moduleShowAny)
 				continue;

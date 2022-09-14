@@ -146,6 +146,26 @@ namespace cheat::feature
 		return instance;
 	}
 
+    bool ESP::isBuriedChest(game::Entity* entity)
+    {
+        if (entity->name().find("_WorldArea_Operator") != std::string::npos)
+        {
+            auto entityGameObject = app::MoleMole_BaseEntity_get_rootGameObject(entity->raw(), nullptr);
+            auto transform = app::GameObject_GetComponentByName(entityGameObject, string_to_il2cppi("Transform"), nullptr);
+            auto child = app::Transform_FindChild(reinterpret_cast<app::Transform*>(transform), string_to_il2cppi("CircleR2H2"), nullptr);
+            if (child == nullptr)
+                return false;
+
+			auto configID = entity->raw()->fields._configID_k__BackingField;
+			//LOG_DEBUG("%d", configID);
+			if (configID != 70360001 && configID != 70360286)
+				return false;
+
+            return true;
+        }
+        return false;
+    }
+
 	void ESP::GetNpcName(std::string& name)
 	{
 		if (name.find("Avatar") != std::string::npos)
@@ -414,9 +434,18 @@ namespace cheat::feature
 					auto& entry = field.value();
 					if (!entry.m_Enabled || !m_FilterExecutor.ApplyFilter(entity, filter))
 						continue;
-
+                    if (entry.m_Name == "Buried Chest")
+					{
+                        if(isBuriedChest(entity))
+                        {
+                            esp::render::DrawEntity(entry.m_Name, entity, entry.m_Color, entry.m_ContrastColor);
+                        }
+                        break;
+                    }
 					if (entry.m_Name == "Npc" || "AvatarOwn" || "AvatarTeammate")
 					{
+                        if (isBuriedChest(entity))
+                            continue;
 						if (entity->type() == app::EntityType__Enum_1::Avatar || entity->type() == app::EntityType__Enum_1::NPC)
 						{
 							std::string name = entity->name();
@@ -591,7 +620,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(chest, LuxuriousChest);
 		ADD_FILTER_FIELD(chest, RemarkableChest);
 		// Other Chests
-		//ADD_FILTER_FIELD(chest, BuriedChest); // Shared name, commented for now
+		ADD_FILTER_FIELD(chest, BuriedChest);
 		ADD_FILTER_FIELD(chest, SearchPoint);
 		
 
@@ -652,6 +681,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(living, Onikabuto);
 		ADD_FILTER_FIELD(living, Pigeon);
 		ADD_FILTER_FIELD(living, Salamander);
+		ADD_FILTER_FIELD(living, Scarab);
 		ADD_FILTER_FIELD(living, Squirrel);
 		ADD_FILTER_FIELD(living, Starconch);
 		ADD_FILTER_FIELD(living, Weasel);
@@ -705,6 +735,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, MaguuKenki);
 		// Sumeru
 		ADD_FILTER_FIELD(monster, JadeplumeTerrorshroom);
+		ADD_FILTER_FIELD(monster, AeonblightDrake);
 		// Regular. Alphabetical.
 		ADD_FILTER_FIELD(monster, AbyssMage);
 		ADD_FILTER_FIELD(monster, BlackSerpentKnight);
@@ -735,6 +766,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, OceanidFrog);
 		ADD_FILTER_FIELD(monster, OceanidSquirrel);
 		ADD_FILTER_FIELD(monster, OceanidWigeon);
+		ADD_FILTER_FIELD(monster, PrimalConstruct);
 		ADD_FILTER_FIELD(monster, PyroAbyssLector);
 		ADD_FILTER_FIELD(monster, Rifthound);
 		ADD_FILTER_FIELD(monster, RifthoundWhelp);
@@ -746,6 +778,8 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, RuinSentinel);
 		ADD_FILTER_FIELD(monster, Samachurl);
 		ADD_FILTER_FIELD(monster, SangonomiyaCohort);
+		ADD_FILTER_FIELD(monster, Scorpion);
+		ADD_FILTER_FIELD(monster, SemiPerpetualControlMatrix);
 		ADD_FILTER_FIELD(monster, ShadowyHusk);
 		ADD_FILTER_FIELD(monster, ShaggySumpterBeast);
 		ADD_FILTER_FIELD(monster, ShogunateInfantry);
@@ -755,10 +789,12 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(monster, StretchyFungus);
 		ADD_FILTER_FIELD(monster, TreasureHoarder);
 		ADD_FILTER_FIELD(monster, UnusualHilichurl);
+		ADD_FILTER_FIELD(monster, Vulture);
 		ADD_FILTER_FIELD(monster, WhirlingFungus);
 		ADD_FILTER_FIELD(monster, Whopperflower);
 		ADD_FILTER_FIELD(monster, WingedShroom);
 
+		ADD_FILTER_FIELD(plant, Ajilenakh);
 		ADD_FILTER_FIELD(plant, AmakumoFruit);
 		ADD_FILTER_FIELD(plant, Apple);
 		ADD_FILTER_FIELD(plant, BambooShoot);
@@ -788,6 +824,7 @@ namespace cheat::feature
 		ADD_FILTER_FIELD(plant, Pinecone);
 		ADD_FILTER_FIELD(plant, Qingxin);
 		ADD_FILTER_FIELD(plant, Radish);
+		ADD_FILTER_FIELD(plant, Redcrest);
 		ADD_FILTER_FIELD(plant, RukkhashavaMushroom);
 		ADD_FILTER_FIELD(plant, SakuraBloom);
 		ADD_FILTER_FIELD(plant, SangoPearl);

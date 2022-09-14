@@ -16,20 +16,12 @@
 
 <h1 align="center">Getting Started</h1>
 
-## Building from source
-It is recommended to use [Visual Studio 2022.](https://visualstudio.microsoft.com/)
-As well as setting up **`cheat-library`** as startup project.
-**The following is a recommended procedure, but others may be used.**
-1. Clone repository with `git clone --recurse-submodules https://github.com/Akebi-Group/Akebi-GC.git`
-1. Open `Akebi-GC/akebi-gc.sln`
-1. Build solution `akebi-gc.sln`.
-
 ## Stable Release
-1. Head over to the releases page
-1. Download the latest binaries
+1. Head over to the [releases page](https://github.com/Akebi-Group/Akebi-GC/releases)
+2. Download the latest binaries
 
 ## Latest Release
-1. Head over to the [action](https://github.com/Akebi-Group/Akebi-GC/actions) page
+1. Head over to the [Action](https://github.com/Akebi-Group/Akebi-GC/actions) page
 1. Click Publish workflow
 1. Select most recent workflow with green checkmark ✔ (Choose your client version **GLOBAL/CN/BETA**)
 	<p align="center">
@@ -40,23 +32,15 @@ As well as setting up **`cheat-library`** as startup project.
 	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429302-7c7be3f6-df2f-4e49-9bb9-4a703c3491df.png"></a>
 	</p>
 
-
-### Requirements
-- [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
-- [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x86.exe) (x86)
+## Building from source
+Check our wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Building%EF%BD%9C%E5%BB%BA%E7%BD%AE)
 
 ### Usage
-(1-2 are optional if you didn't build from source)
-1. Open `/bin`
-1. Open Compiled version (debug, release)
-
-
 1. Ensure that `CLibrary.dll` is in the same folder that `injector.exe`.
-1. Run `injector.exe`.
-1. After the login page appeared, press F1 to open Akebi GUI.
+2. Run `injector.exe`.
+3. After the login page appeared, press F1 to open Akebi GUI.
 
 <h1 align="center">Features</h1>
-
 
 #### General
 - Protection Bypass
@@ -117,7 +101,6 @@ As well as setting up **`cheat-library`** as startup project.
 - FPS Graph
 - [Packet Sniffer](https://github.com/Akebi-Group/Akebi-PacketSniffer)
 
-
 <h1 align="center">Demo</h1>
 
 <details>
@@ -146,37 +129,26 @@ As well as setting up **`cheat-library`** as startup project.
 </details>
 
 <h1 align="center">Bugs</h1>
+
 Welcome to the short explanation for bug reporting
 
 1. You found a bug.
 1. Write down what happened, as well as your first thoughts on what you think caused it.
 1. Can it be reproduced? Yes or no. If yes: Explain in as much clear as possible. i.e what happens when the bug occurs and why it occurs. 
 1. Tell us which version you are using. copy the `SHA`/ Version Number of the latest commit when you built the mod. For example: `bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
-
-## Bug reporting template
-<br>
-
-### Ex.
-I found a bug in the feature `enemy vacuum`.  
-I think it's caused by the filter functions that are defined in `someFeature.cpp`.
-
-```
-Date Occured: 5/3/2022  
-Is it reproducible: Occasionally
-Latest Commit used: bd17a00ec388f3b93624280cde9e1c66e740edf9
-Release Version: 0.7  
-```  
+1. [Open an Issue(there's a template!)](https://github.com/Akebi-Group/Akebi-GC/issues)
 
 <h1 align="center">Contributing</h1>
+
 
 ## Adding a feature
 1. Fork the Project
 1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 1. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 1. Push to the Branch (`git push origin feature/AmazingFeature`)
-1. Open a Pull Request
+2. [Open a Pull Request](https://github.com/Akebi-Group/Akebi-GC/pulls)
 
 ## Suggestions
 
-Open an issue with the title of the suggestion you want to make.
-In the description, make sure it is descriptive enough so our devs can understand what you want and how you want it.  
+Open an [issue](https://github.com/Akebi-Group/Akebi-GC/issues) with the title of the suggestion you want to make.
+In the description, make sure it is **descriptive enough** so our devs can understand what you want and how you want it.  

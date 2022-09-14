@@ -174,6 +174,7 @@ DO_APP_FUNC(0x05C3EA50, Component_1*, GameObject_GetComponentByName, (GameObject
 DO_APP_FUNC(0x05C3EF30, bool, GameObject_get_active, (GameObject* __this, MethodInfo* method));
 DO_APP_FUNC(0x05C3EFF0, void, GameObject_set_active, (GameObject* __this, bool value, MethodInfo* method));
 DO_APP_FUNC(0x05C3EDF0, void, GameObject_SetActive, (GameObject* __this, bool value, MethodInfo* method));
+DO_APP_FUNC(0x05B6C670, Transform*, Transform_FindChild, (Transform* __this, String* name, MethodInfo* method));
 DO_APP_FUNC(0x05B6C6A0, Transform*, Transform_GetChild, (Transform* __this, int32_t index, MethodInfo* method));
 DO_APP_FUNC(0x05B4DED0, Component_1*, Component_1_GetComponent_1, (Component_1* __this, String* type, MethodInfo* method));
 DO_APP_FUNC(0x05C3E9C0, GameObject*, GameObject_CreatePrimitive, (PrimitiveType__Enum type, MethodInfo* method));
@@ -300,6 +301,7 @@ DO_APP_FUNC(0x0143BF90, void, MoleMole_LCAbilityElement_ReduceModifierDurability
 DO_APP_FUNC(0x0218C660, BaseEntity*, MoleMole_GadgetEntity_GetOwnerEntity, (GadgetEntity* __this, MethodInfo* method));
 
 DO_APP_FUNC(0x027385E0, bool, MoleMole_UIManager_HasEnableMapCamera, (MoleMole_UIManager* __this, MethodInfo* method));
+DO_APP_FUNC(0x0272BF00, void, MoleMole_UIManager_EnableInput, (MoleMole_UIManager* __this, bool playerInput, bool clearCurInputState, bool ignoreTouch, MethodInfo* method));
 
 DO_APP_FUNC(0x010ED540, void, MonoMiniMap_Update, (MonoMiniMap* __this, MethodInfo* method));
 DO_APP_FUNC(0x02DA4B00, MonoMiniMap*, MonoInLevelMainPage_get_miniMap, (void* __this, MethodInfo* method));

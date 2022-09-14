@@ -3466,5 +3466,53 @@
     <Image Include="res\iconsHD\Nilou.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\iconsHD\Scorpion.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\SemiPerpetualControlMatrix.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Vulture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\AeonblightDrake.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Ajilenakh.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\PrimalConstruct.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Redcrest.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconsHD\Scarab.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Vulture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\AeonblightDrake.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Ajilenakh.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\PrimalConstruct.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Redcrest.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Scarab.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\Scorpion.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icons\SemiPerpetualControlMatrix.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

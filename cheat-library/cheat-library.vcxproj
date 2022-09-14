@@ -234,6 +234,8 @@
     <Image Include="icons\Cave.png" />
     <Image Include="res\iconsHD\AbidingAngelfish.png" />
     <Image Include="res\iconsHD\AdhigamaWood.png" />
+    <Image Include="res\iconsHD\AeonblightDrake.png" />
+    <Image Include="res\iconsHD\Ajilenakh.png" />
     <Image Include="res\iconsHD\Akuoumaru.png" />
     <Image Include="res\iconsHD\Albedo.png" />
     <Image Include="res\iconsHD\AlleyHunter.png" />
@@ -592,6 +594,7 @@
     <Image Include="res\iconsHD\PreciousChest.png" />
     <Image Include="res\iconsHD\Predator.png" />
     <Image Include="res\iconsHD\PressurePlate.png" />
+    <Image Include="res\iconsHD\PrimalConstruct.png" />
     <Image Include="res\iconsHD\PrimoGeovishap.png" />
     <Image Include="res\iconsHD\PrimordialJadeCutter.png" />
     <Image Include="res\iconsHD\PrimordialJadeWingedSpear.png" />
@@ -619,6 +622,7 @@
     <Image Include="res\iconsHD\Razor.png" />
     <Image Include="res\iconsHD\Recipe.png" />
     <Image Include="res\iconsHD\RecurveBow.png" />
+    <Image Include="res\iconsHD\Redcrest.png" />
     <Image Include="res\iconsHD\RedFinnedUnagi.png" />
     <Image Include="res\iconsHD\RedHornedLizard.png" />
     <Image Include="res\iconsHD\RedhornStonethresher.png" />
@@ -662,7 +666,9 @@
     <Image Include="res\iconsHD\Sapphire.png" />
     <Image Include="res\iconsHD\SapwoodBlade.png" />
     <Image Include="res\iconsHD\Sayu.png" />
+    <Image Include="res\iconsHD\Scarab.png" />
     <Image Include="res\iconsHD\ScarletQuartz.png" />
+    <Image Include="res\iconsHD\Scorpion.png" />
     <Image Include="res\iconsHD\SeaGanoderma.png" />
     <Image Include="res\iconsHD\Seagrass.png" />
     <Image Include="res\iconsHD\SealedChest.png" />
@@ -676,6 +682,7 @@
     <Image Include="res\iconsHD\Seelie.png" />
     <Image Include="res\iconsHD\SeelieCourt.png" />
     <Image Include="res\iconsHD\SeelieLamp.png" />
+    <Image Include="res\iconsHD\SemiPerpetualControlMatrix.png" />
     <Image Include="res\iconsHD\SerpentSpine.png" />
     <Image Include="res\iconsHD\ShadowyHusk.png" />
     <Image Include="res\iconsHD\ShaggySumpterBeast.png" />
@@ -783,6 +790,7 @@
     <Image Include="res\iconsHD\VioletIbis.png" />
     <Image Include="res\iconsHD\Viparyas.png" />
     <Image Include="res\iconsHD\VortexVanquisher.png" />
+    <Image Include="res\iconsHD\Vulture.png" />
     <Image Include="res\iconsHD\WarmingSeelie.png" />
     <Image Include="res\iconsHD\WasterGreatsword.png" />
     <Image Include="res\iconsHD\WavebreakersFin.png" />
@@ -821,6 +829,8 @@
     <Image Include="res\iconsHD\Zhongli.png" />
     <Image Include="res\icons\AbidingAngelfish.png" />
     <Image Include="res\icons\AdhigamaWood.png" />
+    <Image Include="res\icons\AeonblightDrake.png" />
+    <Image Include="res\icons\Ajilenakh.png" />
     <Image Include="res\icons\Amber.png" />
     <Image Include="res\icons\Andrius.png" />
     <Image Include="res\icons\Aranara.png" />
@@ -1068,6 +1078,7 @@
     <Image Include="res\icons\Pot.png" />
     <Image Include="res\icons\PreciousChest.png" />
     <Image Include="res\icons\PressurePlate.png" />
+    <Image Include="res\icons\PrimalConstruct.png" />
     <Image Include="res\icons\PrimoGeovishap.png" />
     <Image Include="res\icons\Pufferfish.png" />
     <Image Include="res\icons\PurpleShirakodai.png" />
@@ -1082,6 +1093,7 @@
     <Image Include="res\icons\RaimeiAngelfish.png" />
     <Image Include="res\icons\RawMeat.png" />
     <Image Include="res\icons\Recipe.png" />
+    <Image Include="res\icons\Redcrest.png" />
     <Image Include="res\icons\RedFinnedUnagi.png" />
     <Image Include="res\icons\RedHornedLizard.png" />
     <Image Include="res\icons\RedTailedWeasel.png" />
@@ -1110,7 +1122,9 @@
     <Image Include="res\icons\SangonomiyaCohort.png" />
     <Image Include="res\icons\SangoPearl.png" />
     <Image Include="res\icons\Sapphire.png" />
+    <Image Include="res\icons\Scarab.png" />
     <Image Include="res\icons\ScarletQuartz.png" />
+    <Image Include="res\icons\Scorpion.png" />
     <Image Include="res\icons\SeaGanoderma.png" />
     <Image Include="res\icons\Seagrass.png" />
     <Image Include="res\icons\SealedChest.png" />
@@ -1123,6 +1137,7 @@
     <Image Include="res\icons\Seelie.png" />
     <Image Include="res\icons\SeelieCourt.png" />
     <Image Include="res\icons\SeelieLamp.png" />
+    <Image Include="res\icons\SemiPerpetualControlMatrix.png" />
     <Image Include="res\icons\ShadowyHusk.png" />
     <Image Include="res\icons\ShaggySumpterBeast.png" />
     <Image Include="res\icons\Shogun.png" />
@@ -1193,6 +1208,7 @@
     <Image Include="res\icons\Violetgrass.png" />
     <Image Include="res\icons\VioletIbis.png" />
     <Image Include="res\icons\Viparyas.png" />
+    <Image Include="res\icons\Vulture.png" />
     <Image Include="res\icons\WarmingSeelie.png" />
     <Image Include="res\icons\WaveriderWaypointCannotTeleport.png" />
     <Image Include="res\icons\Weapon.png" />

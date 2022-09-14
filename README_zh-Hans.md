@@ -16,22 +16,14 @@
 
 <h1 align="center">入门教程</h1>
 
-## 编译
-推荐使用 [Visual Studio 2022.](https://visualstudio.microsoft.com/)，同时以**`cheat-library`**作为启动项目。
-**下面是一种推荐编译方式，当然也可以使用其他任何你喜欢的方式**
-
-1. 使用 `git clone --recurse-submodules https://github.com/Akebi-Group/Akebi-GC.git` 命令来下载本仓库
-1. 打开 `Akebi-GC/akebi-gc.sln`
-1. 编译解决方案(默认Ctrl+Shift+B) `akebi-gc.sln`。
-
 ## 稳定版本
 1. 前往[Releases](https://github.com/Akebi-Group/Akebi-GC/releases)頁面
 1. 下载最新的版本
 
 ## 最新版本
-1. 前往 [action](https://github.com/Akebi-Group/Akebi-GC/actions) 介面
+1. 前往[Action](https://github.com/Akebi-Group/Akebi-GC/actions)介面
 1. 选择[Publish](https://github.com/Akebi-Group/Akebi-GC/actions/workflows/main.yml)工作流程
-1. 选择最近带有绿色对号(:heavy_check_mark:)的工作流程（注意选择自己所在服务器的版本 **GLOBAL/CN/BETA**）。
+1. 选择最近带有绿色对号(:heavy_check_mark:)的工作流程（注意选择自己客户端的版本 **GLOBAL:国际服/CN:国服/BETA:测试服**）。
 	<p align="center">
 	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429274-1e556c58-8027-4ec9-9c1d-3609c75aede4.png"></a>
 	</p>
@@ -40,21 +32,15 @@
 	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429302-7c7be3f6-df2f-4e49-9bb9-4a703c3491df.png"></a>
 	</p>
 
-
-### 需要依赖
-- [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x64.exe) (x64)
-- [Visual C++ Redistributable packages for Visual Studio 2015-2022](https://aka.ms/vs/17/release/vc_redist.x86.exe) (x86)
+## 自行编译
+请查看wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Building%EF%BD%9C%E5%BB%BA%E7%BD%AE)
 
 ### 使用方法
-（如果不是从源码自己构建的话，无视步骤`1`跟`2`。）
-1. 打开 `/bin`
-1. 打开已经编译好的版本文件夹(debug, release)
 1. 确认 `CLibrary.dll` 跟 `injector.exe` 处在同一个文件夹内。
-1. 运行 `injector.exe`.
-1. 等到登录界面出现，按`F1`键打开`Akebi GUI`。
+2. 运行 `injector.exe`.
+3. 等到登录界面出现，按`F1`键打开`Akebi GUI`。
 
 <h1 align="center">功能简介</h1>
-
 
 #### 通用
 - 过检测
@@ -115,7 +101,6 @@
 - FPS曲线图
 - [抓包工具](https://github.com/Akebi-Group/Akebi-PacketSniffer)
 
-
 <h1 align="center">功能演示</h1>
 
 <details>
@@ -143,28 +128,15 @@
   <img src="https://github.com/CallowBlack/gif-demos/blob/main/genshin-cheat/auto-talk-demo.gif"/>
 </details>
 
-
 <h1 align="center">Bugs</h1>
+
 欢迎阅读如何提交`BUG`报告
 
 1. 发现了一个`bug`。
-1. 记下问题出现时发生了什么，以及你认为这是由于什么造成的。
-1. 可以复现吗？可以或不可以。如果可以：尽可能的描述清楚问题发生时，发生了什么，开启了什么功能以及最可能的原因是什么。 ~~如果不可以：**就别报告了，建议重启**。~~
-1. 告诉我们你使用的是哪一个版本。复制你编译的最新的提交的`SHA`或者版本号。例如：`bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
-
-## **错误报告模板**
-
-
-### 模板（最好使用英文）
-I found a bug in the feature `enemy vacuum`.  
-I think it's caused by the filter functions that are defined in `someFeature.cpp`.
-
-```
-Date Occured: 5/3/2022  
-Is it reproducible: Occasionally
-Latest Commit used: bd17a00ec388f3b93624280cde9e1c66e740edf9
-Release Version: 0.7  
-```
+2. 记下问题出现时发生了什么，以及你认为这是由于什么造成的。
+3. 可以复现吗？可以或不可以。如果可以：尽可能的描述清楚问题发生时，发生了什么，开启了什么功能以及最可能的原因是什么。 ~~如果不可以：**就别报告了，建议重启**。~~
+4. 告诉我们你使用的是哪一个版本。复制你编译的最新的提交的`SHA`或者版本号。例如：`bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
+5. [使用英文打开一个Issue(有提供模板!)](https://github.com/Akebi-Group/Akebi-GC/issues)
 
 <h1 align="center">提交贡献</h1>
 
@@ -173,8 +145,9 @@ Release Version: 0.7
 1. 创建一个新的功能分支（`git checkout -b feature/AmazingFeature`）
 1. 提交更改（`git commit -m 'Add some AmazingFeature'`）
 1. 推送（Push）更改到分支（`git push origin feature/AmazingFeature`）
-1. 打开 Pull Request 并提交
+2. [打开 Pull Request 并提交](https://github.com/Akebi-Group/Akebi-GC/pulls)
 
 ## 建议
 
-新建一个Issue，标题写上你的建议，并且在描述里面，清晰的写下你的建议描述，以便我们的开发人员可以理解你的建议
+用英文新建一个[Issue](https://github.com/Akebi-Group/Akebi-GC/issues)。
+标题写上你的建议，并且在描述里面，**清晰的**写下你的建议描述，以便我们的开发人员可以理解你的建议。

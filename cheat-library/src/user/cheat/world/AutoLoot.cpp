@@ -23,6 +23,7 @@ namespace cheat::feature
 		NF(f_PickupFilter_Animals,	 "Animals filter",			"AutoLoot", true),
 		NF(f_PickupFilter_DropItems, "Drop items filter",		"AutoLoot", true),
 		NF(f_PickupFilter_Resources, "Resources filter",		"AutoLoot", true),
+		NF(f_PickupFilter_Oculus, "Oculus filter",				"AutoLoot", true),
 		NF(f_Chest,			 "Chests",							"AutoLoot", false),
 		NF(f_Leyline,		 "Leylines",						"AutoLoot", false),
 		NF(f_Investigate,	 "Search points",					"AutoLoot", false),
@@ -123,7 +124,8 @@ namespace cheat::feature
 			ConfigWidget("Enabled", f_PickupFilter, "Enable pickup filter.\n");
 			ConfigWidget("Animals", f_PickupFilter_Animals, "Fish, Lizard, Frog, Flying animals."); ImGui::SameLine();
 			ConfigWidget("Drop Items", f_PickupFilter_DropItems, "Material, Mineral, Artifact."); ImGui::SameLine();
-			ConfigWidget("Resources", f_PickupFilter_Resources, "Everything beside Animals and Drop Items (Plants, Books, etc).");
+			ConfigWidget("Resources", f_PickupFilter_Resources, "Everything beside Animals and Drop Items (Plants, Books, etc)."); ImGui::SameLine();
+			ConfigWidget("Oculus", f_PickupFilter_Oculus, "Filter Oculus");
 	    }
     	ImGui::EndGroupPanel();
     }
@@ -248,20 +250,23 @@ namespace cheat::feature
 
 	void AutoLoot::OnCheckIsInPosition(bool& result, app::BaseEntity* entity)
 	{
+		// TODO: Maybe add a list of filter for all GatherObject instead of just using entityType in general.
+		auto& manager = game::EntityManager::instance();
+
 		if (f_AutoPickup || f_UseCustomRange) {
 			float pickupRange = f_UseCustomRange ? f_CustomRange : g_default_range;
 			if (f_PickupFilter)
 			{
 				if (!f_PickupFilter_Animals && entity->fields.entityType == app::EntityType__Enum_1::EnvAnimal ||
 					!f_PickupFilter_DropItems && entity->fields.entityType == app::EntityType__Enum_1::DropItem ||
-					!f_PickupFilter_Resources && entity->fields.entityType == app::EntityType__Enum_1::GatherObject)
+					!f_PickupFilter_Resources && entity->fields.entityType == app::EntityType__Enum_1::GatherObject ||
+					!f_PickupFilter_Oculus && game::filters::combined::Oculies.IsValid(manager.entity(entity->fields._runtimeID_k__BackingField)))
 				{
 					result = false;
 					return;
 				}
 			}
 			
-			auto& manager = game::EntityManager::instance();
 			result = manager.avatar()->distance(entity) < pickupRange;
 		}
 	}
