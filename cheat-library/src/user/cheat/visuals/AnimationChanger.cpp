@@ -33,7 +33,7 @@ namespace cheat::feature
     {
         ImGui::BeginGroupPanel("Animation Changer");
         {
-            ConfigWidget(f_Enabled, "Changes active character's animation.\nNot all animations work for every character except Main Character.");
+            ConfigWidget(f_Enabled, "Changes active character's animation.");
             if (f_Enabled)
             {
                 if (ImGui::BeginCombo("Animations", f_Animation.value().c_str()))
