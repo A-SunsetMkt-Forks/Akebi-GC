@@ -35,7 +35,7 @@ namespace cheat::feature
 		NF(f_HotkeyExit, "Hotkeys", "General::FastExit", Hotkey(VK_F12)),
 		
 		NF(f_FontSize, "Font Size", "General::Theme", 16.0f),
-		NF(f_ShowStyleEditor, "Show Colors Customization", "General::Theme", false),
+		NF(f_ShowStyleEditor, "Show Theme Customization", "General::Theme", false),
 		NFS(f_DefaultTheme, "Theme", "General::Theme", ""),
 		themesDir(util::GetCurrentPath() / "themes")
 
@@ -470,7 +470,31 @@ namespace cheat::feature
 		ImGui::BeginGroupPanel("Interface Customization");
 		{
 			ImGui::SetNextItemWidth(200);
-			if (ImGui::BeginCombo("Themes", f_DefaultTheme.value().c_str()))
+			if (ConfigWidget(f_FontSize, 1, 8, 64, "Adjust interface font size."))
+				renderer::SetGlobalFontSize(static_cast<float>(f_FontSize));
+
+			static std::string themeNameBuffer_;
+			
+			ImGui::SetNextItemWidth(200);
+		    ImGui::InputText("Theme Name", &themeNameBuffer_);
+
+			bool alreadyExist = m_Themes.count(themeNameBuffer_) > 0;
+
+			ImGui::SameLine();
+			if (ImGui::Button(alreadyExist ? "Replace Theme" : "Save Theme"))
+			{
+				ImGui::SameLine();
+				if (themeNameBuffer_.empty())
+					ImGui::Text("Theme name is not valid. Falling back into default theme");
+				ThemeExport(themeNameBuffer_);
+				hasLoaded = false;
+				f_DefaultTheme = themeNameBuffer_;
+				Init();
+				themeNameBuffer_.clear();
+			}
+
+			ImGui::SetNextItemWidth(200);
+			if (ImGui::BeginCombo("Theme Select", f_DefaultTheme.value().c_str()))
 			{
 				for (auto& [themeName, themeData] : m_Themes)
 				{
@@ -486,6 +510,7 @@ namespace cheat::feature
 				}
 				ImGui::EndCombo();
 			}
+			
 			ImGui::SameLine();
 			if (ImGui::Button("Delete Theme"))
 			{
@@ -496,28 +521,7 @@ namespace cheat::feature
 				Init();
 			}
 
-			static std::string themeNameBuffer_;
-			ImGui::InputText("Theme Name", &themeNameBuffer_);
-
-			if (ConfigWidget(f_FontSize, 1, 8, 64, "Adjust interface font size."))
-				renderer::SetGlobalFontSize(static_cast<float>(f_FontSize));
-
-			ImGui::Spacing();
-
-			ConfigWidget(f_ShowStyleEditor, "Show colors customization window.");
-			ImGui::SameLine();
-			bool alreadyExist = m_Themes.count(themeNameBuffer_) > 0;
-			if (ImGui::Button(alreadyExist ? "Replace Theme" : "Save Theme"))
-			{
-				if (themeNameBuffer_.empty())
-					return;
-
-				ThemeExport(themeNameBuffer_);
-				hasLoaded = false;
-				f_DefaultTheme = themeNameBuffer_;
-				Init();
-				themeNameBuffer_.clear();
-			}
+			ConfigWidget(f_ShowStyleEditor, "Show ImGui theme customization window.");
 		}
 		ImGui::EndGroupPanel();
 	}
