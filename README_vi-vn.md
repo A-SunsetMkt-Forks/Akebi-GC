@@ -10,7 +10,7 @@
 	<a href="https://discord.gg/MmV8hNZB9S"><img src="https://img.shields.io/discord/440536354544156683?label=Discord&logo=discord&style=for-the-badge&color=blueviolet"></a>
 </p>
 
-[EN](README.md) | [简中](README_zh-Hans.md) | [繁中](README_zh-Hant.md) | [VN](README_vn-vn.md)
+[EN](README.md) | [简中](README_zh-Hans.md) | [繁中](README_zh-Hant.md) | [VN](README_vi-vn.md)
 
 ---
 
@@ -100,7 +100,7 @@ Tham khảo trang wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki
 - Biểu đồ FPS
 - [Packet Sniffer](https://github.com/Akebi-Group/Akebi-PacketSniffer)
 
-<h1 align="center">Giới thiệu</h1>
+<h1 align="center">Giới Thiệu</h1>
 
 <details>
   <summary>Dịch chuyển tức thời</summary>
@@ -127,7 +127,7 @@ Tham khảo trang wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki
   <img src="https://github.com/CallowBlack/gif-demos/blob/main/genshin-cheat/auto-talk-demo.gif"/>
 </details>
 
-<h1 align="center">Báo cáo lỗi</h1>
+<h1 align="center">Báo Cáo Lỗi</h1>
 
 (VUI LÒNG SỬ DỤNG TIẾNG ANH!)
 
@@ -139,7 +139,7 @@ Những điều lưu ý trước khi báo cáo lỗi
 1. Hãy cho chúng tôi biết phiên bản Akebi bạn sử dụng. Sử dụng mã `SHA`/ Số phiên bản của commit gần nhất phiên bản mà bạn sử dụng. Ví dụ: `bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
 1. [Báo cáo lỗi](https://github.com/Akebi-Group/Akebi-GC/issues)
 
-<h1 align="center">Đóng góp cho dự án</h1>
+<h1 align="center">Đóng Góp Cho Dự Án</h1>
 
 
 ## Thêm tính năng
@@ -154,4 +154,4 @@ Những điều lưu ý trước khi báo cáo lỗi
 (VUI LÒNG SỬ DỤNG TIẾNG ANH!)
 
 Để đóng góp ý tưởng cho dự án hãy tạo một [issue](https://github.com/Akebi-Group/Akebi-GC/issues) với tiêu đề là ý tưởng bạn muốn.
-Hãy **giải thích rõ ràng nhất có thể** để những người phát triển dự án có thể hiểu ý tưởng của bạn.
+Hãy **giải thích rõ ràng nhất** để những người phát triển dự án có thể hiểu ý tưởng của bạn.
