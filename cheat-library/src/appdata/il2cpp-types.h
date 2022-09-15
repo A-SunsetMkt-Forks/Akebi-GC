@@ -9251,6 +9251,25 @@ namespace app {
         struct Canvas__Fields fields;
     };
 
+
+    struct MoleMole_InfoTextDialogContext__Fields {
+        struct BaseDialogContext__Fields _;
+        struct MonoInfoTextDialog* _dialogMono;
+        struct List_1_System_String_* _contents;
+        bool _needFreeClickButton;
+        bool _interactable;
+        struct Nullable_1_Boolean_ _customEnableInputPenetrate;
+        /*MoleMole_InfoTextDialogContext_MoleMole_InfoTextDialogContext_InfoState__Enum _infoState;
+        float _nextTimeStamp;
+        bool _needFadeIn;*/
+    };
+
+    struct MoleMole_InfoTextDialogContext {
+        struct MoleMole_InfoTextDialogContext__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_InfoTextDialogContext__Fields fields;
+    };
+
     struct __declspec(align(8)) UIManager__Fields {
         struct LinkedList_1_MoleMole_BaseContext_* _inputContextList;
         struct HashSet_1_MoleMole_BaseContext_* _inputContextSet;
@@ -9260,6 +9279,50 @@ namespace app {
         uint32_t _curProfileHandle;
         struct Canvas* _sceneCanvas;
         struct Camera* _uiCamera;
+        struct Stack_1_MoleMole_BasePageContext_* _pageContextStack;
+        struct List_1_MoleMole_BaseDialogContext_* _rootDialogContextList;
+        struct List_1_MoleMole_BaseWidgetContext_* _widgetContextList;
+        struct List_1_MoleMole_BaseContext_* _tickContextList;
+        struct List_1_MoleMole_BaseContext_* _lateTickContextList;
+        struct List_1_MoleMole_BaseContext_* _toBeDestroyedContextList;
+        struct List_1_MoleMole_BaseDialogContext_* _cacheDialogContextList;
+        struct Dictionary_2_System_Int32_MoleMole_DoublyList_1_* _cachedLockingContexts;
+        struct Dictionary_2_System_Int32_System_Int32_* _lockPriorityCounts;
+        int32_t _curLockPriority;
+        struct Dictionary_2_System_Type_MoleMole_BaseContextData_* _contextDatas;
+        struct Dictionary_2_System_UInt32_Proto_AnnounceData_* _announceDatas;
+        struct MoleMole_ViewCache* _pageViewCache;
+        struct MoleMole_ViewCache* _dialogViewCache;
+        struct MoleMole_ViewCache* _widgetViewCache;
+        int32_t _showingContext;
+        bool BOJECMDPLDJ;
+        struct Dictionary_2_System_String_MoleMole_UIManager_MoleMole_UIManager_HandleItem_* _pathHandleDic;
+        struct CanvasScaler* _canvasScaler_k__BackingField;
+        struct MonoBaseCanvas* _levelCanvas;
+        /*CameraClearFlags__Enum*/ void* _curClearFlag;
+        struct MoleMole_FixedStack_1_System_Boolean_* _isUICameraEnableStack;
+        bool _needRefreshUICameraEnable;
+        bool _enableJoypadVirtualCursor;
+        bool _isWindowsPotrait;
+        struct List_1_System_String_* _uiResolitions;
+        int32_t _canvasSizeLevel;
+        struct Vector2 _currReferenceResolution;
+        struct List_1_UnityEngine_Resolution_* _windowResolutions;
+        int32_t _currWindowResIndex;
+        struct UnityAction* OnResolutionChanged;
+        /*MoleMole_LayoutVersion__Enum*/ void* _layoutVersion_k__BackingField;
+        bool _hideUI;
+        struct MoleMole_UIManager_SaveData* _saveData;
+        uint32_t _rootCanvasPrefabHandle;
+        struct GameObject* _rootCanvasPrefab;
+        struct MonoBaseCanvas* _rootCanvasInstance;
+        bool _isMobilePlatform;
+        struct List_1_MoleMole_BaseGroupContext_* _groupContextList;
+        struct MoleMole_BaseGroupContext* _curGroupContext;
+        struct MoleMole_TipsDialogContext* _normalMessageDialog;
+        struct MoleMole_InfoTextDialogContext* _infoDialogContext;
+        struct MoleMole_InfoTextDialogContext* _rootInfoDialogContext;
+        struct MoleMole_InfoTextDialogContext* _infoDialogContextWithoutBlockInput;
     };
 
     struct MoleMole_UIManager {
@@ -9815,51 +9878,51 @@ namespace app {
         struct List_1_System_String_* FDFHCABDDFE;
         bool NMJJKJPPIGC;
     };
-	struct __declspec(align(8)) MoleMole_MapManager__Fields
-	{
-		bool GCNMOPKPIMF;
-		struct GameObject* mapObj;
-		struct MonoLevelMapUI* monoLevelMapUI;
-		uint32_t _mapContainerHandle;
-		uint32_t playerSceneID;
-		uint32_t mapSceneID;
-		struct SceneScriptData* _sceneDataInMap;
-		struct MapScriptData* mapData;
-		struct String* _currMapPrefabPath;
-		struct Nullable_1_MoleMole_AsyncJob_ BKMDLHJBOMF;
-		bool _forceCurrentScene;
-		uint32_t _mapSceneIDSelected;
-		bool DebugNewmap;
-		struct String* currMapString;
-		struct RectTransform* currParent;
-		struct GameObject* mapGameObjectInst;
-		uint32_t _mapImageHandle;
-		struct MonoLevelMap* levelMap;
-		float mainPageCheckDistance;
-		int32_t _currState;
-		bool _hasSignalv;
-		struct Vector3 _signalPos;
-		float _distanceThreshold;
-		uint32_t _id;
-		bool FLDAFADKOJI;
-		struct GameObject* FPKDGCJHAGM;
-		uint32_t LPOBPKLKGGK;
-		struct List_1_OOMOGPMHEAO_* HAEOLGFHPEN;
-		struct List_1_System_String_* EIJHGKFFDHO;
-		struct Dictionary_2_System_String_PILLJDIDHIJ_* _polygonLimitRegions;
-		bool _isCurActivityLimitRegion;
-		bool _isCurHomeworldLimitRegion;
-		struct Coroutine* _curDestroyLimitRegionCoroutine;
-		float KJLNBKEIFCJ;
-		struct Vector3 CIPDJNHBFPB;
-		struct List_1_System_UInt32_* OBMINJCEAJL;
-		struct Dictionary_2_System_UInt32_List_1_LPKPLIFIBGA_* JAKFLGOOBMP;
-		bool OJNGNBKMMFI;
-		struct List_1_System_String_* OJBKAGDIEIK;
-		struct List_1_System_String_* NFGGLJBPIBO;
-		struct Dictionary_2_System_String_System_UInt32_* AIMGKHPHKMP;
-		struct Dictionary_2_System_UInt32_System_UInt32_* NCOMNKCALBL;
-	};
+    struct __declspec(align(8)) MoleMole_MapManager__Fields
+    {
+        bool GCNMOPKPIMF;
+        struct GameObject* mapObj;
+        struct MonoLevelMapUI* monoLevelMapUI;
+        uint32_t _mapContainerHandle;
+        uint32_t playerSceneID;
+        uint32_t mapSceneID;
+        struct SceneScriptData* _sceneDataInMap;
+        struct MapScriptData* mapData;
+        struct String* _currMapPrefabPath;
+        struct Nullable_1_MoleMole_AsyncJob_ BKMDLHJBOMF;
+        bool _forceCurrentScene;
+        uint32_t _mapSceneIDSelected;
+        bool DebugNewmap;
+        struct String* currMapString;
+        struct RectTransform* currParent;
+        struct GameObject* mapGameObjectInst;
+        uint32_t _mapImageHandle;
+        struct MonoLevelMap* levelMap;
+        float mainPageCheckDistance;
+        int32_t _currState;
+        bool _hasSignalv;
+        struct Vector3 _signalPos;
+        float _distanceThreshold;
+        uint32_t _id;
+        bool FLDAFADKOJI;
+        struct GameObject* FPKDGCJHAGM;
+        uint32_t LPOBPKLKGGK;
+        struct List_1_OOMOGPMHEAO_* HAEOLGFHPEN;
+        struct List_1_System_String_* EIJHGKFFDHO;
+        struct Dictionary_2_System_String_PILLJDIDHIJ_* _polygonLimitRegions;
+        bool _isCurActivityLimitRegion;
+        bool _isCurHomeworldLimitRegion;
+        struct Coroutine* _curDestroyLimitRegionCoroutine;
+        float KJLNBKEIFCJ;
+        struct Vector3 CIPDJNHBFPB;
+        struct List_1_System_UInt32_* OBMINJCEAJL;
+        struct Dictionary_2_System_UInt32_List_1_LPKPLIFIBGA_* JAKFLGOOBMP;
+        bool OJNGNBKMMFI;
+        struct List_1_System_String_* OJBKAGDIEIK;
+        struct List_1_System_String_* NFGGLJBPIBO;
+        struct Dictionary_2_System_String_System_UInt32_* AIMGKHPHKMP;
+        struct Dictionary_2_System_UInt32_System_UInt32_* NCOMNKCALBL;
+    };
 
     struct MoleMole_MapManager {
         struct MapManager__Class* klass;
@@ -10544,19 +10607,19 @@ namespace app {
         struct IGKEDHHIDMA__Fields fields;
     };
 
-	struct __declspec(align(8)) InLevelMainPageContext_DoTeamCountDown_Iterator__Fields
-	{
-		int32_t HGCHJINEMCM;
-		struct Object* KOBKOALABHL;
-		struct InLevelMainPageContext* _levelMainPageContext;
-	};
+    struct __declspec(align(8)) InLevelMainPageContext_DoTeamCountDown_Iterator__Fields
+    {
+        int32_t HGCHJINEMCM;
+        struct Object* KOBKOALABHL;
+        struct InLevelMainPageContext* _levelMainPageContext;
+    };
 
-	struct InLevelMainPageContext_DoTeamCountDown_Iterator
-	{
-		struct InLevelMainPageContext_DoTeamCountDown_Iterator__Class* klass;
-		MonitorData* monitor;
-		struct InLevelMainPageContext_DoTeamCountDown_Iterator__Fields fields;
-	};
+    struct InLevelMainPageContext_DoTeamCountDown_Iterator
+    {
+        struct InLevelMainPageContext_DoTeamCountDown_Iterator__Class* klass;
+        MonitorData* monitor;
+        struct InLevelMainPageContext_DoTeamCountDown_Iterator__Fields fields;
+    };
 
     struct MonoMiniMap__Fields {
         struct MonoBehaviour__Fields _;
@@ -12120,7 +12183,7 @@ namespace app {
         int32_t m_Tag;
         int32_t m_Loop;
     };
-    
+
     struct __declspec(align(8)) MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem__Fields {
         struct List_1_System_Int32_* patterns;
         struct AnimatorStateInfo stateInfo;
@@ -12139,6 +12202,207 @@ namespace app {
         ForceTriggerOnExitImediately = 0x00000002,
         ForceTriggerOnExitTransition = 0x00000003,
         ForceTriggerOnExitTransitionFinish = 0x00000004,
+    };
+
+    struct __declspec(align(8)) MoleMole_ElementDurability__Fields {
+        float value;
+    };
+
+    struct MoleMole_ElementDurability {
+        struct MoleMole_ElementDurability__Class* klass;
+        MonitorData* monitor;
+        struct MoleMole_ElementDurability__Fields fields;
+    };
+
+    struct ScriptableObject__Fields {
+        struct Object_1__Fields _;
+    };
+
+    struct __declspec(align(8)) ParameterOverride__Fields {
+        bool overrideState;
+    };
+
+    struct ParameterOverride {
+        struct ParameterOverride__Class* klass;
+        MonitorData* monitor;
+        struct ParameterOverride__Fields fields;
+    };
+
+    struct ParameterOverride_1_System_Boolean___Fields {
+        struct ParameterOverride__Fields _;
+        bool value;
+    };
+
+    struct BoolParameter__Fields {
+        struct ParameterOverride_1_System_Boolean___Fields _;
+    };
+
+    struct BoolParameter {
+        struct BoolParameter__Class* klass;
+        MonitorData* monitor;
+        struct BoolParameter__Fields fields;
+    };
+
+    struct ParameterOverride_1_System_Single___Fields {
+        struct ParameterOverride__Fields _;
+        float value;
+    };
+
+    struct FloatParameter__Fields {
+        struct ParameterOverride_1_System_Single___Fields _;
+    };
+
+    struct FloatParameter {
+        struct FloatParameter__Class* klass;
+        MonitorData* monitor;
+        struct FloatParameter__Fields fields;
+    };
+
+    struct PostProcessEffectSettings__Fields {
+        struct ScriptableObject__Fields _;
+        bool active;
+        struct BoolParameter* enabled;
+        struct ReadOnlyCollection_1_UnityEngine_Rendering_PostProcessing_ParameterOverride_* parameters;
+    };
+
+    struct MHYDepthOfField__Fields {
+        struct PostProcessEffectSettings__Fields _;
+        struct MHYDepthOfFieldQualityParameter* quality;
+        struct FloatParameter* focusDistance;
+        struct FloatParameter* fStop;
+        struct FloatParameter* maxForegroundRadius;
+        struct FloatParameter* maxBackgroundRadius;
+        struct BoolParameter* debugTestSomething;
+        struct BoolParameter* useMotionBlurParameters;
+        struct FloatParameter* mbFocusRange;
+        struct FloatParameter* mbDofBlurAmount;
+        struct FloatParameter* mbNearFocalDistance;
+        struct FloatParameter* mbNearFocalTransitionDistance;
+    };
+
+    struct MHYDepthOfField {
+        struct MHYDepthOfField__Class* klass;
+        MonitorData* monitor;
+        struct MHYDepthOfField__Fields fields;
+    };
+
+    struct Int3 {
+        int32_t x;
+        int32_t y;
+        int32_t z;
+    };
+
+    enum class PropSpace__Enum : int32_t {
+        None = 0x00000000,
+        World = 0x00000001,
+        Body = 0x00000002,
+        RightHand = 0x00000003,
+        LeftHand = 0x00000004,
+    };
+
+    struct AnimatorController__Fields {
+        struct MonoBehaviour__Fields _;
+        struct Action_1_motion4hi_AnimatorController_CrossFadeInfo_* onCrossFadeTransition;
+        struct Int3__Array* _transitionProirities;
+        struct Dictionary_2_System_Int32_List_1_Int3_* _transitionProiritiesDict;
+        struct Dictionary_2_System_String_System_Boolean_* _stateLoop;
+        float _random;
+        bool _disableNoFadeZone;
+        struct Dictionary_2_UnityEngine_StateMachineBehaviour_motion4hi_AnimatorController_StateMachineBehaviourInfo_* _currentBehaviour;
+        struct List_1_motion4hi_CrossFadeByParameterConfig_* _crossfadeConfigs;
+        struct Dictionary_2_System_Int32_motion4hi_CrossFadeByParameterConfig_* _configsDictionary;
+        struct String__Array* _curveExtractionKeywords;
+        struct String__Array* _stateNames; //all animations
+        struct Boolean__Array* _stateLoops;
+        struct Int32__Array* _stateHashes;
+        struct Boolean__Array* _stateMirros;
+        struct Boolean__Array* _stateHasMirrors;
+        struct String__Array* _stateMirrorParams;
+        struct String__Array* _statePhaseJsonPathes;
+        struct AnimationPhaseArray__Array* _statePhaseArrays;
+        struct Single__Array* _stateDefaultDurations;
+        struct List_1_System_String_* _serializedParamConstraints;
+        struct List_1_motion4hi_ParamConstraint_* _paramConstraints;
+        struct Boolean__Array* _stateTransitionedArray;
+        struct Int3 _cfTransition;
+        struct Vector3 _cfParams;
+        struct Animator* _animator;
+        int32_t _frame;
+        struct AnimatorControllerParameter__Array* _allParams;
+        struct Dictionary_2_System_Int32_UnityEngine_AnimatorControllerParameterType_* _allParamsTypeDictionary;
+        PropSpace__Enum _prop1Space;
+        struct Vector3 _crossOverStepBorderNear0;
+        struct Vector3 _crossOverStepBorderNear1;
+        struct Vector3 _crossOverStepBorderFar0;
+        struct Vector3 _crossOverStepBorderFar1;
+        struct Vector3 _crossOverJumpBorder0;
+        struct Vector3 _crossOverJumpBorder1;
+        struct Vector3 _crossOverPredictJumpPos;
+        struct Vector3 _crossOverPredictStepInPos;
+        struct Vector3 _crossOverDecisionJumpPos;
+        int32_t _currentstateHash;
+        int32_t _nextstateHash;
+        float _currentstateTime;
+        float _nextstateTime;
+    };
+
+    struct AnimatorController {
+        struct AnimatorController__Class* klass;
+        MonitorData* monitor;
+        struct AnimatorController__Fields fields;
+    };
+
+    enum class Proto_ProtEntityType__Enum : int32_t {
+        ProtEntityNone = 0x00000000,
+        ProtEntityAvatar = 0x00000001,
+        ProtEntityMonster = 0x00000002,
+        ProtEntityNpc = 0x00000003,
+        ProtEntityGadget = 0x00000004,
+        ProtEntityRegion = 0x00000005,
+        ProtEntityWeapon = 0x00000006,
+        ProtEntityWeather = 0x00000007,
+        ProtEntityScene = 0x00000008,
+        ProtEntityTeam = 0x00000009,
+        ProtEntityMassiveEntity = 0x0000000a,
+        ProtEntityMpLevel = 0x0000000b,
+        ProtEntityPlayTeamEntity = 0x0000000c,
+        ProtEntityEyePoint = 0x0000000d,
+        ProtEntityMax = 0x0000000e,
+    };
+
+    enum class Proto_SceneEntityInfo_Proto_SceneEntityInfo_EntityOneofCase__Enum : int32_t {
+        None = 0x00000000,
+        Avatar = 0x0000000a,
+        Monster = 0x0000000b,
+        Npc = 0x0000000c,
+        Gadget = 0x0000000d,
+    };
+
+    struct Proto_SceneEntityInfo__Fields {
+        struct MessageBase_1__Fields _;
+        Proto_ProtEntityType__Enum entityType_;
+        uint32_t entityId_;
+        struct String* name_;
+        struct Proto_MotionInfo* motionInfo_;
+        struct Google_Protobuf_Collections_RepeatedMessageField_1_Proto_PropPair_* propList_;
+        struct Google_Protobuf_Collections_RepeatedMessageField_1_Proto_FightPropPair_* fightPropList_;
+        uint32_t lifeState_;
+        struct Google_Protobuf_Collections_RepeatedMessageField_1_Proto_AnimatorParameterValueInfoPair_* animatorParaList_;
+        uint32_t lastMoveSceneTimeMs_;
+        uint32_t lastMoveReliableSeq_;
+        struct Proto_EntityClientData* entityClientData_;
+        struct Google_Protobuf_Collections_RepeatedMessageField_1_Proto_EntityEnvironmentInfo_* entityEnvironmentInfoList_;
+        struct Proto_EntityAuthorityInfo* entityAuthorityInfo_;
+        struct Google_Protobuf_Collections_RepeatedPrimitiveField_1_System_String_* tagList_;
+        struct Google_Protobuf_Collections_RepeatedMessageField_1_Proto_ServerBuff_* serverBuffList_;
+        struct Object* entity_;
+        Proto_SceneEntityInfo_Proto_SceneEntityInfo_EntityOneofCase__Enum entityCase_;
+    };
+
+    struct Proto_SceneEntityInfo {
+        struct Proto_SceneEntityInfo__Class* klass;
+        MonitorData* monitor;
+        struct Proto_SceneEntityInfo__Fields fields;
     };
 
 #if !defined(_GHIDRA_) && !defined(_IDA_)

@@ -8,236 +8,18 @@
 
 namespace cheat::feature
 {
-    static std::string animations[] = {
-    //  All characters
-    "SlipFaceWall",
-    "SlipBackWall",
-    "DropDown",
-    "JumpOffWall",
-    "Jump",
-    "JumpForRun",
-    "JumpForWalk",
-    "Fly",
-    "FlyStart",
-    "JumpForSprint",
-    "SwimIdle",
-    "SwimMove",
-    "SwimDash",
-    "ClimbMove1",
-    "ClimbIdle",
-    "ClimbJump",
-    "ClimbMove0",
-    "FallToGroundRun",
-    "FallOnGroundLit",
-    "FallOnGround",
-    "FallToGroundRunHard",
-    "FallToGroundSprint",
-    "Walk",
-    "Run",
-    "Standby",
-    "RunToIdle",
-    "RunToWalk",
-    "WalkToIdle",
-    "WalkToRun",
-    "Sprint",
-    "SprintToIdle",
-    "SprintToRun",
-    "ClimbDownToGround",
-    "SprintBS",
-    "ShowUp",
-    "CrouchToStandby",
-    "CrouchIdle",
-    "CrouchRoll",
-    "CrouchMove",
-    "SkiffNormal",
-    "Upstairs",
-    "JumpUpWallForStandby",
-    "JumpUpWallReady",
-    "Standby2ClimbA",
-    "SwimJump",
-    "SwimJumpDrop",
-    "SwimJumpToWater",
-    "Standby2ClimbB",
-    "CrouchDrop",
-    "TurnDir",
-    "StandbyWeapon",
-    "StandbyPutaway",
-    "StandbyPutawayOver",
-    "Icespine_Out",
-    "Icespine",
-    "LiquidStrike_MoveStandby",
-    "LiquidStrike_AS",
-    "LiquidStrike_BS",
-    "LiquidStrike_BS1",
-    "LiquidStrike_Move",
-    "LiquidStrike_Strike",
-    "LiquidStrike_FatalStandby",
-    "LiquidStrike_FatalMove",
-    "LiquidStrike_AS_OnWater",
-    "LiquidStrike_BS_0",
-    "FrozenWindmill",
-    "FrozenWindmill_AS",
-    "Attack03",
-    "Attack04",
-    "Attack05",
-    "Attack06",
-    "Attack01",
-    "Attack02",
-    "ExtraAttack",
-    "ExtraAttack_AS",
-    "ExtraAttack_BS",
-    "Katana_Attack03",
-    "Katana_Attack04",
-    "Katana_Attack02",
-    "Katana_Attack01",
-    "Katana_Attack05",
-    "FallingAnthem_Loop",
-    "FallingAnthem_AS_2",
-    "FallingAnthem_BS_1",
-    "FallingAnthem_BS_2",
-    "FallingAnthem_AS_1",
-    "FallingAnthem_Loop_Low",
-    "SitBDown",
-    "SitBLoop",
-    "SitBUp",
-    "SitDown",
-    "SitLoop",
-    "SitUp",
-    "StandbyShow_01",
-    "StandbyShow_02",
-    "StandbyVoice",
-    "Think01BS",
-    "Think01Loop",
-    "Think01AS",
-    "Akimbo02BS",
-    "Akimbo02Loop",
-    "Akimbo02AS",
-    "ChannelBS",
-    "ChannelLoop",
-    "ChannelAS",
-    "PlayMusic_Lyre_AS",
-    "PlayMusic_Lyre_BS",
-    "PlayMusic_Lyre_Loop",
-    "PlayMusic_Qin_BS",
-    "PlayMusic_Qin_AS",
-    "PlayMusic_Qin_Loop",
-    "PlayMusic_Drum_BS",
-    "PlayMusic_Drum_AS",
-    "PlayMusic_Drum_Loop",
-    "ActivitySkill_ElectricCoreFly",
-    "ActivitySkill_GrapplingHook",
-    "Hit_H",
-    "Hit_L",
-    "Hit_Throw",
-    "Hit_Throw_Ground",
-    "Hit_ThrowAir",
-    "Struggle",
-    "NormalDie",
-    "SwimDie",
-    "HitGroundDie",
-    "FallDie_AS",
-    "FallDie",
-    //  Main Character only
-    "UziExplode_AS",
-    "UziExplode_BS",
-    "UziExplode_Charge_01",
-    "UziExplode_Strike_02",
-    "UziExplode_Charge_02",
-    "UziExplode_Strike_01",
-    "UziExplode_BS_1",
-    "WindBreathe_AS",
-    "WindBreathe",
-    "Hogyoku_AS",
-    "Hogyoku_BS",
-    "Hogyoku",
-    "Hogyoku_Charge",
-    "Hogyoku_Charge_AS",
-    "Hogyoku_Charge_2",
-    "RockTide_AS",
-    "RockTide",
-    "CrouchThrowBS",
-    "CrouchThrowLoop",
-    "CrouchThrowAS",
-    "FindCatThrowBS",
-    "FindCatThrowLoop",
-    "FindCatThrowAS",
-    "Player_Electric_ElementalArt",
-    "Player_Electric_ElementalArt_AS",
-    "Player_Electric_ElementalBurst",
-    "Player_Electric_ElementalBurst_AS",
-    "PutHand01BS",
-    "PutHand01Loop",
-    "PutHand01AS",
-    "Akimbo01BS",
-    "Backrake01BS",
-    "Forerake01BS",
-    "StrikeChest01BS",
-    "Akimbo01Loop",
-    "Akimbo01AS",
-    "Backrake01Loop",
-    "Backrake01AS",
-    "Forerake01Loop",
-    "Forerake01AS",
-    "StrikeChest01Loop",
-    "StrikeChest01AS",
-    "HoldHead01BS",
-    "HoldHead01Loop",
-    "HoldHead01AS",
-    "Clap01",
-    "Turn01_90LBS",
-    "Turn01_90RBS",
-    "Turn01_90LAS",
-    "Turn01_90RAS",
-    "Alert01BS",
-    "Alert01Loop",
-    "Alert01AS",
-    "Fishing01_BS",
-    "Fishing01Loop",
-    "Fishing01AS",
-    "Think01_BS",
-    "Think01_Loop",
-    "Think01_AS",
-    "Channel01BS",
-    "Channel01Loop",
-    "Channel01AS",
-    "Fishing_Battle_BS",
-    "Fishing_Cast_AS",
-    "Fishing_Cast_BS",
-    "Fishing_Cast_Loop",
-    "Fishing_Choose",
-    "Fishing_Choose_Loop",
-    "Fishing_End",
-    "Fishing_Pull_01",
-    "Fishing_Pull_02",
-    "Fishing_Wait",
-    "Fishing_Pull_Fail",
-    "Bartender_MixingStandby",
-    "Bartender_MixingStart",
-    "Bartender_MixingToPour",
-    "Bartender_Pour",
-    "Bartender_PourFinish",
-    "Bartender_PourStandby",
-    "Bartender_AddLoop",
-    "Bartender_PrepareStart",
-    "Bartender_Standby",
-    "Bartender_AddStandby",
-    "Bartender_PrepareToStandby",
-    "Bartender_StandbyFinish",
-    "Blocking_BS",
-    "Blocking_Loop",
-    "Blocking_Back",
-    "Blocking_Bounce",
-    "Blocking_Hit",
-    "Blocking_AS"
-    };
-
+    static bool onEntityAppear = false;
+    static void MoleMole_PlayerModule_EntityAppear_Hook(app::MoleMole_PlayerModule* __this, app::Proto_SceneEntityInfo* entity, app::VisionType__Enum type, uint32_t infoParam, MethodInfo* method);
+    std::vector<std::string> animations;
+    
     AnimationChanger::AnimationChanger() : Feature(),
         NF(f_Enabled, "Animation Changer", "Visuals::AnimationChanger", false),
-        NF(f_Animation, "Animation", "Visuals::AnimationChanger", "ExtraAttack"),
+        NF(f_Animation, "Animation", "Visuals::AnimationChanger", "Attack01"),
         NF(f_ApplyKey, "Apply Animation", "Visuals::AnimationChanger", Hotkey('Y')),
         NF(f_ResetKey, "Reset Animation", "Visuals::AnimationChanger", Hotkey('R')),
         NF(f_Delay, "Repeat Delay", "Visuals::AnimationChanger", 400)
     {
+        HookManager::install(app::MoleMole_PlayerModule_EntityAppear, MoleMole_PlayerModule_EntityAppear_Hook);
         events::GameUpdateEvent += MY_METHOD_HANDLER(AnimationChanger::OnGameUpdate);
     }
 
@@ -251,7 +33,7 @@ namespace cheat::feature
     {
         ImGui::BeginGroupPanel("Animation Changer");
         {
-            ConfigWidget(f_Enabled, "Changes active character's animation.\nNot all animations work for every character except Main Character.");
+            ConfigWidget(f_Enabled, "Changes active character's animation.");
             if (f_Enabled)
             {
                 if (ImGui::BeginCombo("Animations", f_Animation.value().c_str()))
@@ -292,6 +74,14 @@ namespace cheat::feature
         return instance;
     }
 
+    // Taiga#5555: Called when you switch characters. Feel free to get rid of this hook if you find a better function.
+    static void MoleMole_PlayerModule_EntityAppear_Hook(app::MoleMole_PlayerModule* __this, app::Proto_SceneEntityInfo* entity, app::VisionType__Enum type, uint32_t infoParam, MethodInfo* method)
+    {
+        CALL_ORIGIN(MoleMole_PlayerModule_EntityAppear_Hook, __this, entity, type, infoParam, method);
+        onEntityAppear = false;
+    }
+
+    // Feel free to refactor.
     void AnimationChanger::OnGameUpdate()
     {
         if (!f_Enabled)
@@ -304,6 +94,40 @@ namespace cheat::feature
         if (avatar->animator() == nullptr)
             return;
 
+        auto avatarName = avatar->name();
+        std::string objectName = il2cppi_to_string(app::Object_1_get_name(reinterpret_cast<app::Object_1*>(avatar->gameObject()), nullptr)).c_str();
+        
+        auto gameObj = app::GameObject_Find(string_to_il2cppi("EntityRoot/AvatarRoot/" + avatarName.substr(0, avatarName.find_first_of(" ")) + "/OffsetDummy/" + objectName.c_str()), nullptr);
+        if (gameObj == nullptr)
+            return;
+        
+        auto acComponent = app::GameObject_GetComponentByName(gameObj, string_to_il2cppi("AnimatorController"), nullptr);
+        if (acComponent == nullptr)
+            return;
+
+        auto stateNamesArray = reinterpret_cast<app::AnimatorController*>(acComponent)->fields._stateNames;
+
+        static bool isFull = false;
+        for (int i = 0; i < stateNamesArray->max_length && !isFull; i++)
+        {
+            if (animations.size() == stateNamesArray->max_length)
+            {
+                std::sort(animations.begin(), animations.end());
+                animations.erase(unique(animations.begin(), animations.end()), animations.end());
+                isFull = true;
+                continue;
+            }
+            
+            animations.push_back(il2cppi_to_string(stateNamesArray->vector[i]).c_str());
+        }
+
+        if (!onEntityAppear && isFull)
+        {
+            animations.clear();
+            isFull = false;
+            onEntityAppear = true;
+        }
+        
         if (f_ApplyKey.value().IsPressed())
             app::Animator_Play(avatar->animator(), string_to_il2cppi(f_Animation.value().c_str()), 0, 0, nullptr);
 
