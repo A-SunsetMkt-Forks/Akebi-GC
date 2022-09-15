@@ -28,10 +28,14 @@ namespace cheat::feature
 
     void Browser::DrawMain()
     {
-        ConfigWidget(f_Enabled, "Create in-game Browser");
-        ImGui::InputText("URL", &f_URL);
-        ConfigWidget("Browser width", f_planeWidth, 0.1f, 0.5f, 20.0f);
-        ConfigWidget("Browser height", f_planeHeight, 0.1f, 0.5f, 20.0f);
+        ImGui::BeginGroupPanel("Web Browser");
+            {
+                ConfigWidget(f_Enabled, "Create in-game Browser");
+                ImGui::InputText("URL", &f_URL);
+                ConfigWidget("Browser width", f_planeWidth, 0.1f, 0.5f, 20.0f);
+                ConfigWidget("Browser height", f_planeHeight, 0.1f, 0.5f, 20.0f);
+            }
+        ImGui::EndGroupPanel();
     }
 
     bool Browser::NeedStatusDraw() const
