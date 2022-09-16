@@ -17,7 +17,8 @@ namespace cheat::feature
         NF(f_Animation, "Animation", "Visuals::AnimationChanger", "Attack01"),
         NF(f_ApplyKey, "Apply Animation", "Visuals::AnimationChanger", Hotkey('Y')),
         NF(f_ResetKey, "Reset Animation", "Visuals::AnimationChanger", Hotkey('R')),
-        NF(f_Delay, "Repeat Delay", "Visuals::AnimationChanger", 400)
+        NF(f_Delay, "Repeat Delay", "Visuals::AnimationChanger", 400),
+        NF(f_Debug, "Debug Animations", "Visuals::AnimationChanger", false)
     {
         HookManager::install(app::MoleMole_PlayerModule_EntityAppear, MoleMole_PlayerModule_EntityAppear_Hook);
         events::GameUpdateEvent += MY_METHOD_HANDLER(AnimationChanger::OnGameUpdate);
@@ -53,6 +54,7 @@ namespace cheat::feature
                 ConfigWidget("Apply Key", f_ApplyKey, true);
                 ConfigWidget("Reset Key", f_ResetKey, true);
                 ConfigWidget("Delay", f_Delay, 1, 1, 1000000000, "Delay to repeat animation");
+                ConfigWidget(f_Debug, "Logs current active character's animation state.");
             }
         }
         ImGui::EndGroupPanel();
@@ -106,6 +108,9 @@ namespace cheat::feature
             return;
 
         auto stateNamesArray = reinterpret_cast<app::AnimatorController*>(acComponent)->fields._stateNames;
+
+        if (f_Debug)
+            LOG_DEBUG(il2cppi_to_string(app::Extension_GetCurrentStateName(avatar->animator(), 0, reinterpret_cast<app::AnimatorController*>(acComponent), nullptr)).c_str());
 
         static bool isFull = false;
         for (int i = 0; i < stateNamesArray->max_length && !isFull; i++)
