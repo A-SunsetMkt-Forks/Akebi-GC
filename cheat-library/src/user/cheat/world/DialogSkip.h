@@ -9,6 +9,7 @@ namespace cheat::feature
 	{
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
+		config::Field<Hotkey> f_ToggleHotkey;
 		config::Field<config::Toggle<Hotkey>> f_AutoSelectDialog;
 		config::Field<config::Toggle<Hotkey>> f_ExcludeImportant;
 		config::Field<config::Toggle<Hotkey>> f_FastDialog;
