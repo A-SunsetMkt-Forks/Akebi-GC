@@ -62,6 +62,7 @@ namespace cheat::feature
 
 		if (game::filters::puzzle::Seelie.IsValid(entity) || 
 			game::filters::puzzle::WarmingSeelie.IsValid(entity) || 
+			game::filters::puzzle::LuminousSeelie.IsValid(entity) ||
 			game::filters::puzzle::ElectroSeelie.IsValid(entity))
 		{
 			if (entity->name().find("ElectricSeelie") != std::string::npos)
