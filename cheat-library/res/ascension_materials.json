@@ -565,6 +565,16 @@
       ],
       "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u812xc/276b4632bcaf86847fbb9de3a95085e0.png"
     },
+    "10000068": {
+      "name": "Dori",
+      "clear_name": "Dori",
+      "materials": [
+        390,
+        401,
+        389
+      ],
+      "icon": "https://upload-static.hoyoverse.com/hk4e/e20200928calculate/item_icon_u266yc/78f254fba19509eeb6366a47635da122.png"
+    },
     "10000069": {
       "name": "Tighnari",
       "clear_name": "Tighnari",
@@ -647,7 +657,8 @@
         10000052,
         10000056,
         10000058,
-        10000065
+        10000065,
+        10000068
       ],
       "icon": "https://webstatic.hoyoverse.com/upload/static-resource/2022/07/21/2832584e192deb57088f91b3bb35efd7_894036867413841112.png"
     },
