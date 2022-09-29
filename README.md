@@ -4,10 +4,10 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/Akebi-Group/Akebi-GC/releases/latest"><img src="https://img.shields.io/github/v/release/Akebi-Group/Akebi-GC?style=for-the-badge"></a>
-	<a href="https://github.com/Akebi-Group/Akebi-GC/releases"><img src="https://img.shields.io/github/downloads/Akebi-Group/Akebi-GC/total.svg?style=for-the-badge"></a>
-	<a href="https://github.com/Akebi-Group/Akebi-GC/graphs/contributors"><img src="https://img.shields.io/github/contributors/Akebi-Group/Akebi-GC?style=for-the-badge&color=red"></a>
-	<a href="https://discord.gg/MmV8hNZB9S"><img src="https://img.shields.io/discord/440536354544156683?label=Discord&logo=discord&style=for-the-badge&color=blueviolet"></a>
+ <a href="https://github.com/Akebi-Group/Akebi-GC/releases/latest"><img src="https://img.shields.io/github/v/release/Akebi-Group/Akebi-GC?style=for-the-badge"></a>
+ <a href="https://github.com/Akebi-Group/Akebi-GC/releases"><img src="https://img.shields.io/github/downloads/Akebi-Group/Akebi-GC/total.svg?style=for-the-badge"></a>
+ <a href="https://github.com/Akebi-Group/Akebi-GC/graphs/contributors"><img src="https://img.shields.io/github/contributors/Akebi-Group/Akebi-GC?style=for-the-badge&color=red"></a>
+ <a href="https://discord.gg/MmV8hNZB9S"><img src="https://img.shields.io/discord/440536354544156683?label=Discord&logo=discord&style=for-the-badge&color=blueviolet"></a>
 </p>
 
 [EN](README.md) | [简中](README_zh-Hans.md) | [繁中](README_zh-Hant.md) | [VN](README_vi-vn.md)
@@ -17,25 +17,29 @@
 <h1 align="center">Getting Started</h1>
 
 ## Stable Release
+
 1. Head over to the [releases page](https://github.com/Akebi-Group/Akebi-GC/releases)
 2. Download the latest binaries
 
 ## Latest Release
+
 1. Head over to the [Action](https://github.com/Akebi-Group/Akebi-GC/actions) page
-1. Click Publish workflow
-1. Select most recent workflow with green checkmark ✔ (Choose your client version **GLOBAL/CN/BETA**)
-	<p align="center">
-	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429274-1e556c58-8027-4ec9-9c1d-3609c75aede4.png"></a>
-	</p>
-4. Download Akebi-GC-release in Artifacts section
-	<p align="center">
-	  <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429302-7c7be3f6-df2f-4e49-9bb9-4a703c3491df.png"></a>
-	</p>
+2. Select the most recent workflow with a green checkmark ✔ (Choose your client version **GLOBAL/CN/BETA**)
+
+ <p align="center">
+   <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429274-1e556c58-8027-4ec9-9c1d-3609c75aede4.png"></a>
+ </p>
+3. Download Akebi-GC-release in the Artifacts section
+ <p align="center">
+   <a href="#"><img src="https://user-images.githubusercontent.com/96950043/186429302-7c7be3f6-df2f-4e49-9bb9-4a703c3491df.png"></a>
+ </p>
 
 ## Building from source
+
 Check our wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Building%EF%BD%9C%E5%BB%BA%E7%BD%AE)
 
 ### Usage
+
 1. Ensure that `CLibrary.dll` is in the same folder that `injector.exe`.
 2. Run `injector.exe`.
 3. After the login page appeared, press F1 to open Akebi GUI.
@@ -43,12 +47,14 @@ Check our wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Buildin
 <h1 align="center">Features</h1>
 
 #### General
+
 - Protection Bypass
 - In-Game GUI
 - Hotkeys
 - Notifications
 
 #### Player
+
 - God Mode(Invincible)
 - Attack Modifier: Multi-Hit/Target/Animation
 - No Cooldown: Skill/Ultimate/Sprint/Bow
@@ -56,6 +62,7 @@ Check our wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Buildin
 - No Clip
 
 #### World
+
 - Auto Seelie
 - Open Team Immediately
 - GameSpeed
@@ -74,11 +81,13 @@ Check our wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Buildin
 - Vacuum Loot
 
 #### Teleport
+
 - Chest/Oculi Teleport (Teleports to nearest)
 - Map Teleport (Teleport to mark on map)
-- Custom Teleport (Teleport through list)
+- Custom Teleport (Teleport through the list)
 
-#### Visuals 
+#### Visuals
+
 - ESP
 - Interactive Map
 - Elemental Sight
@@ -96,6 +105,7 @@ Check our wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Buildin
 - Texture Changer
 
 #### Debugging
+
 - Entities Manager
 - Position Info
 - FPS Graph
@@ -133,22 +143,22 @@ Check our wiki - [Building](https://github.com/Akebi-Group/Akebi-GC/wiki/Buildin
 Welcome to the short explanation for bug reporting
 
 1. You found a bug.
-1. Write down what happened, as well as your first thoughts on what you think caused it.
-1. Can it be reproduced? Yes or no. If yes: Explain in as much clear as possible. i.e what happens when the bug occurs and why it occurs. 
-1. Tell us which version you are using. copy the `SHA`/ Version Number of the latest commit when you built the mod. For example: `bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
-1. [Open an Issue(there's a template!)](https://github.com/Akebi-Group/Akebi-GC/issues)
+2. Write down what happened, as well as your first thoughts on what you think caused it.
+3. Can it be reproduced? Yes or no. If yes: Explain in as much clarity as possible. i.e what happens when the bug occurs and why it occurs.
+4. Tell us which version you are using. copy the `SHA`/ Version Number of the latest commit when you built the mod. For example: `bd17a00ec388f3b93624280cde9e1c66e740edf9` / Release 0.7
+5. [Open an Issue(there's a template!)](https://github.com/Akebi-Group/Akebi-GC/issues)
 
 <h1 align="center">Contributing</h1>
 
-
 ## Adding a feature
+
 1. Fork the Project
-1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-1. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-1. Push to the Branch (`git push origin feature/AmazingFeature`)
-2. [Open a Pull Request](https://github.com/Akebi-Group/Akebi-GC/pulls)
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. [Open a Pull Request](https://github.com/Akebi-Group/Akebi-GC/pulls)
 
 ## Suggestions
 
 Open an [issue](https://github.com/Akebi-Group/Akebi-GC/issues) with the title of the suggestion you want to make.
-In the description, make sure it is **descriptive enough** so our devs can understand what you want and how you want it.  
+In the description, make sure it is **descriptive enough** so our devs can understand what you want and how you want it.
