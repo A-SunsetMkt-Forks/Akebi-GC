@@ -30,6 +30,7 @@ namespace cheat::feature
 		NFS(f_STFixedPoints, "Fixed points", "InteractiveMap", SaveAttachType::Global),
 		NFS(f_STCustomPoints, "Custom points", "InteractiveMap", SaveAttachType::Global),
 		NFS(f_STCompletedPoints, "Save completed points", "InteractiveMap", SaveAttachType::Account),
+		NFS(f_STRegenerateIntervals, "Save regenerate intervals", "InteractiveMap", SaveAttachType::Global),
 
 		NF(f_IconSize, "Icon size", "InteractiveMap", 20.0f),
 		NF(f_MinimapIconSize, "Minimap icon size", "InteractiveMap", 14.0f),
@@ -69,7 +70,9 @@ namespace cheat::feature
 		CreateUserDataField("custom_points", f_CustomPointsJson, f_STCustomPoints.value());
 		CreateUserDataField("completed_points", f_CompletedPointsJson, f_STCompletedPoints.value());
 		CreateUserDataField("fixed_points", f_FixedPointsJson, f_STFixedPoints.value());
+		CreateUserDataField("regenerate_intervals", f_RegenerateIntervalJson, f_STRegenerateIntervals.value());
 
+		LoadCategoryRegenerateIntervals();
 		LoadCustomPoints();
 		LoadCompletedPoints();
 		LoadFixedPoints();
@@ -420,6 +423,8 @@ namespace cheat::feature
 			
 		}
 
+		DrawRegenerateIntervals();
+
 		if (searchFixed)
 			ImGui::EndChild();
 	}
@@ -588,12 +593,121 @@ namespace cheat::feature
 				ImGui::CloseCurrentPopup();
 			}
 
+			auto& sceneData = m_ScenesData[label.sceneID];
+			auto& categories = sceneData.categories;
+			auto& categoryIntervals = sceneData.categoryIntervals;
+
+			auto* currCategory = GetCategoryByLabelID(label.sceneID, label.id);
+
+			if (currCategory != nullptr)
+			{
+				auto& currCategoryInterval = categoryIntervals[currCategory->name];
+
+				if (currCategoryInterval.labels.count(label.id) == 0)
+				{
+					currCategoryInterval.labels[label.id] = {
+						label.id, currCategoryInterval.interval, true
+					};
+				}
+
+				auto& currLabelInterval = currCategoryInterval.labels[label.id];
+
+				if (
+					ImGui::InputInt("Set regenerate interval", &currLabelInterval.interval)
+					)
+				{
+					if (currLabelInterval.interval < 0) currLabelInterval.interval = 0;
+
+					currLabelInterval.followCategory = currLabelInterval.interval == currCategoryInterval.interval;
+
+					SaveCategoryRegenerateIntervals();
+				}
+			}
+
 			ImGui::EndPopup();
 		}
 		// --
 
 		IMGUI_TEST_ENGINE_ITEM_INFO(id, label, g.LastItemData.StatusFlags | ImGuiItemStatusFlags_Checkable | (*v ? ImGuiItemStatusFlags_Checked : 0));
 		return;
+	}
+
+	void InteractiveMap::DrawRegenerateIntervals()
+	{
+		const auto sceneID = game::GetCurrentMapSceneID();
+		if (m_ScenesData.count(sceneID) == 0)
+			ImGui::Text("Sorry. Current scene is not supported.");
+
+		auto& sceneData = m_ScenesData[sceneID];
+		auto& categories = sceneData.categories;
+		auto& categoryIntervals = sceneData.categoryIntervals;
+		auto& labels = sceneData.labels;
+
+		for (auto& [categoryName, categoryLabels] : categories)
+		{
+			if (categoryIntervals.count(categoryName) == 0)
+			{
+				auto& categoryInterval = categoryIntervals[categoryName];
+				
+				categoryInterval.name = categoryName;
+				categoryInterval.interval = 0;
+			}
+
+			auto& categoryInterval = categoryIntervals[categoryName];
+
+			if (
+				TypeWidget(
+					categoryName.c_str(),
+					categoryInterval.interval,
+					1, 0, 7 * 24,
+					"Set regenerate interval for category"
+				)
+				)
+			{
+				if (categoryInterval.interval < 0)
+					categoryInterval.interval = 0;
+
+				// no need to iterate over all children
+				// as all labels following category interval
+				// will not be saved
+
+				SaveCategoryRegenerateIntervals();
+			}
+
+			if (categoryInterval.labels.size() == 0)
+				continue;
+
+			for (auto& [labelID, labelRegenerateData] : categoryInterval.labels)
+			{
+				// only render special labels
+				if (labelRegenerateData.followCategory)
+					continue;
+
+				auto& labelData = labels[labelID];
+
+				if (
+					TypeWidget(
+						labelData.name.c_str(),
+						labelRegenerateData.interval,
+						1, 0, 7 * 24,
+						"Set regenerate interval for material"
+					)
+					)
+				{
+					if (labelRegenerateData.interval < 0)
+						labelRegenerateData.interval = 0;
+
+					if (labelRegenerateData.interval == categoryInterval.interval)
+					{
+						// label is not special anymore
+						// skip rendering in next frame
+						labelRegenerateData.followCategory = true;
+					}
+
+					SaveCategoryRegenerateIntervals();
+				}
+			}
+		}
 	}
 
 	InteractiveMap& InteractiveMap::GetInstance()
@@ -1088,6 +1202,33 @@ namespace cheat::feature
 			return;
 		}
 
+		auto currentTimeStamp = util::GetCurrentTimeMillisec();
+		auto completeTimestamp = data["complete_timestamp"].get<int64_t>();
+		auto* category = GetCategoryByLabelID(labelData->sceneID, labelData->id);
+
+		if (category == nullptr) return;
+
+		auto& categoryRegenerateData = m_ScenesData[labelData->sceneID].categoryIntervals[category->name];
+
+		int64_t intervalInMS = 0;
+
+		if (categoryRegenerateData.labels.count(labelData->id) == 0)
+		{
+			intervalInMS = categoryRegenerateData.interval * 60 * 60 * 1000;
+		}
+		else
+		{
+			auto& labelRegenerateData = categoryRegenerateData.labels[labelData->id];
+
+			intervalInMS = labelRegenerateData.interval * 60 * 60 * 1000;
+		}
+
+		if (intervalInMS != 0 && completeTimestamp + intervalInMS <= currentTimeStamp)
+		{
+			// point regenerated, skipping setting point to completed
+			return;
+		}
+
 		point.completed = true;
 		point.completeTimestamp = data["complete_timestamp"];
 		labelData->completedCount++;
@@ -1205,6 +1346,134 @@ namespace cheat::feature
 	{
 		ResetUserData(&InteractiveMap::ResetCompletedPointData);
 		m_CompletedPoints.clear();
+	}
+
+	void InteractiveMap::LoadCategoryRegenerateData(CategoryRegenerateInterval* categoryInterval, const nlohmann::json& data)
+	{
+		categoryInterval->name = data["name"];
+		categoryInterval->interval = data["interval"].get<uint32_t>();
+		auto& labels = data["labels"];
+
+		for (auto& [labelIDStr, labelData] : labels.items())
+		{
+			uint32_t labelID = std::stoul(labelIDStr); 
+			int labelInterval = labelData.get<int>();
+
+			categoryInterval->labels[labelID] = {
+				labelID,
+				labelInterval,
+				false,
+			};
+		}
+	}
+
+	void InteractiveMap::LoadCategoryRegenerateIntervals()
+	{
+		auto& regenerateIntervalContainer = f_RegenerateIntervalJson.value();
+
+		for (auto& [sceneID, sceneData] : m_ScenesData)
+		{
+			std::string sceneIDStr = std::to_string(sceneID);
+
+			auto& categories = sceneData.categories;
+			auto& categoryIntervals = sceneData.categoryIntervals;
+
+			if (regenerateIntervalContainer.count(sceneIDStr) == 0)
+			{
+				for (auto& category : categories)
+				{
+					categoryIntervals[category.name] = {
+						category.name, 0
+					};
+				}
+			}
+			else
+			{
+				auto& sceneRegenerateIntervalContainer = regenerateIntervalContainer[sceneIDStr];
+
+				for (auto& category : categories)
+				{
+					auto& categoryInterval = categoryIntervals[category.name];
+
+					if (sceneRegenerateIntervalContainer.count(category.name) == 0)
+					{
+						categoryInterval.name = category.name;
+						categoryInterval.interval = 0;
+					}
+					else
+					{
+						auto& categoryIntervalContainer = sceneRegenerateIntervalContainer[category.name];
+						LoadCategoryRegenerateData(&categoryInterval, categoryIntervalContainer);
+					}
+				}
+			}
+		}
+	}
+
+	void InteractiveMap::SaveCategoryRegenerateData(nlohmann::json& jObject, CategoryRegenerateInterval* categoryInterval)
+	{
+		jObject["name"] = categoryInterval->name;
+		jObject["interval"] = categoryInterval->interval;
+
+		jObject["labels"] = nlohmann::json::object();
+		auto& labelContainer = jObject["labels"];
+
+		for (auto& [labelID, labelRegenerateData] : categoryInterval->labels)
+		{
+			std::string labelIDStr = std::to_string(labelID);
+			// only save special labels
+			if (labelRegenerateData.followCategory) continue;
+
+			labelContainer[labelIDStr] = labelRegenerateData.interval;
+		}
+	}
+
+	void InteractiveMap::SaveCategoryRegenerateIntervals()
+	{
+		nlohmann::json regenerateIntervalContainer = {};
+
+		for (auto& [sceneID, sceneData] : m_ScenesData)
+		{
+			auto& categories = sceneData.categories;
+			auto& categoryIntervals = sceneData.categoryIntervals;
+
+			std::string sceneIDStr = std::to_string(sceneID);
+			regenerateIntervalContainer[sceneIDStr] = nlohmann::json::object();
+			auto& sceneRegenerateIntervalContainer = regenerateIntervalContainer[sceneIDStr];
+
+			for (auto& [categoryName, category] : categories)
+			{
+				sceneRegenerateIntervalContainer[categoryName] = nlohmann::json::object();
+				auto& categoryIntervalContainer = sceneRegenerateIntervalContainer[categoryName];
+
+				auto& categoryRegenerateData = categoryIntervals[categoryName];
+				SaveCategoryRegenerateData(categoryIntervalContainer, &categoryRegenerateData);
+			}
+		}
+
+		f_RegenerateIntervalJson = regenerateIntervalContainer;
+		f_RegenerateIntervalJson.FireChanged();
+	}
+
+	void InteractiveMap::ResetCategoryRegenerateData(CategoryRegenerateInterval* categoryInterval)
+	{
+		categoryInterval->interval = 0;
+		categoryInterval->labels.clear();
+	}
+
+	void InteractiveMap::ResetCategoryRegenerateIntervals()
+	{
+		for (auto& [sceneID, sceneData] : m_ScenesData)
+		{
+			auto& categories = sceneData.categories;
+			auto& categoryIntervals = sceneData.categoryIntervals;
+
+			for (auto& [categoryName, category] : categories)
+			{
+				auto& categoryRegenerateData = categoryIntervals[categoryName];
+				ResetCategoryRegenerateData(&categoryRegenerateData);
+			}
+		}
 	}
 
     void InteractiveMap::ReorderCompletedPointDataByTimestamp()
@@ -1977,6 +2246,24 @@ namespace cheat::feature
 				labels.push_back(sceneData.nameToLabel[clearName]);
 		}
 		return labels;
+	}
+
+	InteractiveMap::CategoryData* InteractiveMap::GetCategoryByLabelID(uint32_t sceneID, uint32_t labelID)
+	{
+		auto& sceneData = m_ScenesData[sceneID];
+
+		for (auto& category : sceneData.categories)
+		{
+			for (auto& label : category.children)
+			{
+				if (label->id == labelID)
+				{
+					return &category;
+				}
+			}
+		}
+
+		return nullptr;
 	}
 
 	void InteractiveMap::InitializeEntityFilter(game::IEntityFilter* filter, const std::string& clearName)
