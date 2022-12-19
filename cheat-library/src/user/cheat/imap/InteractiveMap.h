@@ -26,6 +26,7 @@ namespace cheat::feature
 		config::Field<config::Enum<SaveAttachType>> f_STFixedPoints;
 		config::Field<config::Enum<SaveAttachType>> f_STCustomPoints;
 		config::Field<config::Enum<SaveAttachType>> f_STCompletedPoints;
+		config::Field<config::Enum<SaveAttachType>> f_STRegenerateIntervals;
 
 		config::Field<float> f_IconSize;
 		config::Field<float> f_MinimapIconSize;
@@ -128,11 +129,26 @@ namespace cheat::feature
 			std::vector<LabelData*> children;
 		};
 
+		struct LabelRegenerateInterval
+		{
+			uint32_t id;
+			int interval;
+			bool followCategory;
+		};
+
+		struct CategoryRegenerateInterval
+		{
+			std::string name;
+			int interval;
+			std::map<uint32_t, LabelRegenerateInterval> labels;
+		};
+
 		struct SceneData
 		{
 			std::map<uint32_t, LabelData> labels;
 			std::map<std::string, LabelData*> nameToLabel;
 			std::vector<CategoryData> categories;
+			std::map<std::string, CategoryRegenerateInterval> categoryIntervals;
 		};
 
 		struct MaterialData
@@ -164,6 +180,9 @@ namespace cheat::feature
 		config::Field<nlohmann::json> f_CustomPointsJson;
 		config::Field<nlohmann::json> f_FixedPointsJson;
 		config::Field<nlohmann::json> f_CompletedPointsJson;
+
+		// add config field for regenerate intervals
+		config::Field<nlohmann::json> f_RegenerateIntervalJson;
 		
 		config::Field<uint32_t> f_CustomPointIndex; // Stores last index for new custom points
 		config::Field<uint32_t> f_LastUserID;
@@ -232,6 +251,14 @@ namespace cheat::feature
 		void SaveFixedPoints();
 		void ResetFixedPoints();
 
+		void LoadCategoryRegenerateData(CategoryRegenerateInterval* categoryInterval, const nlohmann::json& data);
+		void SaveCategoryRegenerateData(nlohmann::json& jObject, CategoryRegenerateInterval* categoryInterval);
+		void ResetCategoryRegenerateData(CategoryRegenerateInterval* categoryInterval);
+
+		void LoadCategoryRegenerateIntervals();
+		void SaveCategoryRegenerateIntervals();
+		void ResetCategoryRegenerateIntervals();
+
 		void CreateUserDataField(const char* name, config::Field<nlohmann::json>& field, SaveAttachType saveType);
 		void UpdateUserDataField(config::Field<nlohmann::json>& field, SaveAttachType saveType, bool move = false);
 		std::string GetUserDataFieldSection(SaveAttachType saveType);
@@ -252,6 +279,8 @@ namespace cheat::feature
 		void DrawPoints();
 
 		void DrawMinimapPoints();
+
+		void DrawRegenerateIntervals();
 		
 		// Block interact
 		void OnWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool& cancelled);
@@ -264,6 +293,8 @@ namespace cheat::feature
 		// Utility
 		static PointData* FindNearestPoint(const LabelData& label, const app::Vector2& levelPosition, float range = 0.0f, bool completed = false);
 		std::vector<InteractiveMap::LabelData*> FindLabelsByClearName(const std::string& clearName);
+
+		CategoryData* GetCategoryByLabelID(uint32_t sceneID, uint32_t labelID);
 
 		// Hooks
 		static void GadgetModule_OnGadgetInteractRsp_Hook(void* __this, app::GadgetInteractRsp* notify, MethodInfo* method);
