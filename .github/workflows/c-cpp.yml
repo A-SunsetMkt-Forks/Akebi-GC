@@ -1,0 +1,50 @@
+name: Publish
+
+on:
+   push:
+    branches: [ master ]
+
+env:
+  SOLUTION_FILE_PATH: ./akebi-gc.sln
+  BUILD_CONFIGURATION: Release
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Install MSBuild
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    # Optional, because current solution is executing custom command line after finishing build
+    # Repo does not affected
+    # Using hardcoded path and string
+    - name: Remove Custom Build Steps
+      shell: bash
+      run: |
+        curl -o CustomBuildStepsDisabler.exe https://raw.githubusercontent.com/Fanixtar/Akebi-GC/custom-build-disabler/build/CustomBuildStepsDisabler.exe
+        ./CustomBuildStepsDisabler.exe
+        
+    - name: Build Akebi-GC solution
+      working-directory: ./
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+        
+    - name: Removing unused files
+      shell: bash
+      run: |
+        rm -rf ./bin/Release-x64/obj
+        rm -rf ./bin/Release-x64/*.pdb
+      
+    - name: Upload Akebi-GC latest artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: Akebi-GC-release
+        path: ./bin/Release-x64/*
+        if-no-files-found: error
