@@ -56,7 +56,7 @@ namespace cheat::feature
 
     	if (f_InstantBow) {
 			ImGui::Text("If Instant Bow Charge doesn't work:");
-			TextURL("Please contribute to issue on GitHub.", "https://github.com/Akebi-Group/Akebi-GC/issues/281", false, false);
+			TextURL("Please contribute to issue on GitHub.", "https://github.com/Jokebi-Group/Jokebi-GC/issues/281", false, false);
 			if (ImGui::TreeNode("Ability Log [DEBUG]"))
 			{
 				if (ImGui::Button("Copy to Clipboard"))

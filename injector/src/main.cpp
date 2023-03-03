@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	HANDLE hProcess, hThread;
 	if (!OpenGenshinProcess(&hProcess, &hThread))
 	{
-		std::cout << "Failed to open GenshinImpact process." << std::endl;
+		std::cout << "你tm原神路径错了啊啊啊" << std::endl;
 		system("pause");
 		return 1;
 	}

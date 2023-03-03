@@ -62,7 +62,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_ICON1               ICON                    "akebi.ico"
+IDI_ICON1               ICON                    "Jokebi.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -70,7 +70,7 @@ IDI_ICON1               ICON                    "akebi.ico"
 // PNG
 //
 
-IDB_PNG1                PNG                     "akebi.png"
+IDB_PNG1                PNG                     "Jokebi.png"
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
