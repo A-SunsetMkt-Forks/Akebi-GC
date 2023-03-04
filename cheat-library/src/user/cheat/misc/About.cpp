@@ -15,14 +15,14 @@ namespace cheat::feature
     void About::DrawMain()
     {
         ImGui::TextColored(ImColor(28, 202, 214, 255), "Jokebi github:");
-        TextURL("Github link", "https://github.com/Jokebi-Group/Jokebi-Group", true, false);
+        TextURL("Github link", "https://github.com/Jokebi-Group/", true, false);
 
 		ImGui::TextColored(ImColor(28, 202, 214, 255), "Jokebi discord:");
-		TextURL("Discord invite link", "https://discord.com/Jokebi", true, false);
+		TextURL("Discord invite link", "https://discord.com/Jokebii", true, false);
 
         ImGui::Text("Founder:");
         ImGui::SameLine();
-        ImGui::TextColored(ImColor(0, 102, 255, 255), "Callow");
+        ImGui::TextColored(ImColor(0, 102, 255, 255), "Fuck_Callow");
         
 		ImGui::Text("Main developer and updater:");
 		ImGui::SameLine();
@@ -32,7 +32,7 @@ namespace cheat::feature
 		ImGui::TextColored(ImColor(0, 102, 255, 255), "RyujinZX, WitchGod, m0nkrel, Shichiha, harlanx, andiabrudan, hellomykami");
 
 		ImGui::Text("Full contributor list:");
-		TextURL("Github link", "https://github.com/Jokebi-Group/", true, false);
+		TextURL("Github link", "https://github.com/Group-Group/", true, false);
     }
 
     About& About::GetInstance()

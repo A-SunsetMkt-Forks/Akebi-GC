@@ -254,7 +254,7 @@ namespace cheat::game::filters
 		SimpleFilter GlazeLily = { EntityType__Enum_1::GatherObject, "_GlazedLily" };
 		SimpleFilter Horsetail = { EntityType__Enum_1::GatherObject, "_HorseTail" };
 		SimpleFilter JueyunChili = { EntityType__Enum_1::GatherObject, "_UltimateChilli_Fruit" };
-		SimpleFilter LavenderMelon = { EntityType__Enum_1::GatherObject, "_Jokebia" };
+		SimpleFilter LavenderMelon = { EntityType__Enum_1::GatherObject, "_Akebia" };
 		SimpleFilter LotusHead = { EntityType__Enum_1::GatherObject, "_Lotus_Drop" };
 		SimpleFilter Matsutake = { EntityType__Enum_1::GatherObject, "_Food_Matsutake" };
 		SimpleFilter Mint = { EntityType__Enum_1::GatherObject, "_Plant_Mint" };

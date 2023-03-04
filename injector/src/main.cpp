@@ -129,7 +129,7 @@ bool OpenGenshinProcess(HANDLE* phProcess, HANDLE* phThread)
 	else
 	{
 		LOG_LAST_ERROR("Failed to create game process.");
-		LOG_ERROR("If you have problem with GenshinImpact.exe path. You can change it manually in cfg.ini.");
+		LOG_ERROR("Â·¾¶´íÎó.");
 	}
 
 	DeleteProcThreadAttributeList(AttributeList);
